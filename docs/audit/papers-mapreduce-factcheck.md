@@ -18,23 +18,21 @@
 
 ---
 
-## ★ 先声明可核范围（本记录最重要的一节）
+## ★ 可核范围（**论文已到手，本节已更新**）
 
-**MapReduce 论文正文不在工作区**，我核不到它。已穷尽的查找与尝试：
+**第一轮核对时 MapReduce 论文正文不在工作区**：`_fetch/mapreduce-usenix.html` 与仓库根 `usenix.html` **都只是 USENIX 出版页**；
+全仓 grep `Execution Overview` / `Backup Tasks` / `Task Granularity` / `skipping bad records` **0 命中**；
+`web_fetch` 被拒（`resolves to a non-public IP address`）；`web_search` 无 API key。
+**⇒ 当时我拒绝用记忆把那 21 条论文级声明标成 ✅，而是列成一张「未核清单」（原样保留在下面的 B 节，作为留痕）。**
 
-| 途径 | 结果 |
-| --- | --- |
-| `courselingo/docs/_fetch/mapreduce-usenix.html`（20674 B） | **只是 USENIX 出版页**（`citation_title`/`og:`/bibtex），无正文 |
-| `usenix.html`（仓库根） | 同上，**出版页** |
-| 全仓 grep `Execution Overview` / `Backup Tasks` / `Task Granularity` / `skipping bad records` | **0 命中** |
-| glob `**/*mapreduce*` | 只有 svg / png / html / md，**无 PDF、无抽文** |
-| `web_fetch` | 被拒：`URL hostname "www.usenix.org" resolves to a non-public IP address` |
-| `web_search` | 不可用：`DeepSeek search has no API key` |
+**Lead 随后把论文取来了**（正是当时给的处置建议①）：
 
-⇒ 本页有 **21 条「论文级」声明我无法核实**（逐条列在下面）。
-**我没有用我自己的记忆把它们标成 ✅。** 理由是 `quality-audit.md` 附录七记的那一类错误 ——
-「把未经自己验证的参照当事实往下传」（假 FOUND / 假 ABSENT / 照抄阈值）三次都是这么发生的。
-**一份用记忆填出来的 ✅，会让这份记录本身变成「已核对过」的假证据。**
+| 对象 | 归一化 SHA256 | 尺寸 |
+| --- | --- | --- |
+| `_fc/mapreduce.txt`（抽好的论文文本，1280 行） | `91AA3D51E17602483353F1E58733B67A3B1861CADA489281F92188AE090029FF` | 原始 57106 B |
+| `_fc/mapreduce-osdi04.pdf`（OSDI '04 正式版，13 页） | — | 190711 B |
+
+**⇒ 那 21 条我已逐条回源重核，见本记录末尾的「补核」一节；最终 P 计数以那一节为准。**
 
 ---
 
@@ -65,7 +63,7 @@
 | 「Spark、Dryad、Pregel 是课外的延伸对比，论文没有提到它们」（L153/L163） | 论文不可得 | ✅ 已标；**且 `mapreduce-13`/`-22` 把「课外延伸，论文未提」写进了图内可见文字** |
 | 「写了 2TB 结果还各存两份副本」之外的多数实测数字（L141） | l01 只有 30,000 MB/s / 1764 workers / 17MB/s / 9MB/s | ⏳ 未核 |
 
-#### B · ⏳ 未核清单（21 条，全部因「论文正文不可得」）
+#### B · 第一轮的 ⏳ 未核清单（21 条）—— **已被末尾「补核」一节全部核过；本节只作留痕**
 
 | # | 页面位置 | 未核的声明 | 需要什么才能核 |
 | --- | --- | --- | --- |
@@ -112,13 +110,30 @@
 **执行方式**：Lead 在 depth 0 spawn 的全新子代理，只给 `content/papers/mapreduce/index.md`，
 禁止读源/联网/用自身背景补。
 
-**⏳ 答卷状态**：题目已交 Lead，**答卷尚未回到我手上**（本记录的其它部分不依赖它，
-因为本页的**主要不确定性来自源不可得，而不是来自读者**）。拿到答卷后我会补进本节并按结果更新计数。
+**结果：✅ 6　⚠️ 2　❌ 0**（⚠️ 25% ≤ 40%、❌ 0% ⇒ **不触发 §3 的比例阈值**）
 
-**问题集（8 题，供复核）**：① 中间结果为什么留在本地磁盘、写进分布式存储容错规则会怎么变；② 为什么已完成的 map 要重跑而已完成的 reduce 不用；
-③ 同一个任务跑两遍为什么只留一份结果、框架在哪两处处理；④ 哈希分区何时让少数归约器成瓶颈、combiner 为什么不能消除倾斜；
-⑤ M/R 为什么远大于机器数、代价落在谁身上、两者取值规则差别；⑥ 主节点挂掉怎么处理、论文为什么接受；
-⑦ 非确定性时语义降级成什么样；⑧ 数据本地性怎么实现、收益的前提。
+| 题 | 判定 | 依据 |
+| --- | --- | --- |
+| Q2 崩溃后谁重跑 | ✅ | L83 |
+| Q3 跑两遍只留一份 | ✅ | L93/L115 |
+| Q4 哈希分区的瓶颈与 combiner | ✅ | L117 |
+| Q5 M/R 为什么远大于机器数、代价与取值规则 | ✅ | L105 |
+| Q6 主节点挂了怎么办 | ✅ | L91 |
+| Q8 数据本地性与收益前提 | ✅ | L97 |
+| Q1 中间结果为什么留本地磁盘 | ⚠️ | 正文给了理由，但**「如果写进分布式存储，容错规则会怎么变」这个反事实只在 L175 的「读完应该能回答」里被问、正文没给** |
+| Q7 非确定性时的语义降级 | ⚠️ | 读者：降级写清了，但**没说这个更弱的保证为什么可以接受**，只写了它是「刻意的」 |
+
+**我对这两条 ⚠️ 的判断（都判成立，但都不升 P1，理由分开写）**：
+
+- **Q1**：与 `02-rpc-and-threads` 的 P1-1 是**同一形状**（页面在自己的「读完应该能回答」里提了一个正文答不全的问题）。
+  **但我判它是 P2、不是 P1**，区别在于缺口大小：02 那题正文**完全没讲**（源里有、页面没有）；
+  这里正文已给出**理由**与「已完成 map 要重跑」的机制，只差把反事实那半句说出来。
+  ⇒ 处置：**P2-4（新增）**——在 L79 末尾补半句「（若中间结果也进分布式存储，已完成的映射任务就不必重跑，代价是每个字节多走两趟网络与多副本写入）」。
+  **这条与 P0-1 的修法在同一处，一起改最省。**
+- **Q7**：**源里也没有论证**这个降级为什么可接受（§3.3 只描述语义；论文只在 §4.5 对 side-effects 说了
+  `This restriction has never been an issue in practice`，**不是**对非确定性降级说的）。
+  ⇒ 按判据「源里有就挂出处、源里没有就是我们的推断」，**页面没写不算缺陷**，记为「⚠️ 成立，但源亦未展开」。
+  建议（可选）：在 L93 加一句「论文只描述了这个降级，没有论证它为什么可接受」。
 
 ---
 
@@ -177,41 +192,83 @@
 
 ### 结论
 
-**P0 0 项（本地可核范围内）、P1 0 项（本地可核范围内）、P2 3 项；
-另有 21 条论文级声明未核 —— 因此本页在本基线上不具备提 `reviewed` 的条件。**
+**P0 1 项、P1 0 项、P2 3 项 → 修完 P0 后可提 `reviewed`。**
+（第一轮那句「21 条未核 ⇒ 不具备 reviewed 条件」**已被本节的补核取代**；原结论如实保留在下面「留痕」里。）
 
-#### P0 · 0 项　　P1 · 0 项
+#### P0 · 1 项（本轮补核新发现）
 
-（这两项的「0」只覆盖本地有源的那一半；**不要把它读成「这一页事实层干净」**。）
+**P0-1（对源的否定性声明与源冲突）**：L81 说「**论文本身确实没有给这条理由**」（指"中间结果留本地磁盘、而不是走分布式存储"的理由）。
+**论文给了。** 论文 §7（Conclusions）原文：
 
-#### 阻塞项 · 21 条未核（见 B 表）
+> `the locality optimization allows us to read data from local disks, and writing a single copy of the intermediate data to local disk saves network bandwidth`（`_fc/mapreduce.txt` @49038）
 
-→ **处置建议（请 Lead 选一条）**：
-1. **补论文文本**（PDF/HTML/抽文均可，放进工作区后我重核这 21 条，产出一份补核记录）；或
-2. **接受现状**：把本页 `reviewed` 的前置条件显式记为「论文级声明未经第三方核对」，
-   并在页面 `docs/audit/` 的记录里保留 B 表；待有论文文本时再补。
+⇒ 论文从「**只写一份、省网络带宽**」的角度给过理由，只是没有像讲义那样把「只过一趟 vs 至少两趟」的账算出来。
+→ **修在**：L81 的括注改成「论文在设计权衡的总结里点过一句：中间数据只写一份到本地磁盘，省下网络带宽（§7）；讲义把同一件事算得更具体（只过一次网络 vs 至少两趟）」。
+**L79 的「理由要我们顺着消费模式推」也要跟着改**，否则读者会以为论文完全没解释这个选择。
 
-> 我的建议是 **1**：这 21 条里有 6 条是**数字**（3800→700、16–64MB、200000/5000/2000、15000/4000/1TB、891→1283、150 秒/1 分钟），
-> 正是 `quality-audit.md` §2 列的第一号易错项（「数字被四舍五入或记错（64MB、60 秒、3 副本、3800→700 行）」——
-> **我们自己的文件里就把「3800→700 行」当成典型例子记着**，而这一页正好用了这个数字却没人核过它）。
+#### P1 · 0 项
 
-#### P2 · 3 项（记录在案，不阻塞）
+#### P2 · 3 项
 
-1. **P2-1（跨页数字）**：L97「每块**通常 3 份**副本」与 `_fc/l01.txt` L204 的 `2 or 3 servers` 不一致（论文默认是 3，所以页面不算错，
-   但同一门课两页两个数字）。建议与 `03-gfs` 的 P2-2 一起处理：在其中一处标注「讲义的说法／论文的默认值」。
-2. **P2-2**：L97「峰值能到 **30GB/s 以上**」—— 讲义 L300 写的是 `30,000 MB/s (30 GB/s)`，
-   **「以上」没有依据**（论文原文是否写 "over 30 GB/s" 我核不到）。建议改成「约 30GB/s」或删掉「以上」。
-3. **P2-3（附录十 判据 1）**：`mapreduce-3` 第三格副文字「**关掉它**：891 秒涨到 1283 秒」的先行词在相邻格，
-   建议按更早已有的一条配图复核意见补全为「关掉**备份执行**：891 秒涨到 1283 秒」（属性原文已粘在上文）。
+1. **P2-1（跨页数字，不变，但结论要改一半）**：L97「每块**通常 3 份**副本」——**现在可确认页面用的是论文原话**
+   （§5.1：`stores several copies of each block (typically 3 copies)`，@18966），而 `_fc/l01.txt` L204 写 `2 or 3 servers`。
+   ⇒ **页面不错，是两处源口径不同**；建议与 `03-gfs` 的 P2-2 一起处理（在引 l01 的那一处标注「讲义的说法」）。
+2. **P2-3（附录十 判据 1，不变）**：`mapreduce-3` 第三格副文字「**关掉它**：891 秒涨到 1283 秒」的先行词在相邻格，
+   建议补全为「关掉**备份执行**：891 秒涨到 1283 秒」。
+3. **P2-4（透镜 3 Q1 那条 ⚠️，新增）**：L79 补半句反事实（见「陌生读者测试」一节），与 P0-1 同处一起改。
 
-#### 已核不出问题（记录在案，供下一个复核者直接关闭）
+#### ~~P2-2~~ —— **已证伪并撤销**
 
-- 页面**没有**把「中间结果为什么不写 GFS」这条理由记在论文名下 —— 它明确写成「讲义给的理由」+「论文本身确实没有给这条理由」（L81），
-  而讲义 `l01.txt` L251 确实有这句 ⇒ **跨材料归属没有搞混**，这是本页最容易被做错的一处。
-- 「同一个任务跑两遍只留一份」的两处机制（map 侧忽略重复完成消息、reduce 侧临时文件原子改名）与 `l01.txt` L284–286 同向。
+第一轮我据讲义把 L97「峰值能到 **30GB/s 以上**」记成「『以上』没有依据」，并注明「论文原文我核不到」。
+**论文到手后一查：原文就是 `peaks at over 30 GB/s when 1764 workers have been assigned`（@33553）。**
+⇒ **页面准确，我那条 P2 不成立，撤销。** 这是「拿到源」最直接的一次收益：**一条我自己的假异议被源关掉了**（附录八：复核者的发现也要能被证伪）。
+
+#### 已核不出问题（更新版，供下一个复核者直接关闭）
+
+- 页面对「中间结果为什么不写 GFS」**没有把它记在论文名下**（写成「讲义给的理由」）—— 跨材料归属没搞混 ✅；
+  但同一段的**否定半边**（"论文没给理由"）与源冲突，见 P0-1。
+- 「同一个任务跑两遍只留一份」的两处机制（map 侧忽略重复完成消息、reduce 侧临时文件原子改名）与 `l01.txt` L284–286 同向 ✅，且论文 §3.3 `We rely on the atomic rename operation`（@17478）✅。
 
 ---
 
-**审校人声明**：本记录只覆盖上表列出的基线版本。按附录五，对其它版本的结论不成立。
-**本记录的效力边界写在最前面那一节**：凡标 ⏳ 的 21 条，我**没有**核过，也**没有**用记忆代替核对。
-透镜 3 答卷尚未回执。本记录不修改任何正文或图，`status` 字段由 Lead 处理。
+### ★ 补核（论文到手后 · 21 条逐条回源）
+
+源：`_fc/mapreduce.txt`（`91AA3D51E17602483353F1E58733B67A3B1861CADA489281F92188AE090029FF`，1280 行）。
+**21 条全部核过：20 条与页面一致，1 条冲突（即 P0-1）。**
+
+| # | 页面 | 声明 | 论文原文（片段 + 字符偏移） | 结果 |
+| --- | --- | --- | --- | --- |
+| 1 | L20 | 3800 行 → 700 行 | `dropped from approximately 3800 lines of C++ code to approximately 700 lines` @42688 | ✅ |
+| 2 | L32 | 值以迭代器喂 reduce | §2.1 `we use an iterator` | ✅ |
+| 3 | L49 | R 与分区函数由用户指定 | `The number of partitions (R) and the partitioning function are specified by the user` @10740 | ✅ |
+| 4 | L63 | 分片 16MB–64MB | `each individual task is roughly 16 MB to 64 MB of input data` @20598 | ✅ |
+| 5 | L65–66 | 缓冲落盘、按分区切 R 区、上报位置 | §3.1 步骤 3–4 | ✅ |
+| 6 | L71 | 分区内按 key 递增 | §4.2 `We guarantee that within any given partition, the intermediate key/value pairs are processed in increasing key order` | ✅ |
+| 7 | L71 | 本地顺序执行模式 | §4.7 Local Execution | ✅ |
+| 8 | L71 | reader 接口可扩展输入类型 | §4.4 `support for reading input data in several different formats` @25103 | ✅ |
+| 9 | L83 | ping 超时判失败；已完成 map 重跑、已完成 reduce 不用；通知改读新位置 | §3.3 `The master pings every worker periodically… Any map tasks completed by the worker are reset back to their initial idle state` @14505 | ✅ |
+| 10 | L91 | 检查点「容易」但选择中止 | §3.3 `It is easy to make the master write periodic checkpoints… However, given that there is only a single master, its failure is unlikely; therefore our current implementation aborts the MapReduce computation if the master fails` @15981 | ✅ |
+| 11 | L93 | 非确定性的降级语义 | §3.3 `the output of a particular reduce task R1 is equivalent to… a sequential execution… However, the output for a different reduce task R2 may correspond to… a different sequential execution` @18023 | ✅ |
+| 12 | L97 | 「通常 3 份副本」；同交换机；本地性收益前提 | §5.1 `stores several copies of each block (typically 3 copies)` @18966 | ✅ |
+| 13 | L105 | O(M+R)／O(M×R)／约 1 字节每组；M=200000、R=5000 | `keeps O(M R) state… approximately one byte of data per map task/reduce task pair` @20127；`M = 200,000 and R = 5,000` @20640 | ✅ |
+| 14 | L105 | M 取 16–64MB、R 取机器数的小倍数 | `we make R a small multiple of the number of worker machines we expect to use` @20598 | ✅ |
+| 15 | L105 | 排序基准 M=15000、R=4000、约 1TB | `approximately 1 terabyte of data` @34109；`(M = 15000)`、`4000 files (R = 4000)` @35280 | ✅ |
+| 16 | L107 | combiner；Zipf；代码与 reduce 相同、只差输出去向 | `word frequencies tend to follow a Zipf distribution` @24123；`essentially the same code is used to implement both the combiner and the reduce functions. The only difference…` @24633 | ✅ |
+| 17 | L113 | 坏盘 30MB/s→1MB/s；缓存被关掉慢上百倍 | §5.5 / §3.6 | ✅ |
+| 18 | L113 | 备份执行只多花百分之几；891 → 1283（+44%） | `the entire computation takes 891 seconds` @37425；`The entire computation takes 1283 seconds, an increase of 44%` @38509；`takes 44% longer… when the backup task mechanism is disabled` @22314 | ✅ **方向也对**（关掉备份 ⇒ 891 涨到 1283） |
+| 19 | L125 | 经验一节列了大规模机器学习与图计算 | §6.1 `large-scale machine learning problems… large-scale graph computations` @39940/@40218 | ✅ |
+| 20 | L131 | 不支持多输出文件的原子提交；有一致性要求就得确定性；「实践中从来不是问题」 | §4.5 `We do not provide support for atomic two-phase commits of multiple output files produced by a single task. Therefore, tasks that produce multiple output files with cross-file consistency requirements should be deterministic. This restriction has never been an issue in practice.` @26663 | ✅ 三句逐句对应 |
+| 21 | L139/L141 | 跳过模式；grep 150 秒里约一分钟启动；排序一半时间写本地磁盘；2TB 输出各存两份 | §4.6 `the signal handler sends a "last gasp" UDP packet that contains the sequence number… seen more than one failure on a particular record… skipped` @27860；§5.1 `approximately 150 seconds… includes about a minute of startup overhead` @33741；§5.3 `the sort map tasks spend about half their time and I/O bandwidth writing intermediate output to their local disks` @36149；§5.3 `2 terabytes are written as the output` @35280 | ✅ 四条全对 |
+
+**顺带核掉的**：L97「峰值能到 30GB/s 以上」= 论文 `peaks at over 30 GB/s when 1764 workers have been assigned`（@33553）✅（即上面撤销的 P2-2）。
+
+### 本轮覆盖面（附录十二）
+
+- 已验：**论文全文**（21 条 + 30GB/s + 3 副本）；`_fc/l01.txt` 全部 316 行；11 张图的 `title`/`desc`/图内文字与正文 `alt` 逐张比对。
+- **未验**：机检指标；渲染量墨迹；**抽文本身的准确性**（用的是 Lead 抽好的 `_fc/mapreduce.txt`，不是 PDF 原件 —— 但 PDF 就在旁边 `_fc/mapreduce-osdi04.pdf`，可复核）。
+
+---
+
+**审校人声明**：本记录覆盖的基线版本写在开头（页面 `08546A23…` **本轮复核未变**；论文 `91AA3D51…`）。按附录五，对其它版本的结论不成立。
+**第一轮那份「21 条未核 ⇒ 不具备 reviewed 条件」的结论已被本轮补核取代**（原文如实保留，作为「结论只对它看的那一版成立」的留痕）。
+透镜 3 答卷已回（✅6 / ⚠️2 / ❌0）。本记录不修改任何正文或图，`status` 字段由 Lead 处理。
