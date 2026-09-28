@@ -18,14 +18,14 @@
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">成员表与配置：同一批原语的两种用法</text>
 
   <rect x="22" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">成员表：/workers 下的临时节点</text>
+  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">成员表：/workers 下的临时顺序节点</text>
 
   <rect x="398" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">配置：一个节点加一次带版本号的写入</text>
 
   <rect x="38" y="82" width="308" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="192" y="110" font-size="15" fill="#1e40af" text-anchor="middle">每个工作节点上线</text>
-  <text x="192" y="132" font-size="12" fill="#1e40af" text-anchor="middle">在 /workers 下建一个临时节点</text>
+  <text x="192" y="132" font-size="12" fill="#1e40af" text-anchor="middle">在 /workers 下建一个临时顺序节点</text>
 
   <rect x="38" y="176" width="308" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="192" y="204" font-size="15" fill="#166534" text-anchor="middle">子节点列表</text>

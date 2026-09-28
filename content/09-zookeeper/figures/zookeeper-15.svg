@@ -18,7 +18,7 @@
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">用之前要知道的两件事：通知不保证次数，会话超时两头付代价</text>
 
   <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">监视点的三个坑，以及那个循环</text>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">监视点的三个坑，以及怎么绕开（循环见上一张图）</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">会话超时取短还是取长</text>
