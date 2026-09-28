@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 242" width="760" height="242"
+     role="img" aria-labelledby="fig-raft-1-title fig-raft-1-desc">
+  <title id="fig-raft-1-title">三种角色与任期：一个任期至多一个领导者</title>
+  <desc id="fig-raft-1-desc">跟随者、候选者、领导者三者可互相转换；下方的三个任期各自至多产生一个领导者，旧任期的消息一律被拒绝。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="242" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三种角色与任期：一个任期至多一个领导者</text>
+
+  <rect x="22" y="56" width="220" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="132" y="84" font-size="15" fill="#1e40af" text-anchor="middle">跟随者</text>
+  <text x="132" y="106" font-size="12" fill="#1e40af" text-anchor="middle">只被动响应，不主动发起</text>
+
+  <rect x="270" y="56" width="220" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="84" font-size="15" fill="#b45309" text-anchor="middle">候选者</text>
+  <text x="380" y="106" font-size="12" fill="#b45309" text-anchor="middle">超时后拉票，等多数票</text>
+
+  <rect x="518" y="56" width="220" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="628" y="84" font-size="15" fill="#166534" text-anchor="middle">领导者</text>
+  <text x="628" y="106" font-size="12" fill="#166534" text-anchor="middle">任期内唯一，负责复制</text>
+
+  <path d="M247,80 L259,80" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M265,112 L253,112" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M495,80 L507,80" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M513,112 L501,112" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="152" width="220" height="68" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="132" y="180" font-size="15" fill="#1d4ed8" text-anchor="middle">任期 1</text>
+  <text x="132" y="202" font-size="12" fill="#1d4ed8" text-anchor="middle">一次选举选出 1 位领导者</text>
+
+  <rect x="270" y="152" width="220" height="68" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="380" y="180" font-size="15" fill="#1d4ed8" text-anchor="middle">任期 2</text>
+  <text x="380" y="202" font-size="12" fill="#1d4ed8" text-anchor="middle">选票分散就重来，仍只 1 位</text>
+
+  <rect x="518" y="152" width="220" height="68" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="628" y="180" font-size="15" fill="#1d4ed8" text-anchor="middle">任期 3</text>
+  <text x="628" y="202" font-size="12" fill="#1d4ed8" text-anchor="middle">旧任期的请求一律拒绝</text>
+
+  <path d="M247,186 L259,186" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M495,186 L507,186" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+</svg>

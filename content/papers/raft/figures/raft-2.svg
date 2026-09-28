@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 402" width="760" height="402"
+     role="img" aria-labelledby="fig-raft-2-title fig-raft-2-desc">
+  <title id="fig-raft-2-title">日志复制与提交规则</title>
+  <desc id="fig-raft-2-desc">客户端把命令发给领导者，领导者追加到本地日志后并行复制到三个跟随者，多数派确认且条目属于当前任期时才提交。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="402" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">日志复制与提交规则</text>
+
+  <rect x="280" y="56" width="200" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="78.2" font-size="12" fill="#1e40af" text-anchor="middle">客户端命令</text>
+
+  <path d="M380,97 L380,109" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="120" width="716" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="148" font-size="15" fill="#b45309" text-anchor="middle">领导者：先追加到本地日志，再并行广播</text>
+  <text x="380" y="170" font-size="12" fill="#b45309" text-anchor="middle">每条条目带着被接收时的任期号</text>
+
+  <rect x="22" y="216" width="220" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="132" y="244" font-size="15" fill="#166534" text-anchor="middle">跟随者 1</text>
+  <text x="132" y="266" font-size="12" fill="#166534" text-anchor="middle">复制成功就应答</text>
+
+  <rect x="270" y="216" width="220" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="244" font-size="15" fill="#166534" text-anchor="middle">跟随者 2</text>
+  <text x="380" y="266" font-size="12" fill="#166534" text-anchor="middle">多数派确认即提交</text>
+
+  <rect x="518" y="216" width="220" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="628" y="244" font-size="15" fill="#166534" text-anchor="middle">跟随者 3</text>
+  <text x="628" y="266" font-size="12" fill="#166534" text-anchor="middle">落后不会拖慢提交</text>
+
+  <path d="M118,193 L118,205" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M146,211 L146,199" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M366,193 L366,205" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M394,211 L394,199" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M614,193 L614,205" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M642,211 L642,199" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <path d="M132,289 L132,301" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M380,289 L380,301" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M628,289 L628,301" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="312" width="716" height="68" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="340" font-size="15" fill="#6b21a8" text-anchor="middle">提交：两个条件同时满足</text>
+  <text x="380" y="362" font-size="12" fill="#6b21a8" text-anchor="middle">多数派已复制 且 条目属于当前任期</text>
+</svg>

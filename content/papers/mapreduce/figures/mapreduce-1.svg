@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 748 259" width="748" height="259"
+     role="img" aria-labelledby="fig-mapreduce-1-title fig-mapreduce-1-desc">
+  <title id="fig-mapreduce-1-title">MapReduce 的数据流：中间结果落在本地磁盘</title>
+  <desc id="fig-mapreduce-1-desc">输入文件切成 M 份交给 map，产出的中间键值对按 key 分成 R 个分区写进本机器的本地磁盘，reduce 把各台机器上的分区拉回来汇总，最终输出写进分布式存储；中间结果只被读一次，所以留在本地盘最省。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="748" height="259" fill="#ffffff"/>
+
+  <text x="374" y="37" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">MapReduce 的数据流：中间结果落在本地磁盘</text>
+
+  <rect x="22" y="70" width="120" height="54" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="82" y="92" font-size="12" fill="#1e40af" text-anchor="middle">输入文件</text>
+  <text x="82" y="110" font-size="12" fill="#1e40af" text-anchor="middle">切成 M 个分片</text>
+
+  <rect x="168" y="70" width="120" height="54" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="228" y="92" font-size="12" fill="#b45309" text-anchor="middle">map 任务</text>
+  <text x="228" y="110" font-size="12" fill="#b45309" text-anchor="middle">产出中间键值对</text>
+
+  <rect x="314" y="70" width="120" height="54" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="374" y="92" font-size="12" fill="#9d174d" text-anchor="middle">中间结果</text>
+  <text x="374" y="110" font-size="12" fill="#9d174d" text-anchor="middle">落本地磁盘</text>
+
+  <rect x="460" y="70" width="120" height="54" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="520" y="92" font-size="12" fill="#6b21a8" text-anchor="middle">reduce 任务</text>
+  <text x="520" y="110" font-size="12" fill="#6b21a8" text-anchor="middle">拉取后按键汇总</text>
+
+  <rect x="606" y="70" width="120" height="54" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="666" y="92" font-size="12" fill="#166534" text-anchor="middle">输出文件</text>
+  <text x="666" y="110" font-size="12" fill="#166534" text-anchor="middle">写入分布式存储</text>
+
+  <path d="M147,97 L 157,97" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M293,97 L 303,97" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M439,97 L 449,97" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M585,97 L 595,97" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="52" y="170" width="644" height="64" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="374" y="194" font-size="11" fill="#1e293b" text-anchor="middle">中间结果只会被读一次，留在本地磁盘最省</text>
+  <text x="374" y="214" font-size="10" fill="#64748b" text-anchor="middle">机器一死只需重跑它产出的 map，不回滚全局状态</text>
+</svg>

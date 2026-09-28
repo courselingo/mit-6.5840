@@ -38,3 +38,14 @@ jobs:
       # 零依赖：不装任何 pip 包。脚本只用 Python 标准库（tomllib）。
       - name: 运行 scripts/validate.py
         run: python scripts/validate.py
+
+      # 配图房规检查：调用 vendor 进来的 tools/svg-lint（Node，零依赖）。
+      # 房规要求 0 error 且 0 warning，--strict 让 warning 也拦下来。
+      # ubuntu-latest 自带 Node；仍显式 setup 以钉住版本。
+      - name: 准备 Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+
+      - name: 配图房规检查
+        run: python scripts/check_figures.py --strict

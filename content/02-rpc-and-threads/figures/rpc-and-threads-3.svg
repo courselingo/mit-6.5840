@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 374" width="760" height="374"
+     role="img" aria-labelledby="rpc-and-threads-3-title rpc-and-threads-3-desc">
+  <title id="rpc-and-threads-3-title">三种投递语义各在丢失与重复上付什么代价</title>
+  <desc id="rpc-and-threads-3-desc">至多一次用可能丢换取绝不重复，至少一次用可能重复换取一定执行，恰好一次要求跨请求的持久去重状态；把操作做成幂等，至少一次重试才安全。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="374" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三种投递语义：丢失与重复各付什么代价</text>
+
+  <rect x="22" y="68" width="220" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="132" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">至多一次</text>
+  <text x="132" y="118" font-size="12" fill="#64748b" text-anchor="middle">at-most-once：从不重发</text>
+
+  <rect x="270" y="68" width="220" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="380" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">至少一次</text>
+  <text x="380" y="118" font-size="12" fill="#64748b" text-anchor="middle">at-least-once：靠重试</text>
+
+  <rect x="518" y="68" width="220" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="628" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">恰好一次</text>
+  <text x="628" y="118" font-size="12" fill="#64748b" text-anchor="middle">exactly-once：最难兑现</text>
+
+  <rect x="22" y="164" width="220" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="132" y="196" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">可能丢，绝不重复</text>
+  <text x="132" y="214" font-size="12" fill="#64748b" text-anchor="middle">不重发，服务器看不到重复</text>
+  <text x="132" y="232" font-size="12" fill="#64748b" text-anchor="middle">代价是失败时不知执行没</text>
+
+  <rect x="270" y="164" width="220" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="380" y="196" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">一定执行，可能重复</text>
+  <text x="380" y="214" font-size="12" fill="#64748b" text-anchor="middle">重试保证请求终将执行</text>
+  <text x="380" y="232" font-size="12" fill="#64748b" text-anchor="middle">必须有幂等才安全</text>
+
+  <rect x="518" y="164" width="220" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="628" y="196" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">要靠去重表记住请求</text>
+  <text x="628" y="214" font-size="12" fill="#64748b" text-anchor="middle">去重需要跨请求持久状态</text>
+  <text x="628" y="232" font-size="12" fill="#64748b" text-anchor="middle">现实中用至少一次近似</text>
+
+  <rect x="22" y="282" width="716" height="68" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="380" y="310" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">幂等让「至少一次」变得安全</text>
+  <text x="380" y="332" font-size="12" fill="#64748b" text-anchor="middle">重复执行与执行一次效果相同，重试就不再有副作用</text>
+</svg>

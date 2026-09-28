@@ -89,6 +89,29 @@ def run_validate(root: Path) -> int:
     return proc.returncode
 
 
+def copy_figures(src_dir: Path, dst_dir: Path, seen: dict[str, str]) -> None:
+    """把配图**平铺**复制到 docs/<section>/figures/。
+
+    为什么平铺：MkDocs 的链接检查按"源文件所在目录"解析相对路径，浏览器按
+    "页面 URL"解析；只有当 use_directory_urls=false 且图平铺时，两者才一致。
+    同名即报错 —— 同一 section 平铺存放，静默覆盖会让某页悄悄显示别人的图。
+    """
+    if not src_dir.is_dir():
+        return
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    for f in sorted(src_dir.glob("*.svg")):
+        owner = seen.get(f.name)
+        if owner is not None and owner != str(src_dir):
+            raise SystemExit(
+                f"⛔ 配图文件名冲突：{f.name}\n"
+                f"   同时出现在：{owner}\n"
+                f"   以及：      {src_dir}\n"
+                "   同一 section 的配图是平铺存放的，请改成唯一文件名（建议带页面前缀）。"
+            )
+        seen[f.name] = str(src_dir)
+        shutil.copy2(f, dst_dir / f.name)
+
+
 def main(argv: list[str] | None = None) -> int:
     force_utf8()
     ap = argparse.ArgumentParser(description="渲染 MkDocs Material 站点")
@@ -135,6 +158,7 @@ def main(argv: list[str] | None = None) -> int:
     shutil.copy2(web / "assets" / "bi.js", docs / "assets" / "bi.js")
 
     # ---------- 讲座 ----------
+    seen_figs: dict[str, str] = {}
     lectures = []
     for p in sorted((root / "content").glob("*/index.md")):
         if "papers" in p.relative_to(root / "content").parts:
@@ -145,10 +169,7 @@ def main(argv: list[str] | None = None) -> int:
         out = docs / "lectures" / f"{slug}.md"
         out.write_text(render_terms(body, terms), encoding="utf-8")
         lectures.append((int(fm.get("lecture", 0)), str(fm.get("title", slug)), slug))
-        # 图
-        figs = p.parent / "figures"
-        if figs.is_dir():
-            shutil.copytree(figs, docs / "lectures" / "figures", dirs_exist_ok=True)
+        copy_figures(p.parent / "figures", docs / "lectures" / "figures", seen_figs)
 
     lectures.sort()
 
@@ -159,6 +180,7 @@ def main(argv: list[str] | None = None) -> int:
         fm = tomllib.loads(fm_txt) if fm_txt else {}
         key = str(fm.get("paper", p.parent.name))
         (docs / "papers" / f"{key}.md").write_text(render_terms(body, terms), encoding="utf-8")
+        copy_figures(p.parent / "figures", docs / "papers" / "figures", seen_figs)
         paper_pages.append((key, str(fm.get("title", key))))
     paper_pages.sort()
 
@@ -230,7 +252,7 @@ def main(argv: list[str] | None = None) -> int:
 site_description: {course.get('title', '')} — CourseLingo 中文讲解
 docs_dir: {docs.as_posix()}
 site_dir: {(root / args.out).as_posix()}
-use_directory_urls: true
+use_directory_urls: false
 
 theme:
   name: material
