@@ -1,41 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 334" width="766" height="334"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-6-title fig-gfs-6-desc">
-  <title id="fig-gfs-6-title">主节点的三类元数据：谁落盘，谁靠问出来</title>
-  <desc id="fig-gfs-6-desc">命名空间与文件到块的映射会持久化到操作日志并配周期检查点；块副本的位置刻意不持久化，主节点启动时直接问块服务器。</desc>
+  <title id="fig-gfs-6-title">三类元数据的去处各不相同，读只在第一次经过主节点</title>
+  <desc id="fig-gfs-6-desc">命名空间与文件到块的映射会持久化：写进操作日志并配周期性检查点；块副本的位置刻意不持久化，主节点启动或块服务器加入时直接问它。读路径只在第一次经过主节点，客户端缓存这份映射，之后直接与块服务器通信，过期或重新打开文件才再问一次。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
   </defs>
 
-  <rect x="0" y="0" width="766" height="334" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">主节点的三类元数据：谁落盘，谁靠问出来</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三类元数据的去处各不相同，读只在第一次经过主节点</text>
 
-  <rect x="25" y="64" width="341" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="195" y="86" font-size="12" fill="#1e40af" text-anchor="middle">命名空间 + 文件到块的映射</text>
-  <text x="195" y="104" font-size="12" fill="#1e40af" text-anchor="middle">这两类会持久化</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">存什么与不存什么，判断依据是「块服务器自己最清楚」</text>
 
-  <rect x="25" y="145" width="341" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="195" y="167" font-size="12" fill="#1e40af" text-anchor="middle">写进本地操作日志</text>
-  <text x="195" y="185" font-size="12" fill="#1e40af" text-anchor="middle">本质就是一份预写日志</text>
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">读路径只在第一次经过主节点</text>
 
-  <rect x="25" y="226" width="341" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="195" y="248" font-size="12" fill="#1e40af" text-anchor="middle">改动可见前先刷到本地与远程盘</text>
-  <text x="195" y="266" font-size="12" fill="#1e40af" text-anchor="middle">再用周期检查点压小日志</text>
+  <rect x="38" y="82" width="328" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="202" y="110" font-size="15" fill="#1e40af" text-anchor="middle">命名空间与文件到块的映射</text>
+  <text x="202" y="132" font-size="12" fill="#1e40af" text-anchor="middle">写进操作日志，并配周期性检查点</text>
 
-  <rect x="396" y="64" width="345" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="568" y="86" font-size="12" fill="#9d174d" text-anchor="middle">块副本当前的位置</text>
-  <text x="568" y="104" font-size="12" fill="#9d174d" text-anchor="middle">刻意不持久化</text>
+  <rect x="394" y="82" width="328" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="558" y="110" font-size="15" fill="#6b21a8" text-anchor="middle">块副本的位置</text>
+  <text x="558" y="132" font-size="12" fill="#6b21a8" text-anchor="middle">不持久化，启动时逐个问块服务器</text>
 
-  <rect x="396" y="145" width="345" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="568" y="167" font-size="12" fill="#9d174d" text-anchor="middle">启动时逐个问块服务器</text>
-  <text x="568" y="185" font-size="12" fill="#9d174d" text-anchor="middle">你都存了哪些块</text>
+  <rect x="38" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="142" y="244" font-size="15" fill="#1e40af" text-anchor="middle">第一次读</text>
+  <text x="142" y="266" font-size="12" fill="#1e40af" text-anchor="middle">问主节点，并把映射缓存下来</text>
 
-  <rect x="396" y="226" width="345" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="568" y="248" font-size="12" fill="#9d174d" text-anchor="middle">位置只是一份缓存视图</text>
-  <text x="568" y="266" font-size="12" fill="#9d174d" text-anchor="middle">块服务器自己最清楚</text>
+  <rect x="275" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="379" y="244" font-size="15" fill="#b45309" text-anchor="middle">之后再读同一个块</text>
+  <text x="379" y="266" font-size="12" fill="#b45309" text-anchor="middle">不必打扰主节点，直接找块服务器</text>
 
-  <text x="383" y="306" font-size="12" fill="#64748b" text-anchor="middle">放弃一份随时能重建的映射，换来元数据小到能全放进内存</text>
+  <rect x="512" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="616" y="244" font-size="15" fill="#b45309" text-anchor="middle">缓存过期或重新打开</text>
+  <text x="616" y="266" font-size="12" fill="#b45309" text-anchor="middle">才再问一次，还顺带问后面几块</text>
 </svg>

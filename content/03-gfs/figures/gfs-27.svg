@@ -1,42 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 373" width="760" height="373"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-27-title fig-gfs-27-desc">
-  <title id="fig-gfs-27-title">并发写同一段：后写覆盖前写，丢掉的那部分没有报错</title>
-  <desc id="fig-gfs-27-desc">两个客户端把数据写到同一段重叠区域，主副本只给它们排先后、不做合并，后写把前写覆盖掉；客户端收到的是一次成功，既拿不到分片边界，也不知道自己哪几个字节被吞掉了。</desc>
+  <title id="fig-gfs-27-title">普通写为什么会静默丢数据，记录追加为什么只保证至少一次</title>
+  <desc id="fig-gfs-27-desc">普通写的偏移由客户端指定，两个客户端写同一段重叠区域时主副本只排先后、不做合并，于是后写覆盖前写，某些字节静默消失而客户端只收到一次成功。记录追加改成由 GFS 自己挑偏移原子追加：客户端只提供数据，失败重试后不同副本可能含有不同的数据，所以是至少一次，必须容忍重复与填充。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="373" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">并发写同一段：后写覆盖前写，丢掉的那部分没有报错</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">普通写为什么会静默丢数据，记录追加为什么只保证至少一次</text>
 
-  <path d="M194,121 L194,133" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M566,121 L566,133" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">普通写：偏移由客户端指定，主副本只排先后</text>
 
-  <rect x="22" y="62" width="344" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="194" y="84" font-size="12" fill="#1e40af" text-anchor="middle">客户端 1 在偏移 0 和 1 处写</text>
-  <text x="194" y="102" font-size="12" fill="#1e40af" text-anchor="middle">两段内容分别是 x 与 y</text>
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">记录追加：偏移由 GFS 自己挑，至少写一次</text>
 
-  <rect x="394" y="62" width="344" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="566" y="84" font-size="12" fill="#1e40af" text-anchor="middle">客户端 2 写同一段偏移</text>
-  <text x="566" y="102" font-size="12" fill="#1e40af" text-anchor="middle">两段内容分别是 a 与 b</text>
+  <rect x="38" y="82" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="202" y="110" font-size="15" fill="#9d174d" text-anchor="middle">两个客户端写同一段重叠区域</text>
+  <text x="202" y="132" font-size="12" fill="#9d174d" text-anchor="middle">主副本只给这两个写排一个先后</text>
 
-  <rect x="22" y="144" width="716" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="166" font-size="12" fill="#9d174d" text-anchor="middle">主副本只给这两个写排出一个先后，不做任何合并</text>
-  <text x="380" y="184" font-size="12" fill="#9d174d" text-anchor="middle">后写覆盖前写，区域可能变成 [a y]：x 与 b 就此消失</text>
+  <rect x="394" y="82" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="558" y="110" font-size="15" fill="#9d174d" text-anchor="middle">后写覆盖前写</text>
+  <text x="558" y="132" font-size="12" fill="#9d174d" text-anchor="middle">被吞掉的字节客户端收不到任何报错</text>
 
-  <path d="M380,203 L380,215" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="38" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="142" y="244" font-size="15" fill="#1e40af" text-anchor="middle">客户端只给数据</text>
+  <text x="142" y="266" font-size="12" fill="#1e40af" text-anchor="middle">GFS 在它自己选的偏移上追加</text>
 
-  <rect x="22" y="226" width="716" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="258" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">客户端收到的是一次成功</text>
-  <text x="380" y="276" font-size="12" fill="#b45309" text-anchor="middle">它既拿不到分片边界，也不知道自己哪几个字节被吞掉了</text>
-  <text x="380" y="294" font-size="12" fill="#b45309" text-anchor="middle">数据是这样静默丢掉的：没有报错，只是悄悄少了一部分</text>
+  <rect x="275" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="379" y="244" font-size="15" fill="#b45309" text-anchor="middle">某副本失败就重试</text>
+  <text x="379" y="266" font-size="12" fill="#b45309" text-anchor="middle">不同副本可能含有不同的数据</text>
 
-  <text x="380" y="345" font-size="12" fill="#64748b" text-anchor="middle">记录追加针对的就是这件事：偏移由主副本挑，客户端必须拿到它</text>
+  <rect x="512" y="216" width="209" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="616" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">所以是至少一次</text>
+  <text x="616" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">必须容忍重复与中间出现的填充</text>
 </svg>

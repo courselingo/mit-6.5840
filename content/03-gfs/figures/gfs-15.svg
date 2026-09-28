@@ -1,41 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 334" width="766" height="334"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-15-title fig-gfs-15-desc">
-  <title id="fig-gfs-15-title">链式分发与树形分发：上行带宽怎么分</title>
-  <desc id="fig-gfs-15-desc">链式分发里客户端推给 A、A 推给 B、B 推给 C，每台上行带宽只服务一个接收方，能被打满；树形分发里 A 要同时推给 B 和 C，上行带宽被切成几份，A 先成为瓶颈。</desc>
+  <title id="fig-gfs-15-title">数据流为什么走链式：上行带宽怎么分、流水线摊掉了什么</title>
+  <desc id="fig-gfs-15-desc">链式与树形的差别在上行带宽怎么分：链式里每台机器的上行只服务一个接收方，树形则把上行切成几份，某一台先成为瓶颈；「最近」是拿 IP 地址估出来的拓扑距离。流水线摊掉的是 R×L：不流水线时把 B 字节推给 R 个副本约需 B/T 加 R×L，流水线让每台收到一部分就转发下一台，理想情况 1MB 大约 80ms 铺开。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
   </defs>
 
-  <rect x="0" y="0" width="766" height="334" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">链式分发与树形分发：上行带宽怎么分</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">数据流为什么走链式：上行带宽怎么分、流水线摊掉了什么</text>
 
-  <rect x="25" y="64" width="341" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="195" y="86" font-size="12" fill="#166534" text-anchor="middle">链式：客户端推给 A，A 推给 B</text>
-  <text x="195" y="104" font-size="12" fill="#166534" text-anchor="middle">B 再推给 C，一路接力</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">链式与树形的差别，在上行带宽怎么分</text>
 
-  <rect x="25" y="145" width="341" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="195" y="167" font-size="12" fill="#166534" text-anchor="middle">每一台机器的上行带宽</text>
-  <text x="195" y="185" font-size="12" fill="#166534" text-anchor="middle">只服务下一个接收方</text>
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">公式里那个 R×L 是可以摊掉的</text>
 
-  <rect x="25" y="226" width="341" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="195" y="248" font-size="12" fill="#166534" text-anchor="middle">所以带宽能被打满</text>
-  <text x="195" y="266" font-size="12" fill="#166534" text-anchor="middle">流水线还把延迟摊薄</text>
+  <rect x="38" y="82" width="328" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="202" y="110" font-size="15" fill="#166534" text-anchor="middle">链式</text>
+  <text x="202" y="132" font-size="12" fill="#166534" text-anchor="middle">每台上行只服务一个接收方</text>
 
-  <rect x="396" y="64" width="345" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="568" y="86" font-size="12" fill="#b45309" text-anchor="middle">树形：A 要同时推给 B 和 C</text>
-  <text x="568" y="104" font-size="12" fill="#b45309" text-anchor="middle">一个发送方，多个接收方</text>
+  <rect x="394" y="82" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="558" y="110" font-size="15" fill="#9d174d" text-anchor="middle">树形</text>
+  <text x="558" y="132" font-size="12" fill="#9d174d" text-anchor="middle">上行被切成几份，某一台先成为瓶颈</text>
 
-  <rect x="396" y="145" width="345" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="568" y="167" font-size="12" fill="#b45309" text-anchor="middle">每一台机器的上行带宽</text>
-  <text x="568" y="185" font-size="12" fill="#b45309" text-anchor="middle">被切成几份分出去</text>
+  <rect x="38" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="142" y="244" font-size="15" fill="#b45309" text-anchor="middle">不流水线</text>
+  <text x="142" y="266" font-size="12" fill="#b45309" text-anchor="middle">推 B 字节约需 B/T 加 R×L</text>
 
-  <rect x="396" y="226" width="345" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="568" y="248" font-size="12" fill="#b45309" text-anchor="middle">所以 A 先成为瓶颈</text>
-  <text x="568" y="266" font-size="12" fill="#b45309" text-anchor="middle">吞吐优先的系统不能接受</text>
+  <rect x="275" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="379" y="244" font-size="15" fill="#1e40af" text-anchor="middle">流水线</text>
+  <text x="379" y="266" font-size="12" fill="#1e40af" text-anchor="middle">收到一部分就转发下一台</text>
 
-  <text x="383" y="306" font-size="12" fill="#64748b" text-anchor="middle">同为分发，链式把上行带宽留给一个接收方，树形把它切开</text>
+  <rect x="512" y="216" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="616" y="244" font-size="15" fill="#166534" text-anchor="middle">理想情况</text>
+  <text x="616" y="266" font-size="12" fill="#166534" text-anchor="middle">1MB 大约 80ms 铺开</text>
 </svg>

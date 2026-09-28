@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 325" width="760" height="325"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 376" width="760" height="376"
      role="img" aria-labelledby="fig-intro-11-title fig-intro-11-desc">
-  <title id="fig-intro-11-title">同一个 map 被算了两遍：两次输出不同，最终结果就混了</title>
-  <desc id="fig-intro-11-desc">第一次执行与重跑如果给出不同的中间结果，两个 reduce 就会分别基于两个版本，同一份最终输出里混进两种事实，所以 map 与 reduce 必须是确定性的纯函数。</desc>
+  <title id="fig-intro-11-title">容错的两笔账：重跑要求函数是纯的，长尾要用备份砍短</title>
+  <desc id="fig-intro-11-desc">左列是重跑的代价：同一个 map 算两遍若结果不同，两个 reduce 就各用一个版本，同一份输出混进两个事实，所以用户函数必须是确定性的纯函数。右列是长尾的代价：最后几份任务被复制到空闲机器重跑，谁先完成用谁。</desc>
 
   <defs>
     <style>
@@ -13,31 +13,37 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="325" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="376" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">同一个 map 被算了两遍：两次输出不同，最终结果就混了</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">容错的两笔账：重跑要求函数是纯的，长尾要用备份砍短</text>
 
-  <path d="M194,139 L194,151" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M566,139 L566,151" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M194,235 L194,247" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M566,235 L566,247" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="22" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">重跑：要允许算两次</text>
 
-  <rect x="22" y="66" width="344" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="194" y="94" font-size="15" fill="#166534" text-anchor="middle">第一次执行 map</text>
-  <text x="194" y="116" font-size="12" fill="#166534" text-anchor="middle">发出 (word, 1)</text>
+  <rect x="398" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">长尾：用冗余换时间</text>
 
-  <rect x="394" y="66" width="344" height="68" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="566" y="94" font-size="15" fill="#9d174d" text-anchor="middle">机器挂了，换个地方重跑</text>
-  <text x="566" y="116" font-size="12" fill="#9d174d" text-anchor="middle">如果它不纯：发出 (word, 2)</text>
+  <rect x="38" y="82" width="308" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="192" y="110" font-size="15" fill="#9d174d" text-anchor="middle">同一个 map 算了两遍</text>
+  <text x="192" y="132" font-size="12" fill="#9d174d" text-anchor="middle">两次给出的中间结果不同</text>
 
-  <rect x="22" y="162" width="344" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="194" y="190" font-size="15" fill="#166534" text-anchor="middle">reduce A 用的是第一次的结果</text>
-  <text x="194" y="212" font-size="12" fill="#166534" text-anchor="middle">算出 word 出现 1 次</text>
+  <rect x="38" y="176" width="308" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="192" y="204" font-size="15" fill="#9d174d" text-anchor="middle">两个 reduce 各用一个版本</text>
+  <text x="192" y="226" font-size="12" fill="#9d174d" text-anchor="middle">同一份输出里混进两个事实</text>
 
-  <rect x="394" y="162" width="344" height="68" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="566" y="190" font-size="15" fill="#9d174d" text-anchor="middle">reduce B 用的是第二次的结果</text>
-  <text x="566" y="212" font-size="12" fill="#9d174d" text-anchor="middle">算出 word 出现 2 次</text>
+  <rect x="38" y="270" width="308" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="192" y="298" font-size="15" fill="#166534" text-anchor="middle">所以函数必须是纯的</text>
+  <text x="192" y="320" font-size="12" fill="#166534" text-anchor="middle">只许看自己的输入，不写外部状态</text>
 
-  <rect x="22" y="258" width="716" height="45" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="286" font-size="15" fill="#9d174d" text-anchor="middle">同一份输出里混着两个版本，所以 map 与 reduce 必须是纯函数</text>
+  <rect x="414" y="82" width="308" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="568" y="110" font-size="15" fill="#b45309" text-anchor="middle">绝大多数任务已完成</text>
+  <text x="568" y="132" font-size="12" fill="#b45309" text-anchor="middle">只剩最后几份还在跑</text>
+
+  <rect x="414" y="176" width="308" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="568" y="204" font-size="15" fill="#b45309" text-anchor="middle">把这几个任务复制出去</text>
+  <text x="568" y="226" font-size="12" fill="#b45309" text-anchor="middle">放到空闲机器上再跑一遍</text>
+
+  <rect x="414" y="270" width="308" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="568" y="298" font-size="15" fill="#166534" text-anchor="middle">谁先完成就用谁</text>
+  <text x="568" y="320" font-size="12" fill="#166534" text-anchor="middle">不去诊断哪台机器慢</text>
 </svg>

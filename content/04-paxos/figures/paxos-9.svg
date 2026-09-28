@@ -1,40 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 226" width="756" height="226" role="img" aria-labelledby="fig-paxos-9-title fig-paxos-9-desc">
-  <title id="fig-paxos-9-title">重启后忘掉接受过的值：定案被覆盖</title>
-  <desc id="fig-paxos-9-desc">第一轮里 S1 与 S2 接受 X，X 定案；S2 重启忘掉它，第二轮 prepare 的多数派正是 S2 与 S3。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 456" width="760" height="456"
+     role="img" aria-labelledby="fig-paxos-9-title fig-paxos-9-desc">
+  <title id="fig-paxos-9-title">接受者必须记住什么，以及 Multi-Paxos 省掉哪一轮</title>
+  <desc id="fig-paxos-9-desc">上排：n_a、v_a 不落盘，重启后忘掉接受过的 X，而它正是两轮唯一的交集，X 唯一的活证据就没了。中排：最高编号不落盘，重启后会收下更早编号的 accept，被早已定案的值改写。下排：Multi-Paxos 先选出领导者，一次 prepare 覆盖一段日志，省掉的是重复的阶段一，多数派表决一次没少。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="2" y="0" width="756" height="226" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="456" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">重启后忘掉接受过的值：定案被覆盖</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">接受者必须记住什么，以及 Multi-Paxos 省掉哪一轮</text>
 
-  <rect x="80" y="76" width="180" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="170" y="98" font-size="12" fill="#166534" text-anchor="middle">第一轮 S1 与 S2 接受 X</text>
-  <text x="170" y="116" font-size="12" fill="#166534" text-anchor="middle">X 就此定案</text>
-  <rect x="290" y="76" width="180" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="98" font-size="12" fill="#9d174d" text-anchor="middle">S2 随后重启</text>
-  <text x="380" y="116" font-size="12" fill="#9d174d" text-anchor="middle">磁盘上什么都没留下</text>
-  <rect x="500" y="76" width="180" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="590" y="98" font-size="12" fill="#6b21a8" text-anchor="middle">第二轮 prepare 的多数派</text>
-  <text x="590" y="116" font-size="12" fill="#6b21a8" text-anchor="middle">正好是 S2 与 S3</text>
-  <path d="M25,152 L470,152" fill="none" stroke="#94a3b8"/>
-  <path d="M560,152 L735,152" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M170,144 L170,160" fill="none" stroke="#94a3b8"/>
-  <path d="M380,144 L380,160" fill="none" stroke="#94a3b8"/>
-  <path d="M626,144 L626,160" fill="none" stroke="#94a3b8"/>
-  <path d="M470,142 L470,158" fill="none" stroke="#ec4899" stroke-width="2"/>
-  <path d="M560,142 L560,158" fill="none" stroke="#ec4899" stroke-width="2"/>
-  <text x="170" y="182" font-size="12" fill="#64748b" text-anchor="middle">S2 回答「我什么都没接受过」</text>
-  <text x="170" y="200" font-size="12" fill="#64748b" text-anchor="middle">它说的并不是谎话</text>
-  <text x="380" y="182" font-size="12" fill="#64748b" text-anchor="middle">S3 孤掌难鸣</text>
-  <text x="380" y="200" font-size="12" fill="#64748b" text-anchor="middle">只有它记得 X</text>
-  <text x="626" y="182" font-size="12" fill="#64748b" text-anchor="middle">新提议者提出 Y</text>
-  <text x="626" y="200" font-size="12" fill="#64748b" text-anchor="middle">已定案的 X 被覆盖</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">n_a、v_a 不落盘：忘掉的那台正好是两轮唯一的交集</text>
+
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">最高编号不落盘：更早的 accept 就能进来</text>
+
+  <rect x="22" y="324" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="338" font-size="12" fill="#64748b" text-anchor="middle">Multi-Paxos：省掉的是重复的阶段一</text>
+
+  <path d="M252,116 L264,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M489,116 L501,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M252,250 L264,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M489,250 L501,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="38" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="142" y="110" font-size="15" fill="#9d174d" text-anchor="middle">S2 重启，忘了 X</text>
+  <text x="142" y="132" font-size="12" fill="#9d174d" text-anchor="middle">X 是它自己接受过的值</text>
+
+  <rect x="275" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="379" y="110" font-size="15" fill="#9d174d" text-anchor="middle">它是两轮唯一的交集</text>
+  <text x="379" y="132" font-size="12" fill="#9d174d" text-anchor="middle">第二轮的 prepare 学不到 X</text>
+
+  <rect x="512" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="616" y="110" font-size="15" fill="#166534" text-anchor="middle">三个状态都要落盘</text>
+  <text x="616" y="132" font-size="12" fill="#166534" text-anchor="middle">重启之后必须能恢复</text>
+
+  <rect x="38" y="216" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="142" y="244" font-size="15" fill="#9d174d" text-anchor="middle">不记得见过编号 11</text>
+  <text x="142" y="266" font-size="12" fill="#9d174d" text-anchor="middle">于是收下编号 10 的 accept</text>
+
+  <rect x="275" y="216" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="379" y="244" font-size="15" fill="#9d174d" text-anchor="middle">编号 10 的值早已定案</text>
+  <text x="379" y="266" font-size="12" fill="#9d174d" text-anchor="middle">被更早的编号改写</text>
+
+  <rect x="512" y="216" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="616" y="244" font-size="15" fill="#166534" text-anchor="middle">它挡的是旧编号</text>
+  <text x="616" y="266" font-size="12" fill="#166534" text-anchor="middle">不是记录做过什么</text>
+
+  <rect x="38" y="350" width="328" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="202" y="378" font-size="15" fill="#1e40af" text-anchor="middle">先选出一个领导者</text>
+  <text x="202" y="400" font-size="12" fill="#1e40af" text-anchor="middle">一次 prepare 覆盖后面很多个值</text>
+
+  <rect x="394" y="350" width="328" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="558" y="378" font-size="15" fill="#6b21a8" text-anchor="middle">省掉的与没省掉的</text>
+  <text x="558" y="400" font-size="12" fill="#6b21a8" text-anchor="middle">省掉重复的阶段一，多数派表决一次没少</text>
 </svg>

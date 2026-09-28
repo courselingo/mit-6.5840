@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 402" width="760" height="402"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-raft-2-title fig-raft-2-desc">
-  <title id="fig-raft-2-title">日志复制与提交规则</title>
-  <desc id="fig-raft-2-desc">客户端把命令发给领导者，领导者追加到本地日志后并行复制到三个跟随者，多数派确认且条目属于当前任期时才提交。</desc>
+  <title id="fig-raft-2-title">从客户端命令到提交，以及写延迟的下界</title>
+  <desc id="fig-raft-2-desc">领导者把命令追加到自己的日志、并行广播给其他节点；多数派已复制并且条目属于当前任期才算提交，随后应用到状态机并返回客户端。写延迟的下界是到多数派的一次往返，想提高吞吐只能靠批处理与流水线，把多轮请求叠在一起。</desc>
 
   <defs>
     <style>
@@ -13,43 +13,41 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="402" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">日志复制与提交规则</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">从客户端命令到提交，以及写延迟的下界</text>
 
-  <rect x="280" y="56" width="200" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="380" y="78.2" font-size="12" fill="#1e40af" text-anchor="middle">客户端命令</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">提交的最后一步要同时看两个条件</text>
 
-  <path d="M380,97 L380,109" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">下界改不了，能改的是把多少请求塞进一次往返</text>
 
-  <rect x="22" y="120" width="716" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="148" font-size="15" fill="#b45309" text-anchor="middle">领导者：先追加到本地日志，再并行广播</text>
-  <text x="380" y="170" font-size="12" fill="#b45309" text-anchor="middle">每条条目带着被接收时的任期号</text>
+  <path d="M193,116 L205,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M371,116 L383,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M549,116 L561,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
-  <rect x="22" y="216" width="220" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="132" y="244" font-size="15" fill="#166534" text-anchor="middle">跟随者 1</text>
-  <text x="132" y="266" font-size="12" fill="#166534" text-anchor="middle">复制成功就应答</text>
+  <rect x="38" y="82" width="150" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="113" y="110" font-size="15" fill="#1e40af" text-anchor="middle">命令到达</text>
+  <text x="113" y="132" font-size="12" fill="#1e40af" text-anchor="middle">追加到领导者日志</text>
 
-  <rect x="270" y="216" width="220" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="380" y="244" font-size="15" fill="#166534" text-anchor="middle">跟随者 2</text>
-  <text x="380" y="266" font-size="12" fill="#166534" text-anchor="middle">多数派确认即提交</text>
+  <rect x="216" y="82" width="150" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="291" y="110" font-size="15" fill="#b45309" text-anchor="middle">并行广播</text>
+  <text x="291" y="132" font-size="12" fill="#b45309" text-anchor="middle">一直重试到多数派</text>
 
-  <rect x="518" y="216" width="220" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="628" y="244" font-size="15" fill="#166534" text-anchor="middle">跟随者 3</text>
-  <text x="628" y="266" font-size="12" fill="#166534" text-anchor="middle">落后不会拖慢提交</text>
+  <rect x="394" y="82" width="150" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="469" y="110" font-size="15" fill="#9d174d" text-anchor="middle">两个条件齐了</text>
+  <text x="469" y="132" font-size="12" fill="#9d174d" text-anchor="middle">多数派复制 + 当前任期</text>
 
-  <path d="M118,193 L118,205" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M146,211 L146,199" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M366,193 L366,205" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M394,211 L394,199" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M614,193 L614,205" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M642,211 L642,199" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="572" y="82" width="150" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="647" y="110" font-size="15" fill="#166534" text-anchor="middle">应用到状态机</text>
+  <text x="647" y="132" font-size="12" fill="#166534" text-anchor="middle">结果返回客户端</text>
 
-  <path d="M132,289 L132,301" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M380,289 L380,301" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M628,289 L628,301" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="38" y="216" width="328" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="202" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">写延迟的下界</text>
+  <text x="202" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">到多数派的一次往返，单个慢节点不拖慢它</text>
 
-  <rect x="22" y="312" width="716" height="68" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="340" font-size="15" fill="#6b21a8" text-anchor="middle">提交：两个条件同时满足</text>
-  <text x="380" y="362" font-size="12" fill="#6b21a8" text-anchor="middle">多数派已复制 且 条目属于当前任期</text>
+  <rect x="394" y="216" width="328" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="558" y="244" font-size="15" fill="#166534" text-anchor="middle">想提吞吐只能批处理</text>
+  <text x="558" y="266" font-size="12" fill="#166534" text-anchor="middle">用流水线把多轮请求叠在一起</text>
 </svg>

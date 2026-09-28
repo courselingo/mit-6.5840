@@ -1,40 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 252" width="756" height="252" role="img" aria-labelledby="fig-zookeeper-13-title fig-zookeeper-13-desc">
-  <title id="fig-zookeeper-13-title">读不保证最新，但保证位置不倒退</title>
-  <desc id="fig-zookeeper-13-desc">在跟随者 A 上写完能读到自己刚写的值，换一台落后的跟随者可能读到旧值，但读到的位置不会倒退。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
+     role="img" aria-labelledby="fig-zk-13-title fig-zk-13-desc">
+  <title id="fig-zk-13-title">读可能不是最新的，但位置不会倒退；性能也押在读上</title>
+  <desc id="fig-zk-13-desc">在同一台跟随者上写完立刻读，能读到自己刚写的值；换一台落后的跟随者可能读到旧值，但同一个客户端的读位置不会倒退。性能则按读与通知优化：客户端散连多台、监视点就地记、异步批量发操作、数据全放内存。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="2" y="0" width="756" height="252" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">读不保证最新，但保证位置不倒退</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">读可能不是最新的，但位置不会倒退；性能也押在读上</text>
 
-  <rect x="25" y="62" width="218" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="134" y="84" font-size="12" fill="#1e40af" text-anchor="middle">在跟随者 A 上写入</text>
-  <text x="134" y="102" font-size="12" fill="#1e40af" text-anchor="middle">确认来自多数派</text>
-  <rect x="271" y="62" width="218" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="380" y="84" font-size="12" fill="#166534" text-anchor="middle">紧接着在同一台读</text>
-  <text x="380" y="102" font-size="12" fill="#166534" text-anchor="middle">能读到自己刚写的值</text>
-  <rect x="517" y="62" width="218" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="626" y="84" font-size="12" fill="#9d174d" text-anchor="middle">换一台落后的跟随者读</text>
-  <text x="626" y="102" font-size="12" fill="#9d174d" text-anchor="middle">可能读到旧值</text>
-  <path d="M25,150 L735,150" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M134,142 L134,158" fill="none" stroke="#94a3b8"/>
-  <path d="M380,142 L380,158" fill="none" stroke="#94a3b8"/>
-  <path d="M626,142 L626,158" fill="none" stroke="#94a3b8"/>
-  <text x="134" y="182" font-size="12" fill="#64748b" text-anchor="middle">位置 5</text>
-  <text x="380" y="182" font-size="12" fill="#64748b" text-anchor="middle">位置 6</text>
-  <text x="626" y="182" font-size="12" fill="#64748b" text-anchor="middle">位置 7</text>
-  <text x="134" y="208" font-size="12" fill="#64748b" text-anchor="middle">同一个客户端的写</text>
-  <text x="134" y="226" font-size="12" fill="#64748b" text-anchor="middle">落在同一个顺序上</text>
-  <text x="380" y="208" font-size="12" fill="#64748b" text-anchor="middle">但读到的位置不会倒退</text>
-  <text x="380" y="226" font-size="12" fill="#64748b" text-anchor="middle">也不会往回跳</text>
-  <text x="626" y="208" font-size="12" fill="#64748b" text-anchor="middle">这组保证叫客户端 FIFO</text>
-  <text x="626" y="226" font-size="12" fill="#64748b" text-anchor="middle">足够用，但不等于线性一致</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">客户端 FIFO：同一个客户端的读只会往前</text>
+
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">性能按读与通知优化：数据全在内存，读不必碰磁盘</text>
+
+  <rect x="38" y="82" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="142" y="110" font-size="15" fill="#1e40af" text-anchor="middle">在跟随者 A 上写入</text>
+  <text x="142" y="132" font-size="12" fill="#1e40af" text-anchor="middle">确认来自多数派</text>
+
+  <rect x="275" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="379" y="110" font-size="15" fill="#166534" text-anchor="middle">紧接着在同一台读</text>
+  <text x="379" y="132" font-size="12" fill="#166534" text-anchor="middle">能读到自己刚写的值</text>
+
+  <rect x="512" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="616" y="110" font-size="15" fill="#9d174d" text-anchor="middle">换台落后的读</text>
+  <text x="616" y="132" font-size="12" fill="#9d174d" text-anchor="middle">可能读到旧值，但不往回跳</text>
+
+  <rect x="38" y="216" width="150" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="113" y="244" font-size="15" fill="#b45309" text-anchor="middle">客户端散连多台</text>
+  <text x="113" y="266" font-size="12" fill="#b45309" text-anchor="middle">读在本地完成</text>
+
+  <rect x="216" y="216" width="150" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="291" y="244" font-size="15" fill="#b45309" text-anchor="middle">监视点就地记</text>
+  <text x="291" y="266" font-size="12" fill="#b45309" text-anchor="middle">不集中到领导者</text>
+
+  <rect x="394" y="216" width="150" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="469" y="244" font-size="15" fill="#b45309" text-anchor="middle">异步批量发操作</text>
+  <text x="469" y="266" font-size="12" fill="#b45309" text-anchor="middle">服务端按编号执行</text>
+
+  <rect x="572" y="216" width="150" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="647" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">数据全放内存</text>
+  <text x="647" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">写才要落盘</text>
 </svg>

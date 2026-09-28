@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 423" width="760" height="423"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-raft-12-title fig-raft-12-desc">
-  <title id="fig-raft-12-title">成员变更：直接切换会选出两个领导者</title>
-  <desc id="fig-raft-12-desc">不存在所有节点同时切换配置这件事，节点只能一个一个切；所以必须两阶段：先进入同时包含新旧配置的过渡状态，两套配置各自的多数派都同意之后才切到新配置。</desc>
+  <title id="fig-raft-12-title">成员变更不能直接切，联合共识之外还有三处细节</title>
+  <desc id="fig-raft-12-desc">上排：不存在所有节点同时切换配置这回事，节点只能一个一个切，切换过程中可能冒出两个多数派、同一任期选出两个领导者，所以必须两阶段，先进入同时包含新旧配置的联合共识。下排三处细节：新节点先以非投票成员追日志、领导者不在新配置里就要在提交后退位、被移出的节点要压住它的拉票。</desc>
 
   <defs>
     <style>
@@ -13,32 +13,37 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="423" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">成员变更：直接切换会选出两个领导者</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">成员变更不能直接切，联合共识之外还有三处细节</text>
 
-  <rect x="23" y="64" width="345" height="88" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="39" y="86" font-size="11" fill="#1e293b" text-anchor="start">旧配置的多数派</text>
-  <rect x="38" y="100" width="87" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="81.5" y="122.2" font-size="12" fill="#1e40af" text-anchor="middle">节点 1</text>
-  <rect x="152" y="100" width="87" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="195.5" y="122.2" font-size="12" fill="#1e40af" text-anchor="middle">节点 2</text>
-  <rect x="266" y="100" width="87" height="36" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="309.5" y="122.2" font-size="12" fill="#166534" text-anchor="middle">节点 3</text>
-  <rect x="392" y="64" width="345" height="88" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="408" y="86" font-size="11" fill="#1e293b" text-anchor="start">新配置的多数派</text>
-  <rect x="407" y="100" width="87" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="450.5" y="122.2" font-size="12" fill="#1e40af" text-anchor="middle">节点 3</text>
-  <rect x="521" y="100" width="87" height="36" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="564.5" y="122.2" font-size="12" fill="#166534" text-anchor="middle">节点 4</text>
-  <rect x="635" y="100" width="87" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="678.5" y="122.2" font-size="12" fill="#1e40af" text-anchor="middle">节点 5</text>
-  <rect x="22" y="164" width="716" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380.0" y="192" font-size="15" fill="#9d174d" text-anchor="middle">直接切换不安全：同一个任期里可能选出两个领导者</text>
-  <text x="380.0" y="214" font-size="12" fill="#9d174d" text-anchor="middle">切换过程中集群可能被切成两个各自拥有多数派的群体</text>
-  <rect x="22" y="260" width="716" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="380.0" y="288" font-size="15" fill="#166534" text-anchor="middle">所以必须两阶段：联合共识</text>
-  <text x="380.0" y="310" font-size="12" fill="#166534" text-anchor="middle">日志要复制到两套配置的所有节点，投票与提交都要两边各自的多数派同意</text>
-  <rect x="22" y="356" width="716" height="44" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380.0" y="382" font-size="11" fill="#1e293b" text-anchor="middle">过渡配置提交之后再切到新配置，同一任期里就不会有两个领导者</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">为什么必须两阶段</text>
+
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">缺一个都会出问题的三处细节</text>
+
+  <rect x="38" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="142" y="110" font-size="15" fill="#9d174d" text-anchor="middle">没有同时切换这回事</text>
+  <text x="142" y="132" font-size="12" fill="#9d174d" text-anchor="middle">节点只能一个一个切</text>
+
+  <rect x="275" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="379" y="110" font-size="15" fill="#9d174d" text-anchor="middle">可能冒出两个多数派</text>
+  <text x="379" y="132" font-size="12" fill="#9d174d" text-anchor="middle">同一任期选出两个领导者</text>
+
+  <rect x="512" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="616" y="110" font-size="15" fill="#166534" text-anchor="middle">所以先进入联合共识</text>
+  <text x="616" y="132" font-size="12" fill="#166534" text-anchor="middle">投票与提交要两套配置各自多数派</text>
+
+  <rect x="38" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="142" y="244" font-size="15" fill="#b45309" text-anchor="middle">新节点日志是空的</text>
+  <text x="142" y="266" font-size="12" fill="#b45309" text-anchor="middle">先以非投票成员追日志</text>
+
+  <rect x="275" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="379" y="244" font-size="15" fill="#b45309" text-anchor="middle">领导者可能不在新配置里</text>
+  <text x="379" y="266" font-size="12" fill="#b45309" text-anchor="middle">提交新配置条目后主动退位</text>
+
+  <rect x="512" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="616" y="244" font-size="15" fill="#b45309" text-anchor="middle">被移出的节点会超时</text>
+  <text x="616" y="266" font-size="12" fill="#b45309" text-anchor="middle">压住它带着更高任期发起的拉票</text>
 </svg>

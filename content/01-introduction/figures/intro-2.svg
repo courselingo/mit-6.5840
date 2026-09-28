@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 266" width="760" height="266"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 376" width="760" height="376"
      role="img" aria-labelledby="fig-intro-2-title fig-intro-2-desc">
-  <title id="fig-intro-2-title">一致性、可用性、性能：三者无法同时满足</title>
-  <desc id="fig-intro-2-desc">三项互相拉扯并两两相连，故障发生时只能舍弃其中一个：要一致就得等，要立刻回应就得放弃一致，要快就少协调。</desc>
+  <title id="fig-intro-2-title">取舍的形状：三者互相拉扯，而一致性是一根刻度</title>
+  <desc id="fig-intro-2-desc">左列是一致性、可用性、性能互相拉扯的三条边，想保住任意两样第三样就会先崩。右列是一致性刻度上的三个位置：左端更强更慢，中间是多数派定案，右端更快但可能读到旧值。</desc>
 
   <defs>
     <style>
@@ -13,23 +13,37 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="266" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="376" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一致性、可用性、性能：三者无法同时满足</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">取舍的形状：三者互相拉扯，而一致性是一根刻度</text>
 
-  <rect x="250" y="80" width="260" height="68" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="108" font-size="15" fill="#6b21a8" text-anchor="middle">一致性</text>
-  <text x="380" y="130" font-size="12" fill="#6b21a8" text-anchor="middle">每次读都要等副本同意</text>
+  <rect x="22" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">三条边互相拉扯</text>
 
-  <rect x="22" y="176" width="344" height="68" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="194" y="204" font-size="15" fill="#1e40af" text-anchor="middle">可用性</text>
-  <text x="194" y="226" font-size="12" fill="#1e40af" text-anchor="middle">缺多数派的一侧必须停服</text>
+  <rect x="398" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">一致性刻度上的选点</text>
 
-  <rect x="394" y="176" width="344" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="566" y="204" font-size="15" fill="#b45309" text-anchor="middle">性能</text>
-  <text x="566" y="226" font-size="12" fill="#b45309" text-anchor="middle">协调与等待越多越慢</text>
+  <rect x="38" y="82" width="308" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="192" y="110" font-size="15" fill="#9d174d" text-anchor="middle">一致性</text>
+  <text x="192" y="132" font-size="12" fill="#9d174d" text-anchor="middle">每次读都要等副本同意</text>
 
-  <path d="M245,100 C215,100 200,150 200,165" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M515,100 C545,100 560,150 560,165" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M371,210 L383,210" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="38" y="176" width="308" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="192" y="204" font-size="15" fill="#9d174d" text-anchor="middle">可用性</text>
+  <text x="192" y="226" font-size="12" fill="#9d174d" text-anchor="middle">缺多数派的一侧必须停服</text>
+
+  <rect x="38" y="270" width="308" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="192" y="298" font-size="15" fill="#9d174d" text-anchor="middle">性能</text>
+  <text x="192" y="320" font-size="12" fill="#9d174d" text-anchor="middle">协调与等待越多就越慢</text>
+
+  <rect x="414" y="82" width="308" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="568" y="110" font-size="15" fill="#6b21a8" text-anchor="middle">更强、也更慢</text>
+  <text x="568" y="132" font-size="12" fill="#6b21a8" text-anchor="middle">linearizability：每次都要协调</text>
+
+  <rect x="414" y="176" width="308" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="568" y="204" font-size="15" fill="#b45309" text-anchor="middle">多数派定案</text>
+  <text x="568" y="226" font-size="12" fill="#b45309" text-anchor="middle">Raft 与 Paxos 落在这里</text>
+
+  <rect x="414" y="270" width="308" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="568" y="298" font-size="15" fill="#166534" text-anchor="middle">更快、但可能读到旧值</text>
+  <text x="568" y="320" font-size="12" fill="#166534" text-anchor="middle">eventual consistency</text>
 </svg>

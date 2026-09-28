@@ -1,35 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 259" width="756" height="259" role="img" aria-labelledby="fig-zookeeper-16-title fig-zookeeper-16-desc">
-  <title id="fig-zookeeper-16-title">成员表就是 workers 下的临时节点列表</title>
-  <desc id="fig-zookeeper-16-desc">每个工作节点在 /workers 下建一个临时顺序节点，子节点列表就是活着的成员，监视它就能知道变化。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 376" width="760" height="376"
+     role="img" aria-labelledby="fig-zk-16-title fig-zk-16-desc">
+  <title id="fig-zk-16-title">成员表与配置：同一批原语的两种用法</title>
+  <desc id="fig-zk-16-desc">左列是成员表：每个工作节点在 /workers 下建临时顺序节点，子节点列表就是活着的成员，监视它就知道变化，节点掉线临时节点随会话消失。右列是配置：内容写在一个节点里，修改带版本号、对不上就改不动，改完只通知一次，收到后要重新读。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="2" y="0" width="756" height="259" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="376" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">成员表就是 workers 下的临时节点列表</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">成员表与配置：同一批原语的两种用法</text>
 
-  <rect x="25" y="76" width="710" height="160" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="45" y="104" font-size="12" fill="#64748b" text-anchor="start">/workers</text>
-  <rect x="45" y="126" width="203" height="90" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="146.5" y="148" font-size="12" fill="#1e40af" text-anchor="middle">每个工作节点启动时</text>
-  <text x="146.5" y="166" font-size="12" fill="#1e40af" text-anchor="middle">在 /workers 下建临时节点</text>
-  <text x="146.5" y="184" font-size="12" fill="#1e40af" text-anchor="middle">名字带上顺序号</text>
-  <text x="146.5" y="202" font-size="12" fill="#1e40af" text-anchor="middle">以免撞名</text>
-  <rect x="278" y="126" width="203" height="90" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="379.5" y="148" font-size="12" fill="#166534" text-anchor="middle">于是子节点列表</text>
-  <text x="379.5" y="166" font-size="12" fill="#166534" text-anchor="middle">就是当前活着的工作节点</text>
-  <text x="379.5" y="184" font-size="12" fill="#166534" text-anchor="middle">想知道成员变化</text>
-  <text x="379.5" y="202" font-size="12" fill="#166534" text-anchor="middle">监视子节点列表就可以</text>
-  <rect x="511" y="126" width="203" height="90" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="612.5" y="148" font-size="12" fill="#9d174d" text-anchor="middle">节点崩溃或断连</text>
-  <text x="612.5" y="166" font-size="12" fill="#9d174d" text-anchor="middle">临时节点随会话消失</text>
-  <text x="612.5" y="184" font-size="12" fill="#9d174d" text-anchor="middle">成员表不需要人维护</text>
-  <text x="612.5" y="202" font-size="12" fill="#9d174d" text-anchor="middle">它自己会长</text>
+  <rect x="22" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">成员表：/workers 下的临时节点</text>
+
+  <rect x="398" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">配置：一个节点加一次带版本号的写入</text>
+
+  <rect x="38" y="82" width="308" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="192" y="110" font-size="15" fill="#1e40af" text-anchor="middle">每个工作节点上线</text>
+  <text x="192" y="132" font-size="12" fill="#1e40af" text-anchor="middle">在 /workers 下建一个临时节点</text>
+
+  <rect x="38" y="176" width="308" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="192" y="204" font-size="15" fill="#166534" text-anchor="middle">子节点列表</text>
+  <text x="192" y="226" font-size="12" fill="#166534" text-anchor="middle">就是当前活着的工作节点</text>
+
+  <rect x="38" y="270" width="308" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="192" y="298" font-size="15" fill="#166534" text-anchor="middle">节点掉线，节点也跟着消失</text>
+  <text x="192" y="320" font-size="12" fill="#166534" text-anchor="middle">成员表不需要人维护，它自己会长</text>
+
+  <rect x="414" y="82" width="308" height="110" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="568" y="132" font-size="15" fill="#b45309" text-anchor="middle">配置写在一个节点的内容里</text>
+  <text x="568" y="152" font-size="12" fill="#b45309" text-anchor="middle">读的人只盯这一个节点就够了</text>
+
+  <rect x="414" y="220" width="308" height="110" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="568" y="270" font-size="15" fill="#6b21a8" text-anchor="middle">写入带上版本号</text>
+  <text x="568" y="290" font-size="12" fill="#6b21a8" text-anchor="middle">对不上就改不动，改完只通知一次</text>
 </svg>

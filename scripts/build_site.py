@@ -25,6 +25,56 @@ from urllib.parse import quote
 import banners  # 同目录：页面顶部授权提示条
 import llms  # 同目录：发布 llms.txt 与每页 Markdown
 
+def licence_sentence(lic: dict) -> str:
+    """由 course.toml 的 **[license] 表本身**推导首页授权横幅。
+
+    ★ 绝不写死。许可写错是本项目最不该犯的错：同一句话对 A 级课程是事实，
+      对 B 级课程就是虚假陈述。判定口径见 docs/content-policy.md。
+    """
+    lic = lic or {}
+    terms = str(lic.get("terms", "")).strip() or "未声明"
+    verified = bool(lic.get("verified", False))
+    deriv = bool(lic.get("allows_derivatives", False))
+    comm = bool(lic.get("allows_commercial", False))
+    sa = bool(lic.get("share_alike", False))
+    redist = str(lic.get("redistribution", "unknown")).lower()
+
+    if not verified:
+        # 没核实 = 不声称任何权利。只讲我们自己的原创内容。
+        return (
+            f"上游许可：**尚未核实**（{terms}）。\n\n"
+            "因此本站**只发布 CourseLingo 自己撰写的原创讲解** —— 讲概念、不转载课程原文，"
+            "也不做逐段对照。原作者与院校保留一切权利。\n\n"
+        )
+
+    parts = [f"上游许可：{terms}。"]
+    if not deriv:
+        parts.append("该许可**不允许衍生作品**，因此本站只发布原创讲解。")
+    else:
+        parts.append("允许翻译" + ("与商用" if comm else "，但**仅限非商用**") + "，需署名。")
+        if sa:
+            parts.append("**同协议（SA）**：本站由该材料衍生的内容同样以该协议发布。")
+    if redist != "allowed":
+        parts.append("我们**不转载**课程原始材料。")
+    parts.append("原作者与院校保留其权利。")
+    # 让每条一句，读起来是提示而不是律师函
+    return "上游许可：" + "".join(x[len("上游许可："):] if x.startswith("上游许可：") else x for x in parts) + "\n\n"
+
+
+def yq(s) -> str:
+    """把任意字符串变成**合法的 YAML 双引号标量**。
+
+    JSON 是 YAML 1.2 的子集，所以 json.dumps 的转义对 YAML 合法。
+    只用标准库，不引入 PyYAML —— build_site.py 至今是零第三方依赖。
+
+    ★ 为什么必须有它：课程标题来自上游，我们无权改（改了就是误写官方名称）。
+    CS168 的官方标题逐字含 ": "，不加引号会让 mkdocs 直接解析失败。
+    同类字符：`: ` ` #`、行首的 `* & ! | > % @ ` `。
+    """
+    import json
+    return json.dumps(str(s), ensure_ascii=False)
+
+
 TERM_RE = re.compile(r"\[\[term:([A-Za-z0-9_.\-]+)\]\]")
 H1_RE = re.compile(r"^#\s+", re.M)
 
@@ -264,7 +314,8 @@ def main(argv: list[str] | None = None) -> int:
         f"## 讲座\n\n{lec_list}\n\n## 经典论文\n\n{pap_list}\n\n"
         f"## 术语表\n\n[全部术语](glossary.md)\n\n"
         f"## 授权\n\n"
-        f"上游许可：CC BY 3.0 US —— 允许翻译与商用，需署名。\n\n"
+        + licence_sentence(cfg.get("license", {}) or {})
+        + "\n"
         f"详细规则见[内容策略]({PLATFORM_DOCS}/content-policy.md)与"
         f"[论文授权]({PLATFORM_DOCS}/paper-licensing.md)。\n",
         encoding="utf-8",
@@ -274,11 +325,11 @@ def main(argv: list[str] | None = None) -> int:
     nav = ["- 首页: index.md"]
     nav.append("- 讲座:")
     for n, title, slug in lectures:
-        nav.append(f"    - 第 {n} 讲 · {title}: lectures/{slug}.md")
+        nav.append(f"    - {yq(f'第 {n} 讲 · {title}')}: lectures/{slug}.md")
     if paper_pages:
         nav.append("- 论文导读:")
         for key, title in paper_pages:
-            nav.append(f"    - {title}: papers/{key}.md")
+            nav.append(f"    - {yq(title)}: papers/{key}.md")
     nav.append("- 术语表: glossary.md")
 
     # 站点身份取自 course.toml 的 [site]（复制模板后必须改那里），
@@ -287,18 +338,18 @@ def main(argv: list[str] | None = None) -> int:
     repo_full = str(site_cfg.get("repo", "")).strip() or "courselingo/courselingo"
     site_url = str(site_cfg.get("url", "")).strip()
 
-    cfg_yml = f"""site_name: {site_title}
+    cfg_yml = f"""site_name: {yq(site_title)}
 # 右上角显示本课程的仓库。repo_name 会显示在图标旁（宽屏）。
 # 带上组织名，让 CourseLingo 的归属一眼可见。
-repo_url: https://github.com/{repo_full}
-repo_name: {repo_full}
+repo_url: {yq("https://github.com/" + repo_full)}
+repo_name: {yq(repo_full)}
 # 站点规范地址：项目站点必须带 /<repo>/ 前缀，否则 canonical 与 sitemap 会错，
 # MkDocs 也会给出「site_url 未设置」的提示。
-site_url: {site_url or f"https://courselingo.github.io/{repo_full.split('/')[-1]}/"}
+site_url: {yq(site_url or f"https://courselingo.github.io/{repo_full.split(chr(47))[-1]}/")}
 # 本站的 docs/ 是 build_site.py **生成**的，不是源文件 ——
 # 默认的「编辑此页」会指向生成物，所以关掉，避免误导贡献者。
 edit_uri: ""
-site_description: {course.get('title', '')} — CourseLingo 中文讲解
+site_description: {yq(f"{course.get('title', '')} — CourseLingo 中文讲解")}
 docs_dir: {docs.as_posix()}
 site_dir: {(root / args.out).as_posix()}
 use_directory_urls: false

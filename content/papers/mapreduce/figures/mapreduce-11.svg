@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 266" width="760" height="266"
-     role="img" aria-labelledby="fig-mapreduce-11-title fig-mapreduce-11-desc">
-  <title id="fig-mapreduce-11-title">迭代式算法：每轮都要落盘再读回</title>
-  <desc id="fig-mapreduce-11-desc">每一轮都是一次新作业：先读输入、算出中间结果、落进分布式文件系统，下一轮再全部读回来，于是落盘与搬运的成本被乘上迭代次数。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 456" width="760" height="456"
+     role="img" aria-labelledby="fig-mr-11-title fig-mr-11-desc">
+  <title id="fig-mr-11-title">三条刻在模型与结构上的边界</title>
+  <desc id="fig-mr-11-desc">迭代式算法每一轮都要落盘再读回，成本乘上迭代次数，Spark 把中间结果留在内存里正是针对这一条；主节点同时是调度者、中间结果位置的中转站与状态页，O(M×R) 的状态把作业规模钉在这里；框架不支持把一个任务的多个输出原子地一起提交，有一致性要求时只能靠用户保证确定性。</desc>
 
   <defs>
     <style>
@@ -13,26 +13,40 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="266" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="456" fill="#ffffff"/>
 
-  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">迭代式算法：每轮都要落盘再读回</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三条刻在模型与结构上的边界</text>
 
-  <rect x="23" y="64" width="159" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="102.5" y="92" font-size="15" fill="#1e40af" text-anchor="middle">读输入数据</text>
-  <text x="102.5" y="114" font-size="12" fill="#1e40af" text-anchor="middle">本轮从文件系统读回</text>
-  <rect x="208" y="64" width="159" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="287.5" y="92" font-size="15" fill="#b45309" text-anchor="middle">本轮计算</text>
-  <text x="287.5" y="114" font-size="12" fill="#b45309" text-anchor="middle">map 产出中间结果</text>
-  <rect x="393" y="64" width="159" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="472.5" y="92" font-size="15" fill="#9d174d" text-anchor="middle">中间结果落盘</text>
-  <text x="472.5" y="114" font-size="12" fill="#9d174d" text-anchor="middle">写进分布式文件系统</text>
-  <rect x="578" y="64" width="159" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="657.5" y="92" font-size="15" fill="#9d174d" text-anchor="middle">下一轮再全部读回</text>
-  <text x="657.5" y="114" font-size="12" fill="#9d174d" text-anchor="middle">每一轮都要重付一次</text>
-  <path d="M187,98 L197,98" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M372,98 L382,98" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M557,98 L567,98" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M657.5,137 C 657.5,166 620,180 580,180 L 168,180 C 128,180 102.5,166 102.5,143" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <text x="380" y="206" font-size="12" fill="#1e293b" text-anchor="middle">一轮就是一圈：落盘与搬运的成本被乘上迭代次数</text>
-  <text x="380" y="240" font-size="10" fill="#64748b" text-anchor="middle">算法本身不再是瓶颈，所以它适合一次扫描、一次变换；Spark 把中间结果留在内存里正是针对这一条</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">不适合迭代式算法</text>
+
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">主节点是单点</text>
+
+  <rect x="22" y="324" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="338" font-size="12" fill="#64748b" text-anchor="middle">多文件提交没有支持</text>
+
+  <rect x="38" y="82" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="202" y="110" font-size="15" fill="#9d174d" text-anchor="middle">每一轮都要落盘再读回</text>
+  <text x="202" y="132" font-size="12" fill="#9d174d" text-anchor="middle">落盘与 shuffle 的成本乘上迭代次数</text>
+
+  <rect x="394" y="82" width="328" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="558" y="110" font-size="15" fill="#166534" text-anchor="middle">Spark 把中间结果留在内存</text>
+  <text x="558" y="132" font-size="12" fill="#166534" text-anchor="middle">针对的正是这一条</text>
+
+  <rect x="38" y="216" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="202" y="244" font-size="15" fill="#9d174d" text-anchor="middle">调度者、位置中转站与状态页</text>
+  <text x="202" y="266" font-size="12" fill="#9d174d" text-anchor="middle">三份工作都在同一个角色身上</text>
+
+  <rect x="394" y="216" width="328" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="558" y="244" font-size="15" fill="#b45309" text-anchor="middle">O(M×R) 的常驻状态</text>
+  <text x="558" y="266" font-size="12" fill="#b45309" text-anchor="middle">作业规模的上限不在算法，在这里</text>
+
+  <rect x="38" y="350" width="328" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="202" y="378" font-size="15" fill="#1e40af" text-anchor="middle">一个任务产出一个文件</text>
+  <text x="202" y="400" font-size="12" fill="#1e40af" text-anchor="middle">靠原子改名，一次写入定胜负</text>
+
+  <rect x="394" y="350" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="558" y="378" font-size="15" fill="#9d174d" text-anchor="middle">多个输出没有对应动作</text>
+  <text x="558" y="400" font-size="12" fill="#9d174d" text-anchor="middle">有一致性要求就只能靠用户保证确定性</text>
 </svg>

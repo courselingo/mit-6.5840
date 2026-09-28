@@ -1,39 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 265" width="756" height="265" role="img" aria-labelledby="fig-zookeeper-15-title fig-zookeeper-15-desc">
-  <title id="fig-zookeeper-15-title">监视点的三个坑，以及那个循环</title>
-  <desc id="fig-zookeeper-15-desc">通知不保证次数与时机，收到后要重新读状态；注册与读之间节点可能又变，所以往往要写成循环。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
+     role="img" aria-labelledby="fig-zk-15-title fig-zk-15-desc">
+  <title id="fig-zk-15-title">用之前要知道的两件事：通知不保证次数，会话超时两头付代价</title>
+  <desc id="fig-zk-15-desc">上排：通知不保证次数也可能在预料之外到来，收到后要重新读状态，读、注册、再检查往往要写成循环。下排：会话超时取短会误杀活着的客户端并删掉临时节点，取长则真崩了要等更久才切换。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
-    </marker>
-    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#a855f7"/>
     </marker>
   </defs>
 
-  <rect x="2" y="0" width="756" height="265" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">监视点的三个坑，以及那个循环</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">用之前要知道的两件事：通知不保证次数，会话超时两头付代价</text>
 
-  <rect x="25" y="76" width="218" height="90" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="134" y="98" font-size="12" fill="#1e40af" text-anchor="middle">通知不保证次数</text>
-  <text x="134" y="116" font-size="12" fill="#1e40af" text-anchor="middle">也可能在预料之外到来</text>
-  <text x="134" y="134" font-size="12" fill="#1e40af" text-anchor="middle">收到通知的正确做法</text>
-  <text x="134" y="152" font-size="12" fill="#1e40af" text-anchor="middle">是重新读一遍状态</text>
-  <rect x="271" y="76" width="218" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="98" font-size="12" fill="#b45309" text-anchor="middle">不能认为状态</text>
-  <text x="380" y="116" font-size="12" fill="#b45309" text-anchor="middle">已经是你要的样子</text>
-  <text x="380" y="134" font-size="12" fill="#b45309" text-anchor="middle">通知与重新注册之间</text>
-  <text x="380" y="152" font-size="12" fill="#b45309" text-anchor="middle">节点可能又变一次</text>
-  <rect x="517" y="76" width="218" height="90" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="626" y="98" font-size="12" fill="#166534" text-anchor="middle">读、注册、再检查</text>
-  <text x="626" y="116" font-size="12" fill="#166534" text-anchor="middle">往往要写成一个循环</text>
-  <text x="626" y="134" font-size="12" fill="#166534" text-anchor="middle">注册和读是两个操作</text>
-  <text x="626" y="152" font-size="12" fill="#166534" text-anchor="middle">不指望通知与值配套</text>
-  <path d="M248,121 L260,121" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M494,121 L506,121" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M626,171 C626,265 134,265 134,177" fill="none" stroke="#a855f7" marker-end="url(#arrow-purple)"/>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">监视点的三个坑，以及那个循环</text>
+
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">会话超时取短还是取长</text>
+
+  <rect x="38" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="142" y="110" font-size="15" fill="#9d174d" text-anchor="middle">通知不保证次数</text>
+  <text x="142" y="132" font-size="12" fill="#9d174d" text-anchor="middle">也可能在预料之外到来</text>
+
+  <rect x="275" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="379" y="110" font-size="15" fill="#166534" text-anchor="middle">收到通知就重新读</text>
+  <text x="379" y="132" font-size="12" fill="#166534" text-anchor="middle">不能假设它已是你要的样子</text>
+
+  <rect x="512" y="82" width="209" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="616" y="110" font-size="15" fill="#6b21a8" text-anchor="middle">读、注册、再检查</text>
+  <text x="616" y="132" font-size="12" fill="#6b21a8" text-anchor="middle">往往要写成一个循环</text>
+
+  <rect x="38" y="216" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="202" y="244" font-size="15" fill="#9d174d" text-anchor="middle">取短：网络一抖</text>
+  <text x="202" y="266" font-size="12" fill="#9d174d" text-anchor="middle">就误杀活着的客户端，临时节点被删</text>
+
+  <rect x="394" y="216" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="558" y="244" font-size="15" fill="#9d174d" text-anchor="middle">取长：真的崩了</text>
+  <text x="558" y="266" font-size="12" fill="#9d174d" text-anchor="middle">要等更久才能切换，这段谁来服务没答案</text>
 </svg>

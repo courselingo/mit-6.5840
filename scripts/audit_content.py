@@ -27,9 +27,23 @@ IMG = re.compile(r"!\[[^\]]*\]\((figures/[^)]+\.svg)\)")
 CODE = re.compile(r"```.*?```", re.S)
 
 # ---- 阈值（改这里就是改标准）----
-MIN_FIG_PER_K = 2.0      # 每千汉字图数下限
-TARGET_FIG_PER_K = 3.0   # 目标带
-MAX_FIG_PER_K = 5.0      # 上限：超过就是拿图凑数
+MIN_FIG_PER_K = 1.2      # 每千汉字图数下限（红线）
+TARGET_FIG_PER_K = 1.8   # 参考目标（**不作闸门**，见下方说明）
+MAX_FIG_PER_K = 2.8      # 上限：超过就是拿图凑数
+
+# ★ 真正决定密度的是「每节几张」，不是「每千字几张」。
+#   实测第一轮：每节平均 3.02 张，22 个小节 ≥3 张，最极端 11 张。
+#   图文重复度却都在 0.64 以下 —— 说明问题不是「图在复述正文」，
+#   而是**同一个机制被切成太多张**。所以限制按节来。
+# ★ 为什么密度**下限**不当闸门：
+#   用户抱怨的失败模式是「图太多」，所以上限必须硬。
+#   而「图太少」已经被「每个内容小节 ≥1 张」覆盖 —— 再设密度下限是冗余的，
+#   而且冗余约束会在「小节少而长」的页面上和上限直接打架：实测
+#   mapreduce（5 节 / 6981 字）按每节上限只有 12 张，密度 1.72 < 1.8 → 无解。
+#   度量互相矛盾时，应当删掉冗余的那一条，而不是让执行者去凑数。
+#   TARGET 仅作参考输出，不影响退出码。
+MAX_FIG_PER_SECTION = 2      # 每个内容小节最多几张（超过即 ERROR）
+LONG_SECTION_CJK = 1500      # 超过这个长度的小节放宽到 MAX_FIG_PER_SECTION + 1
 MAX_GAP_CJK = 1200       # 连续多少汉字无图算「缺口」
 MAX_SENT_CJK = 120       # 单句最长汉字数
 MAX_SENT_AVG = 55        # 平均句长
@@ -40,12 +54,38 @@ MAX_SAME_LAYOUT = 0.15   # 同一版面指纹最多占全部图的比例（超�
 LAYOUT_HARD = 0.25       # 超过这个比例判 ERROR（视觉通道失效）
 MIN_H2 = 5               # 小节数下限
 
-SYSTEMS = [
+# 默认名单只是**兜底**，不是标准答案：它偏分布式系统，因为本项目的第一个
+# 课程是 MIT 6.824。算法课、机器学习系统课各有自己的「具体对象」，
+# 所以真正的名单由 course.toml 的 [audit].named_systems 追加 ——
+# 域相关的启发式不该写死在通用脚本里。
+DEFAULT_SYSTEMS = [
     "GFS", "MapReduce", "Raft", "Paxos", "ZooKeeper", "Spanner", "Chubby",
     "HDFS", "Ceph", "Dynamo", "BigTable", "Kafka", "etcd", "Memcached",
     "Aurora", "Frangipani", "CRAQ", "Chain Replication", "VMware FT",
     "gRPC", "Thrift", "NFS", "AFS", "xv6", "Go", "RPC", "ZAB", "Multi-Paxos",
+    # 跨领域也算得上的通用工具与语言，避免非系统课被误判
+    "Python", "Java", "C++", "Rust", "SQLite", "PostgreSQL", "Linux",
+    "Docker", "Kubernetes", "Redis", "SQL", "HTTP", "TCP", "JSON",
 ]
+
+
+def load_audit_config(root: Path) -> dict:
+    """读 course.toml 的 [audit]（named_systems / named_systems_min）。"""
+    cfg = root / "course.toml"
+    if not cfg.exists():
+        return {}
+    try:
+        import tomllib
+        return tomllib.loads(cfg.read_text(encoding="utf-8")).get("audit", {}) or {}
+    except Exception:
+        return {}
+
+
+def systems_for(root: Path) -> tuple[list[str], int]:
+    c = load_audit_config(root)
+    extra = [str(x) for x in (c.get("named_systems") or [])]
+    minimum = int(c.get("named_systems_min", MIN_NAMED_SYSTEMS))
+    return DEFAULT_SYSTEMS + extra, minimum
 
 
 def force_utf8() -> None:
@@ -69,7 +109,8 @@ def sentences(body: str) -> list[str]:
     return [p.strip() for p in parts if CJK.search(p)]
 
 
-def audit(path: Path, root: Path) -> tuple[list[str], list[str]]:
+def audit(path: Path, root: Path, systems: list[str] | None = None,
+          named_min: int = MIN_NAMED_SYSTEMS) -> tuple[list[str], list[str]]:
     """返回 (errors, warnings)。"""
     raw = path.read_text(encoding="utf-8")
     body = strip_fm(raw)
@@ -93,10 +134,6 @@ def audit(path: Path, root: Path) -> tuple[list[str], list[str]]:
             f"（下限 {MIN_FIG_PER_K}，目标 {TARGET_FIG_PER_K}）⇒ 至少还需 "
             f"{int(MIN_FIG_PER_K*per_k)+1-n_img} 幅"
         )
-    elif n_img / per_k < TARGET_FIG_PER_K:
-        warns.append(
-            f"[配图密度] 每千字 {n_img/per_k:.2f} 幅，未达目标 {TARGET_FIG_PER_K}"
-        )
     if n_img / per_k > MAX_FIG_PER_K:
         warns.append(
             f"[配图密度] 每千字 {n_img/per_k:.2f} 幅，超过上限 {MAX_FIG_PER_K}"
@@ -110,11 +147,21 @@ def audit(path: Path, root: Path) -> tuple[list[str], list[str]]:
         for i, (pos, title) in enumerate(marks):
             end = marks[i + 1][0] if i + 1 < len(marks) else len(body)
             seg = body[pos:end]
-            if not IMG.search(seg):
-                # 「读完应该能回答」「脉络回顾」「溯源」这类收尾小节不强制配图
-                if re.search(r"(应该能回答|脉络回顾|小结|溯源|来源|延伸阅读)", title):
-                    continue
+            # 收尾小节不强制配图
+            if re.search(r"(应该能回答|脉络回顾|小结|溯源|来源|延伸阅读)", title):
+                continue
+            n_here = len(IMG.findall(seg))
+            if n_here == 0:
                 errs.append(f"[小节缺图] 「{title[:28]}」整节没有配图")
+            # ★ 上限比下限更重要：一个机制画三张以上就是把读者切晕
+            elif n_here > MAX_FIG_PER_SECTION:
+                seg_cjk = len(CJK.findall(seg))
+                cap = MAX_FIG_PER_SECTION + (1 if seg_cjk > LONG_SECTION_CJK else 0)
+                if n_here > cap:
+                    errs.append(
+                        f"[小节过密] 「{title[:26]}」{seg_cjk} 汉字配了 {n_here} 张图"
+                        f"（上限 {cap}）—— 同一机制切太碎，应当合并而不是各画一张"
+                    )
 
     # ---- C. 无图缺口 ----
     if imgs:
@@ -172,9 +219,10 @@ def audit(path: Path, root: Path) -> tuple[list[str], list[str]]:
             f"[不够具体] 具体数字 {len(nums)} 个 / {per_k:.1f}k 字"
             f"（下限 {MIN_NUM_PER_K}/千字）—— 多给数字、少下形容词"
         )
-    named = sum(1 for s in SYSTEMS if s.lower() in body.lower())
-    if named < MIN_NAMED_SYSTEMS:
-        warns.append(f"[点名不足] 只点到 {named} 个具体系统/协议（建议 ≥{MIN_NAMED_SYSTEMS}）")
+    pool = systems if systems is not None else DEFAULT_SYSTEMS
+    named = sum(1 for s in pool if s.lower() in body.lower())
+    if named < named_min:
+        warns.append(f"[点名不足] 只点到 {named} 个具体对象（建议 ≥{named_min}）")
 
     # ---- G. 结构与术语 ----
     if len(h2s) < MIN_H2:
@@ -269,8 +317,9 @@ def main(argv: list[str] | None = None) -> int:
     print(f"内容审计：{len(files)} 篇")
     corpus_errs, corpus_warns = audit_layouts(root)
     n_err = n_warn = 0
+    pool, named_min = systems_for(root)
     for f in files:
-        errs, warns = audit(f, root)
+        errs, warns = audit(f, root, pool, named_min)
         rel = f.relative_to(root).as_posix()
         n_err += len(errs)
         n_warn += len(warns)

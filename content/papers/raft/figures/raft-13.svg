@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 323" width="760" height="323"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-raft-13-title fig-raft-13-desc">
-  <title id="fig-raft-13-title">日志会无限增长：写下状态，丢掉之前的日志</title>
-  <desc id="fig-raft-13-desc">日志不断变长、重启重放越来越慢，所以把状态机当前状态整体写成快照，连同「最后包含的位置」一起记下来，然后丢掉该位置之前的日志。</desc>
+  <title id="fig-raft-13-title">日志会无限增长，以及状态机必须确定</title>
+  <desc id="fig-raft-13-desc">日志不断变长、重启后重放越来越慢，所以写快照并丢弃它之前的日志；让每个跟随者各自做快照更高效，落后太多时才由领导者分块传快照。另一个前提是状态机必须确定：内部有随机数、依赖墙上时钟或外部副作用时，相同命令会算出不同状态，这部分不确定性必须由上层处理。</desc>
 
   <defs>
     <style>
@@ -13,33 +13,33 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="323" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">日志会无限增长：写下状态，丢掉之前的日志</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">日志会无限增长，以及状态机必须确定</text>
 
-  <rect x="22" y="76" width="80" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="62.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">条目 1</text>
-  <rect x="128" y="76" width="80" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="168.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">条目 2</text>
-  <rect x="234" y="76" width="80" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="274.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">条目 3</text>
-  <rect x="340" y="76" width="80" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="380.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">条目 4</text>
-  <rect x="446" y="76" width="80" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="486.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">条目 5</text>
-  <rect x="552" y="76" width="80" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="592.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">条目 6</text>
-  <rect x="658" y="76" width="80" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="698.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">条目 n</text>
-  <path d="M195,117 L195,129" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M565,117 L565,129" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <rect x="22" y="140" width="345" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="194.5" y="168" font-size="15" fill="#166534" text-anchor="middle">快照：整体写下状态机的状态</text>
-  <text x="194.5" y="190" font-size="12" fill="#166534" text-anchor="middle">连同一个「最后包含的位置」</text>
-  <rect x="393" y="140" width="345" height="68" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="565.5" y="168" font-size="15" fill="#6b21a8" text-anchor="middle">丢掉该位置之前的日志</text>
-  <text x="565.5" y="190" font-size="12" fill="#6b21a8" text-anchor="middle">重启就不用重放全部条目</text>
-  <rect x="22" y="236" width="716" height="64" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380.0" y="260" font-size="11" fill="#1e293b" text-anchor="middle">长期运行的集群日志不断变长，重启后重放全部条目也越来越慢</text>
-  <text x="380.0" y="280" font-size="10" fill="#64748b" text-anchor="middle">让每个跟随者各自独立做快照更高效；某个跟随者落后太多时，由领导者把快照分块传给它</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">日志无限增长这件事，靠快照解决</text>
+
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">有一个前提比任何一条规则都基础</text>
+
+  <rect x="38" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="142" y="110" font-size="15" fill="#9d174d" text-anchor="middle">日志不断变长</text>
+  <text x="142" y="132" font-size="12" fill="#9d174d" text-anchor="middle">重启后重放全部条目越来越慢</text>
+
+  <rect x="275" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="379" y="110" font-size="15" fill="#166534" text-anchor="middle">写快照并丢弃之前的日志</text>
+  <text x="379" y="132" font-size="12" fill="#166534" text-anchor="middle">状态整体写下，带最后包含的位置</text>
+
+  <rect x="512" y="82" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="616" y="110" font-size="15" fill="#b45309" text-anchor="middle">每个跟随者各自做快照</text>
+  <text x="616" y="132" font-size="12" fill="#b45309" text-anchor="middle">落后太多才由领导者分块传给它</text>
+
+  <rect x="38" y="216" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="202" y="244" font-size="15" fill="#9d174d" text-anchor="middle">随机数、墙上时钟、外部副作用</text>
+  <text x="202" y="266" font-size="12" fill="#9d174d" text-anchor="middle">相同命令会算出不同状态</text>
+
+  <rect x="394" y="216" width="328" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="558" y="244" font-size="15" fill="#166534" text-anchor="middle">这份不确定性混进状态机</text>
+  <text x="558" y="266" font-size="12" fill="#166534" text-anchor="middle">复制就失去意义，必须由上层处理</text>
 </svg>

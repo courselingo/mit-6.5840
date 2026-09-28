@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 247" width="760" height="247"
-     role="img" aria-labelledby="fig-mapreduce-12-title fig-mapreduce-12-desc">
-  <title id="fig-mapreduce-12-title">坏记录卡死作业：第二次失败就跳过它</title>
-  <desc id="fig-mapreduce-12-desc">用户代码在一条记录上确定性地崩溃，worker 在调用前记下当前记录序号、崩溃时用一个 UDP 包报给主节点；主节点发现同一条记录失败超过一次，重跑时就跳过它。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
+     role="img" aria-labelledby="fig-mr-12-title fig-mr-12-desc">
+  <title id="fig-mr-12-title">坏记录会卡死作业，以及那些不属于漂亮机制的成本</title>
+  <desc id="fig-mr-12-desc">用户代码如果在某条记录上确定性崩溃，整个作业永远完不成；框架的办法是让 worker 把当前记录序号用一条「最后的话」报文报给主节点，同一条失败超过一次就在重跑时跳过它。另一类成本藏在实测里：grep 的 150 秒里约一分钟是启动开销，排序测试一半时间花在把中间结果写本地磁盘上。</desc>
 
   <defs>
     <style>
@@ -13,26 +13,29 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="247" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">坏记录卡死作业：第二次失败就跳过它</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">坏记录会卡死作业，以及那些不属于漂亮机制的成本</text>
 
-  <rect x="22.0" y="64" width="159.5" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="101.75" y="92" font-size="15" fill="#9d174d" text-anchor="middle">用户代码崩溃</text>
-  <text x="101.75" y="114" font-size="12" fill="#9d174d" text-anchor="middle">在某条记录上必崩</text>
-  <rect x="207.5" y="64" width="159.5" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="287.25" y="92" font-size="15" fill="#b45309" text-anchor="middle">worker 记下序号</text>
-  <text x="287.25" y="114" font-size="12" fill="#b45309" text-anchor="middle">调用前记住当前记录</text>
-  <rect x="393.0" y="64" width="159.5" height="68" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="472.75" y="92" font-size="15" fill="#6b21a8" text-anchor="middle">用一个 UDP 包</text>
-  <text x="472.75" y="114" font-size="12" fill="#6b21a8" text-anchor="middle">把序号报给主节点</text>
-  <rect x="578.5" y="64" width="159.5" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="658.25" y="92" font-size="15" fill="#9d174d" text-anchor="middle">第二次失败就跳过</text>
-  <text x="658.25" y="114" font-size="12" fill="#9d174d" text-anchor="middle">作业能跑完，结果不完整</text>
-  <path d="M186.5,98 L196.5,98" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M372.0,98 L382.0,98" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M557.5,98 L567.5,98" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <rect x="23" y="160" width="714" height="64" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380.0" y="184" font-size="11" fill="#1e293b" text-anchor="middle">主节点发现同一条记录失败超过一次，重跑时就跳过它</text>
-  <text x="380.0" y="204" font-size="10" fill="#64748b" text-anchor="middle">等于在「作业能跑完」和「结果完整」之间做了一次显式交换</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">一条记录让用户代码确定性地崩溃</text>
+
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">启动、元数据与本地磁盘带宽</text>
+
+  <rect x="38" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="142" y="110" font-size="15" fill="#9d174d" text-anchor="middle">作业永远完不成</text>
+  <text x="142" y="132" font-size="12" fill="#9d174d" text-anchor="middle">重跑还是卡在同一条记录上</text>
+
+  <rect x="275" y="82" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="379" y="110" font-size="15" fill="#b45309" text-anchor="middle">worker 报出序号</text>
+  <text x="379" y="132" font-size="12" fill="#b45309" text-anchor="middle">装信号处理器，用「最后的话」上报</text>
+
+  <rect x="512" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="616" y="110" font-size="15" fill="#166534" text-anchor="middle">失败超过一次就跳过</text>
+  <text x="616" y="132" font-size="12" fill="#166534" text-anchor="middle">作业能跑完，代价是结果不完整</text>
+
+  <rect x="38" y="216" width="684" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">grep 的 150 秒里约一分钟是启动开销：分发程序、打开上千个输入文件、取本地性信息</text>
+  <text x="380" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">排序测试有一半时间在把中间结果写本地磁盘：性能上限不只在算法</text>
 </svg>

@@ -1,30 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-5-title fig-raft-5-desc">
-  <title id="fig-raft-5-title">为什么当时需要一个新算法：旧答案难懂也难拼装</title>
-  <desc id="fig-raft-5-desc">单值内核没有直观解释，拼成日志又添细节；多副本下没有公认的多决策版本，各系统各自演化。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
+     role="img" aria-labelledby="fig-raft-5-title fig-raft-5-desc">
+  <title id="fig-raft-5-title">旧答案的两个缺口，以及用来支撑「更容易学会」的那组数据</title>
+  <desc id="fig-raft-5-desc">Paxos 有两个缺口：单值内核很紧凑却缺少直观解释，多副本场景下又没有公认的多决策版本，各系统各自演化。论文用一组小规模数据支撑更容易学会这个主张：43 名学生的卷面里 Raft 平均 25.7 分、Paxos 平均 20.8 分，33 人在 Raft 上得分更高，论文自己给出保留并用回归修正。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">为什么当时需要一个新算法：旧答案难懂也难拼装</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">旧答案的两个缺口，以及支撑「更容易学会」的那组数据</text>
 
-  <rect x="25" y="64" width="340" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="195" y="86" font-size="12" fill="#9d174d" text-anchor="middle">单值内核很微妙</text>
-  <text x="195" y="104" font-size="12" fill="#9d174d" text-anchor="middle">两个阶段之间没有直观解释</text>
-  <rect x="395" y="64" width="340" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="565" y="86" font-size="12" fill="#9d174d" text-anchor="middle">拼成一条日志的规则</text>
-  <text x="565" y="104" font-size="12" fill="#9d174d" text-anchor="middle">又引入更多细节</text>
-  <rect x="25" y="143" width="340" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="195" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">多副本场景下</text>
-  <text x="195" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">没有公认的多决策版本</text>
-  <rect x="395" y="143" width="340" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="565" y="165" font-size="12" fill="#9d174d" text-anchor="middle">每个真实系统各自演化</text>
-  <text x="565" y="183" font-size="12" fill="#9d174d" text-anchor="middle">最后以一份没被证明过的协议为基础</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">要换一条路的两条理由</text>
+
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">论文用一组小规模数据支撑了「更容易学会」</text>
+
+  <rect x="38" y="82" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="202" y="110" font-size="15" fill="#9d174d" text-anchor="middle">单值内核很紧凑</text>
+  <text x="202" y="132" font-size="12" fill="#9d174d" text-anchor="middle">两个阶段没有直观解释，很难独立理解</text>
+
+  <rect x="394" y="82" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="558" y="110" font-size="15" fill="#9d174d" text-anchor="middle">多副本下没有公认版本</text>
+  <text x="558" y="132" font-size="12" fill="#9d174d" text-anchor="middle">每个真实系统都各自演化出不同架构</text>
+
+  <rect x="38" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="142" y="244" font-size="15" fill="#1e40af" text-anchor="middle">43 名学生答卷</text>
+  <text x="142" y="266" font-size="12" fill="#1e40af" text-anchor="middle">Raft 平均 25.7 分</text>
+
+  <rect x="275" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="379" y="244" font-size="15" fill="#1e40af" text-anchor="middle">Paxos 平均 20.8 分</text>
+  <text x="379" y="266" font-size="12" fill="#1e40af" text-anchor="middle">33 人在 Raft 上得分更高</text>
+
+  <rect x="512" y="216" width="209" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="616" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">论文自己给保留</text>
+  <text x="616" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">回归修正后的差距比实测更大</text>
 </svg>

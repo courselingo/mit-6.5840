@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 304" width="760" height="304"
-     role="img" aria-labelledby="rpc-and-threads-12-title rpc-and-threads-12-desc">
-  <title id="rpc-and-threads-12-title">一次 RPC 的失败窗口：超时之后客户端不知道什么</title>
-  <desc id="rpc-and-threads-12-desc">客户端发出请求后只看到「没有回复」这一种现象，但背后可能是请求没送到、服务端还在处理、回复丢了或者服务端已经崩溃，四种原因在调用方眼里完全一样。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
+     role="img" aria-labelledby="fig-rt-12-title fig-rt-12-desc">
+  <title id="fig-rt-12-title">超时之后客户端不知道什么，以及重发带来的覆盖</title>
+  <desc id="fig-rt-12-desc">上排是四种无法区分的原因：请求没送到、收到但还在处理、回复丢在半路、服务端已崩溃。下排是等不及的重发：客户端写 10 又写 20 且两次都报告成功，迟到的旧包落地，后到的 10 覆盖了 20。</desc>
 
   <defs>
     <style>
@@ -13,39 +13,44 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="304" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一次 RPC 的失败窗口：超时之后客户端不知道什么</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">超时之后客户端不知道什么，以及重发带来的覆盖</text>
 
-  <rect x="22" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="194" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">客户端</text>
-  <text x="194" y="118" font-size="12" fill="#64748b" text-anchor="middle">发出请求，一直等到超时</text>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">客户端眼里只有一种现象：没等到回复</text>
 
-  <rect x="394" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="566" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">服务端</text>
-  <text x="566" y="118" font-size="12" fill="#64748b" text-anchor="middle">收到请求，执行，回发结果</text>
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">等不及的重发：一次逻辑操作变成两次真实执行</text>
 
-  <path d="M371,96 L 383,96" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M389,118 L 377,118" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M252,250 L264,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M489,250 L501,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
-  <rect x="22" y="152" width="716" height="127" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <rect x="38" y="82" width="150" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="113" y="110" font-size="15" fill="#9d174d" text-anchor="middle">① 没送到</text>
+  <text x="113" y="132" font-size="12" fill="#9d174d" text-anchor="middle">服务端没收到</text>
 
-  <rect x="44" y="164" width="147" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="117.5" y="192" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">① 请求没送到</text>
-  <text x="117.5" y="214" font-size="12" fill="#64748b" text-anchor="middle">服务端根本没收到</text>
+  <rect x="216" y="82" width="150" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="291" y="110" font-size="15" fill="#9d174d" text-anchor="middle">② 还在处理</text>
+  <text x="291" y="132" font-size="12" fill="#9d174d" text-anchor="middle">执行完前超时</text>
 
-  <rect x="219" y="164" width="147" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="292.5" y="192" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">② 收到，在处理</text>
-  <text x="292.5" y="214" font-size="12" fill="#64748b" text-anchor="middle">执行完之前就超时</text>
+  <rect x="394" y="82" width="150" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="469" y="110" font-size="15" fill="#9d174d" text-anchor="middle">③ 回复丢了</text>
+  <text x="469" y="132" font-size="12" fill="#9d174d" text-anchor="middle">其实已执行完</text>
 
-  <rect x="394" y="164" width="147" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="467.5" y="192" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">③ 回复丢在半路</text>
-  <text x="467.5" y="214" font-size="12" fill="#64748b" text-anchor="middle">服务端其实执行完了</text>
+  <rect x="572" y="82" width="150" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="647" y="110" font-size="15" fill="#9d174d" text-anchor="middle">④ 服务端崩了</text>
+  <text x="647" y="132" font-size="12" fill="#9d174d" text-anchor="middle">执行前或执行中</text>
 
-  <rect x="569" y="164" width="147" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="642.5" y="192" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">④ 服务端已崩溃</text>
-  <text x="642.5" y="214" font-size="12" fill="#64748b" text-anchor="middle">执行前或执行中都可能</text>
+  <rect x="38" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="142" y="244" font-size="15" fill="#1e40af" text-anchor="middle">先写 10，再写 20</text>
+  <text x="142" y="266" font-size="12" fill="#1e40af" text-anchor="middle">两次都报告成功</text>
 
-  <text x="380" y="264" font-size="12" fill="#64748b" text-anchor="middle">客户端眼里只有一种现象：没等到回复 —— 这四种原因无法区分</text>
+  <rect x="275" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="379" y="244" font-size="15" fill="#b45309" text-anchor="middle">第一次只是慢</text>
+  <text x="379" y="266" font-size="12" fill="#b45309" text-anchor="middle">重发的旧包迟到落地</text>
+
+  <rect x="512" y="216" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="616" y="244" font-size="15" fill="#9d174d" text-anchor="middle">后到的 10 覆盖 20</text>
+  <text x="616" y="266" font-size="12" fill="#9d174d" text-anchor="middle">最终读出来是 10</text>
 </svg>
-

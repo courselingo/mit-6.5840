@@ -1,30 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-13-title fig-mapreduce-13-desc">
-  <title id="fig-mapreduce-13-title">重跑还是达成一致：两条容错路线的分界</title>
-  <desc id="fig-mapreduce-13-desc">MapReduce 容错靠重跑，代价是计算形态被限定成确定性加一次扫描；Raft 靠多数派复制，代价是每次写一次往返。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 376" width="760" height="376"
+     role="img" aria-labelledby="fig-mr-13-title fig-mr-13-desc">
+  <title id="fig-mr-13-title">两条容错路线，以及重跑那条路线的边界</title>
+  <desc id="fig-mr-13-desc">左列是重跑：它绕开共识，代价是计算形态被限定成确定性加一次扫描；它成立靠的是确定性假设，一旦要维护可变状态或要多个作业看到同一个一致视图，重跑就不再是正确答案。右列是 Raft：直面共识，每次写要一次多数派往返，换来不依赖用户函数的单一顺序。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="376" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">重跑还是达成一致：两条容错路线的分界</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两条容错路线，以及重跑那条路线的边界</text>
 
-  <rect x="25" y="64" width="340" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="195" y="86" font-size="12" fill="#166534" text-anchor="middle">MapReduce：容错靠重跑</text>
-  <text x="195" y="104" font-size="12" fill="#166534" text-anchor="middle">不涉及全局状态撤销</text>
-  <rect x="395" y="64" width="340" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="565" y="86" font-size="12" fill="#9d174d" text-anchor="middle">代价：计算形态被限定成</text>
-  <text x="565" y="104" font-size="12" fill="#9d174d" text-anchor="middle">确定性加一次扫描</text>
-  <rect x="25" y="143" width="340" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="195" y="165" font-size="12" fill="#166534" text-anchor="middle">Raft：容错靠多数派复制</text>
-  <text x="195" y="183" font-size="12" fill="#166534" text-anchor="middle">每次写要一次多数派往返</text>
-  <rect x="395" y="143" width="340" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="565" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">区别不是谁更先进</text>
-  <text x="565" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">而是代价放在哪一侧</text>
+  <rect x="22" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">重跑这一侧</text>
+
+  <rect x="398" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">共识那一侧</text>
+
+  <rect x="38" y="82" width="308" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="192" y="110" font-size="15" fill="#1e40af" text-anchor="middle">重跑绕开了共识</text>
+  <text x="192" y="132" font-size="12" fill="#1e40af" text-anchor="middle">代价是计算形态被限定</text>
+
+  <rect x="38" y="176" width="308" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="192" y="204" font-size="15" fill="#166534" text-anchor="middle">它成立靠确定性假设</text>
+  <text x="192" y="226" font-size="12" fill="#166534" text-anchor="middle">函数一不纯，重跑就给不出唯一结果</text>
+
+  <rect x="38" y="270" width="308" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="192" y="298" font-size="15" fill="#9d174d" text-anchor="middle">越出这条边界</text>
+  <text x="192" y="320" font-size="12" fill="#9d174d" text-anchor="middle">副本与共识就绕不过去了</text>
+
+  <rect x="414" y="82" width="308" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="568" y="110" font-size="15" fill="#6b21a8" text-anchor="middle">Raft 直面共识</text>
+  <text x="568" y="132" font-size="12" fill="#6b21a8" text-anchor="middle">代价是每次写一次多数派往返</text>
+
+  <rect x="414" y="176" width="308" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="568" y="204" font-size="15" fill="#166534" text-anchor="middle">换来不依赖用户的单一顺序</text>
+  <text x="568" y="226" font-size="12" fill="#166534" text-anchor="middle">任意时刻只有一个领导者在定序</text>
+
+  <rect x="414" y="270" width="308" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="568" y="298" font-size="15" fill="#b45309" text-anchor="middle">没有免费午餐</text>
+  <text x="568" y="320" font-size="12" fill="#b45309" text-anchor="middle">区别只在把代价放在哪一侧</text>
 </svg>

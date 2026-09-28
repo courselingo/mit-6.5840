@@ -1,60 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 408" width="760" height="408"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-paxos-2-title fig-paxos-2-desc">
-  <title id="fig-paxos-2-title">两个阶段的分工：阶段一探知，阶段二定案</title>
-  <desc id="fig-paxos-2-desc">左边是提议者的动作、右边是接受者的反应。阶段一只问对方接受过什么，提议者据此把值定成回执里编号最大的那个，阶段二才请多数派接受这个值。</desc>
+  <title id="fig-paxos-2-title">两个阶段各自解决一件事，以及那两个往返</title>
+  <desc id="fig-paxos-2-desc">阶段一先挑一个没用过且更大的编号去问一圈：只要有人报过接受的值，就必须改用编号最大的那个；全部说没接受过才能提自己的值。阶段二发出 accept，接受者比 n ≥ n_p 才收，凑齐多数派即定案并广播；两个往返要串起来，还要叠加最慢那台的时间。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
-    </marker>
-    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#ef4444"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="408" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两个阶段的分工：阶段一探知，阶段二定案</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两个阶段各自解决一件事，以及那两个往返</text>
 
-  <path d="M370,91 L384,91" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M370,170 L384,170" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M370,249 L384,249" fill="none" stroke="#ef4444" marker-end="url(#arrow-red)"/>
-  <path d="M370,328 L384,328" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">阶段一 prepare：先探知，再谈自己的值</text>
 
-  <rect x="25" y="64" width="340" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="195" y="86" font-size="12" fill="#1e40af" text-anchor="middle">提议者：先挑一个比所见都大的编号 n</text>
-  <text x="195" y="104" font-size="12" fill="#1e40af" text-anchor="middle">此时它还不知道有没有值已定案</text>
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">阶段二 accept：定案与广播，以及那两个往返</text>
 
-  <rect x="395" y="64" width="340" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="565" y="86" font-size="12" fill="#166534" text-anchor="middle">接受者：记住见过的最高编号 n_p</text>
-  <text x="565" y="104" font-size="12" fill="#166534" text-anchor="middle">以及接受过的最高编号 n_a 与值 v_a</text>
+  <path d="M252,116 L264,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M489,116 L501,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
-  <rect x="25" y="143" width="340" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="195" y="165" font-size="12" fill="#1e40af" text-anchor="middle">阶段一 prepare(n)：只问「你接受过什么」</text>
-  <text x="195" y="183" font-size="12" fill="#1e40af" text-anchor="middle">它是在探知，不是在下命令</text>
+  <rect x="38" y="82" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="142" y="110" font-size="15" fill="#1e40af" text-anchor="middle">挑一个更大的编号 n</text>
+  <text x="142" y="132" font-size="12" fill="#1e40af" text-anchor="middle">自己没用过，发给所有接受者</text>
 
-  <rect x="395" y="143" width="340" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="565" y="165" font-size="12" fill="#166534" text-anchor="middle">回 prepare_ok(n, n_a, v_a)</text>
-  <text x="565" y="183" font-size="12" fill="#166534" text-anchor="middle">附带它记得的最新一次接受</text>
+  <rect x="275" y="82" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="379" y="110" font-size="15" fill="#b45309" text-anchor="middle">有人报过 (n_a, v_a)</text>
+  <text x="379" y="132" font-size="12" fill="#b45309" text-anchor="middle">就必须改用编号最大的值</text>
 
-  <rect x="25" y="222" width="340" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="195" y="244" font-size="12" fill="#9d174d" text-anchor="middle">先把值定下来：v′ 取回执里编号最大的 v_a</text>
-  <text x="195" y="262" font-size="12" fill="#9d174d" text-anchor="middle">只有全都没接受过，才用自己的值</text>
+  <rect x="512" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="616" y="110" font-size="15" fill="#166534" text-anchor="middle">全部说没接受过</text>
+  <text x="616" y="132" font-size="12" fill="#166534" text-anchor="middle">才能提自己原本的值</text>
 
-  <rect x="395" y="222" width="340" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="565" y="244" font-size="12" fill="#9d174d" text-anchor="middle">这是必须先探知的那一步</text>
-  <text x="565" y="262" font-size="12" fill="#9d174d" text-anchor="middle">否则可能推翻已经定案的值</text>
+  <rect x="38" y="216" width="328" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="202" y="244" font-size="15" fill="#b45309" text-anchor="middle">发 accept(n, v′)，凑齐多数派即定案</text>
+  <text x="202" y="266" font-size="12" fill="#b45309" text-anchor="middle">接受者比 n ≥ n_p 才收下并回执</text>
 
-  <rect x="25" y="301" width="340" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="195" y="323" font-size="12" fill="#6b21a8" text-anchor="middle">阶段二 accept(n, v′)：请多数派接受它</text>
-  <text x="195" y="341" font-size="12" fill="#6b21a8" text-anchor="middle">多数派 accept_ok，值就此定案</text>
-
-  <rect x="395" y="301" width="340" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="565" y="323" font-size="12" fill="#6b21a8" text-anchor="middle">然后广播 decided(v′)</text>
-  <text x="565" y="341" font-size="12" fill="#6b21a8" text-anchor="middle">其余机器据此得知结果</text>
-
-  <text x="380" y="381" font-size="12" fill="#64748b" text-anchor="middle">阶段一不是加锁，它唯一的任务是把可能已经定案的值捞回来</text>
+  <rect x="394" y="216" width="328" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="558" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">两个往返要串起来</text>
+  <text x="558" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">再叠加多数派里最慢那台的响应时间</text>
 </svg>

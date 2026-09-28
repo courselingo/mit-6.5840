@@ -1,38 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 357" width="756" height="357" role="img" aria-labelledby="fig-paxos-6-title fig-paxos-6-desc">
-  <title id="fig-paxos-6-title">至多一个分区能凑出多数派</title>
-  <desc id="fig-paxos-6-desc">集群断成 3 台与 2 台两半：只有 3 台那侧凑得齐 3 票可以决定，2 台那侧只能停摆，因为分母永远是全部 5 台。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 364" width="760" height="364"
+     role="img" aria-labelledby="fig-paxos-6-title fig-paxos-6-desc">
+  <title id="fig-paxos-6-title">一次断网里的多数派，以及门槛换算成机器数</title>
+  <desc id="fig-paxos-6-desc">五台的集群门槛是 3 票，分母永远是全部 5 台。断成两半后 3 台那侧凑得够、可以决定，2 台那侧只能停摆；换算成机器数就是 3 台容忍 1 台、5 台容忍 2 台、2 台一台都容忍不了。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="2" y="0" width="756" height="357" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="364" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">至多一个分区能凑出多数派</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一次断网里的多数派，以及门槛换算成机器数</text>
 
-  <rect x="25" y="76" width="341" height="72" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="195.5" y="98" font-size="12" fill="#166534" text-anchor="middle">断成两半：一边 3 台</text>
-  <text x="195.5" y="116" font-size="12" fill="#166534" text-anchor="middle">3 台里凑齐 3 票</text>
-  <text x="195.5" y="134" font-size="12" fill="#166534" text-anchor="middle">这一侧可以决定</text>
-  <rect x="25" y="178" width="341" height="72" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="195.5" y="200" font-size="12" fill="#166534" text-anchor="middle">多数派在大的那一边</text>
-  <text x="195.5" y="218" font-size="12" fill="#166534" text-anchor="middle">决定只有一个</text>
-  <text x="195.5" y="236" font-size="12" fill="#166534" text-anchor="middle">继续对外服务</text>
-  <rect x="394" y="76" width="341" height="72" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="564.5" y="98" font-size="12" fill="#9d174d" text-anchor="middle">另一边只剩 2 台</text>
-  <text x="564.5" y="116" font-size="12" fill="#9d174d" text-anchor="middle">分母仍是全部 5 台</text>
-  <text x="564.5" y="134" font-size="12" fill="#9d174d" text-anchor="middle">2 台凑不齐 3 票</text>
-  <rect x="394" y="178" width="341" height="72" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="564.5" y="200" font-size="12" fill="#9d174d" text-anchor="middle">这一侧只能停摆</text>
-  <text x="564.5" y="218" font-size="12" fill="#9d174d" text-anchor="middle">做不了任何决定</text>
-  <text x="564.5" y="236" font-size="12" fill="#9d174d" text-anchor="middle">不会给出错误答案</text>
-  <path d="M380,70 L380,256" fill="none" stroke="#94a3b8"/>
-  <rect x="25" y="280" width="710" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="302" font-size="12" fill="#6b21a8" text-anchor="middle">同一个集群至多一个分区能凑出多数派</text>
-  <text x="380" y="320" font-size="12" fill="#6b21a8" text-anchor="middle">小的那一侧只会停摆，不会给出错误答案</text>
+  <rect x="22" y="82" width="716" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="110" font-size="15" fill="#1e40af" text-anchor="middle">五台的集群，多数派门槛是 3 票</text>
+  <text x="380" y="132" font-size="12" fill="#1e40af" text-anchor="middle">分母永远是全部 5 台，不是现在活着的机器</text>
+
+  <rect x="22" y="178" width="344" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="206" font-size="15" fill="#166534" text-anchor="middle">3 台那一侧</text>
+  <text x="194" y="228" font-size="12" fill="#166534" text-anchor="middle">凑得够 3 票，可以决定</text>
+
+  <rect x="394" y="178" width="344" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="206" font-size="15" fill="#9d174d" text-anchor="middle">2 台那一侧</text>
+  <text x="566" y="228" font-size="12" fill="#9d174d" text-anchor="middle">凑不够，只能停摆</text>
+
+  <rect x="22" y="274" width="220" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="132" y="313" font-size="15" fill="#6b21a8" text-anchor="middle">3 台容忍 1 台</text>
+
+  <rect x="270" y="274" width="220" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="313" font-size="15" fill="#6b21a8" text-anchor="middle">5 台容忍 2 台</text>
+
+  <rect x="518" y="274" width="220" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="628" y="313" font-size="15" fill="#6b21a8" text-anchor="middle">2 台一台都不行</text>
 </svg>

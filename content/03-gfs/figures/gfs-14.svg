@@ -1,40 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 762 252" width="762" height="252"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-14-title fig-gfs-14-desc">
-  <title id="fig-gfs-14-title">一致性模型的三档：已定义、一致但未定义、不一致且未定义</title>
-  <desc id="fig-gfs-14-desc">三档排成一条刻度，越往右承诺越弱：串行成功的修改是已定义，并发成功的修改一致但未定义，有副本出错的修改不一致也未定义，GFS 的底线落在中间那一档。</desc>
+  <title id="fig-gfs-14-title">三档承诺，以及命名空间操作为什么是原子的</title>
+  <desc id="fig-gfs-14-desc">串行成功的修改是已定义的：内容完整可读；并发成功的修改一致但未定义：大家看到同样的字节，但那可能是几次写混在一起的碎片；失败的修改既不一致也未定义。命名空间操作则原子，因为它们只由主节点处理：加锁、写进操作日志，日志给出全局全序，客户端看到同一顺序。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="762" height="252" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一致性模型的三档：已定义、一致但未定义、不一致且未定义</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三档承诺，以及命名空间操作为什么是原子的</text>
 
-  <path d="M22,190 L738,190" fill="none" stroke="#94a3b8"/>
-  <path d="M132,183 L132,197" fill="none" stroke="#94a3b8"/>
-  <path d="M380,183 L380,197" fill="none" stroke="#94a3b8"/>
-  <path d="M628,183 L628,197" fill="none" stroke="#94a3b8"/>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">「一致」与「已定义」两个词落到具体情形就是三档</text>
 
-  <rect x="22" y="62" width="220" height="90" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="132" y="94" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">已定义</text>
-  <text x="132" y="112" font-size="12" fill="#166534" text-anchor="middle">串行成功的修改</text>
-  <text x="132" y="130" font-size="12" fill="#166534" text-anchor="middle">读者看到完整的写入</text>
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">命名空间操作是原子的，原因在下面这条链上</text>
 
-  <rect x="270" y="62" width="220" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="94" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">一致但未定义</text>
-  <text x="380" y="112" font-size="12" fill="#b45309" text-anchor="middle">并发成功的修改</text>
-  <text x="380" y="130" font-size="12" fill="#b45309" text-anchor="middle">字节一样，是碎片拼的</text>
+  <rect x="38" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="142" y="110" font-size="15" fill="#166534" text-anchor="middle">串行成功的修改</text>
+  <text x="142" y="132" font-size="12" fill="#166534" text-anchor="middle">已定义：内容完整可读</text>
 
-  <rect x="518" y="62" width="220" height="90" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="628" y="94" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">不一致且未定义</text>
-  <text x="628" y="112" font-size="12" fill="#9d174d" text-anchor="middle">有副本出错的修改</text>
-  <text x="628" y="130" font-size="12" fill="#9d174d" text-anchor="middle">不同副本读到不同字节</text>
+  <rect x="275" y="82" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="379" y="110" font-size="15" fill="#b45309" text-anchor="middle">并发成功的修改</text>
+  <text x="379" y="132" font-size="12" fill="#b45309" text-anchor="middle">一致但未定义：字节能是混的</text>
 
-  <text x="380" y="225" font-size="12" fill="#64748b" text-anchor="middle">越往右承诺越弱；GFS 的底线只到中间那一档，不到「已定义」</text>
+  <rect x="512" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="616" y="110" font-size="15" fill="#9d174d" text-anchor="middle">失败的修改</text>
+  <text x="616" y="132" font-size="12" fill="#9d174d" text-anchor="middle">不一致，因此也未定义</text>
+
+  <rect x="38" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="142" y="244" font-size="15" fill="#1e40af" text-anchor="middle">只由主节点处理</text>
+  <text x="142" y="266" font-size="12" fill="#1e40af" text-anchor="middle">用命名空间加锁保证原子</text>
+
+  <rect x="275" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="379" y="244" font-size="15" fill="#1e40af" text-anchor="middle">写进操作日志</text>
+  <text x="379" y="266" font-size="12" fill="#1e40af" text-anchor="middle">日志给出这些操作的全局全序</text>
+
+  <rect x="512" y="216" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="616" y="244" font-size="15" fill="#166534" text-anchor="middle">客户端看到同一顺序</text>
+  <text x="616" y="266" font-size="12" fill="#166534" text-anchor="middle">所以创建文件是原子的</text>
 </svg>

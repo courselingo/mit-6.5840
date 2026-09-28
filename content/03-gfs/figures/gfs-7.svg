@@ -1,40 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 253" width="766" height="253"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-7-title fig-gfs-7-desc">
-  <title id="fig-gfs-7-title">64MB 的良性循环：块大、元数据少、全进内存</title>
-  <desc id="fig-gfs-7-desc">块大到 64MB 让每块元数据不到 64 字节，元数据小到能全放进内存，主节点于是响应快，还有余力做垃圾回收、再复制与再均衡。</desc>
+  <title id="fig-gfs-7-title">大块买到的三样东西，以及它为什么不浪费空间</title>
+  <desc id="fig-gfs-7-desc">块大所以每块元数据不到 64 字节，元数据小所以能全部放进主节点内存，全内存之后主节点既响应得快、又腾得出余力做垃圾回收、再复制与迁移。而块大并不会浪费空间：副本按需增长、延迟分配，内部碎片并不存在。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="766" height="253" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">64MB 的良性循环：块大、元数据少、全进内存</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">大块买到的三样东西，以及它为什么不浪费空间</text>
 
-  <path d="M250,91 L262,91" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M498,91 L510,91" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M631,123 L631,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">块大不是孤立参数：一环扣一环的良性循环</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">块大到 64MB</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">比常规块大两三个数量级</text>
+  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">先澄清一个常见误解</text>
 
-  <rect x="273" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="383" y="86" font-size="12" fill="#1e40af" text-anchor="middle">每块元数据不到 64 字节</text>
-  <text x="383" y="104" font-size="12" fill="#1e40af" text-anchor="middle">块数量本身就不多</text>
+  <path d="M252,116 L264,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M489,116 L501,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
-  <rect x="521" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="631" y="86" font-size="12" fill="#1e40af" text-anchor="middle">元数据全放进内存</text>
-  <text x="631" y="104" font-size="12" fill="#1e40af" text-anchor="middle">主节点不再碰磁盘</text>
+  <rect x="38" y="82" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="142" y="110" font-size="15" fill="#1e40af" text-anchor="middle">块大</text>
+  <text x="142" y="132" font-size="12" fill="#1e40af" text-anchor="middle">每块元数据不到 64 字节</text>
 
-  <rect x="25" y="145" width="716" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="383" y="167" font-size="12" fill="#166534" text-anchor="middle">主节点响应快，还有余力周期性扫描全量状态</text>
-  <text x="383" y="185" font-size="12" fill="#166534" text-anchor="middle">垃圾回收、再复制、再均衡都在后台做</text>
+  <rect x="275" y="82" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="379" y="110" font-size="15" fill="#b45309" text-anchor="middle">元数据就小</text>
+  <text x="379" y="132" font-size="12" fill="#b45309" text-anchor="middle">小到能全放进内存</text>
 
-  <text x="383" y="225" font-size="12" fill="#64748b" text-anchor="middle">块大不是孤立参数，它一路决定了主节点有多轻松</text>
+  <rect x="512" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="616" y="110" font-size="15" fill="#166534" text-anchor="middle">全内存之后</text>
+  <text x="616" y="132" font-size="12" fill="#166534" text-anchor="middle">响应快，还有余力做后台整理</text>
+
+  <rect x="38" y="216" width="684" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">块大并不会浪费空间</text>
+  <text x="380" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">副本按需增长、延迟分配，内部碎片并不存在，这正是回应「块太大」质疑的关键</text>
 </svg>

@@ -18,6 +18,9 @@ verified = false
 terms = "CC BY 3.0 US（仅课程主页带许可徽章；notes/labs/general/schedule 等子页面无声明）"
 evidence_url = "https://pdos.csail.mit.edu/6.824/"
 checked_at = "2026-09-28"
+# 只给本课程用的一句，会出现在页面提示条末尾。
+# 放在这里而不是 banners.py 里 —— 那句话只对 6.824 成立。
+banner_extra = "Lab 代码与作业答案：课程明确要求不得公开，永久排除。"
 allows_commercial = true          # CC BY 无 NC（若该许可确实覆盖所引材料）
 allows_derivatives = true         # 翻译属于改编，CC BY 允许
 share_alike = false               # 无 SA，不传染 —— 我们的产出不必用同协议
