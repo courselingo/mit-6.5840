@@ -22,6 +22,8 @@ import tomllib
 from pathlib import Path
 from urllib.parse import quote
 
+import llms  # 同目录：发布 llms.txt 与每页 Markdown
+
 TERM_RE = re.compile(r"\[\[term:([A-Za-z0-9_.\-]+)\]\]")
 H1_RE = re.compile(r"^#\s+", re.M)
 
@@ -330,6 +332,26 @@ nav:
     if proc.returncode != 0:
         print(f"⛔ mkdocs 构建失败（退出码 {proc.returncode}）", file=sys.stderr)
         return 1
+
+    # ---------- llms.txt + 每页 Markdown ----------
+    print("③ llms.txt + 每页 Markdown")
+    sections: dict[str, list[tuple[str, str]]] = {
+        "开始": [("首页", "index")],
+        "讲座": [(t, f"lectures/{s}") for _, t, s in lectures],
+    }
+    if paper_pages:
+        sections["论文导读"] = [(t, f"papers/{k}") for k, t in paper_pages]
+    sections["术语表"] = [("全部术语", "glossary")]
+    n_pages, n_exp = llms.emit(
+        root, docs, root / args.out, site_title,
+        f"{course.get('title', '')} · {course.get('institution', '')} {course.get('course_number', '')} —— CourseLingo 中文讲解",
+        sections,
+        "本站内容由 CourseLingo 用中文**重新讲解**，不是原文翻译，也非官方材料。\n\n"
+        "- 每页同时提供 HTML 与 Markdown（把 .html 换成 .md）\n"
+        "- 术语表见 glossary.md；全课程同一概念同一译法\n"
+        "- 上游许可与逐篇论文授权见 https://github.com/courselingo/courselingo/tree/main/docs\n",
+    )
+    print(f"   已发布 {n_pages} 个页面 Markdown，展开双语块 {n_exp} 处")
 
     html_files = sorted((root / args.out).rglob("*.html"))
     print(f"\n✅ 构建完成：{len(html_files)} 个 HTML")
