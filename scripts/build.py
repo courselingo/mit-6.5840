@@ -620,10 +620,12 @@ def main(argv: list[str] | None = None) -> int:
 
     banner = ""
     if not verified:
+        # 课程仓库是独立仓库，没有 docs/ —— 规范文档在平台仓库，用绝对链接
         banner = (
             '<div class="notice">⚠️ <strong>本课程授权状态：未核实。</strong>'
-            "当前仅发布 CourseLingo 原创讲解，不包含课程原始材料。"
-            "见 docs/content-policy.md。</div>"
+            "当前仅发布 CourseLingo 原创讲解，不包含课程原始材料。见 "
+            '<a href="https://github.com/courselingo/courselingo/blob/main/docs/content-policy.md">内容策略</a>。'
+            "</div>"
         )
     footer_note = (
         f"{html.escape(site_title)} · 本文为 CourseLingo 原创讲解，非官方材料，"
@@ -729,7 +731,9 @@ def main(argv: list[str] | None = None) -> int:
             '<div class="notice">📄 授权：'
             + ("已核实、允许翻译" if allowed else "未核实，或条款未明确允许全文翻译")
             + (f"（{html.escape(terms_txt)}）" if terms_txt else "")
-            + f" —— {payload}。见 docs/paper-licensing.md</div>"
+            + f" —— {payload}。见 "
+            + '<a href="https://github.com/courselingo/courselingo/blob/main/docs/paper-licensing.md">论文授权说明</a>'
+            + "</div>"
         )
         draft = (
             '<div class="notice">📝 本文为<strong>草稿</strong>，尚未经过人工复核。</div>'
