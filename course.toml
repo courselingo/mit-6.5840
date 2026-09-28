@@ -12,21 +12,40 @@ target_language = "zh"
 
 # ★ 授权闸门。核实记录见平台仓库 docs/course-catalog.md 与 docs/licensing-research-log.md
 [license]
-verified = true
-terms = "CC BY 3.0 US"
+# 2026-09-28 复核后由 true 改为 false：徽章只在主页，笔记子页面无声明，
+# 「笔记的许可覆盖范围」这件事**没有**被确立 —— 如实记为未核实。
+verified = false
+terms = "CC BY 3.0 US（仅课程主页带许可徽章；notes/labs/general/schedule 等子页面无声明）"
 evidence_url = "https://pdos.csail.mit.edu/6.824/"
 checked_at = "2026-09-28"
-allows_commercial = true          # CC BY 无 NC
+allows_commercial = true          # CC BY 无 NC（若该许可确实覆盖所引材料）
 allows_derivatives = true         # 翻译属于改编，CC BY 允许
 share_alike = false               # 无 SA，不传染 —— 我们的产出不必用同协议
-redistribution = "allowed"
-notes = "课程主页页脚带 <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/us/\"> 图片徽章。CC BY 3.0 US：允许翻译与商用，只需署名（说明是否修改）。⚠️ 唯一未定项：徽章位于主页，是否覆盖 general/schedule/labs 等子页面未获确认 —— 因此本课程内容一律按 explanation 撰写，不产出逐字稿。另：Lab 代码与作业答案课程明确要求不得公开，永久排除。"
+redistribution = "unknown"        # 覆盖范围未确立 → 不转载课程原始材料
 
-# 按材料类型逐项核实。
+# TOML 字面量字符串（'''）避免转义引号
+notes = '''
+课程主页带 <a rel="license" href="https://creativecommons.org/licenses/by/3.0/us/"> 图片徽章；
+CC BY 3.0 US 本身允许翻译与商用，只需署名并说明是否作了修改。
+
+★ 2026-09-28 逐页实测复核：该徽章**只出现在课程主页**（全站唯一一处 rel="license"）。
+  schedule.html / lab-mr.html / general.html / notes/l01.txt（我们实际依据的讲义文件）
+  逐个检查：许可链接 0 处、版权声明 0 处。
+  → 因此**笔记与实验材料的授权覆盖范围无法确立**。
+
+按 unknown 处理（见 docs/content-policy.md）：
+  * 只发布 CourseLingo 自己的原创讲解 —— 讲概念、不转载原文，这条不受影响；
+  * **不转载课程原始材料**：逐字稿（transcript）与双语原文对照一律不产出；
+  * 这个结论由 validate.py 与 build_site.py 各自独立拦截一次。
+
+另：Lab 代码与作业答案，课程明确要求不得公开 —— 永久排除，无讨论余地。
+'''
+
+# 按材料类型逐项核实。全 false 表示：以上每一项的授权覆盖范围都未确立。
 [license.materials]
-notes = true                      # 讲座笔记/讲义：CC BY 3.0 US 允许翻译
-slides = true
-video = false                     # 视频另有平台条款，未核实
+notes = false                     # 讲义：徽章仅在主页，覆盖范围未确立
+slides = false                    # 同上
+video = false                     # 视频另有平台条款（YouTube），未核实
 textbook = false                  # 6.824 无指定开放教材
 other = false
 

@@ -12,8 +12,9 @@ output_mode = "explanation"
 > **来源与署名**
 > 本篇对应 MIT 6.5840 / 6.824（Distributed Systems）第 2 讲「RPC and Threads」，主讲 Frans Kaashoek。
 > 上游材料入口：<https://pdos.csail.mit.edu/6.824/schedule.html>，课程主页 <https://pdos.csail.mit.edu/6.824/>。
-> 上游许可：**CC BY 3.0 US** —— <https://creativecommons.org/licenses/by/3.0/us/>。
-> 依该许可要求说明改动：**本文是 CourseLingo 自己撰写的原创讲解，不是官方材料，也不是译文。**
+> 上游许可：课程**主页**标注 **CC BY 3.0 US** —— <https://creativecommons.org/licenses/by/3.0/us/>。
+> **注意：该徽章只出现在主页；本讲依据的笔记子页面没有许可声明，覆盖范围未获确认。**
+> 为免歧义，此处说明改动：**本文是 CourseLingo 自己撰写的原创讲解，不是官方材料，也不是译文。**
 > 我们对原讲座的内容做了重新组织、取舍与补充，并用中文重新表达；概念归功于原课程，文字与原讲座无关。
 
 ## 这一讲在整门课里的位置

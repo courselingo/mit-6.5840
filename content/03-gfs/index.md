@@ -13,7 +13,8 @@ papers = ["gfs"]
 > **本讲的指定阅读是《The Google File System》（SOSP 2003，ACM 出版）。**
 > 作者为 Sanjay Ghemawat、Howard Gobioff、Shun-Tak Leung；论文入口见
 > [10.1145/945445.945450](https://dl.acm.org/doi/10.1145/945445.945450)。
-> 课程材料的许可为 CC BY 3.0 US（[许可原文](https://creativecommons.org/licenses/by/3.0/us/)）。
+> 课程**主页**标注的许可为 CC BY 3.0 US（[许可原文](https://creativecommons.org/licenses/by/3.0/us/)）；
+> **该徽章只出现在主页，本讲依据的笔记子页面无许可声明，覆盖范围未获确认。**
 > 论文版权属 ACM，我们**没有**取得翻译许可 —— 因此**本页是 CourseLingo 自己撰写的概念讲解，不是该论文的译文**，
 > 不复制原文表述，也不复现原文插图。本页同样不是 MIT 官方材料，不代表课程方立场。
 

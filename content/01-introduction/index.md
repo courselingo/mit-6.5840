@@ -13,8 +13,10 @@ papers = ["mapreduce"]
 > 来源课程：MIT 6.5840 / 6.824 Distributed Systems（Robert Morris、Frans Kaashoek 与 MIT PDOS）；
 > 对应内容：Lecture 1 — Introduction（rtm 主讲，2026 春季学期）；
 > 原文链接：https://pdos.csail.mit.edu/6.824/ ；
-> 上游许可：CC BY 3.0 US — https://creativecommons.org/licenses/by/3.0/us/ ；
-> 本文由 CourseLingo 原创撰写：我们对这一讲的主题做了**重新讲解**，而不是翻译原讲座文本，也没有逐句改写原文、没有转载它的幻灯片与图表（CC BY 要求标注是否作了修改，以上即是我们的标注）；本文非官方材料，CourseLingo 与 MIT 及本课程教学团队无隶属关系；如与原文有出入，以原文为准。
+> 上游许可：课程**主页**标注 CC BY 3.0 US — https://creativecommons.org/licenses/by/3.0/us/ ；
+> **注意：该徽章只出现在课程主页。本讲所依据的笔记文件本身没有许可声明，覆盖范围未获确认**
+> —— 因此本页只讲概念、不转载任何原文。
+> 本文由 CourseLingo 原创撰写：我们对这一讲的主题做了**重新讲解**，而不是翻译原讲座文本，也没有逐句改写原文、没有转载它的幻灯片与图表（若 CC BY 确实适用，其要求标注是否作了修改 —— 以上即是我们的标注）；本文非官方材料，CourseLingo 与 MIT 及本课程教学团队无隶属关系；如与原文有出入，以原文为准。
 
 ## 一台机器变成两台之后，丢掉了什么
 

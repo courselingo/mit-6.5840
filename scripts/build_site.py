@@ -22,6 +22,7 @@ import tomllib
 from pathlib import Path
 from urllib.parse import quote
 
+import banners  # 同目录：页面顶部授权提示条
 import llms  # 同目录：发布 llms.txt 与每页 Markdown
 
 TERM_RE = re.compile(r"\[\[term:([A-Za-z0-9_.\-]+)\]\]")
@@ -158,6 +159,8 @@ def main(argv: list[str] | None = None) -> int:
 
     shutil.copy2(web / "assets" / "bi.css", docs / "assets" / "bi.css")
     shutil.copy2(web / "assets" / "bi.js", docs / "assets" / "bi.js")
+    shutil.copy2(web / "assets" / "site.css", docs / "assets" / "site.css")
+    shutil.copy2(web / "assets" / "mathjax.js", docs / "assets" / "mathjax.js")
 
     # ---------- 讲座 ----------
     seen_figs: dict[str, str] = {}
@@ -169,7 +172,11 @@ def main(argv: list[str] | None = None) -> int:
         fm = tomllib.loads(fm_txt) if fm_txt else {}
         slug = str(fm.get("slug", p.parent.name))
         out = docs / "lectures" / f"{slug}.md"
-        out.write_text(render_terms(body, terms), encoding="utf-8")
+        banner = banners.course_banner(cfg.get("license", {}) or {})
+        out.write_text(
+            (banner + "\n" if banner else "") + render_terms(body, terms),
+            encoding="utf-8",
+        )
         lectures.append((int(fm.get("lecture", 0)), str(fm.get("title", slug)), slug))
         copy_figures(p.parent / "figures", docs / "lectures" / "figures", seen_figs)
 
@@ -181,7 +188,11 @@ def main(argv: list[str] | None = None) -> int:
         fm_txt, body = split_front_matter(p.read_text(encoding="utf-8"))
         fm = tomllib.loads(fm_txt) if fm_txt else {}
         key = str(fm.get("paper", p.parent.name))
-        (docs / "papers" / f"{key}.md").write_text(render_terms(body, terms), encoding="utf-8")
+        pbanner = banners.paper_banner((papers.get(key) or {}).get("license"))
+        (docs / "papers" / f"{key}.md").write_text(
+            (pbanner + "\n" if pbanner else "") + render_terms(body, terms),
+            encoding="utf-8",
+        )
         copy_figures(p.parent / "figures", docs / "papers" / "figures", seen_figs)
         paper_pages.append((key, str(fm.get("title", key))))
     paper_pages.sort()
@@ -195,9 +206,20 @@ def main(argv: list[str] | None = None) -> int:
             if (bilingual_dir / f"{slug}.en.md").exists():
                 bi_pairs.add(slug)
 
-    # 给有双语配对的讲座页追加指令
+    # 双语对照要**转载原文**，与逐字稿同属「转载课程原始材料」，
+    # 因此共用同一道闸门：只有 [license.materials].<kind> 明确为 true 才注入。
+    mats = (cfg.get("license", {}) or {}).get("materials") or {}
+    bilingual_ok = mats.get("notes") is True
+    if bi_pairs and not bilingual_ok:
+        print(
+            "   [!] 有双语对照源文件，但 [license.materials].notes 未确认为 true ——\n"
+            "       双语对照需要转载原文，故**不予注入**。已跳过："
+            + ", ".join(sorted(bi_pairs))
+        )
+
+    # 给有双语配对且**授权允许**的讲座页追加指令
     for _, _, slug in lectures:
-        if slug in bi_pairs:
+        if slug in bi_pairs and bilingual_ok:
             f = docs / "lectures" / f"{slug}.md"
             f.write_text(
                 f.read_text(encoding="utf-8")
@@ -224,8 +246,10 @@ def main(argv: list[str] | None = None) -> int:
         f"- [{title}](lectures/{slug}.md)" for _, title, slug in lectures
     ) or "- （暂无）"
     pap_list = "\n".join(f"- [{title}](papers/{key}.md)" for key, title in paper_pages) or "- （暂无）"
+    home_banner = banners.course_banner(cfg.get("license", {}) or {})
     (docs / "index.md").write_text(
-        f"# {site_title}\n\n"
+        (home_banner + "\n\n" if home_banner else "")
+        + f"# {site_title}\n\n"
         f"> **{course.get('title', '')}** · {course.get('institution', '')} "
         f"{course.get('course_number', '')}  \n"
         f"> 原课程：<{course.get('homepage', '')}>\n\n"
@@ -286,8 +310,11 @@ theme:
 
 extra_css:
   - assets/bi.css
+  - assets/site.css
 extra_javascript:
   - assets/bi.js
+  - assets/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 markdown_extensions:
   - abbr
@@ -300,6 +327,8 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
