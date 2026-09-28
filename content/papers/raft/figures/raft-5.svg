@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-raft-5-title fig-raft-5-desc">
-  <title id="fig-raft-5-title">旧答案的两个缺口，以及用来支撑「更容易学会」的那组数据</title>
-  <desc id="fig-raft-5-desc">Paxos 有两个缺口：单值内核很紧凑却缺少直观解释，多副本场景下又没有公认的多决策版本，各系统各自演化。论文用一组小规模数据支撑更容易学会这个主张：43 名学生的卷面里 Raft 平均 25.7 分、Paxos 平均 20.8 分，33 人在 Raft 上得分更高，论文自己给出保留并用回归修正。</desc>
+  <title id="fig-raft-5-title">旧答案的两个缺口，以及支撑「更容易学会」的那组数据</title>
+  <desc id="fig-raft-5-desc">Paxos 有两个缺口：单值内核很紧凑却缺少直观解释，多副本场景下又没有公认的多决策版本，各系统各自演化。论文用一组小规模数据支撑更容易学会这个主张：43 名学生的卷面里 Raft 平均 25.7 分、Paxos 平均 20.8 分，33 人在 Raft 上得分更高。论文自己点出两条对 Paxos 有利的保留：15 人此前接触过 Paxos，Paxos 的录像还长 14%。</desc>
 
   <defs>
     <style>
@@ -31,15 +31,11 @@
   <text x="558" y="110" font-size="15" fill="#9d174d" text-anchor="middle">多副本下没有公认版本</text>
   <text x="558" y="132" font-size="12" fill="#9d174d" text-anchor="middle">每个真实系统都各自演化出不同架构</text>
 
-  <rect x="38" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="142" y="244" font-size="15" fill="#1e40af" text-anchor="middle">43 名学生答卷</text>
-  <text x="142" y="266" font-size="12" fill="#1e40af" text-anchor="middle">Raft 平均 25.7 分</text>
+  <rect x="38" y="216" width="328" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="202" y="244" font-size="15" fill="#1e40af" text-anchor="middle">43 名学生的答卷</text>
+  <text x="202" y="266" font-size="12" fill="#1e40af" text-anchor="middle">Raft 25.7 分，Paxos 20.8 分，33 人更高</text>
 
-  <rect x="275" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="379" y="244" font-size="15" fill="#1e40af" text-anchor="middle">Paxos 平均 20.8 分</text>
-  <text x="379" y="266" font-size="12" fill="#1e40af" text-anchor="middle">33 人在 Raft 上得分更高</text>
-
-  <rect x="512" y="216" width="209" height="68" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="616" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">论文自己给保留</text>
-  <text x="616" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">回归修正后的差距比实测更大</text>
+  <rect x="394" y="216" width="328" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="558" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">论文自己给出的两条保留</text>
+  <text x="558" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">15 人此前接触过 Paxos，录像还长 14%</text>
 </svg>

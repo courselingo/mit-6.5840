@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 309" width="760" height="309"
      role="img" aria-labelledby="fig-raft-15-title fig-raft-15-desc">
-  <title id="fig-raft-15-title">三次放弃换来的东西</title>
-  <desc id="fig-raft-15-desc">放弃少数派一侧的可用性、写延迟的下界与单集群的写吞吐上限，换来一份能被逐块推理、有形式化规格与安全证明支撑的算法。</desc>
+  <title id="fig-raft-15-title">取舍一览：放弃两项，做到写延迟下界</title>
+  <desc id="fig-raft-15-desc">放弃少数派一侧的可用性，接受单集群的写吞吐上限，也接受每次写都要等一次多数派往返；而写延迟这一条 Raft 做到的是下界，用最少的消息数完成复制。换来一份能被逐块推理、有形式化规格与安全证明支撑的算法。</desc>
 
   <defs>
     <style>
@@ -15,16 +15,16 @@
 
   <rect x="0" y="0" width="760" height="309" fill="#ffffff"/>
 
-  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三次放弃换来的东西</text>
+  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">取舍一览：放弃两项，做到写延迟下界</text>
 
   <rect x="23" y="64" width="221" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
   <text x="133.5" y="86" font-size="12" fill="#9d174d" text-anchor="middle">放弃少数派一侧的可用性</text>
   <text x="133.5" y="104" font-size="12" fill="#9d174d" text-anchor="middle">只有多数派可达才能推进</text>
-  <rect x="270" y="64" width="221" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380.5" y="86" font-size="12" fill="#9d174d" text-anchor="middle">放弃写延迟的下界</text>
-  <text x="380.5" y="104" font-size="12" fill="#9d174d" text-anchor="middle">每次写要等一次多数派往返</text>
+  <rect x="270" y="64" width="221" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380.5" y="86" font-size="12" fill="#166534" text-anchor="middle">写延迟做到下界</text>
+  <text x="380.5" y="104" font-size="12" fill="#166534" text-anchor="middle">最少消息数：到半个集群一次往返</text>
   <rect x="517" y="64" width="221" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="627.5" y="86" font-size="12" fill="#9d174d" text-anchor="middle">放弃单集群的写吞吐上限</text>
+  <text x="627.5" y="86" font-size="12" fill="#9d174d" text-anchor="middle">接受单集群的写吞吐上限</text>
   <text x="627.5" y="104" font-size="12" fill="#9d174d" text-anchor="middle">所有写都经过同一位领导者</text>
   <path d="M133.5,123 C 133.5,130 300,128 300,135" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
   <path d="M380,123 L380,135" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>

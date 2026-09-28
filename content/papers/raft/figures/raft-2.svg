@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-raft-2-title fig-raft-2-desc">
   <title id="fig-raft-2-title">从客户端命令到提交，以及写延迟的下界</title>
-  <desc id="fig-raft-2-desc">领导者把命令追加到自己的日志、并行广播给其他节点；多数派已复制并且条目属于当前任期才算提交，随后应用到状态机并返回客户端。写延迟的下界是到多数派的一次往返，想提高吞吐只能靠批处理与流水线，把多轮请求叠在一起。</desc>
+  <desc id="fig-raft-2-desc">领导者把命令追加到自己的日志、并行广播给其他节点；多数派已复制并且条目属于当前任期才算提交，随后应用到状态机并返回客户端。写延迟的下界是到多数派的一次往返，想在这个下界之上再提吞吐，论文举的例子是批处理与流水线，把多轮请求叠在一起。</desc>
 
   <defs>
     <style>
@@ -48,6 +48,6 @@
   <text x="202" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">到多数派的一次往返，单个慢节点不拖慢它</text>
 
   <rect x="394" y="216" width="328" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="558" y="244" font-size="15" fill="#166534" text-anchor="middle">想提吞吐只能批处理</text>
+  <text x="558" y="244" font-size="15" fill="#166534" text-anchor="middle">再提吞吐：批处理与流水线</text>
   <text x="558" y="266" font-size="12" fill="#166534" text-anchor="middle">用流水线把多轮请求叠在一起</text>
 </svg>

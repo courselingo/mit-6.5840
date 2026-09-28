@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 456" width="760" height="456"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 546" width="760" height="546"
      role="img" aria-labelledby="fig-raft-1-title fig-raft-1-desc">
   <title id="fig-raft-1-title">三个角色、任期这个逻辑时钟，以及选举的三个时间尺度</title>
-  <desc id="fig-raft-1-desc">上排：客户端把请求发给任意一台，跟随者转给领导者；候选者超时后自增任期并拉票；一个任期最多一个领导者，五节点需要三台同时在网。中排：任期充当逻辑时钟，通信带任期、见到更大的就让步、旧任期请求直接拒绝，完全不依赖物理时钟。下排：广播时间远小于选举超时、选举超时远小于平均故障间隔，随机化超时避免选票被分掉。</desc>
+  <desc id="fig-raft-1-desc">上排：客户端把请求发给任意一台，跟随者转给领导者；候选者超时后自增任期并拉票；一个任期最多一个领导者，五节点需要三台同时在网。中排：任期充当逻辑时钟，通信带任期、见到更大的就让步、旧任期请求直接拒绝，完全不依赖物理时钟。下排：三个时间尺度依次放大，广播时间最短、选举超时居中、单机平均故障间隔最长；另有一行说明，超时值要随机化，否则选票会被分掉。</desc>
 
   <defs>
     <style>
@@ -13,7 +13,7 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="456" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="546" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三个角色、任期这个逻辑时钟，以及选举的三个时间尺度</text>
 
@@ -23,7 +23,7 @@
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">任期就是逻辑时钟</text>
 
-  <rect x="22" y="324" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <rect x="22" y="324" width="716" height="200" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="338" font-size="12" fill="#64748b" text-anchor="middle">选举与心跳成立的三个时间尺度</text>
 
   <path d="M252,116 L264,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
@@ -55,13 +55,17 @@
 
   <rect x="38" y="350" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="142" y="378" font-size="15" fill="#1e40af" text-anchor="middle">广播时间</text>
-  <text x="142" y="400" font-size="12" fill="#1e40af" text-anchor="middle">远小于选举超时</text>
+  <text x="142" y="400" font-size="12" fill="#1e40af" text-anchor="middle">心跳与复制要走完（最短）</text>
 
   <rect x="275" y="350" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="379" y="378" font-size="15" fill="#1e40af" text-anchor="middle">选举超时</text>
-  <text x="379" y="400" font-size="12" fill="#1e40af" text-anchor="middle">远小于单机平均故障间隔</text>
+  <text x="379" y="400" font-size="12" fill="#1e40af" text-anchor="middle">远大于广播时间（居中）</text>
 
   <rect x="512" y="350" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="616" y="378" font-size="15" fill="#166534" text-anchor="middle">超时值随机化</text>
-  <text x="616" y="400" font-size="12" fill="#166534" text-anchor="middle">下一次通常只有一个先超时</text>
+  <text x="616" y="378" font-size="15" fill="#166534" text-anchor="middle">单机平均故障间隔</text>
+  <text x="616" y="400" font-size="12" fill="#166534" text-anchor="middle">远大于选举超时（最长）</text>
+
+  <rect x="38" y="447" width="684" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="469" font-size="12" fill="#6b21a8" text-anchor="middle">超时值随机化</text>
+  <text x="380" y="487" font-size="12" fill="#6b21a8" text-anchor="middle">每个候选者重新随机取超时值，下一次通常只有一个先超时</text>
 </svg>

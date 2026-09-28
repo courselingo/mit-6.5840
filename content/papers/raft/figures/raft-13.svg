@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-raft-13-title fig-raft-13-desc">
   <title id="fig-raft-13-title">日志会无限增长，以及状态机必须确定</title>
-  <desc id="fig-raft-13-desc">日志不断变长、重启后重放越来越慢，所以写快照并丢弃它之前的日志；让每个跟随者各自做快照更高效，落后太多时才由领导者分块传快照。另一个前提是状态机必须确定：内部有随机数、依赖墙上时钟或外部副作用时，相同命令会算出不同状态，这部分不确定性必须由上层处理。</desc>
+  <desc id="fig-raft-13-desc">日志不断变长、重启后重放越来越慢，所以写快照并丢弃它之前的日志；让每个跟随者各自做快照更高效，落后太多时才由领导者分块传快照。另一个前提是状态机必须确定：内部有随机数、依赖墙上时钟或外部副作用时，相同命令会算出不同状态，这部分不确定性必须由上层处理。下排这一层是我们的补充，论文只把确定性当作既成前提，没有讨论非确定性该怎么处理。</desc>
 
   <defs>
     <style>
@@ -21,7 +21,7 @@
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">日志无限增长这件事，靠快照解决</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">有一个前提比任何一条规则都基础</text>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">有一个前提比任何一条规则都基础（下排是我们的补充）</text>
 
   <rect x="38" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
   <text x="142" y="110" font-size="15" fill="#9d174d" text-anchor="middle">日志不断变长</text>

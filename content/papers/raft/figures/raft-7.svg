@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-7-title fig-raft-7-desc">
-  <title id="fig-raft-7-title">强领导者：一个时刻最多一个，日志单向流</title>
-  <desc id="fig-raft-7-desc">Raft 先选出领导者，日志只从它单向流出，它决定新条目位置不必征询；对称内核只适合单个决定。</desc>
+  <title id="fig-raft-7-title">强领导者：一个任期最多一个，日志单向流</title>
+  <desc id="fig-raft-7-desc">一个任期里最多只会选出一个领导者（论文的措辞是「在一个给定任期里最多选出一个」）；Raft 先选出领导者，日志只从它单向流出，它决定新条目位置不必征询；对称内核只适合单个决定。</desc>
 
   <defs>
     <style>
@@ -13,7 +13,7 @@
 
   <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">强领导者：一个时刻最多一个，日志单向流</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">强领导者：一个任期最多一个，日志单向流</text>
 
   <rect x="25" y="64" width="340" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="195" y="86" font-size="12" fill="#b45309" text-anchor="middle">Raft：先选出一个领导者</text>

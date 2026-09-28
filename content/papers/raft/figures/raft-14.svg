@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 456" width="760" height="456"
      role="img" aria-labelledby="fig-raft-14-title fig-raft-14-desc">
   <title id="fig-raft-14-title">换主要停多久、读取为什么不自动强一致、单写者的天花板</title>
-  <desc id="fig-raft-14-desc">上排：论文测得换主中位停机约 287ms，把选举超时压到 12–24ms 可降到 35ms，但再低就会破坏时间要求、导致不必要的更替。中排：从跟随者读可能拿到旧值，要线性一致就得把读走一遍日志、或用带时限的租约确认领导者仍权威。下排：所有写都经过同一位领导者，集群越大它越早成为上限，把键空间切成许多复制组后整体吞吐才随分片数增长。</desc>
+  <desc id="fig-raft-14-desc">上排：论文测得换主中位停机约 287ms，把选举超时压到 12–24ms 可降到 35ms，但再低就会破坏时间要求、导致不必要的更替。中排：陈旧读来自一个已经下台、却没察觉的旧领导者，它会用落后的日志回应读请求；要线性一致就得把读走一遍日志、或用带时限的租约确认领导者仍权威。下排：所有写都经过同一位领导者，集群越大它越早成为上限，把键空间切成许多复制组后整体吞吐才随分片数增长。</desc>
 
   <defs>
     <style>
@@ -35,8 +35,8 @@
   <text x="558" y="132" font-size="12" fill="#9d174d" text-anchor="middle">导致不必要的领导者更替</text>
 
   <rect x="38" y="216" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="202" y="244" font-size="15" fill="#9d174d" text-anchor="middle">从跟随者读可能拿到旧值</text>
-  <text x="202" y="266" font-size="12" fill="#9d174d" text-anchor="middle">读的路径和写不一样</text>
+  <text x="202" y="244" font-size="15" fill="#9d174d" text-anchor="middle">陈旧读来自旧领导者</text>
+  <text x="202" y="266" font-size="12" fill="#9d174d" text-anchor="middle">请求都发给领导者，它下台了却没察觉</text>
 
   <rect x="394" y="216" width="328" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="558" y="244" font-size="15" fill="#166534" text-anchor="middle">要线性一致就得走一遍日志</text>
