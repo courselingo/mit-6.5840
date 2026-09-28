@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-rt-9-title fig-rt-9-desc">
   <title id="fig-rt-9-title">一次 RPC 穿过的替身，以及服务端那侧的并发</title>
-  <desc id="fig-rt-9-desc">上排分成两侧：客户端这边调用者只看得见第一层，stub 编组参数、RPC 库把字节交给网络；跨过中间那条网络与进程边界，服务端的 dispatcher 才按方法名找到处理函数。下排是服务端为每个请求开一个 goroutine，两个 goroutine 会同时碰同一张共享 map，RPC 库不会替你加锁。</desc>
+  <desc id="fig-rt-9-desc">上排分成两侧：客户端这边调用者只看得见第一层，stub 编组参数、RPC 库把字节交给网络；跨过中间那条网络与进程边界，服务端的 dispatcher 才按方法名找到处理函数。下排是服务端为每个请求开一个 goroutine，两个 goroutine 会同时碰同一张共享 map，RPC 库不会替你加锁。dispatcher 到下排 goroutine 的衔接由下排那句标签表达（自带主语），本图未画连线。</desc>
 
   <defs>
     <style>
@@ -24,7 +24,7 @@
   <text x="648" y="70" font-size="12" fill="#64748b" text-anchor="middle">服务端这一侧</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">服务端为每个请求开一个 goroutine</text>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">dispatcher 找到处理函数后，为这个请求开一个 goroutine</text>
 
   <path d="M546,82 L546,150" fill="none" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="546" y="52" font-size="10" fill="#94a3b8" text-anchor="middle">网络 / 进程边界</text>
