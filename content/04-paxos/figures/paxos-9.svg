@@ -18,7 +18,7 @@
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">接受者必须记住什么，以及 Multi-Paxos 省掉哪一轮</text>
 
   <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">n_a、v_a 不落盘：忘掉的那台正好是两轮唯一的交集</text>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">若 n_a、v_a 不落盘：忘掉的那台正好是两轮唯一的交集</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">n_p（承诺过的最高编号）</text>
