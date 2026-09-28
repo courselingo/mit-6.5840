@@ -15,10 +15,10 @@
 
   <rect x="0" y="0" width="760" height="420" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">取舍的形状：三条边互相拉扯</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">取舍的形状：三样东西互相拉扯</text>
 
   <rect x="22" y="56" width="340" height="316" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">三条边互相拉扯</text>
+  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">三样东西互相拉扯</text>
 
   <rect x="398" y="56" width="340" height="316" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">一致性刻度上的选点：越往上越强，也越慢</text>
@@ -56,5 +56,5 @@
   <rect x="452" y="284" width="270" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="587" y="312" font-size="15" fill="#166534" text-anchor="middle">更快、但可能读到旧值</text>
   <text x="587" y="334" font-size="12" fill="#166534" text-anchor="middle">eventual consistency：停写后收敛</text>
-  <text x="380" y="397" font-size="10" fill="#94a3b8" text-anchor="middle">（图里「多数派定案＝最强那一档」「只能保住两样」这些概括是我们的归纳）</text>
+  <text x="380" y="397" font-size="10" fill="#94a3b8" text-anchor="middle">本图把「取舍」与「强弱」分开展示：前者说的是三样东西互相拉扯，后者是一根从弱到强的刻度；这两处概括都是我们的归纳。</text>
 </svg>
