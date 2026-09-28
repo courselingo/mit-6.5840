@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 321" width="760" height="321"
      role="img" aria-labelledby="fig-intro-13-title fig-intro-13-desc">
   <title id="fig-intro-13-title">两种坏法在客户端眼里长得完全不同</title>
-  <desc id="fig-intro-13-desc">fail-stop 的节点停下来，客户端等到的是一片空白，可以判定它坏了；byzantine 的节点照常回应，只是内容是错的，客户端从回应本身看不出异常。</desc>
+  <desc id="fig-intro-13-desc">fail-stop 是一个被假设的模型：节点停下来之后不再发出任何回应，也绝不再发出错话；但对观察者来说，「没有回应」和变慢、丢包长得一模一样，所以它不是一条能观测到的判据。byzantine 的节点照常回应，只是内容是错的，客户端从回应本身看不出异常。</desc>
 
   <defs>
     <style>
@@ -22,7 +22,7 @@
 
   <rect x="22" y="62" width="344" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
   <text x="194" y="90" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">fail-stop：节点停下来</text>
-  <text x="194" y="112" font-size="12" fill="#166534" text-anchor="middle">停下来这件事本身能被察觉</text>
+  <text x="194" y="112" font-size="12" fill="#166534" text-anchor="middle">不再回应，也绝不再发出错话</text>
 
   <rect x="394" y="62" width="344" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
   <text x="566" y="90" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">byzantine：还在运行却说错话</text>
@@ -30,7 +30,7 @@
 
   <rect x="22" y="158" width="344" height="68" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="194" y="186" font-size="15" font-weight="600" fill="#64748b" text-anchor="middle">客户端等到的：什么也没有</text>
-  <text x="194" y="208" font-size="12" fill="#64748b" text-anchor="middle">据此可以判定它坏了，换一台</text>
+  <text x="194" y="208" font-size="12" fill="#64748b" text-anchor="middle">但这也可能只是慢或丢了包</text>
 
   <rect x="394" y="158" width="344" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
   <text x="566" y="186" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">客户端等到的：一个错值</text>
