@@ -18,8 +18,8 @@
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">活性只被弱地保证：两个提议者互相顶编号</text>
 
-  <rect x="25" y="76" width="310" height="100" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <rect x="425" y="76" width="310" height="100" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <rect x="25" y="76" width="341" height="100" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <rect x="394" y="76" width="341" height="100" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <rect x="40" y="98" width="280" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="180" y="120" font-size="12" fill="#1e40af" text-anchor="middle">提议者 A 提编号 5</text>
   <text x="180" y="138" font-size="12" fill="#1e40af" text-anchor="middle">B 用编号 6 顶掉它</text>
