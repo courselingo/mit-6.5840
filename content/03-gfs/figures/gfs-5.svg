@@ -42,7 +42,7 @@
 
   <rect x="350" y="220" width="300" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
   <text x="500" y="242" font-size="12" fill="#166534" text-anchor="middle">优化带宽而非延迟</text>
-  <text x="500" y="260" font-size="12" fill="#166534" text-anchor="middle">链式分发摊薄延迟</text>
+  <text x="500" y="260" font-size="12" fill="#166534" text-anchor="middle">链式分发摊薄主节点的带宽压力</text>
 
   <text x="336" y="302" font-size="12" fill="#64748b" text-anchor="middle">每条链两步：左端是工作负载，右端是它推出的设计选择</text>
 </svg>

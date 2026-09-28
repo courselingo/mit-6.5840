@@ -41,6 +41,6 @@
   <text x="380" y="297" font-size="11" fill="#94a3b8" text-anchor="middle">MB/s</text>
 
   <rect x="22" y="341" width="716" height="50" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="361.6" font-size="11" fill="#6b21a8" text-anchor="middle">上限各不相同：读受交换机之间 1 Gbps 链路限制（125 MB/s）；写受 3 份副本 × 12.5 MB/s 入向连接限制（67 MB/s）</text>
+  <text x="380" y="361.6" font-size="11" fill="#6b21a8" text-anchor="middle">上限各不相同：读受交换机之间 1 Gbps 链路限制（125 MB/s）；写受入向总带宽：16 × 12.5 = 200 MB/s，每字节写 3 份，200 ÷ 3 ≈ 67</text>
   <text x="380" y="378.1" font-size="11" fill="#6b21a8" text-anchor="middle">数字出自论文测量一节；讲义给的参照是当时磁盘顺序吞吐约 30 MB/s、单张网卡约 10 MB/s</text>
 </svg>

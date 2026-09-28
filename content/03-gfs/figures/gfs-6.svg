@@ -23,7 +23,7 @@
   <rect x="22" y="190" width="716" height="180" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">读路径：只有第一次与缓存失效后才经过主节点</text>
 
-  <path d="M383,250 L395,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M371,250 L383,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
   <path d="M560,289 C 560,335 160,335 160,295" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
   <rect x="38" y="82" width="328" height="68" fill="#dbeafe" stroke="#3b82f6"/>
@@ -34,13 +34,13 @@
   <text x="558" y="110" font-size="15" fill="#6b21a8" text-anchor="middle">块副本的位置</text>
   <text x="558" y="132" font-size="12" fill="#6b21a8" text-anchor="middle">刻意不持久化：启动时问块服务器</text>
 
-  <rect x="38" y="216" width="340" height="68" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="208" y="244" font-size="15" fill="#1e40af" text-anchor="middle">第一次读</text>
-  <text x="208" y="266" font-size="12" fill="#1e40af" text-anchor="middle">问主节点，并把映射缓存下来</text>
+  <rect x="38" y="216" width="328" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="202" y="244" font-size="15" fill="#1e40af" text-anchor="middle">第一次读</text>
+  <text x="202" y="266" font-size="12" fill="#1e40af" text-anchor="middle">问主节点，并把映射缓存下来</text>
 
-  <rect x="406" y="216" width="316" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="564" y="244" font-size="15" fill="#b45309" text-anchor="middle">之后再读同一个块</text>
-  <text x="564" y="266" font-size="12" fill="#b45309" text-anchor="middle">不必打扰主节点，直接找块服务器</text>
+  <rect x="394" y="216" width="328" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="558" y="244" font-size="15" fill="#b45309" text-anchor="middle">之后再读同一个块</text>
+  <text x="558" y="266" font-size="12" fill="#b45309" text-anchor="middle">不必打扰主节点，直接找块服务器</text>
 
   <text x="380" y="352" font-size="12" fill="#64748b" text-anchor="middle">缓存过期或重新打开：才再问一次，还顺带问后面几块</text>
 </svg>
