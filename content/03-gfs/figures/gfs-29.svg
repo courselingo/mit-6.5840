@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 413" width="760" height="413"
+     role="img" aria-labelledby="fig-gfs-29-title fig-gfs-29-desc">
+  <title id="fig-gfs-29-title">论文实测：读能接近链路上限，写只有理论上限的一半</title>
+  <desc id="fig-gfs-29-desc">16 个客户端配 16 台块服务器时，读的聚合速率是 94 MB/s，约为交换机之间 1 Gbps 链路 125 MB/s 上限的 75%；写的聚合速率只有 35 MB/s，约为理论上限 67 MB/s 的一半，因为每个字节要写进 16 台块服务器中的 3 台、每台入向连接 12.5 MB/s。单客户端读约 6 MB/s、写 6.3 MB/s。数字出自论文测量一节。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="413" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">论文实测：读能接近链路上限，写只有理论上限的一半</text>
+
+  <rect x="22" y="56" width="716" height="260" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="72" font-size="12" fill="#64748b" text-anchor="middle">16 个客户端 + 16 台块服务器：一次读与一次写的聚合速率</text>
+
+  <rect x="210" y="114" width="368" height="44" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="394" y="140.2" font-size="12" fill="#1e40af" text-anchor="middle">读：聚合 94 MB/s</text>
+  <text x="590" y="140" font-size="12" fill="#166534" text-anchor="start">约为链路上限的 75%</text>
+
+  <rect x="210" y="185" width="137" height="44" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="278.5" y="211.2" font-size="12" fill="#b45309" text-anchor="middle">写：35</text>
+  <text x="359" y="211" font-size="12" fill="#b45309" text-anchor="start">聚合，约为理论上限的一半</text>
+
+  <path d="M210,253 L700,253" fill="none" stroke="#94a3b8"/>
+  <path d="M210,253 L210,259" fill="none" stroke="#94a3b8"/>
+  <path d="M308,253 L308,259" fill="none" stroke="#94a3b8"/>
+  <path d="M406,253 L406,259" fill="none" stroke="#94a3b8"/>
+  <path d="M504,253 L504,259" fill="none" stroke="#94a3b8"/>
+  <path d="M602,253 L602,259" fill="none" stroke="#94a3b8"/>
+  <path d="M700,253 L700,259" fill="none" stroke="#94a3b8"/>
+
+  <text x="210" y="279" font-size="12" fill="#64748b" text-anchor="middle">0</text>
+  <text x="308" y="279" font-size="12" fill="#64748b" text-anchor="middle">25</text>
+  <text x="406" y="279" font-size="12" fill="#64748b" text-anchor="middle">50</text>
+  <text x="504" y="279" font-size="12" fill="#64748b" text-anchor="middle">75</text>
+  <text x="602" y="279" font-size="12" fill="#64748b" text-anchor="middle">100</text>
+  <text x="700" y="279" font-size="12" fill="#64748b" text-anchor="middle">125</text>
+  <text x="380" y="297" font-size="11" fill="#94a3b8" text-anchor="middle">MB/s</text>
+
+  <rect x="22" y="341" width="716" height="50" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="361.6" font-size="11" fill="#6b21a8" text-anchor="middle">上限各不相同：读受交换机之间 1 Gbps 链路限制（125 MB/s）；写受 3 份副本 × 12.5 MB/s 入向连接限制（67 MB/s）</text>
+  <text x="380" y="378.1" font-size="11" fill="#6b21a8" text-anchor="middle">数字出自论文测量一节；讲义给的参照是当时磁盘顺序吞吐约 30 MB/s、单张网卡约 10 MB/s</text>
+</svg>
