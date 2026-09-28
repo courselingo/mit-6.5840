@@ -23,7 +23,7 @@
 
   <path d="M414,141 L 414,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
   <path d="M414,237 L 414,249" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M85,294 C 3,294 3,102 79,102" fill="none" stroke="#ec4899" stroke-width="2" marker-end="url(#arrow-pink)"/>
+  <path d="M85,294 C 3,294 3,102 76,102" fill="none" stroke="#ec4899" stroke-width="2" marker-end="url(#arrow-pink)"/>
   <text x="42" y="84" font-size="11" fill="#ec4899" text-anchor="middle">绕回①</text>
 
   <rect x="90" y="68" width="648" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
