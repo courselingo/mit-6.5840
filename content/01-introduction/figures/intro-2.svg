@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 394" width="760" height="394"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420"
      role="img" aria-labelledby="fig-intro-2-title fig-intro-2-desc">
   <title id="fig-intro-2-title">取舍的形状：三者互相拉扯，而一致性是一根刻度</title>
   <desc id="fig-intro-2-desc">左列是一致性、可用性、性能互相拉扯的一个环：三样都要，第三样先崩，所以只能同时保住两样。右列是一根一致性刻度，越往上越强也越慢：多数派定案（Raft、Paxos）实现的就是最上面那一档 linearizability，中间是顺序一致、因果一致这类更弱的等级，越往下越快但可能读到旧值。</desc>
@@ -13,7 +13,7 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="394" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="420" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">取舍的形状：三者互相拉扯，而一致性是一根刻度</text>
 
@@ -56,4 +56,5 @@
   <rect x="452" y="284" width="270" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="587" y="312" font-size="15" fill="#166534" text-anchor="middle">更快、但可能读到旧值</text>
   <text x="587" y="334" font-size="12" fill="#166534" text-anchor="middle">eventual consistency：停写后收敛</text>
+  <text x="380" y="397" font-size="10" fill="#94a3b8" text-anchor="middle">（图里「多数派定案＝最强那一档」「只能保住两样」这些概括是我们的归纳）</text>
 </svg>
