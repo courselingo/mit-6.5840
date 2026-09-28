@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-22-title fig-gfs-22-desc">
   <title id="fig-gfs-22-title">弱一致性的另一面：块满的边界与应用要守的三条约定</title>
-  <desc id="fig-gfs-22-desc">追加会让块超过 64MB 时，主节点把块填满到上限、让所有副本照做，再告诉客户端换下一个块重试，这是第一条边界；第二条边界是单条记录的大小，它被限制在块的四分之一以内，否则最坏情况下的碎片不可接受。应用这边要守三条约定：用追加而不是改写、写完原子改名；周期性写检查点；记录自带校验和与唯一标识，让重复可以被安全处理。</desc>
+  <desc id="fig-gfs-22-desc">追加会让块超过 64MB 时，主副本把块填满到上限、让所有次副本照做，再告诉客户端换下一个块重试，这是第一条边界；第二条边界是单条记录的大小，它被限制在块的四分之一以内，否则最坏情况下的碎片不可接受。应用这边要守三条约定：用追加而不是改写、写完原子改名；周期性写检查点；记录自带校验和与唯一标识，让重复可以被安全处理。</desc>
 
   <defs>
     <style>
@@ -25,7 +25,7 @@
 
   <rect x="38" y="82" width="328" height="68" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="202" y="110" font-size="15" fill="#b45309" text-anchor="middle">边界一：块满 64MB</text>
-  <text x="202" y="132" font-size="12" fill="#b45309" text-anchor="middle">填满到上限，所有副本照做，再换块重试</text>
+  <text x="202" y="132" font-size="12" fill="#b45309" text-anchor="middle">主副本填满到上限，次副本照做，再换块重试</text>
 
   <rect x="394" y="82" width="328" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="558" y="110" font-size="15" fill="#166534" text-anchor="middle">边界二：单条记录的大小</text>

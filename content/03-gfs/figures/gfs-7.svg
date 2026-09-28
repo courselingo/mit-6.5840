@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-7-title fig-gfs-7-desc">
   <title id="fig-gfs-7-title">块大换来的一条链，以及它为什么不浪费空间</title>
-  <desc id="fig-gfs-7-desc">这条链一环扣一环：块大所以每块元数据不到 64 字节，元数据小所以能全部放进主节点内存，全内存之后主节点既响应得快、又腾得出余力做垃圾回收、再复制与迁移。而块大并不会浪费空间：副本按需增长、延迟分配，内部碎片并不存在。</desc>
+  <desc id="fig-gfs-7-desc">这条链一环扣一环：块大所以块数少，块数少所以元数据总量小，元数据小所以能全部放进主节点内存，全内存之后主节点既响应得快、又腾得出余力做垃圾回收、再复制与迁移。而块大并不会浪费空间：副本按需增长、延迟分配，内部碎片并不存在。</desc>
 
   <defs>
     <style>
@@ -28,10 +28,10 @@
 
   <rect x="38" y="82" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="142" y="110" font-size="15" fill="#1e40af" text-anchor="middle">块大</text>
-  <text x="142" y="132" font-size="12" fill="#1e40af" text-anchor="middle">每块元数据不到 64 字节</text>
+  <text x="142" y="132" font-size="12" fill="#1e40af" text-anchor="middle">每块 64MB，块数因此少</text>
 
   <rect x="275" y="82" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="379" y="110" font-size="15" fill="#b45309" text-anchor="middle">元数据就小</text>
+  <text x="379" y="110" font-size="15" fill="#b45309" text-anchor="middle">元数据总量小</text>
   <text x="379" y="132" font-size="12" fill="#b45309" text-anchor="middle">小到能全放进内存</text>
 
   <rect x="512" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>

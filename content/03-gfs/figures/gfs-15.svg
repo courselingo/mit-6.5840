@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-15-title fig-gfs-15-desc">
   <title id="fig-gfs-15-title">数据流为什么走链式：上行带宽怎么分、流水线摊掉了什么</title>
-  <desc id="fig-gfs-15-desc">链式与树形的差别在上行带宽怎么分：链式里每台机器的上行只服务一个接收方，树形则把上行切成几份，某一台先成为瓶颈；「最近」是拿 IP 地址估出来的拓扑距离。公式里被摊掉的是带宽项：不做流水线时每一跳都要把 B 字节收全再转发，B/T 被逐跳重复支付，耗时接近 R×B/T 加 R×L；流水线只留下 B/T 加 R×L，而 R×L 摊不掉。链路 100Mbps、L 远小于 1ms 时，1MB 数据大约 80ms 就能铺开。</desc>
+  <desc id="fig-gfs-15-desc">链式与树形的差别在上行带宽怎么分：链式里每台机器的上行只服务一个接收方，树形则把上行切成几份，某一台先成为瓶颈；「最近」是拿 IP 地址估出来的拓扑距离。公式里被摊掉的是带宽项：不做流水线时每一跳都要把 B 字节收全再转发，B/T 被逐跳重复支付，耗时接近 R×B/T 加 R×L；流水线只留下 B/T 加 R×L，而 R×L 摊不掉。不做流水线那个对照式（R×B/T 加 R×L）是我们推的，论文只给了流水线之后的式子。链路 100Mbps、L 远小于 1ms 时，1MB 数据大约 80ms 就能铺开。</desc>
 
   <defs>
     <style>
@@ -36,7 +36,7 @@
 
   <rect x="38" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="142" y="244" font-size="15" fill="#b45309" text-anchor="middle">不流水线：逐跳各付一次</text>
-  <text x="142" y="266" font-size="12" fill="#b45309" text-anchor="middle">带宽项约 R×B/T 加 R×L</text>
+  <text x="142" y="266" font-size="12" fill="#b45309" text-anchor="middle">约 R×B/T 加 R×L（我们推的）</text>
 
   <rect x="275" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="379" y="244" font-size="15" fill="#1e40af" text-anchor="middle">流水线：摊掉带宽项</text>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-8-title fig-gfs-8-desc">
-  <title id="fig-gfs-8-title">大块买来的收益之外，三条同样真实的代价</title>
-  <desc id="fig-gfs-8-desc">热点：一个可执行文件被当作单块文件写进 GFS、上百台机器同时启动它，存这个块的少数机器瞬间被压垮，修法是提高副本数并错开启动时间。尾部延迟被放大：链式路径上最慢的一环决定这次写的耗时。粒度代价：1KB 与 64MB 的文件都只占一个块，真正被牺牲的是调度的精细度。</desc>
+  <title id="fig-gfs-8-title">块大的代价：论文列了一条，我们补了两条</title>
+  <desc id="fig-gfs-8-desc">热点是论文为块大列出的唯一一条缺点：一个可执行文件被当作单块文件写进 GFS、上百台机器同时启动它，存这个块的少数机器瞬间被压垮，修法是提高副本数并错开启动时间。下面两条是我们的补充，论文没有把它们列为块大的缺点：尾部延迟被放大，链式路径上最慢的一环决定这次写的耗时；粒度代价，1KB 与 64MB 的文件都只占一个块，真正被牺牲的是调度的精细度。</desc>
 
   <defs>
     <style>
@@ -15,13 +15,13 @@
 
   <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">大块买来的收益之外，三条同样真实的代价</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">块大的代价：论文列了一条，我们补了两条</text>
 
   <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">热点：论文如实记下的那次启动风暴</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">另外两条代价不在磁盘上</text>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">另外两条代价不在磁盘上（这两条是我们的补充）</text>
 
   <rect x="38" y="82" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
   <text x="202" y="110" font-size="15" fill="#9d174d" text-anchor="middle">单块可执行文件被上百台同时启动</text>
