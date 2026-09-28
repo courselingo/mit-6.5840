@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 177" width="756" height="177" role="img" aria-labelledby="fig-paxos-14-title fig-paxos-14-desc">
   <title id="fig-paxos-14-title">凑不齐多数派就停下，修复后接着走</title>
-  <desc id="fig-paxos-14-desc">多数派能通信时协议继续推进；凑不齐时决定做不成，少数派一侧停止服务，修复之后从停下的地方继续。</desc>
+  <desc id="fig-paxos-14-desc">多数派能通信时协议继续推进：收够回执就可以走，不必等最慢的那台。凑不齐多数派时决定做不成，少数派一侧停止服务（整站断电就是这种情形），但绝不会给出错误答案。网络修复、f+1 台重新可用之后，从停下的地方继续，落后过的那一侧靠日志把课补回来。</desc>
 
   <defs>
     <style>
@@ -18,10 +18,10 @@
   <rect x="25" y="64" width="218" height="90" rx="8" fill="#d1fae5" stroke="#22c55e"/>
   <text x="134" y="86" font-size="12" fill="#166534" text-anchor="middle">多数派能通信</text>
   <text x="134" y="104" font-size="12" fill="#166534" text-anchor="middle">协议继续推进</text>
-  <text x="134" y="122" font-size="12" fill="#166534" text-anchor="middle">整站断电也扛得住</text>
-  <text x="134" y="140" font-size="12" fill="#166534" text-anchor="middle">状态已经落了盘</text>
+  <text x="134" y="122" font-size="12" fill="#166534" text-anchor="middle">收够回执就可以走</text>
+  <text x="134" y="140" font-size="12" fill="#166534" text-anchor="middle">不必等最慢的那台</text>
   <rect x="271" y="64" width="218" height="90" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">凑不齐多数派</text>
+  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">凑不齐多数派（如整站断电）</text>
   <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">决定做不成</text>
   <text x="380" y="122" font-size="12" fill="#9d174d" text-anchor="middle">少数派那一侧停止服务</text>
   <text x="380" y="140" font-size="12" fill="#9d174d" text-anchor="middle">不是给出错误答案</text>

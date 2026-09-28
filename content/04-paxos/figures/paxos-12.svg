@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 363" width="756" height="363" role="img" aria-labelledby="fig-paxos-12-title fig-paxos-12-desc">
   <title id="fig-paxos-12-title">活性只被弱地保证：两个提议者互相顶编号</title>
-  <desc id="fig-paxos-12-desc">A 提编号 5，B 用 6 顶掉它，A 再用 7 顶回去，于是谁都拿不到多数派，进展被拖住但安全性没破。</desc>
+  <desc id="fig-paxos-12-desc">A 提编号 5，B 用 6 顶掉它，A 再用 7 顶回去，于是双方的 accept_ok 都收不齐（accept 被更高编号顶掉），进展被拖住但安全性没破。</desc>
 
   <defs>
     <style>
@@ -31,7 +31,7 @@
   <rect x="25" y="250" width="341" height="90" rx="8" fill="#fce7f3" stroke="#ec4899"/>
   <text x="195.5" y="272" font-size="12" fill="#9d174d" text-anchor="middle">两边都用更大的编号</text>
   <text x="195.5" y="290" font-size="12" fill="#9d174d" text-anchor="middle">谁都不肯让</text>
-  <text x="195.5" y="308" font-size="12" fill="#9d174d" text-anchor="middle">于是谁都拿不到多数派</text>
+  <text x="195.5" y="308" font-size="12" fill="#9d174d" text-anchor="middle">于是 accept_ok 都收不齐</text>
   <text x="195.5" y="326" font-size="12" fill="#9d174d" text-anchor="middle">进展被拖住</text>
   <rect x="394" y="250" width="341" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="564.5" y="272" font-size="12" fill="#b45309" text-anchor="middle">但安全性没有破</text>
