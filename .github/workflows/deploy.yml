@@ -82,9 +82,13 @@ jobs:
       - name: 安装站点依赖
         run: pip install -r websrc/requirements.txt
 
+      # enablement: true —— 若仓库尚未启用 Pages，本步会自己启用。
+      # 否则每建一门新课都得先人工去 Settings 打开 Pages，否则这里直接失败。
       - name: 配置 Pages
         id: pages
         uses: actions/configure-pages@v6
+        with:
+          enablement: true
 
       # build_site.py：先跑 validate 闸门 → 生成 websrc/docs/ → 调 mkdocs --strict。
       # 它自己设 PYTHONPATH=websrc 与 COURSELINGO_BASE_DIR；
