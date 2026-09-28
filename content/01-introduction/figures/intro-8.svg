@@ -19,7 +19,7 @@
 
   <text x="380" y="60" font-size="12" fill="#64748b" text-anchor="middle">粉色是必须串行的那一段，三段等长；蓝色是可并行的部分，机器翻倍就减半</text>
 
-  <rect x="22" y="76" width="202" height="191" fill="#fce7f3" stroke="#ec4899"/>
+  <rect x="22" y="76" width="202" height="191" fill="#f8fafc" stroke="#94a3b8"/>
   <text x="123" y="165.5" font-size="15" fill="#9d174d" text-anchor="middle">必须串行的那一段</text>
   <text x="123" y="188" font-size="15" fill="#9d174d" text-anchor="middle">加机器也不变短</text>
 

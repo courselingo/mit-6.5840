@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-rt-12-title fig-rt-12-desc">
   <title id="fig-rt-12-title">超时之后客户端不知道什么，以及重发带来的覆盖</title>
-  <desc id="fig-rt-12-desc">上排是四种无法区分的原因：请求没送到、收到但还在排队、回复丢在半路、服务端已崩溃。下排是等不及的重发：客户端写 10 又写 20 且两次都报告成功，但重发先到，最初那个原包迟到落地，后到的 10 覆盖了 20。</desc>
+  <desc id="fig-rt-12-desc">上排是四种无法区分的原因：请求没送到、收到但还在排队、回复丢在半路、服务端已崩溃。下排讲的是两次不同的写：客户端写 10 又写 20 且两次都报告成功，但重发先到，最初那个原包迟到落地，后到的 10 覆盖了 20。</desc>
 
   <defs>
     <style>
@@ -15,13 +15,13 @@
 
   <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">超时之后客户端不知道什么，以及重发带来的覆盖</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">超时之后客户端不知道什么，以及迟到与重发打乱的顺序</text>
 
   <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">客户端眼里只有一种现象：没等到回复</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">等不及的重发：一次逻辑操作变成两次真实执行</text>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">迟到与重发把顺序打乱：两次都报成功，结果却谁也认不出</text>
 
   <path d="M252,250 L264,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
   <path d="M489,250 L501,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
