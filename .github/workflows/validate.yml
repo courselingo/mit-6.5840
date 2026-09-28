@@ -39,6 +39,12 @@ jobs:
       - name: 运行 scripts/validate.py
         run: python scripts/validate.py
 
+      # 文风机检：反 AI 味不是靠自觉，是靠阈值。
+      # 破折号 / 加粗 / 设问密度、禁用词、脉络锚点，超阈值即失败。
+      # 规范见 docs/writing-style.md
+      - name: 文风机检
+        run: python scripts/check_style.py --root .
+
       # 配图房规检查：调用 vendor 进来的 tools/svg-lint（Node，零依赖）。
       # 房规要求 0 error 且 0 warning，--strict 让 warning 也拦下来。
       # ubuntu-latest 自带 Node；仍显式 setup 以钉住版本。

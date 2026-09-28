@@ -304,3 +304,123 @@ notes = "比同类任务慢得多的任务，会把整个作业拖住 —— 对
 en = "backup task"
 zh = "备份任务"
 notes = "把同一个任务在另一台机器上再跑一遍，谁先完成用谁的"
+
+[[term]]
+en = "leader"
+zh = "领导者"
+notes = "负责接收客户端请求、发起复制的那个节点"
+
+[[term]]
+en = "follower"
+zh = "跟随者"
+notes = "被动接受领导者指示的节点；收不到心跳就自己发起选举"
+
+[[term]]
+en = "candidate"
+zh = "候选者"
+notes = "选举期间的中间角色：正在拉票、尚未当选"
+
+[[term]]
+en = "log index"
+zh = "日志下标"
+notes = "日志条目的位置编号，从 1 开始；复制正确性靠它比对"
+
+[[term]]
+en = "election timeout"
+zh = "选举超时"
+notes = "跟随者多久没收到心跳就转候选者；随机取值以避免选票分裂"
+
+[[term]]
+en = "membership change"
+zh = "成员变更"
+notes = "集群增删节点；必须保证任意时刻只有一个多数派定义"
+
+[[term]]
+en = "Paxos"
+zh = "Paxos"
+notes = "一类共识算法的总称；本讲指《Paxos Made Simple》描述的版本"
+
+[[term]]
+en = "proposal"
+zh = "提案"
+notes = "Paxos 里被表决的对象：一个编号搭配一个值"
+
+[[term]]
+en = "proposal number"
+zh = "提案编号"
+notes = "全局唯一且可比大小；Paxos 靠它的大小关系解决冲突"
+
+[[term]]
+en = "proposer"
+zh = "提议者"
+notes = "提出提案的角色"
+
+[[term]]
+en = "acceptor"
+zh = "接受者"
+notes = "投票并记忆已接受提案的角色；多数派接受即定案"
+
+[[term]]
+en = "learner"
+zh = "学习者"
+notes = "只负责得知已定案结果的角色"
+
+[[term]]
+en = "Multi-Paxos"
+zh = "Multi-Paxos"
+notes = "把 Paxos 反复用于一串值（即一条日志）的工程做法"
+
+[[term]]
+en = "ZooKeeper"
+zh = "ZooKeeper"
+notes = "提供小型协调原语的复制服务：配置、命名、选主、锁"
+
+[[term]]
+en = "zxid"
+zh = "zxid（事务编号）"
+notes = "ZooKeeper 给每个事务分配的单调递增编号，兼作版本与顺序依据"
+
+[[term]]
+en = "session"
+zh = "会话"
+notes = "客户端与服务端之间的连接期；会话过期则临时节点被删除"
+
+[[term]]
+en = "watch"
+zh = "监视点"
+notes = "一次性通知：被监视的数据发生变化时回调客户端一次"
+
+[[term]]
+en = "ephemeral node"
+zh = "临时节点"
+notes = "随会话存活，客户端断连即自动删除；用来表示「谁还活着」"
+
+[[term]]
+en = "sequential node"
+zh = "顺序节点"
+notes = "创建时由服务端追加单调递增序号，用来实现队列与锁"
+
+[[term]]
+en = "ZAB"
+zh = "ZAB"
+notes = "ZooKeeper 的原子广播协议，保证所有副本按同一顺序应用事务"
+
+[[term]]
+en = "atomic broadcast"
+zh = "原子广播"
+notes = "全体副本以同一顺序收到同一条消息；与共识等价"
+
+[[term]]
+en = "total order"
+zh = "全序"
+notes = "所有节点对事件先后有一致且唯一的排列"
+
+[[term]]
+en = "fencing token"
+zh = "隔离令牌"
+notes = "单调递增的编号，用来挡住过期主节点发出的旧请求"
+
+[[term]]
+en = "linearizable write"
+zh = "线性一致写"
+notes = "写一旦返回，之后任何读都能看到它"

@@ -161,6 +161,11 @@ def main(argv: list[str] | None = None) -> int:
     shutil.copy2(web / "assets" / "bi.js", docs / "assets" / "bi.js")
     shutil.copy2(web / "assets" / "site.css", docs / "assets" / "site.css")
     shutil.copy2(web / "assets" / "mathjax.js", docs / "assets" / "mathjax.js")
+    # 品牌资源：header 图标与 favicon（课程仓根目录 assets/ 下）
+    for brand in ("logo.png", "logo-square.png", "favicon.png", "favicon-32.png"):
+        src = root / "assets" / brand
+        if src.is_file():
+            shutil.copy2(src, docs / "assets" / brand)
 
     # ---------- 讲座 ----------
     seen_figs: dict[str, str] = {}
@@ -283,6 +288,9 @@ use_directory_urls: false
 theme:
   name: material
   language: zh
+  # Header 左侧图标：点它去 CourseLingo 主页（由 extra.homepage 决定，见下）
+  logo: assets/logo.png
+  favicon: assets/favicon.png
   features:
     - navigation.instant
     - navigation.tracking
@@ -340,6 +348,12 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - extensions.bilingual
+
+extra:
+  # ★ 头部图标的超链接目标。Material 的 header.html 用的是
+  #   `config.extra.homepage | d(nav.homepage.url)` —— 设了它就压过站点首页。
+  #   于是「点图标 → CourseLingo」而不用改模板。
+  homepage: https://github.com/courselingo
 
 nav:
 {chr(10).join('  ' + line for line in nav)}
