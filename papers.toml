@@ -42,15 +42,15 @@ url = "https://dl.acm.org/doi/10.1145/945445.945450"
 notes = "LEC 3 的阅读材料"
 
 [paper.license]
-verified = false
+verified = true
 terms = "ACM 标准声明：再发布需事先专门许可"
-evidence_url = "https://www.microsoft.com/en-us/research/publication/paxos-made-simple/"
+evidence_url = "https://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf"
 checked_at = "2026-09-28"
 allows_translation = false
 allows_commercial = false
 share_alike = false
 redistribution = "unknown"
-notes = "dl.acm.org 对非浏览器客户端返回 403，未能读取 GFS 论文页本身。ACM 印在论文上的标准条款见 paper-licensing.md 第 2 节：个人与课堂复制免费，但再发布需事先专门许可 —— 翻译属于再发布。"
+notes = "论文第一页即 ACM 标准版权声明（已在三处作者自存官方 PDF 上交叉核对一致，见 paper-licensing.md 第 2.2 与 3.2 节）：个人与课堂复制免费，但再发布需事先专门许可 —— 翻译属于再发布。另注：ACM 自 2026-01-01 起全文库免费可读，但翻译权未变。"
 
 [[paper]]
 key = "raft"
