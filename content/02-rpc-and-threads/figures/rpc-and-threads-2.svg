@@ -41,5 +41,5 @@
 
   <rect x="22" y="260" width="716" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
   <text x="380" y="288" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">后面每个实验都踩在这两块砖上</text>
-  <text x="380" y="310" font-size="12" fill="#64748b" text-anchor="middle">GFS 要同时发起上万次读写，Paxos 与 Raft 要把提案送到一台台机器上</text>
+  <text x="380" y="310" font-size="12" fill="#64748b" text-anchor="middle">GFS 要让成百上千个客户端同时读写，Paxos 与 Raft 要把提案送到一台台机器上</text>
 </svg>

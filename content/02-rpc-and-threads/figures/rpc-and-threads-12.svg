@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-rt-12-title fig-rt-12-desc">
   <title id="fig-rt-12-title">超时之后客户端不知道什么，以及重发带来的覆盖</title>
-  <desc id="fig-rt-12-desc">上排是四种无法区分的原因：请求没送到、收到但还在处理、回复丢在半路、服务端已崩溃。下排是等不及的重发：客户端写 10 又写 20 且两次都报告成功，迟到的旧包落地，后到的 10 覆盖了 20。</desc>
+  <desc id="fig-rt-12-desc">上排是四种无法区分的原因：请求没送到、收到但还在排队、回复丢在半路、服务端已崩溃。下排是等不及的重发：客户端写 10 又写 20 且两次都报告成功，但重发先到，最初那个原包迟到落地，后到的 10 覆盖了 20。</desc>
 
   <defs>
     <style>
@@ -48,7 +48,7 @@
 
   <rect x="275" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="379" y="244" font-size="15" fill="#b45309" text-anchor="middle">第一次只是慢</text>
-  <text x="379" y="266" font-size="12" fill="#b45309" text-anchor="middle">重发的旧包迟到落地</text>
+  <text x="379" y="266" font-size="12" fill="#b45309" text-anchor="middle">最初那个原包迟到落地</text>
 
   <rect x="512" y="216" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
   <text x="616" y="244" font-size="15" fill="#9d174d" text-anchor="middle">后到的 10 覆盖 20</text>
