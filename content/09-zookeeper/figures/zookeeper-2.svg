@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 302" width="766" height="302"
+     role="img" aria-labelledby="fig-zk-2-title fig-zk-2-desc">
+  <title id="fig-zk-2-title">用临时顺序节点实现一把锁</title>
+  <desc id="fig-zk-2-desc">三个客户端在同一父路径下各建一个临时顺序节点，序号最小者持锁，其余只监视自己前面那个；持锁者崩溃后会话超时会删掉它的节点，下一个接手。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="766" height="302" fill="#ffffff"/>
+
+  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">用临时顺序节点实现锁：序号最小者持锁</text>
+
+  <path d="M135,123 L135,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M383,123 L383,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M631,123 L631,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M135,204 L135,215" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M383,204 L383,215" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M631,204 L631,215" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="25" y="64" width="716" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="383" y="86" font-size="12" fill="#1e40af" text-anchor="middle">三个客户端同时想拿同一把锁</text>
+  <text x="383" y="104" font-size="12" fill="#1e40af" text-anchor="middle">各自在 /lock 下创建一个临时顺序节点</text>
+
+  <rect x="25" y="145" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="167" font-size="12" fill="#166534" text-anchor="middle">/lock/l-000000001</text>
+  <text x="135" y="185" font-size="12" fill="#166534" text-anchor="middle">序号最小：持锁</text>
+
+  <rect x="273" y="145" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="383" y="167" font-size="12" fill="#b45309" text-anchor="middle">/lock/l-000000002</text>
+  <text x="383" y="185" font-size="12" fill="#b45309" text-anchor="middle">排队，只监视前一个</text>
+
+  <rect x="521" y="145" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="631" y="167" font-size="12" fill="#b45309" text-anchor="middle">/lock/l-000000003</text>
+  <text x="631" y="185" font-size="12" fill="#b45309" text-anchor="middle">排队，只监视前一个</text>
+
+  <rect x="25" y="226" width="716" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="383" y="248" font-size="12" fill="#6b21a8" text-anchor="middle">持锁者崩溃：心跳停 → 会话超时 → 临时节点被删除</text>
+  <text x="383" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">下一个收到通知并接手；不必轮询，也不会叫醒所有人</text>
+</svg>

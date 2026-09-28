@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 383" width="680" height="383"
+     role="img" aria-labelledby="fig-zk-3-title fig-zk-3-desc">
+  <title id="fig-zk-3-title">监视点是一次性的</title>
+  <desc id="fig-zk-3-desc">注册的监视点只会回调一次，用完即废；想继续等下一次变化，只能重新注册一个新的监视点，也就是回到第一步。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="383" fill="#ffffff"/>
+
+  <text x="338" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">监视点是一次性的：触发后必须重新注册</text>
+
+  <path d="M387,123 L387,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M387,204 L387,215" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M387,285 L387,296" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <path d="M115,334 C 60,334 22,304 22,274 L 22,151 C 22,121 60,91 109,91" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="120" y="64" width="535" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="387" y="86" font-size="12" fill="#1e40af" text-anchor="middle">第 1 步：注册一个监视点</text>
+  <text x="387" y="104" font-size="12" fill="#1e40af" text-anchor="middle">getData(path, watch=true)，只为这一次变化登记</text>
+
+  <rect x="120" y="145" width="535" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="387" y="167" font-size="12" fill="#b45309" text-anchor="middle">第 2 步：等到通知</text>
+  <text x="387" y="185" font-size="12" fill="#b45309" text-anchor="middle">节点被改或被删，服务端回调这一次</text>
+
+  <rect x="120" y="226" width="535" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="387" y="248" font-size="12" fill="#9d174d" text-anchor="middle">第 3 步：这个监视点已经用掉</text>
+  <text x="387" y="266" font-size="12" fill="#9d174d" text-anchor="middle">后面再变，它也不会响第二次</text>
+
+  <rect x="120" y="307" width="535" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="387" y="329" font-size="12" fill="#166534" text-anchor="middle">第 4 步：想继续等就重新注册</text>
+  <text x="387" y="347" font-size="12" fill="#166534" text-anchor="middle">回到第 1 步，登记一个新的监视点</text>
+
+  <text x="45" y="250" font-size="12" fill="#64748b">重新注册</text>
+</svg>

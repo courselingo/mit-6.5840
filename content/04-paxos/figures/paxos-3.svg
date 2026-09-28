@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" width="760" height="250"
+     role="img" aria-labelledby="fig-paxos-3-title fig-paxos-3-desc">
+  <title id="fig-paxos-3-title">任意两个多数派必然相交：5 台里的两次 3 票</title>
+  <desc id="fig-paxos-3-desc">第一轮 S1、S2、S3 接受了 X，第二轮新提议者的多数派是 S3、S4、S5，两边唯一的共同成员 S3 是 X 已经定案的唯一证据。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="250" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">任意两个多数派必然相交：5 台里的两次 3 票</text>
+
+  <path d="M380,123 L380,132" fill="none" stroke="#22c55e" marker-end="url(#arrow-green)"/>
+
+  <rect x="25" y="64" width="122" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="86" y="86" font-size="12" fill="#1e40af" text-anchor="middle">接受者 S1</text>
+  <text x="86" y="104" font-size="12" fill="#1e40af" text-anchor="middle">第一轮 投 X</text>
+
+  <rect x="172" y="64" width="122" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="233" y="86" font-size="12" fill="#1e40af" text-anchor="middle">接受者 S2</text>
+  <text x="233" y="104" font-size="12" fill="#1e40af" text-anchor="middle">第一轮 投 X</text>
+
+  <rect x="319" y="64" width="122" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="86" font-size="12" fill="#166534" text-anchor="middle">接受者 S3</text>
+  <text x="380" y="104" font-size="12" fill="#166534" text-anchor="middle">第一轮 投 X</text>
+
+  <rect x="466" y="64" width="122" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="527" y="86" font-size="12" fill="#1e40af" text-anchor="middle">接受者 S4</text>
+  <text x="527" y="104" font-size="12" fill="#1e40af" text-anchor="middle">第一轮 没回应</text>
+
+  <rect x="613" y="64" width="122" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="674" y="86" font-size="12" fill="#1e40af" text-anchor="middle">接受者 S5</text>
+  <text x="674" y="104" font-size="12" fill="#1e40af" text-anchor="middle">第一轮 没回应</text>
+
+  <rect x="25" y="143" width="122" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="86" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">接受者 S1</text>
+  <text x="86" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">第二轮 未参与</text>
+
+  <rect x="172" y="143" width="122" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="233" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">接受者 S2</text>
+  <text x="233" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">第二轮 未参与</text>
+
+  <rect x="319" y="143" width="122" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="165" font-size="12" fill="#166534" text-anchor="middle">接受者 S3</text>
+  <text x="380" y="183" font-size="12" fill="#166534" text-anchor="middle">第二轮 交出 X</text>
+
+  <rect x="466" y="143" width="122" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="527" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">接受者 S4</text>
+  <text x="527" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">第二轮 无记录</text>
+
+  <rect x="613" y="143" width="122" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="674" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">接受者 S5</text>
+  <text x="674" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">第二轮 无记录</text>
+
+  <text x="380" y="223" font-size="12" fill="#64748b" text-anchor="middle">两次 3 票都在 5 台里选，交集至少 1 台：X 就是靠 S3 传下去的</text>
+</svg>

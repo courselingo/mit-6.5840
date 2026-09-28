@@ -424,3 +424,28 @@ notes = "单调递增的编号，用来挡住过期主节点发出的旧请求"
 en = "linearizable write"
 zh = "线性一致写"
 notes = "写一旦返回，之后任何读都能看到它"
+
+[[term]]
+en = "chosen"
+zh = "定案"
+notes = "一个值已被多数派接受，之后不可能再被改掉"
+
+[[term]]
+en = "liveness"
+zh = "活性"
+notes = "系统最终总能给出结果；与「安全性」相对"
+
+[[term]]
+en = "round"
+zh = "提案轮次"
+notes = "一次 Paxos 从编号递增到定案的过程"
+
+[[term]]
+en = "persistent state"
+zh = "持久化状态"
+notes = "必须落盘、重启后仍在的状态；接受者记的提案就是"
+
+[[term]]
+en = "starvation"
+zh = "饿死（活锁）"
+notes = "两个提议者互相顶掉对方的编号，谁都无法推进"
