@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 376" width="760" height="376"
      role="img" aria-labelledby="fig-mr-13-title fig-mr-13-desc">
   <title id="fig-mr-13-title">两条容错路线，以及重跑那条路线的边界</title>
-  <desc id="fig-mr-13-desc">左列是重跑：它绕开共识，代价是计算形态被限定成确定性加一次扫描；它成立靠的是确定性假设，一旦要维护可变状态或要多个作业看到同一个一致视图，重跑就不再是正确答案。右列是 Raft：直面共识，每次写要一次多数派往返，换来不依赖用户函数的单一顺序。</desc>
+  <desc id="fig-mr-13-desc">左列是重跑：它绕开共识，代价是计算形态被限定成确定性加一次扫描；它成立靠的是确定性假设，一旦要维护可变状态或要多个作业看到同一个一致视图，重跑就不再是正确答案；函数不纯时，论文的保证降级为每个归约分区的输出各自等价于某一次顺序执行。右列是 Raft：直面共识，每次写要一次多数派往返，换来不依赖用户函数的单一顺序。（与 Raft 的这一对照是课外延伸，超出了这篇论文的范围。）</desc>
 
   <defs>
     <style>
@@ -21,7 +21,7 @@
   <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">重跑这一侧</text>
 
   <rect x="398" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">共识那一侧</text>
+  <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">共识那一侧（课外延伸，论文未提）</text>
 
   <rect x="38" y="82" width="308" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="192" y="110" font-size="15" fill="#1e40af" text-anchor="middle">重跑绕开了共识</text>
@@ -29,7 +29,7 @@
 
   <rect x="38" y="176" width="308" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="192" y="204" font-size="15" fill="#166534" text-anchor="middle">它成立靠确定性假设</text>
-  <text x="192" y="226" font-size="12" fill="#166534" text-anchor="middle">函数一不纯，重跑就给不出唯一结果</text>
+  <text x="192" y="226" font-size="12" fill="#166534" text-anchor="middle">函数不纯时，各分区只保证来自某一次执行</text>
 
   <rect x="38" y="270" width="308" height="68" fill="#fce7f3" stroke="#ec4899"/>
   <text x="192" y="298" font-size="15" fill="#9d174d" text-anchor="middle">越出这条边界</text>

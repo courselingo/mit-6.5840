@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-mr-3-title fig-mr-3-desc">
   <title id="fig-mr-3-title">落后者用备份执行对付，分区倾斜备份执行救不了</title>
-  <desc id="fig-mr-3-desc">落后者可能只是撞上一块快坏的磁盘，读性能从 30MB/s 掉到 1MB/s；对策是备份执行，把还没结束的任务在别的机器上再起一份，谁先完成用谁，排序测试关掉它的耗时从 891 秒涨到 1283 秒。分区倾斜不一样：热点 key 让一个归约器承担大部分值，慢的根因是数据量而不是机器，所以备份执行救不了它。</desc>
+  <desc id="fig-mr-3-desc">落后者可能只是撞上一块快坏的磁盘，读性能从 30MB/s 掉到 1MB/s；对策是备份执行，把还没结束的任务在别的机器上再起一份，谁先完成用谁，排序测试关掉它的耗时从 891 秒涨到 1283 秒。分区倾斜不一样：热点 key 让一个归约器承担大部分值，慢的根因是数据量而不是机器，所以备份执行救不了它；combiner 能减少每台映射机器上重复记录的发送量，但改不掉倾斜本身。</desc>
 
   <defs>
     <style>
@@ -41,5 +41,5 @@
 
   <rect x="394" y="216" width="328" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="558" y="244" font-size="15" fill="#166534" text-anchor="middle">它也是长尾，但备份没用</text>
-  <text x="558" y="266" font-size="12" fill="#166534" text-anchor="middle">combiner 只在键重复度高时才管用</text>
+  <text x="558" y="266" font-size="12" fill="#166534" text-anchor="middle">combiner 改不掉倾斜：值集合该多大还是多大</text>
 </svg>

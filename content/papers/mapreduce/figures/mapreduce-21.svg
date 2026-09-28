@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 343" width="760" height="343"
      role="img" aria-labelledby="fig-mapreduce-21-title fig-mapreduce-21-desc">
-  <title id="fig-mapreduce-21-title">用户唯一的干预入口：替代函数</title>
-  <desc id="fig-mapreduce-21-desc">默认分区是取哈希再取模、默认调度是主节点配对，两件事都由框架定死；用户唯一被允许干预的地方是提供一个替代函数，代价是例外带来的倾斜要自己承担。</desc>
+  <title id="fig-mapreduce-21-title">默认值由框架给，旋钮在用户手上</title>
+  <desc id="fig-mapreduce-21-desc">框架给出一套能直接用的默认值：默认分区是取哈希再取模，默认调度是主节点把空闲 worker 与待办任务配对，默认容错是标记失败任务并重跑。但这些默认值都可以替换，用户手上还有分区数 R、分区函数、输入输出格式与 combiner 这些旋钮；代价是换掉默认分区之后，倾斜要用户自己承担。</desc>
 
   <defs>
     <style>
@@ -15,17 +15,17 @@
 
   <rect x="0" y="0" width="760" height="343" fill="#ffffff"/>
 
-  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">用户唯一的干预入口：替代函数</text>
+  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">默认值由框架给，旋钮在用户手上</text>
 
   <rect x="22" y="64" width="716" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380.0" y="92" font-size="15" fill="#b45309" text-anchor="middle">框架定死的两件事：默认分区取哈希再取模、默认调度由主节点配对</text>
-  <text x="380.0" y="114" font-size="12" fill="#b45309" text-anchor="middle">分区、调度、容错都没有做成可插拔的库</text>
+  <text x="380.0" y="92" font-size="15" fill="#b45309" text-anchor="middle">框架给的默认值：分区取哈希再取模、调度由主节点配对</text>
+  <text x="380.0" y="114" font-size="12" fill="#b45309" text-anchor="middle">容错也是默认的：标记失败任务，换个地方重跑</text>
   <path d="M380,137 L380,149" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
   <rect x="170" y="160" width="420" height="68" rx="8" fill="#eff6ff" stroke="#2563eb"/>
-  <text x="380.0" y="188" font-size="15" fill="#1d4ed8" text-anchor="middle">用户唯一被允许干预的地方</text>
-  <text x="380.0" y="210" font-size="12" fill="#1d4ed8" text-anchor="middle">提供一个替代函数，比如按主机名分区</text>
+  <text x="380.0" y="188" font-size="15" fill="#1d4ed8" text-anchor="middle">用户手上的旋钮</text>
+  <text x="380.0" y="210" font-size="12" fill="#1d4ed8" text-anchor="middle">分区数 R、分区函数、输入输出格式、combiner</text>
   <path d="M380,233 L380,245" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
   <rect x="22" y="256" width="716" height="64" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380.0" y="280" font-size="11" fill="#1e293b" text-anchor="middle">代价：某个大站点可能把单一分区撑爆</text>
+  <text x="380.0" y="280" font-size="11" fill="#1e293b" text-anchor="middle">代价：换掉默认分区（比如按主机名），某个大站点可能把单一分区撑爆</text>
   <text x="380.0" y="300" font-size="10" fill="#64748b" text-anchor="middle">默认足够好、例外才开口，这是接口能压到两个函数的原因</text>
 </svg>

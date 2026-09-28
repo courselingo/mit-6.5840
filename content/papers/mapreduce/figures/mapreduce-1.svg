@@ -18,7 +18,7 @@
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一次作业的数据流，以及中间结果为什么留在本地磁盘</text>
 
   <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">从提交到返回：中间结果的位置就是最关键的一处</text>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">数据流里最关键的一处：中间结果写到哪里</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">同一份数据，两条路</text>
@@ -30,7 +30,7 @@
 
   <rect x="38" y="82" width="114" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="95" y="110" font-size="15" fill="#1e40af" text-anchor="middle">输入分片</text>
-  <text x="95" y="132" font-size="12" fill="#1e40af" text-anchor="middle">按 64MB 切</text>
+  <text x="95" y="132" font-size="12" fill="#1e40af" text-anchor="middle">按 16–64MB 切</text>
 
   <rect x="180" y="82" width="114" height="68" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="237" y="110" font-size="15" fill="#b45309" text-anchor="middle">map 任务</text>
@@ -54,5 +54,5 @@
 
   <rect x="394" y="216" width="328" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="558" y="244" font-size="15" fill="#166534" text-anchor="middle">留在本地磁盘</text>
-  <text x="558" y="266" font-size="12" fill="#166534" text-anchor="middle">它只会被一个归约任务读一次</text>
+  <text x="558" y="266" font-size="12" fill="#166534" text-anchor="middle">机器一死只要重跑那几个映射任务</text>
 </svg>

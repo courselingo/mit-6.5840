@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 456" width="760" height="456"
      role="img" aria-labelledby="fig-mr-8-title fig-mr-8-desc">
   <title id="fig-mr-8-title">把性能拉起来的三件事：本地性、任务粒度与 combiner</title>
-  <desc id="fig-mr-8-desc">数据本地性让大部分输入不走网络：输入按 64MB 存三份副本，主节点尽量把映射任务放到本地就有输入那台。任务粒度要求 M 与 R 远大于机器数，换来负载均衡与好分摊，代价是 O(M+R) 次调度与 O(M×R) 的常驻状态。combiner 在映射机器上先合一次，代码通常与归约函数相同。</desc>
+  <desc id="fig-mr-8-desc">数据本地性让大部分输入不走网络：输入按 64MB 存三份副本，主节点尽量把映射任务放到本地就有输入那台。任务粒度要求 M 与 R 都远大于机器数，换来负载均衡与好分摊，代价是 O(M+R) 次调度与 O(M×R) 的常驻状态；两者的取值规则不同，M 要取到每份输入分片 16MB 到 64MB，R 取成机器数的一个小倍数。combiner 在映射机器上先合一次，代码通常与归约函数相同。</desc>
 
   <defs>
     <style>
@@ -21,7 +21,7 @@
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">数据本地性：让大部分输入根本不走网络</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">任务粒度：M 与 R 远大于机器数</text>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">任务粒度：M 与 R 的取值规则不一样</text>
 
   <rect x="22" y="324" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="338" font-size="12" fill="#64748b" text-anchor="middle">combiner：在映射机器上先合一次</text>
@@ -32,7 +32,7 @@
 
   <rect x="38" y="216" width="684" height="68" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="380" y="244" font-size="15" fill="#b45309" text-anchor="middle">每台机器轮流做很多小任务，负载均衡、死了也好分摊</text>
-  <text x="380" y="266" font-size="12" fill="#b45309" text-anchor="middle">代价是 O(M+R) 次调度决策与 O(M×R) 的常驻状态，目标是把任务落在 16MB 到 64MB</text>
+  <text x="380" y="266" font-size="12" fill="#b45309" text-anchor="middle">代价是 O(M+R) 次调度与 O(M×R) 常驻状态；M 取到每份分片 16–64MB，R 取成机器数的小倍数</text>
 
   <rect x="38" y="350" width="684" height="68" fill="#f3e8ff" stroke="#a855f7"/>
   <text x="380" y="378" font-size="15" fill="#6b21a8" text-anchor="middle">同一个映射任务会反复产出同一个键，先在本地合一次再发出去</text>

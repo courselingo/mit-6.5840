@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 323" width="760" height="323"
      role="img" aria-labelledby="fig-mapreduce-22-title fig-mapreduce-22-desc">
   <title id="fig-mapreduce-22-title">后续系统各自补的是哪一块</title>
-  <desc id="fig-mapreduce-22-desc">Spark 把中间结果留在内存、Dryad 把计算表达成有向无环图、Pregel 冲着迭代，三个系统攻击的是同一条取舍：作业与作业之间完全隔离。</desc>
+  <desc id="fig-mapreduce-22-desc">Spark 把中间结果留在内存、Dryad 把计算表达成有向无环图、Pregel 冲着迭代，三个系统攻击的是同一条取舍：作业与作业之间只能靠文件传递状态。（这三个系统是课外的延伸对比，论文没有提到它们。）</desc>
 
   <defs>
     <style>
@@ -30,8 +30,8 @@
   <path d="M380,137 L380,149" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
   <path d="M627.5,137 L627.5,149" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
   <rect x="22" y="160" width="716" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380.0" y="188" font-size="15" fill="#9d174d" text-anchor="middle">它们攻击的是同一个弱点：作业与作业之间完全隔离</text>
+  <text x="380.0" y="188" font-size="15" fill="#9d174d" text-anchor="middle">它们攻击的是同一个弱点：作业之间只能靠文件传递状态</text>
   <text x="380.0" y="210" font-size="12" fill="#9d174d" text-anchor="middle">任务之间除了中间键值对没有别的通信手段</text>
   <rect x="22" y="256" width="716" height="44" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380.0" y="282" font-size="11" fill="#1e293b" text-anchor="middle">这不是实现问题，是接口换来的取舍</text>
+  <text x="380.0" y="282" font-size="11" fill="#1e293b" text-anchor="middle">这不是实现问题，是接口换来的取舍（这三个系统是课外延伸，论文没有提到）</text>
 </svg>
