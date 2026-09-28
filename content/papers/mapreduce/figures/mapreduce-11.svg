@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 456" width="760" height="456"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 482" width="760" height="482"
      role="img" aria-labelledby="fig-mr-11-title fig-mr-11-desc">
   <title id="fig-mr-11-title">三条刻在模型与结构上的边界</title>
   <desc id="fig-mr-11-desc">迭代式算法每一轮都要落盘再读回，成本乘上迭代次数，Spark 把中间结果留在内存里正是针对这一条；主节点同时是调度者、中间结果位置的中转站与状态页，O(M×R) 的状态把作业规模钉在这里；框架不支持把一个任务的多个输出原子地一起提交，有一致性要求时只能靠用户保证确定性。</desc>
@@ -13,7 +13,7 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="456" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="482" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三条刻在模型与结构上的边界</text>
 
@@ -49,4 +49,5 @@
   <rect x="394" y="350" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
   <text x="558" y="378" font-size="15" fill="#9d174d" text-anchor="middle">多个输出没有对应动作</text>
   <text x="558" y="400" font-size="12" fill="#9d174d" text-anchor="middle">有一致性要求就只能靠用户保证确定性</text>
+  <text x="380" y="459" font-size="11" fill="#94a3b8" text-anchor="middle">M = 映射任务数，R = 归约分区数：主节点要为每个映射任务的每个分区各记一份元数据</text>
 </svg>

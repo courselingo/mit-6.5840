@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-mr-6-title fig-mr-6-desc">
   <title id="fig-mr-6-title">失败之后谁要重跑，以及输出为什么只会有一份</title>
-  <desc id="fig-mr-6-desc">主节点定期 ping 每台 worker，超时即标为失败：正在执行的任务无论映射还是归约都要重置，已完成的映射任务要重跑，因为输出躺在死掉那台的本地磁盘上；已完成的归约任务不用重跑，因为输出已经在文件系统里，重跑后主节点通知还没读旧位置的那些改去新位置读。主节点自己挂掉时，当时的实现选择中止整个作业；任务先写私有临时文件、完成时原子改名，所以跑两遍也只剩一份结果。</desc>
+  <desc id="fig-mr-6-desc">主节点定期 ping 每台 worker，超时即标为失败：正在执行的任务无论映射还是归约都要重置，已完成的映射任务要重跑，因为输出躺在死掉那台的本地磁盘上；已完成的归约任务不用重跑，因为输出已经在文件系统里，重跑后主节点通知还没读旧位置的那些改去新位置读。主节点自己挂掉时，当时的实现选择中止整个作业；任务先写私有临时文件、完成时原子改名，所以跑两遍也只剩一份结果。（下排三张卡片：左一张是「主节点挂掉怎么办」，右边两张同属一个取舍 —— 先写私有临时文件再原子改名，因此重复的完成消息可以被忽略。）</desc>
 
   <defs>
     <style>
@@ -21,7 +21,7 @@
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">一台 worker 失联之后</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">两个已经被明确记下来的取舍</text>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">三个做法，其中后两件是同一个取舍的两面</text>
 
   <rect x="38" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
   <text x="142" y="110" font-size="15" fill="#9d174d" text-anchor="middle">已完成的映射任务要重跑</text>
