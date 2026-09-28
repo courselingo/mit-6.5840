@@ -2,7 +2,7 @@
 kind = "paper"
 paper = "raft"
 title = "Raft 导读"
-status = "draft"
+status = "reviewed"
 output_mode = "guide"
 +++
 
