@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 316" width="760" height="316"
+     role="img" aria-labelledby="fig-gfs-31-title fig-gfs-31-desc">
+  <title id="fig-gfs-31-title">租约守住的不变量：同一块最多只有一个定序者</title>
+  <desc id="fig-gfs-31-desc">没有租约时，两个副本可能各自以为自己该定序，同一块上分出两条互相矛盾的修改顺序，也就是脑裂。有租约时，同一时刻只有一个主副本，修改顺序只有一条。讲义把「用租约防止脑裂」列在这套设计的优点里。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="316" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">租约守住的是一件事：同一块最多只有一个定序者</text>
+
+  <rect x="25" y="64" width="710" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="92" font-size="15" fill="#9d174d" text-anchor="middle">没有租约</text>
+  <text x="380" y="114" font-size="12" fill="#9d174d" text-anchor="middle">两个副本各自以为自己该定序，同一块上分出两条互相矛盾的修改顺序（脑裂）</text>
+
+  <rect x="25" y="157" width="710" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="185" font-size="15" fill="#166534" text-anchor="middle">有租约</text>
+  <text x="380" y="207" font-size="12" fill="#166534" text-anchor="middle">主节点把租约授予其中一个副本，同一时刻只有一个主副本，修改顺序只有一条</text>
+
+  <rect x="25" y="250" width="710" height="44" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="275.9" font-size="11" fill="#1e293b" text-anchor="middle">讲义把「用租约防止脑裂」列在这套设计的优点里（讲义 340 行）</text>
+</svg>

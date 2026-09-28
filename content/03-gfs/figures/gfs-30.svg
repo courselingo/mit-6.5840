@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 219" width="760" height="219"
+     role="img" aria-labelledby="fig-gfs-30-title fig-gfs-30-desc">
+  <title id="fig-gfs-30-title">块大省下的两笔开销：问位置的次数与建连的次数</title>
+  <desc id="fig-gfs-30-desc">论文的默认块是 64MB，读 1GB 数据只要问 16 次位置；如果块只有 4KB，同样 1GB 要问大约 26 万次（4KB 这一栏与换算都是我们加的，论文只给了 64MB）。省下的不只是问位置的次数：同一个块上会连续做很多次操作，一块一连接的长连接才养得起。这两笔开销都按块数计费，块数少，两笔一起降下来。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="219" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">1GB 数据要问几次位置：块大，问的次数就少</text>
+
+  <rect x="25" y="64" width="341" height="54" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="195.5" y="86" font-size="12" fill="#1e40af" text-anchor="middle">64MB 的块（论文的默认）</text>
+  <text x="195.5" y="104" font-size="12" fill="#1e40af" text-anchor="middle">1GB 数据 = 16 个块 → 16 次位置查询</text>
+
+  <rect x="394" y="64" width="341" height="54" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="564.5" y="86" font-size="12" fill="#9d174d" text-anchor="middle">4KB 的块（对比假设，我们加的）</text>
+  <text x="564.5" y="104" font-size="12" fill="#9d174d" text-anchor="middle">1GB 数据 ≈ 26 万个块 → 26 万次查询</text>
+
+  <rect x="25" y="143" width="710" height="54" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">省下的不只是问位置的次数：同一个块上会连续做很多次操作，一块一连接才养得起</text>
+  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">这两笔开销都按块数计费，块数少，两笔一起降下来</text>
+</svg>
