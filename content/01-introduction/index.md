@@ -2,7 +2,7 @@
 title = "分布式系统导论"
 lecture = 1
 slug = "introduction"
-status = "draft"
+status = "reviewed"
 source_kind = "notes"
 source_url = "https://pdos.csail.mit.edu/6.824/"
 source_title = "Lecture 1: Introduction"
