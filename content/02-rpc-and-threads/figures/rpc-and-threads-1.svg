@@ -52,7 +52,7 @@
   <text x="194" y="281" font-size="12" fill="#64748b" text-anchor="middle">结局是二元的，不存在「不知道」</text>
 
   <rect x="394" y="231" width="344" height="68" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
-  <text x="566" y="259" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">多出第三种：不知道</text>
+  <text x="566" y="259" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">上面两种之外，还有第三种：不知道</text>
   <text x="566" y="281" font-size="12" fill="#64748b" text-anchor="middle">超时在调用方只是一个 timeout</text>
 
   <rect x="22" y="327" width="716" height="45" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
