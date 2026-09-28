@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-rt-12-title fig-rt-12-desc">
   <title id="fig-rt-12-title">超时之后客户端不知道什么，以及迟到带来的覆盖</title>
-  <desc id="fig-rt-12-desc">上排是四种无法区分的原因：请求没送到、收到但还在排队、回复丢在半路、服务端已崩溃。下排讲的是两次不同的写：客户端写 10 又写 20 且两次都报告成功，但迟到先到，最初那个原包迟到落地，后到的 10 覆盖了 20。</desc>
+  <desc id="fig-rt-12-desc">上排是四种无法区分的原因：请求没送到、收到但还在排队、回复丢在半路、服务端已崩溃。下排讲的是两次不同的写：客户端写 10 又写 20 且两次都报告成功，但那个原包反而迟到落地，后到的 10 覆盖了 20。</desc>
 
   <defs>
     <style>
