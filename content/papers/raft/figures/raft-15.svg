@@ -22,7 +22,7 @@
   <text x="133.5" y="104" font-size="12" fill="#9d174d" text-anchor="middle">只有多数派可达才能推进</text>
   <rect x="270" y="64" width="221" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
   <text x="380.5" y="86" font-size="12" fill="#166534" text-anchor="middle">写延迟做到下界</text>
-  <text x="380.5" y="104" font-size="12" fill="#166534" text-anchor="middle">最少消息数：到半个集群一次往返</text>
+  <text x="380.5" y="104" font-size="12" fill="#166534" text-anchor="middle">只要一次往返：领导者到多数派</text>
   <rect x="517" y="64" width="221" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
   <text x="627.5" y="86" font-size="12" fill="#9d174d" text-anchor="middle">接受单集群的写吞吐上限</text>
   <text x="627.5" y="104" font-size="12" fill="#9d174d" text-anchor="middle">所有写都经过同一位领导者</text>

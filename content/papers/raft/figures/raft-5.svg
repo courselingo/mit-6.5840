@@ -21,7 +21,7 @@
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">要换一条路的两条理由</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">论文用一组小规模数据支撑了「更容易学会」</text>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">论文用一组小规模数据支撑「更容易学会」，并自己给出两条保留</text>
 
   <rect x="38" y="82" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
   <text x="202" y="110" font-size="15" fill="#9d174d" text-anchor="middle">单值内核很紧凑</text>
@@ -33,7 +33,7 @@
 
   <rect x="38" y="216" width="328" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="202" y="244" font-size="15" fill="#1e40af" text-anchor="middle">43 名学生的答卷</text>
-  <text x="202" y="266" font-size="12" fill="#1e40af" text-anchor="middle">Raft 25.7 分，Paxos 20.8 分，33 人更高</text>
+  <text x="202" y="266" font-size="12" fill="#1e40af" text-anchor="middle">Raft 25.7 分，Paxos 20.8 分，33 人 Raft 更高</text>
 
   <rect x="394" y="216" width="328" height="68" fill="#f3e8ff" stroke="#a855f7"/>
   <text x="558" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">论文自己给出的两条保留</text>

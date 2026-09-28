@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-7-title fig-raft-7-desc">
-  <title id="fig-raft-7-title">强领导者：一个任期最多一个，日志单向流</title>
-  <desc id="fig-raft-7-desc">一个任期里最多只会选出一个领导者（论文的措辞是「在一个给定任期里最多选出一个」）；Raft 先选出领导者，日志只从它单向流出，它决定新条目位置不必征询；对称内核只适合单个决定。</desc>
+  <title id="fig-raft-7-title">强领导者：一个任期最多一个</title>
+  <desc id="fig-raft-7-desc">一个任期里最多只会选出一个领导者（论文的措辞是「在一个给定任期里最多选出一个」）；Raft 先选出领导者，它决定新条目位置不必征询；对称内核只适合单个决定。</desc>
 
   <defs>
     <style>
