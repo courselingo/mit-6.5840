@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 356" width="756" height="356" role="img" aria-labelledby="fig-zookeeper-18-title fig-zookeeper-18-desc">
   <title id="fig-zookeeper-18-title">隔离令牌：把判决的效力带到资源那一侧</title>
-  <desc id="fig-zookeeper-18-desc">会话终结的拒绝只管得到 ZooKeeper 客户端；被保护的资源要用单调递增的隔离令牌挡住旧编号的请求。</desc>
+  <desc id="fig-zookeeper-18-desc">会话终结的拒绝只管得到 ZooKeeper 客户端；如果被保护的资源在别处，就要给它配一个单调递增的隔离令牌来挡住旧编号的请求。要说明的是：令牌这一层是我们的补白 —— 两个源里只有 fencing 这个词与「拒绝被判死客户端的请求」这个含义，没有出现「token」。</desc>
 
   <defs>
     <style>
@@ -27,7 +27,7 @@
   <text x="190" y="220" font-size="12" fill="#9d174d" text-anchor="middle">拒绝请求就管不到它</text>
   <rect x="40" y="264" width="300" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="190" y="286" font-size="12" fill="#1e40af" text-anchor="middle">所以要给它配隔离令牌</text>
-  <text x="190" y="304" font-size="12" fill="#1e40af" text-anchor="middle">一个单调递增的编号</text>
+  <text x="190" y="304" font-size="12" fill="#1e40af" text-anchor="middle">一个单调递增的编号（我们补的）</text>
   <rect x="420" y="96" width="300" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
   <text x="570" y="118" font-size="12" fill="#9d174d" text-anchor="middle">老主带着旧编号上门</text>
   <text x="570" y="136" font-size="12" fill="#9d174d" text-anchor="middle">资源端直接拒绝</text>
