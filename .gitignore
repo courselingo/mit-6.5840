@@ -5,3 +5,6 @@ site/
 site-mkdocs/
 websrc/docs/
 __pycache__/
+
+# 由 build_site.py 生成（含绝对路径，不应入库）
+websrc/mkdocs.yml
