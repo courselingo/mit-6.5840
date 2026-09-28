@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 401" width="760" height="401"
      role="img" aria-labelledby="fig-paxos-2-title fig-paxos-2-desc">
   <title id="fig-paxos-2-title">两个阶段各自解决一件事，以及那两个往返</title>
-  <desc id="fig-paxos-2-desc">阶段一先挑一个没用过且更大的编号去问一圈：只要有人报过接受的值，就必须改用编号最大的那个；全部说没接受过才能提自己的值。阶段二发出 accept，接受者比 n ≥ n_p 才收，凑齐多数派即定案并广播；两个往返要串起来，还要叠加最慢那台的时间。</desc>
+  <desc id="fig-paxos-2-desc">阶段一先挑一个没用过且更大的编号去问一圈：只要有人报过接受的值，就必须改用编号最大的那个；全部说没接受过才能提自己的值。阶段二发出 accept，接受者比 n ≥ n_p 才收，凑齐多数派即定案；定案之后接受者再把 decided(v′) 广播给所有学习者，这一步只通知结果、不再参与选值。两个往返要串起来，还要叠加最慢那台的时间。</desc>
 
   <defs>
     <style>
@@ -13,14 +13,14 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="401" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两个阶段各自解决一件事，以及那两个往返</text>
 
   <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">阶段一 prepare：先探知，再谈自己的值</text>
 
-  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <rect x="22" y="190" width="716" height="189" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">阶段二 accept：定案与广播，以及那两个往返</text>
 
   <path d="M252,116 L264,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
@@ -44,4 +44,10 @@
   <rect x="394" y="216" width="328" height="68" fill="#f3e8ff" stroke="#a855f7"/>
   <text x="558" y="244" font-size="15" fill="#6b21a8" text-anchor="middle">两个往返要串起来</text>
   <text x="558" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">再叠加多数派里最慢那台的响应时间</text>
+
+  <path d="M202,289 L202,298" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="38" y="309" width="684" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="331" font-size="12" fill="#166534" text-anchor="middle">定案之后：接受者把 decided(v′) 广播给所有学习者</text>
+  <text x="380" y="349" font-size="12" fill="#166534" text-anchor="middle">这一步只通知结果，不再参与「选哪一个值」</text>
 </svg>
