@@ -21,7 +21,7 @@
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">若 n_a、v_a 不落盘：忘掉的那台正好是两轮唯一的交集</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">n_p（承诺过的最高编号）没落盘 ⇒ 安全性被破坏</text>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">n_p（承诺过的最高编号，即上面第三个状态）没落盘 ⇒ 安全性被破坏</text>
 
   <rect x="22" y="324" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="338" font-size="12" fill="#64748b" text-anchor="middle">Multi-Paxos：省掉的是重复的阶段一</text>
@@ -49,7 +49,7 @@
 
   <rect x="275" y="216" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
   <text x="379" y="244" font-size="15" fill="#9d174d" text-anchor="middle">编号 10 比 11 更早</text>
-  <text x="379" y="266" font-size="12" fill="#9d174d" text-anchor="middle">Y 也定案 ⇒ 同一实例定了两个值</text>
+  <text x="379" y="266" font-size="12" fill="#9d174d" text-anchor="middle">X 定案后，编号 11 的 Y 也定案</text>
 
   <rect x="512" y="216" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="616" y="244" font-size="15" fill="#166534" text-anchor="middle">它挡的是旧编号</text>
