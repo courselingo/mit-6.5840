@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 279" width="760" height="279"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 289" width="760" height="289"
      role="img" aria-labelledby="fig-intro-8-title fig-intro-8-desc">
   <title id="fig-intro-8-title">并行段越切越短，串行段一动不动</title>
-  <desc id="fig-intro-8-desc">同一作业里，必须串行的那一段不随机器数变化，可并行的部分在 4 台、8 台、16 台时依次缩短，总时间最终被串行段封顶。</desc>
+  <desc id="fig-intro-8-desc">同一作业里，必须串行的那一段不随机器数变化：4 台、8 台、16 台三行末尾的粉色段长度完全一样；可并行的蓝色部分每翻一倍机器就减半，于是整条时间条越缩越短，最终被串行段封顶。</desc>
 
   <defs>
     <style>
@@ -13,20 +13,26 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="279" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="289" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">并行段越切越短，串行段一动不动</text>
 
-  <rect x="22" y="66" width="200" height="191" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="122" y="155.5" font-size="15" fill="#9d174d" text-anchor="middle">必须串行的那一段</text>
-  <text x="122" y="178" font-size="15" fill="#9d174d" text-anchor="middle">加机器也不变短</text>
+  <text x="380" y="60" font-size="12" fill="#64748b" text-anchor="middle">粉色是必须串行的那一段，三段等长；蓝色是可并行的部分，机器翻倍就减半</text>
 
-  <rect x="250" y="66" width="488" height="45" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="494" y="94" font-size="15" fill="#1e40af" text-anchor="middle">4 台机器：可并行的部分还算长</text>
+  <rect x="22" y="76" width="202" height="191" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="123" y="165.5" font-size="15" fill="#9d174d" text-anchor="middle">必须串行的那一段</text>
+  <text x="123" y="188" font-size="15" fill="#9d174d" text-anchor="middle">加机器也不变短</text>
 
-  <rect x="250" y="139" width="244" height="45" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="372" y="167" font-size="15" fill="#1e40af" text-anchor="middle">8 台：并行段减半</text>
+  <path d="M616,76 H738 V121 H616 Z" fill="#fce7f3" stroke="#ec4899"/>
+  <path d="M433,149 H555 V194 H433 Z" fill="#fce7f3" stroke="#ec4899"/>
+  <path d="M341,222 H463 V267 H341 Z" fill="#fce7f3" stroke="#ec4899"/>
 
-  <rect x="250" y="212" width="122" height="45" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="311" y="240" font-size="15" fill="#1e40af" text-anchor="middle">16 台：一小块</text>
+  <rect x="250" y="76" width="366" height="45" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="433" y="104" font-size="15" fill="#1e40af" text-anchor="middle">4 台机器</text>
+
+  <rect x="250" y="149" width="183" height="45" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="341.5" y="177" font-size="15" fill="#1e40af" text-anchor="middle">8 台机器</text>
+
+  <rect x="250" y="222" width="91" height="45" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="295.5" y="250" font-size="15" fill="#1e40af" text-anchor="middle">16 台机器</text>
 </svg>

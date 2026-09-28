@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" width="760" height="250"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360"
      role="img" aria-labelledby="fig-paxos-1-title fig-paxos-1-desc">
-  <title id="fig-paxos-1-title">一条回执丢失：提议者与集群看到两个事实</title>
-  <desc id="fig-paxos-1-desc">三台接受者里 S1 与 S2 都接受了值 X，但 S2 的回执在回程丢失，提议者只收到一条 accept_ok，无从判断 X 已被多数派定案。</desc>
+  <title id="fig-paxos-1-title">两条消息丢了：一条 accept 没到，一条回执没回</title>
+  <desc id="fig-paxos-1-desc">提议者把 accept(n=1, 值 X) 发给三台接受者：S1 收到并回了回执，S2 收到了但回执在回程丢失，S3 那条 accept 在去程就丢了。于是 S1 与 S2 已构成多数派、X 事实上被定案，而提议者只看到 1 条回执，无从判断。</desc>
 
   <defs>
     <style>
@@ -12,29 +12,36 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="250" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="360" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一条回执丢失：提议者与集群看到两个事实</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两条消息丢了：一条 accept 没到，一条回执没回</text>
 
-  <path d="M135,123 L135,132" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M380,123 L380,132" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M625,123 L625,132" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="20" y="206" width="720" height="102" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
 
-  <rect x="25" y="64" width="710" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">提议者 P：把 accept(n=1, 值 X) 发给三台接受者</text>
-  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">只收回 1 条 accept_ok，够不够定案它无从判断</text>
+  <path d="M121,137 L121,211" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M161,217 L161,143" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M359,137 L359,211" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M399,217 L399,180" fill="none" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <path d="M597,137 L597,175" fill="none" stroke="#94a3b8" stroke-dasharray="6,4"/>
 
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="165" font-size="12" fill="#1e40af" text-anchor="middle">接受者 S1：接受了 1/X</text>
-  <text x="135" y="183" font-size="12" fill="#1e40af" text-anchor="middle">回执送达</text>
+  <text x="411" y="175" font-size="12" fill="#64748b" text-anchor="start">回执丢失</text>
+  <text x="585" y="168" font-size="12" fill="#64748b" text-anchor="end">accept 丢失</text>
 
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="380" y="165" font-size="12" fill="#1e40af" text-anchor="middle">接受者 S2：也接受 1/X</text>
-  <text x="380" y="183" font-size="12" fill="#1e40af" text-anchor="middle">回执在回程丢失</text>
+  <rect x="22" y="64" width="716" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="93" font-size="12" fill="#b45309" text-anchor="middle">提议者 P：把 accept(n=1, 值 X) 发给三台接受者</text>
+  <text x="380" y="111" font-size="12" fill="#b45309" text-anchor="middle">只收回 1 条 accept_ok，够不够定案它无从判断</text>
 
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="625" y="165" font-size="12" fill="#1e40af" text-anchor="middle">接受者 S3：没有收到</text>
-  <text x="625" y="183" font-size="12" fill="#1e40af" text-anchor="middle">它对此毫无记录</text>
+  <rect x="36" y="222" width="210" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="141" y="251" font-size="12" fill="#1e40af" text-anchor="middle">接受者 S1：接受了 1/X</text>
+  <text x="141" y="269" font-size="12" fill="#1e40af" text-anchor="middle">回执送达提议者</text>
 
-  <text x="380" y="223" font-size="12" fill="#64748b" text-anchor="middle">S1 与 S2 已构成多数派，X 事实上被定案；提议者只看到 1 条回执</text>
+  <rect x="274" y="222" width="210" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="379" y="251" font-size="12" fill="#1e40af" text-anchor="middle">接受者 S2：也接受 1/X</text>
+  <text x="379" y="269" font-size="12" fill="#1e40af" text-anchor="middle">回执在回程丢失</text>
+
+  <rect x="512" y="222" width="210" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="617" y="251" font-size="12" fill="#1e40af" text-anchor="middle">接受者 S3：没有收到 accept</text>
+  <text x="617" y="269" font-size="12" fill="#1e40af" text-anchor="middle">它对此毫无记录</text>
+
+  <text x="380" y="334" font-size="12" fill="#64748b" text-anchor="middle">S1 与 S2 已构成多数派，X 事实上被定案；提议者只看到 1 条回执</text>
 </svg>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 446" width="760" height="446"
      role="img" aria-labelledby="rpc-and-threads-16-title rpc-and-threads-16-desc">
   <title id="rpc-and-threads-16-title">重试风暴是一个自我加强的环</title>
-  <desc id="rpc-and-threads-16-desc">超时定得太短，慢被误判成死，重发让服务器更忙、延迟更高，于是更多请求撞上超时，误判和重发更多。这个正反馈就是重试风暴，靠合理的超时与幂等重试刹住。</desc>
+  <desc id="rpc-and-threads-16-desc">超时定得太短，慢被误判成死，重发让服务器更忙、延迟更高，于是更多请求撞上超时；这条边从第三步绕回第一步，正反馈就是这个环，也就是重试风暴。底下那条是对策而不是链条的下一环：超时按观测到的延迟分布定，只重试安全或幂等的请求。</desc>
 
   <defs>
     <style>
@@ -17,25 +17,23 @@
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">重试风暴是一个自我加强的环</text>
 
-  <rect x="22" y="68" width="716" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="380" y="96" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">① 超时时间定得太短</text>
-  <text x="380" y="118" font-size="12" fill="#64748b" text-anchor="middle">慢被误判成死，客户端等不及就重发</text>
+  <path d="M414,141 L 414,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M414,237 L 414,249" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M85,294 C 3,294 3,102 79,102" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <path d="M380,141 L 380,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="90" y="68" width="648" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="414" y="96" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">① 超时时间定得太短</text>
+  <text x="414" y="118" font-size="12" fill="#64748b" text-anchor="middle">慢被误判成死，客户端等不及就重发</text>
 
-  <rect x="22" y="164" width="716" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="380" y="192" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">② 服务器更忙</text>
-  <text x="380" y="214" font-size="12" fill="#64748b" text-anchor="middle">重发本身加重了服务器的负担</text>
+  <rect x="90" y="164" width="648" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="414" y="192" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">② 服务器更忙</text>
+  <text x="414" y="214" font-size="12" fill="#64748b" text-anchor="middle">重发本身加重了服务器的负担</text>
 
-  <path d="M380,237 L 380,249" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="90" y="260" width="648" height="68" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="414" y="288" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">③ 更多请求撞上超时</text>
+  <text x="414" y="310" font-size="12" fill="#64748b" text-anchor="middle">误判成死的更多，重发更多，于是绕回第一步</text>
 
-  <rect x="22" y="260" width="716" height="68" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
-  <text x="380" y="288" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">③ 更多请求撞上超时</text>
-  <text x="380" y="310" font-size="12" fill="#64748b" text-anchor="middle">误判成死的更多，重发更多，环就自己转起来了</text>
-
-  <path d="M380,333 L 380,345" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-  <rect x="22" y="356" width="716" height="68" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
-  <text x="380" y="384" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">④ 刹车：超时按观测到的延迟分布定，只重试安全或幂等的请求</text>
-  <text x="380" y="406" font-size="12" fill="#64748b" text-anchor="middle">两条都不做，这个环会一直转，直到把服务器压垮</text>
+  <rect x="90" y="356" width="648" height="68" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="414" y="384" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">刹车：超时按观测到的延迟分布定，只重试安全或幂等的请求</text>
+  <text x="414" y="406" font-size="12" fill="#64748b" text-anchor="middle">两条都不做，这个环会一直转，直到把服务器压垮</text>
 </svg>

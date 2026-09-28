@@ -22,8 +22,8 @@
   <text x="195" y="185" font-size="12" fill="#1e40af" text-anchor="middle">跨客户端并发追加也算</text>
 
   <rect x="25" y="226" width="341" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="195" y="248" font-size="12" fill="#1e40af" text-anchor="middle">前提三：吞吐比延迟重要</text>
-  <text x="195" y="266" font-size="12" fill="#1e40af" text-anchor="middle">能容忍尾部延迟抖动</text>
+  <text x="195" y="248" font-size="12" fill="#1e40af" text-anchor="middle">前提三：能接受弱一致性，延迟让位于吞吐</text>
+  <text x="195" y="266" font-size="12" fill="#1e40af" text-anchor="middle">重复、旧值、尾部抖动都能容忍</text>
 
   <rect x="396" y="64" width="345" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
   <text x="568" y="86" font-size="12" fill="#9d174d" text-anchor="middle">换成大量小文件随机改写</text>
@@ -35,7 +35,7 @@
 
   <rect x="396" y="226" width="345" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
   <text x="568" y="248" font-size="12" fill="#9d174d" text-anchor="middle">要求读到最新且唯一的值</text>
-  <text x="568" y="266" font-size="12" fill="#9d174d" text-anchor="middle">应用得自己幂等去重</text>
+  <text x="568" y="266" font-size="12" fill="#9d174d" text-anchor="middle">也受不了尾部延迟抖动</text>
 
   <text x="383" y="306" font-size="12" fill="#64748b" text-anchor="middle">代价没有消失，只是从存储系统搬到了应用侧</text>
 </svg>

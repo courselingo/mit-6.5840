@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 364" width="760" height="364"
      role="img" aria-labelledby="fig-paxos-6-title fig-paxos-6-desc">
   <title id="fig-paxos-6-title">一次断网里的多数派，以及门槛换算成机器数</title>
-  <desc id="fig-paxos-6-desc">五台的集群门槛是 3 票，分母永远是全部 5 台。断成两半后 3 台那侧凑得够、可以决定，2 台那侧只能停摆；换算成机器数就是 3 台容忍 1 台、5 台容忍 2 台、2 台一台都容忍不了。</desc>
+  <desc id="fig-paxos-6-desc">五台的集群门槛是 3 票，分母永远是全部 5 台。断成两半后 3 台那侧凑得够、可以决定，2 台那侧只能停摆。下排换一个口径，把门槛换算成集群规模能容忍坏掉几台：3 台容忍 1 台、5 台容忍 2 台、2 台一台都容忍不了。</desc>
 
   <defs>
     <style>
@@ -21,12 +21,14 @@
   <text x="380" y="110" font-size="15" fill="#1e40af" text-anchor="middle">五台的集群，多数派门槛是 3 票</text>
   <text x="380" y="132" font-size="12" fill="#1e40af" text-anchor="middle">分母永远是全部 5 台，不是现在活着的机器</text>
 
+  <text x="380" y="268" font-size="12" fill="#64748b" text-anchor="middle">换算成集群规模：能容忍坏掉几台</text>
+
   <rect x="22" y="178" width="344" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="194" y="206" font-size="15" fill="#166534" text-anchor="middle">3 台那一侧</text>
+  <text x="194" y="206" font-size="15" fill="#166534" text-anchor="middle">断网后：3 台那一侧</text>
   <text x="194" y="228" font-size="12" fill="#166534" text-anchor="middle">凑得够 3 票，可以决定</text>
 
   <rect x="394" y="178" width="344" height="68" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="566" y="206" font-size="15" fill="#9d174d" text-anchor="middle">2 台那一侧</text>
+  <text x="566" y="206" font-size="15" fill="#9d174d" text-anchor="middle">断网后：2 台那一侧</text>
   <text x="566" y="228" font-size="12" fill="#9d174d" text-anchor="middle">凑不够，只能停摆</text>
 
   <rect x="22" y="274" width="220" height="68" fill="#f3e8ff" stroke="#a855f7"/>

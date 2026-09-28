@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-rt-9-title fig-rt-9-desc">
   <title id="fig-rt-9-title">一次 RPC 穿过的替身，以及服务端那侧的并发</title>
-  <desc id="fig-rt-9-desc">上排是调用链：调用者只看得见第一层，stub 编组参数、RPC 库过网络、dispatcher 按方法名找到处理函数。下排是服务端为每个请求开一个 goroutine，两个 goroutine 会同时碰同一块共享状态，RPC 库不会替你加锁。</desc>
+  <desc id="fig-rt-9-desc">上排分成两侧：客户端这边调用者只看得见第一层，stub 编组参数、RPC 库把字节交给网络；跨过中间那条网络与进程边界，服务端的 dispatcher 才按方法名找到处理函数。下排是服务端为每个请求开一个 goroutine，两个 goroutine 会同时碰同一张共享 map，RPC 库不会替你加锁。</desc>
 
   <defs>
     <style>
@@ -17,31 +17,36 @@
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一次 RPC 穿过的替身，以及服务端那侧的并发</text>
 
-  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">伪装成本地调用的那几层替身</text>
+  <rect x="22" y="56" width="512" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="278" y="70" font-size="12" fill="#64748b" text-anchor="middle">客户端：伪装成本地调用的那条链</text>
+
+  <rect x="558" y="56" width="180" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="648" y="70" font-size="12" fill="#64748b" text-anchor="middle">服务端这一侧</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">服务端为每个请求开一个 goroutine</text>
 
-  <path d="M193,116 L205,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M371,116 L383,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M549,116 L561,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M546,82 L546,150" fill="none" stroke="#94a3b8" stroke-dasharray="6,4"/>
 
-  <rect x="38" y="82" width="150" height="68" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="113" y="110" font-size="15" fill="#1e40af" text-anchor="middle">调用者</text>
-  <text x="113" y="132" font-size="12" fill="#1e40af" text-anchor="middle">只看得见这层</text>
+  <path d="M183,116 L195,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M351,116 L363,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M519,116 L563,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
-  <rect x="216" y="82" width="150" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="291" y="110" font-size="15" fill="#b45309" text-anchor="middle">stub 替身</text>
-  <text x="291" y="132" font-size="12" fill="#b45309" text-anchor="middle">编组、发请求</text>
+  <rect x="38" y="82" width="140" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="108" y="110" font-size="15" fill="#1e40af" text-anchor="middle">调用者</text>
+  <text x="108" y="132" font-size="12" fill="#1e40af" text-anchor="middle">只看得见这层</text>
 
-  <rect x="394" y="82" width="150" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="469" y="110" font-size="15" fill="#b45309" text-anchor="middle">RPC 库</text>
-  <text x="469" y="132" font-size="12" fill="#b45309" text-anchor="middle">把字节交给网络</text>
+  <rect x="206" y="82" width="140" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="276" y="110" font-size="15" fill="#b45309" text-anchor="middle">stub 替身</text>
+  <text x="276" y="132" font-size="12" fill="#b45309" text-anchor="middle">编组、发请求</text>
 
-  <rect x="572" y="82" width="150" height="68" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="647" y="110" font-size="15" fill="#6b21a8" text-anchor="middle">dispatcher</text>
-  <text x="647" y="132" font-size="12" fill="#6b21a8" text-anchor="middle">按方法名找处理函数</text>
+  <rect x="374" y="82" width="140" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="444" y="110" font-size="15" fill="#b45309" text-anchor="middle">RPC 库</text>
+  <text x="444" y="132" font-size="12" fill="#b45309" text-anchor="middle">把字节交给网络</text>
+
+  <rect x="574" y="82" width="140" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="644" y="110" font-size="15" fill="#6b21a8" text-anchor="middle">dispatcher</text>
+  <text x="644" y="132" font-size="12" fill="#6b21a8" text-anchor="middle">按方法名找处理函数</text>
 
   <rect x="38" y="216" width="328" height="68" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="202" y="244" font-size="15" fill="#b45309" text-anchor="middle">请求 A 的 goroutine</text>

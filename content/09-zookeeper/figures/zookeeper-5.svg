@@ -1,42 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-zookeeper-5-title fig-zookeeper-5-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 410" width="760" height="410"
+     role="img" aria-labelledby="fig-zookeeper-5-title fig-zookeeper-5-desc">
   <title id="fig-zookeeper-5-title">三种直觉做法与它们各自挡路的地方</title>
-  <desc id="fig-zookeeper-5-desc">状态写本机磁盘会随机器一起丢，只复制存储要先有容错存储，自己用 Raft 也仍要写对检测死亡与选主。</desc>
+  <desc id="fig-zookeeper-5-desc">状态写本机磁盘，机器一崩就没了；只复制存储要先有一套真正容错的存储；自己用 Raft 存，这四件事仍要自己写对：检测老协调者已死、选出唯一的新协调者、从只做一半的更新里恢复、处理老主还活着却不知道自己被判死。ZooKeeper 把这四件事一起接了过去，应用侧只剩顺序代码。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="410" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三种直觉做法与它们各自挡路的地方</text>
 
-  <rect x="25" y="64" width="158" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="104" y="86" font-size="12" fill="#9d174d" text-anchor="middle">状态写本机磁盘</text>
-  <text x="104" y="104" font-size="12" fill="#9d174d" text-anchor="middle">机器崩了就没了</text>
-  <rect x="209" y="64" width="158" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="288" y="86" font-size="12" fill="#b45309" text-anchor="middle">只复制存储</text>
-  <text x="288" y="104" font-size="12" fill="#b45309" text-anchor="middle">得先有容错存储</text>
-  <rect x="393" y="64" width="158" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="472" y="86" font-size="12" fill="#b45309" text-anchor="middle">自己用 Raft 存</text>
-  <text x="472" y="104" font-size="12" fill="#b45309" text-anchor="middle">这几件事仍要写对</text>
-  <rect x="577" y="64" width="158" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="656" y="86" font-size="12" fill="#166534" text-anchor="middle">ZooKeeper</text>
-  <text x="656" y="104" font-size="12" fill="#166534" text-anchor="middle">打包成现成服务</text>
-  <rect x="25" y="143" width="158" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="104" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">要能检测</text>
-  <text x="104" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">老协调者已死</text>
-  <rect x="209" y="143" width="158" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="288" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">要能选出</text>
-  <text x="288" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">唯一的新协调者</text>
-  <rect x="393" y="143" width="158" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="472" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">要能从只做一半</text>
-  <text x="472" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">的更新里恢复</text>
-  <rect x="577" y="143" width="158" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="656" y="165" font-size="12" fill="#9d174d" text-anchor="middle">老主还活着</text>
-  <text x="656" y="183" font-size="12" fill="#9d174d" text-anchor="middle">却不知道自己被判死</text>
+  <rect x="271" y="166" width="464" height="144" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="503" y="182" font-size="12" fill="#64748b" text-anchor="middle">下面这四件事，任何一条写错方案就失效</text>
+
+  <path d="M380,137 L380,187" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M628,137 L628,187" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="25" y="64" width="218" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="134" y="93" font-size="12" fill="#b45309" text-anchor="middle">做法一：状态写本机磁盘</text>
+  <text x="134" y="111" font-size="12" fill="#b45309" text-anchor="middle">机器一崩，状态就没了</text>
+
+  <rect x="271" y="64" width="218" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="93" font-size="12" fill="#b45309" text-anchor="middle">做法二：只复制存储</text>
+  <text x="380" y="111" font-size="12" fill="#b45309" text-anchor="middle">得先有真正容错的存储</text>
+
+  <rect x="517" y="64" width="218" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="626" y="93" font-size="12" fill="#b45309" text-anchor="middle">做法三：自己用 Raft 存</text>
+  <text x="626" y="111" font-size="12" fill="#b45309" text-anchor="middle">这几件事仍要自己写对</text>
+
+  <rect x="287" y="198" width="203" height="36" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="388.5" y="220" font-size="12" fill="#6b21a8" text-anchor="middle">要能检测老协调者已死</text>
+
+  <rect x="516" y="198" width="203" height="36" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="617.5" y="220" font-size="12" fill="#6b21a8" text-anchor="middle">要能选出唯一的新协调者</text>
+
+  <rect x="287" y="260" width="203" height="36" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="388.5" y="282" font-size="12" fill="#6b21a8" text-anchor="middle">要能从只做一半的更新里恢复</text>
+
+  <rect x="516" y="260" width="203" height="36" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="617.5" y="282" font-size="12" fill="#6b21a8" text-anchor="middle">老主还活着，却不知道自己被判死</text>
+
+  <rect x="25" y="334" width="710" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="356" font-size="12" fill="#166534" text-anchor="middle">ZooKeeper：把这四件事一起接过去</text>
+  <text x="380" y="374" font-size="12" fill="#166534" text-anchor="middle">应用侧只剩顺序代码</text>
 </svg>

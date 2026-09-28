@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-7-title fig-gfs-7-desc">
-  <title id="fig-gfs-7-title">大块买到的三样东西，以及它为什么不浪费空间</title>
-  <desc id="fig-gfs-7-desc">块大所以每块元数据不到 64 字节，元数据小所以能全部放进主节点内存，全内存之后主节点既响应得快、又腾得出余力做垃圾回收、再复制与迁移。而块大并不会浪费空间：副本按需增长、延迟分配，内部碎片并不存在。</desc>
+  <title id="fig-gfs-7-title">块大换来的一条链，以及它为什么不浪费空间</title>
+  <desc id="fig-gfs-7-desc">这条链一环扣一环：块大所以每块元数据不到 64 字节，元数据小所以能全部放进主节点内存，全内存之后主节点既响应得快、又腾得出余力做垃圾回收、再复制与迁移。而块大并不会浪费空间：副本按需增长、延迟分配，内部碎片并不存在。</desc>
 
   <defs>
     <style>
@@ -15,10 +15,10 @@
 
   <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">大块买到的三样东西，以及它为什么不浪费空间</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">块大换来的一条链，以及它为什么不浪费空间</text>
 
   <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">块大不是孤立参数：一环扣一环的良性循环</text>
+  <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">块大不是孤立参数：一环扣一环的一条链</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">先澄清一个常见误解</text>

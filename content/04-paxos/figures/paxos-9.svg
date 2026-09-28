@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 456" width="760" height="456"
      role="img" aria-labelledby="fig-paxos-9-title fig-paxos-9-desc">
   <title id="fig-paxos-9-title">接受者必须记住什么，以及 Multi-Paxos 省掉哪一轮</title>
-  <desc id="fig-paxos-9-desc">上排：n_a、v_a 不落盘，重启后忘掉接受过的 X，而它正是两轮唯一的交集，X 唯一的活证据就没了。中排：最高编号不落盘，重启后会收下更早编号的 accept，被早已定案的值改写。下排：Multi-Paxos 先选出领导者，一次 prepare 覆盖一段日志，省掉的是重复的阶段一，多数派表决一次没少。</desc>
+  <desc id="fig-paxos-9-desc">上排：n_a、v_a 不落盘，重启后忘掉接受过的 X，而它正是两轮唯一的交集，X 唯一的活证据就没了。中排：最高编号不落盘，重启后会收下更早编号（10）的 accept，把一个早已定案的值又接受一次。下排：Multi-Paxos 先选出领导者，一次 prepare 覆盖一段日志，省掉的是重复的阶段一，多数派表决一次没少。</desc>
 
   <defs>
     <style>
@@ -48,8 +48,8 @@
   <text x="142" y="266" font-size="12" fill="#9d174d" text-anchor="middle">于是收下编号 10 的 accept</text>
 
   <rect x="275" y="216" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="379" y="244" font-size="15" fill="#9d174d" text-anchor="middle">编号 10 的值早已定案</text>
-  <text x="379" y="266" font-size="12" fill="#9d174d" text-anchor="middle">被更早的编号改写</text>
+  <text x="379" y="244" font-size="15" fill="#9d174d" text-anchor="middle">编号 10 比 11 更早</text>
+  <text x="379" y="266" font-size="12" fill="#9d174d" text-anchor="middle">早已定案的值又被接受一次</text>
 
   <rect x="512" y="216" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="616" y="244" font-size="15" fill="#166534" text-anchor="middle">它挡的是旧编号</text>

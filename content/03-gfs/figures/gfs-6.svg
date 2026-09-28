@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 392" width="760" height="392"
      role="img" aria-labelledby="fig-gfs-6-title fig-gfs-6-desc">
-  <title id="fig-gfs-6-title">三类元数据的去处各不相同，读只在第一次经过主节点</title>
-  <desc id="fig-gfs-6-desc">命名空间与文件到块的映射会持久化：写进操作日志并配周期性检查点；块副本的位置刻意不持久化，主节点启动或块服务器加入时直接问它。读路径只在第一次经过主节点，客户端缓存这份映射，之后直接与块服务器通信，过期或重新打开文件才再问一次。</desc>
+  <title id="fig-gfs-6-title">三类元数据两类落日志；读只在第一次与缓存失效后才问主节点</title>
+  <desc id="fig-gfs-6-desc">上排是三类元数据的两种去处：命名空间与文件到块的映射写进操作日志、配周期性检查点，块副本的位置刻意不持久化、启动时直接问块服务器。下排是读路径：第一次读要问主节点并把映射缓存下来，之后读同一个块直接找块服务器，只有缓存过期或重新打开时才再问一次、还顺带问后面几块。</desc>
 
   <defs>
     <style>
@@ -13,33 +13,34 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="392" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三类元数据的去处各不相同，读只在第一次经过主节点</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三类元数据两类落日志；读只在第一次与缓存失效后才问主节点</text>
 
   <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">存什么与不存什么，判断依据是「块服务器自己最清楚」</text>
 
-  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">读路径只在第一次经过主节点</text>
+  <rect x="22" y="190" width="716" height="180" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">读路径：只有第一次与缓存失效后才经过主节点</text>
+
+  <path d="M383,250 L395,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M560,289 C 560,335 160,335 160,295" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
   <rect x="38" y="82" width="328" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="202" y="110" font-size="15" fill="#1e40af" text-anchor="middle">命名空间与文件到块的映射</text>
-  <text x="202" y="132" font-size="12" fill="#1e40af" text-anchor="middle">写进操作日志，并配周期性检查点</text>
+  <text x="202" y="132" font-size="12" fill="#1e40af" text-anchor="middle">同一个去处：写进操作日志，配检查点</text>
 
   <rect x="394" y="82" width="328" height="68" fill="#f3e8ff" stroke="#a855f7"/>
   <text x="558" y="110" font-size="15" fill="#6b21a8" text-anchor="middle">块副本的位置</text>
-  <text x="558" y="132" font-size="12" fill="#6b21a8" text-anchor="middle">不持久化，启动时逐个问块服务器</text>
+  <text x="558" y="132" font-size="12" fill="#6b21a8" text-anchor="middle">刻意不持久化：启动时问块服务器</text>
 
-  <rect x="38" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="142" y="244" font-size="15" fill="#1e40af" text-anchor="middle">第一次读</text>
-  <text x="142" y="266" font-size="12" fill="#1e40af" text-anchor="middle">问主节点，并把映射缓存下来</text>
+  <rect x="38" y="216" width="340" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="208" y="244" font-size="15" fill="#1e40af" text-anchor="middle">第一次读</text>
+  <text x="208" y="266" font-size="12" fill="#1e40af" text-anchor="middle">问主节点，并把映射缓存下来</text>
 
-  <rect x="275" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="379" y="244" font-size="15" fill="#b45309" text-anchor="middle">之后再读同一个块</text>
-  <text x="379" y="266" font-size="12" fill="#b45309" text-anchor="middle">不必打扰主节点，直接找块服务器</text>
+  <rect x="406" y="216" width="316" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="564" y="244" font-size="15" fill="#b45309" text-anchor="middle">之后再读同一个块</text>
+  <text x="564" y="266" font-size="12" fill="#b45309" text-anchor="middle">不必打扰主节点，直接找块服务器</text>
 
-  <rect x="512" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="616" y="244" font-size="15" fill="#b45309" text-anchor="middle">缓存过期或重新打开</text>
-  <text x="616" y="266" font-size="12" fill="#b45309" text-anchor="middle">才再问一次，还顺带问后面几块</text>
+  <text x="380" y="352" font-size="12" fill="#64748b" text-anchor="middle">缓存过期或重新打开：才再问一次，还顺带问后面几块</text>
 </svg>

@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 376" width="760" height="376"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 394" width="760" height="394"
      role="img" aria-labelledby="fig-intro-2-title fig-intro-2-desc">
   <title id="fig-intro-2-title">取舍的形状：三者互相拉扯，而一致性是一根刻度</title>
-  <desc id="fig-intro-2-desc">左列是一致性、可用性、性能互相拉扯的三条边，想保住任意两样第三样就会先崩。右列是一致性刻度上的三个位置：左端更强更慢，中间是多数派定案，右端更快但可能读到旧值。</desc>
+  <desc id="fig-intro-2-desc">左列是一致性、可用性、性能互相拉扯的一个环：三样都要，第三样先崩，所以只能同时保住两样。右列是一根一致性刻度，越往上越强也越慢：多数派定案（Raft、Paxos）实现的就是最上面那一档 linearizability，中间是顺序一致、因果一致这类更弱的等级，越往下越快但可能读到旧值。</desc>
 
   <defs>
     <style>
@@ -13,37 +13,47 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="376" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="394" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">取舍的形状：三者互相拉扯，而一致性是一根刻度</text>
 
-  <rect x="22" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">三条边互相拉扯</text>
+  <rect x="22" y="56" width="340" height="316" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">三条边互相拉扯：只能同时保住两样</text>
 
-  <rect x="398" y="56" width="340" height="298" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">一致性刻度上的选点</text>
+  <rect x="398" y="56" width="340" height="316" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">一致性刻度上的选点：越往上越强，也越慢</text>
 
-  <rect x="38" y="82" width="308" height="68" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="192" y="110" font-size="15" fill="#9d174d" text-anchor="middle">一致性</text>
-  <text x="192" y="132" font-size="12" fill="#9d174d" text-anchor="middle">每次读都要等副本同意</text>
+  <path d="M140,161 L140,171" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M140,255 L140,265" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M55,310 C 30,265 29,161 52,122" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
-  <rect x="38" y="176" width="308" height="68" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="192" y="204" font-size="15" fill="#9d174d" text-anchor="middle">可用性</text>
-  <text x="192" y="226" font-size="12" fill="#9d174d" text-anchor="middle">缺多数派的一侧必须停服</text>
+  <path d="M428,352 L428,104" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M414,133 L442,133" fill="none" stroke="#64748b"/>
+  <path d="M414,231 L442,231" fill="none" stroke="#64748b"/>
+  <path d="M414,318 L442,318" fill="none" stroke="#64748b"/>
 
-  <rect x="38" y="270" width="308" height="68" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="192" y="298" font-size="15" fill="#9d174d" text-anchor="middle">性能</text>
-  <text x="192" y="320" font-size="12" fill="#9d174d" text-anchor="middle">协调与等待越多就越慢</text>
+  <rect x="60" y="88" width="286" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="203" y="116" font-size="15" fill="#9d174d" text-anchor="middle">一致性</text>
+  <text x="203" y="138" font-size="12" fill="#9d174d" text-anchor="middle">每次读都要等副本同意</text>
 
-  <rect x="414" y="82" width="308" height="68" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="568" y="110" font-size="15" fill="#6b21a8" text-anchor="middle">更强、也更慢</text>
-  <text x="568" y="132" font-size="12" fill="#6b21a8" text-anchor="middle">linearizability：每次都要协调</text>
+  <rect x="60" y="182" width="286" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="203" y="210" font-size="15" fill="#9d174d" text-anchor="middle">可用性</text>
+  <text x="203" y="232" font-size="12" fill="#9d174d" text-anchor="middle">缺多数派的一侧停服</text>
 
-  <rect x="414" y="176" width="308" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="568" y="204" font-size="15" fill="#b45309" text-anchor="middle">多数派定案</text>
-  <text x="568" y="226" font-size="12" fill="#b45309" text-anchor="middle">Raft 与 Paxos 落在这里</text>
+  <rect x="60" y="276" width="286" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="203" y="304" font-size="15" fill="#9d174d" text-anchor="middle">性能</text>
+  <text x="203" y="326" font-size="12" fill="#9d174d" text-anchor="middle">协调与等待越多越慢</text>
 
-  <rect x="414" y="270" width="308" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="568" y="298" font-size="15" fill="#166534" text-anchor="middle">更快、但可能读到旧值</text>
-  <text x="568" y="320" font-size="12" fill="#166534" text-anchor="middle">eventual consistency</text>
+  <rect x="452" y="88" width="270" height="90" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="587" y="119" font-size="15" fill="#6b21a8" text-anchor="middle">更强、也更慢</text>
+  <text x="587" y="137" font-size="12" fill="#6b21a8" text-anchor="middle">linearizability 线性一致：每次都要协调</text>
+  <text x="587" y="155" font-size="12" fill="#6b21a8" text-anchor="middle">多数派定案（Raft、Paxos）实现的就是它</text>
+
+  <rect x="452" y="204" width="270" height="54" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="587" y="226" font-size="12" fill="#b45309" text-anchor="middle">中间地带：顺序一致、因果一致</text>
+  <text x="587" y="244" font-size="12" fill="#b45309" text-anchor="middle">比线性一致弱，比最终一致强</text>
+
+  <rect x="452" y="284" width="270" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="587" y="312" font-size="15" fill="#166534" text-anchor="middle">更快、但可能读到旧值</text>
+  <text x="587" y="334" font-size="12" fill="#166534" text-anchor="middle">eventual consistency：停写后收敛</text>
 </svg>

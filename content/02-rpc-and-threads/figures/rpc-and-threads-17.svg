@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 372" width="760" height="372"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 321" width="760" height="321"
      role="img" aria-labelledby="rpc-and-threads-17-title rpc-and-threads-17-desc">
-  <title id="rpc-and-threads-17-title">调用失败之后，按什么顺序决定要不要重试</title>
-  <desc id="rpc-and-threads-17-desc">先问接口是否幂等：是就直接重试；不幂等就带唯一 ID 让服务端查去重表；两样都做不到，只能返回「不确定」，再让上层挑一个业务代价更小的默认动作。</desc>
+  <title id="rpc-and-threads-17-title">调用失败之后：能安全重试吗，三条路怎么选</title>
+  <desc id="rpc-and-threads-17-desc">先问这次调用能不能安全重试。接口幂等就直接重试；不幂等就带一个唯一 ID，让服务端查去重表；两样都做不到，就只能承认「不确定」，让上层挑一个业务代价更小的默认动作。</desc>
 
   <defs>
     <style>
@@ -13,31 +13,32 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="372" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="321" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">调用失败之后，按什么顺序决定要不要重试</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">调用失败之后：能安全重试吗，三条路怎么选</text>
 
-  <rect x="22" y="68" width="716" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="380" y="96" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">第一步：这个接口是幂等的吗</text>
-  <text x="380" y="118" font-size="12" fill="#64748b" text-anchor="middle">读操作、写成固定值、按版本号覆盖，通常都幂等</text>
+  <path d="M250,163 C 220,167 133,167 133,175" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M380,163 L380,175" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M510,163 C 540,167 627,167 627,175" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <path d="M380,141 C 380,148 194,146 194,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M380,141 C 380,148 566,146 566,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="68" width="716" height="90" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="380" y="99" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">先问：这个请求能安全重试吗</text>
+  <text x="380" y="117" font-size="12" fill="#64748b" text-anchor="middle">要么接口本身幂等，要么重试时能带一个唯一 ID</text>
+  <text x="380" y="135" font-size="12" fill="#64748b" text-anchor="middle">读操作、写成固定值、按版本号覆盖，通常都幂等</text>
 
-  <rect x="22" y="164" width="344" height="90" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
-  <text x="194" y="196" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">是：直接重试</text>
-  <text x="194" y="214" font-size="12" fill="#64748b" text-anchor="middle">重复执行与执行一次效果相同</text>
-  <text x="194" y="232" font-size="12" fill="#64748b" text-anchor="middle">重试不需要额外成本</text>
+  <rect x="22" y="186" width="222" height="113" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="133" y="229" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">幂等：直接重试</text>
+  <text x="133" y="247" font-size="12" fill="#64748b" text-anchor="middle">重复执行与执行一次效果相同</text>
+  <text x="133" y="265" font-size="12" fill="#64748b" text-anchor="middle">重试不需要额外成本</text>
 
-  <rect x="394" y="164" width="344" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="566" y="196" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">否：带唯一 ID 重试</text>
-  <text x="566" y="214" font-size="12" fill="#64748b" text-anchor="middle">服务端按 ID 查去重表，命中就跳过</text>
-  <text x="566" y="232" font-size="12" fill="#64748b" text-anchor="middle">代价是那张表必须自己维护</text>
+  <rect x="269" y="186" width="222" height="113" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="380" y="229" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">不幂等：带唯一 ID</text>
+  <text x="380" y="247" font-size="12" fill="#64748b" text-anchor="middle">服务端按 ID 查去重表，命中就跳过</text>
+  <text x="380" y="265" font-size="12" fill="#64748b" text-anchor="middle">代价是那张表必须自己维护</text>
 
-  <path d="M194,259 C 194,266 380,264 380,271" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M566,259 C 566,266 380,264 380,271" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-  <rect x="22" y="282" width="716" height="68" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
-  <text x="380" y="310" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">两样都做不到，就只能承认「不确定」</text>
-  <text x="380" y="332" font-size="12" fill="#64748b" text-anchor="middle">这时让上层挑一个业务代价更小的默认动作：宁可多查一次，不要多扣一次</text>
+  <rect x="516" y="186" width="222" height="113" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="627" y="220" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">两样都做不到</text>
+  <text x="627" y="238" font-size="12" fill="#9d174d" text-anchor="middle">就只能承认「不确定」</text>
+  <text x="627" y="256" font-size="12" fill="#9d174d" text-anchor="middle">让上层挑一个代价更小的默认动作</text>
+  <text x="627" y="274" font-size="12" fill="#9d174d" text-anchor="middle">宁可多查一次，不要多扣一次</text>
 </svg>

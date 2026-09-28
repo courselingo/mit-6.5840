@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-gfs-15-title fig-gfs-15-desc">
   <title id="fig-gfs-15-title">数据流为什么走链式：上行带宽怎么分、流水线摊掉了什么</title>
-  <desc id="fig-gfs-15-desc">链式与树形的差别在上行带宽怎么分：链式里每台机器的上行只服务一个接收方，树形则把上行切成几份，某一台先成为瓶颈；「最近」是拿 IP 地址估出来的拓扑距离。流水线摊掉的是 R×L：不流水线时把 B 字节推给 R 个副本约需 B/T 加 R×L，流水线让每台收到一部分就转发下一台，理想情况 1MB 大约 80ms 铺开。</desc>
+  <desc id="fig-gfs-15-desc">链式与树形的差别在上行带宽怎么分：链式里每台机器的上行只服务一个接收方，树形则把上行切成几份，某一台先成为瓶颈；「最近」是拿 IP 地址估出来的拓扑距离。公式里被摊掉的是带宽项：不做流水线时每一跳都要把 B 字节收全再转发，B/T 被逐跳重复支付，耗时接近 R×B/T 加 R×L；流水线只留下 B/T 加 R×L，而 R×L 摊不掉。链路 100Mbps、L 远小于 1ms 时，1MB 数据大约 80ms 就能铺开。</desc>
 
   <defs>
     <style>
@@ -21,7 +21,10 @@
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">链式与树形的差别，在上行带宽怎么分</text>
 
   <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">公式里那个 R×L 是可以摊掉的</text>
+  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">公式里被摊掉的是哪一项</text>
+
+  <path d="M252,250 L264,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M489,250 L501,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
   <rect x="38" y="82" width="328" height="68" fill="#d1fae5" stroke="#22c55e"/>
   <text x="202" y="110" font-size="15" fill="#166534" text-anchor="middle">链式</text>
@@ -32,14 +35,14 @@
   <text x="558" y="132" font-size="12" fill="#9d174d" text-anchor="middle">上行被切成几份，某一台先成为瓶颈</text>
 
   <rect x="38" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="142" y="244" font-size="15" fill="#b45309" text-anchor="middle">不流水线</text>
-  <text x="142" y="266" font-size="12" fill="#b45309" text-anchor="middle">推 B 字节约需 B/T 加 R×L</text>
+  <text x="142" y="244" font-size="15" fill="#b45309" text-anchor="middle">不流水线：逐跳各付一次</text>
+  <text x="142" y="266" font-size="12" fill="#b45309" text-anchor="middle">带宽项约 R×B/T 加 R×L</text>
 
   <rect x="275" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="379" y="244" font-size="15" fill="#1e40af" text-anchor="middle">流水线</text>
-  <text x="379" y="266" font-size="12" fill="#1e40af" text-anchor="middle">收到一部分就转发下一台</text>
+  <text x="379" y="244" font-size="15" fill="#1e40af" text-anchor="middle">流水线：摊掉带宽项</text>
+  <text x="379" y="266" font-size="12" fill="#1e40af" text-anchor="middle">R×L 摊不掉，每跳还要付</text>
 
   <rect x="512" y="216" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="616" y="244" font-size="15" fill="#166534" text-anchor="middle">理想情况</text>
-  <text x="616" y="266" font-size="12" fill="#166534" text-anchor="middle">1MB 大约 80ms 铺开</text>
+  <text x="616" y="244" font-size="15" fill="#166534" text-anchor="middle">理想情况：1MB 约 80ms</text>
+  <text x="616" y="266" font-size="12" fill="#166534" text-anchor="middle">链路 100Mbps、L 远小于 1ms 时</text>
 </svg>

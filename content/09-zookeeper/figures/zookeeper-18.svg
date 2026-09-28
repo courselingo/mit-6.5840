@@ -37,6 +37,5 @@
   <rect x="420" y="264" width="300" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
   <text x="570" y="286" font-size="12" fill="#6b21a8" text-anchor="middle">判决可能出错这件事</text>
   <text x="570" y="304" font-size="12" fill="#6b21a8" text-anchor="middle">就由令牌兜住了</text>
-  <path d="M345,285 C372,275 385,207 409,207" fill="none" stroke="#ef4444" marker-end="url(#arrow-red)"/>
-  <text x="380" y="168" font-size="12" fill="#64748b" text-anchor="middle">隔离令牌</text>
+  <path d="M345,291 C 380,291 380,207 409,207" fill="none" stroke="#ef4444" marker-end="url(#arrow-red)"/>
 </svg>

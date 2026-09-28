@@ -24,18 +24,17 @@
   <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">阶段二 accept：定案与广播，以及那两个往返</text>
 
   <path d="M252,116 L264,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M489,116 L501,116" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
   <rect x="38" y="82" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="142" y="110" font-size="15" fill="#1e40af" text-anchor="middle">挑一个更大的编号 n</text>
   <text x="142" y="132" font-size="12" fill="#1e40af" text-anchor="middle">自己没用过，发给所有接受者</text>
 
   <rect x="275" y="82" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="379" y="110" font-size="15" fill="#b45309" text-anchor="middle">有人报过 (n_a, v_a)</text>
+  <text x="379" y="110" font-size="15" fill="#b45309" text-anchor="middle">若有人报过 (n_a, v_a)</text>
   <text x="379" y="132" font-size="12" fill="#b45309" text-anchor="middle">就必须改用编号最大的值</text>
 
   <rect x="512" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="616" y="110" font-size="15" fill="#166534" text-anchor="middle">全部说没接受过</text>
+  <text x="616" y="110" font-size="15" fill="#166534" text-anchor="middle">若全部说没接受过</text>
   <text x="616" y="132" font-size="12" fill="#166534" text-anchor="middle">才能提自己原本的值</text>
 
   <rect x="38" y="216" width="328" height="68" fill="#fef3c7" stroke="#f59e0b"/>

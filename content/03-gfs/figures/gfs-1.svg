@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 362" width="760" height="362"
      role="img" aria-labelledby="fig-gfs-1-title fig-gfs-1-desc">
   <title id="fig-gfs-1-title">主节点不在数据路径上，以及一次读写的三层定位</title>
-  <desc id="fig-gfs-1-desc">客户端只向主节点问块位置，拿到句柄与副本位置后直接与块服务器读写文件数据，主节点不在数据路径上。定位要经过三层：文件名加字节偏移除以块大小得块下标，块下标换回一个 64 位块句柄，块服务器再按句柄加区间读写。</desc>
+  <desc id="fig-gfs-1-desc">客户端先向主节点问块在哪，主节点回句柄与副本位置；文件数据则绕过主节点、由客户端直接与块服务器读写。定位要经过三层：文件名加字节偏移除以块大小得块下标，块下标换回一个 64 位块句柄，块服务器再按句柄加区间读写。</desc>
 
   <defs>
     <style>
@@ -13,15 +13,21 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="362" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">主节点不在数据路径上，以及一次读写的三层定位</text>
 
-  <rect x="22" y="56" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <rect x="22" y="56" width="716" height="150" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="380" y="70" font-size="12" fill="#64748b" text-anchor="middle">元数据走中心，数据绕开中心</text>
 
-  <rect x="22" y="190" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="380" y="204" font-size="12" fill="#64748b" text-anchor="middle">一次读写要经过三层定位</text>
+  <rect x="22" y="230" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380" y="244" font-size="12" fill="#64748b" text-anchor="middle">一次读写要经过三层定位</text>
+
+  <path d="M252,100 L264,100" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M270,126 L258,126" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M142,155 C 142,186 616,186 616,161" fill="none" stroke="#22c55e" marker-end="url(#arrow)"/>
+  <path d="M252,290 L264,290" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M489,290 L501,290" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
   <rect x="38" y="82" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="142" y="110" font-size="15" fill="#1e40af" text-anchor="middle">客户端</text>
@@ -35,15 +41,15 @@
   <text x="616" y="110" font-size="15" fill="#166534" text-anchor="middle">块服务器</text>
   <text x="616" y="132" font-size="12" fill="#166534" text-anchor="middle">文件数据在这里直接读写</text>
 
-  <rect x="38" y="216" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="142" y="244" font-size="15" fill="#1e40af" text-anchor="middle">文件名 + 字节偏移</text>
-  <text x="142" y="266" font-size="12" fill="#1e40af" text-anchor="middle">除以固定块大小得块下标</text>
+  <rect x="38" y="256" width="209" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="142" y="284" font-size="15" fill="#1e40af" text-anchor="middle">文件名 + 字节偏移</text>
+  <text x="142" y="306" font-size="12" fill="#1e40af" text-anchor="middle">除以固定块大小得块下标</text>
 
-  <rect x="275" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="379" y="244" font-size="15" fill="#b45309" text-anchor="middle">块下标换成句柄</text>
-  <text x="379" y="266" font-size="12" fill="#b45309" text-anchor="middle">一个不可变的 64 位编号</text>
+  <rect x="275" y="256" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="379" y="284" font-size="15" fill="#b45309" text-anchor="middle">块下标换成句柄</text>
+  <text x="379" y="306" font-size="12" fill="#b45309" text-anchor="middle">一个不可变的 64 位编号</text>
 
-  <rect x="512" y="216" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="616" y="244" font-size="15" fill="#166534" text-anchor="middle">句柄 + 区间</text>
-  <text x="616" y="266" font-size="12" fill="#166534" text-anchor="middle">块服务器按它读写</text>
+  <rect x="512" y="256" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="616" y="284" font-size="15" fill="#166534" text-anchor="middle">句柄 + 区间</text>
+  <text x="616" y="306" font-size="12" fill="#166534" text-anchor="middle">块服务器按它读写</text>
 </svg>
