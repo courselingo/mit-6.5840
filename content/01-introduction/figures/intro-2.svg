@@ -15,10 +15,10 @@
 
   <rect x="0" y="0" width="760" height="420" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">取舍的形状：三者互相拉扯，而一致性是一根刻度</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">取舍的形状：三条边互相拉扯</text>
 
   <rect x="22" y="56" width="340" height="316" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
-  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">三条边互相拉扯：只能同时保住两样</text>
+  <text x="192" y="70" font-size="12" fill="#64748b" text-anchor="middle">三条边互相拉扯</text>
 
   <rect x="398" y="56" width="340" height="316" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
   <text x="568" y="70" font-size="12" fill="#64748b" text-anchor="middle">一致性刻度上的选点：越往上越强，也越慢</text>
