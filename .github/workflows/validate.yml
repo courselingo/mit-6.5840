@@ -1,0 +1,40 @@
+# validate.yml — 每个 push / PR 都跑内容校验
+#
+# 契约：docs/pipeline-spec.md §6（退出码）与 §8（CI 契约）
+#   exit 0 = 通过（可能带 WARN）
+#   exit 1 = 有 ERROR（授权闸门 / 术语 / front matter / 原文转载探测）
+#   exit 2 = 用法或 IO 错误
+# 任何非 0 退出码都会让本 job 失败，PR 上会显示红叉。
+
+name: Validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+# 只读仓库即可；validate.py 不联网、不写仓库
+permissions:
+  contents: read
+
+# 同一分支/PR 的新提交取消上一次仍在跑的校验，省 CI 额度
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: 内容校验
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v7
+
+      - name: 准备 Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      # 零依赖：不装任何 pip 包。脚本只用 Python 标准库（tomllib）。
+      - name: 运行 scripts/validate.py
+        run: python scripts/validate.py

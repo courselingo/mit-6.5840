@@ -1,0 +1,34 @@
+# CourseLingo 课程元数据
+
+[course]
+id = "mit-6.5840"
+title = "Distributed Systems"
+title_zh = "分布式系统"
+institution = "MIT"
+course_number = "6.5840 / 6.824"
+homepage = "https://pdos.csail.mit.edu/6.824/"
+source_language = "en"
+target_language = "zh"
+
+# ★ 授权闸门。核实记录见平台仓库 docs/course-catalog.md 与 docs/licensing-research-log.md
+[license]
+verified = true
+terms = "CC BY 3.0 US"
+evidence_url = "https://pdos.csail.mit.edu/6.824/"
+checked_at = "2026-09-28"
+allows_commercial = true          # CC BY 无 NC
+allows_derivatives = true         # 翻译属于改编，CC BY 允许
+share_alike = false               # 无 SA，不传染 —— 我们的产出不必用同协议
+redistribution = "allowed"
+notes = "课程主页页脚带 <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/us/\"> 图片徽章。CC BY 3.0 US：允许翻译与商用，只需署名（说明是否修改）。⚠️ 唯一未定项：徽章位于主页，是否覆盖 general/schedule/labs 等子页面未获确认 —— 因此本课程内容一律按 explanation 撰写，不产出逐字稿。另：Lab 代码与作业答案课程明确要求不得公开，永久排除。"
+
+# 按材料类型逐项核实。
+[license.materials]
+notes = true                      # 讲座笔记/讲义：CC BY 3.0 US 允许翻译
+slides = true
+video = false                     # 视频另有平台条款，未核实
+textbook = false                  # 6.824 无指定开放教材
+other = false
+
+[output]
+default_mode = "explanation"

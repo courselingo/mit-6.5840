@@ -1,0 +1,306 @@
+# CourseLingo 术语表 —— MIT 6.5840 / 6.824 分布式系统
+#
+# 本文件是冻结的术语基线：先定术语，再写讲座。正文一律用 [[term:key]] 引用，
+# 不要手写「中文（English）」。同一概念全课程同译。
+# key 由 en 推导：小写、空格转连字符。例如 en = "leader election" -> [[term:leader-election]]
+#
+# 译法原则：业界已有通行译法的沿用通行译法；无通行译法的保留英文并给出中文说明。
+
+[[term]]
+en = "distributed system"
+zh = "分布式系统"
+notes = "多台机器通过网络协作，对外表现为一个系统"
+
+[[term]]
+en = "node"
+zh = "节点"
+notes = "集群中的一台机器或一个独立进程"
+
+[[term]]
+en = "process"
+zh = "进程"
+notes = "操作系统调度的独立执行单元，拥有自己的地址空间"
+
+[[term]]
+en = "thread"
+zh = "线程"
+notes = "同一进程内共享地址空间的执行流 —— 共享内存是并发 bug 的主要来源"
+
+[[term]]
+en = "concurrency"
+zh = "并发"
+notes = "多个任务在时间上重叠推进。注意与「并行」不是一回事"
+
+[[term]]
+en = "parallelism"
+zh = "并行"
+notes = "多个任务在同一时刻真正同时执行，需要多核"
+
+[[term]]
+en = "RPC"
+zh = "远程过程调用"
+aliases = ["remote procedure call"]
+notes = "把跨机器的调用伪装成本地函数调用，是分布式系统最基本的通信抽象"
+
+[[term]]
+en = "stub"
+zh = "桩"
+notes = "RPC 中负责参数编组与网络收发的代理代码"
+
+[[term]]
+en = "marshalling"
+zh = "编组"
+aliases = ["serialization"]
+notes = "把内存中的数据结构转成可传输的字节序列"
+
+[[term]]
+en = "idempotent"
+zh = "幂等"
+notes = "重复执行与执行一次效果相同 —— 这是至少一次语义下保证正确性的关键"
+
+[[term]]
+en = "at-most-once"
+zh = "至多一次"
+notes = "请求可能丢失，但绝不会重复执行"
+
+[[term]]
+en = "at-least-once"
+zh = "至少一次"
+notes = "请求一定会执行，但可能重复 —— 配合幂等才能安全重试"
+
+[[term]]
+en = "side effect"
+zh = "副作用"
+notes = "函数除返回值外对外部状态的改动；重试时必须考虑它"
+
+[[term]]
+en = "latency"
+zh = "延迟"
+notes = "单次操作耗时。与吞吐量是两回事，且常常互相制约"
+
+[[term]]
+en = "throughput"
+zh = "吞吐量"
+notes = "单位时间能完成的操作数"
+
+[[term]]
+en = "scalability"
+zh = "可扩展性"
+notes = "增加机器时性能能否随之提升。注意「加机器反而更慢」是常见结果"
+
+[[term]]
+en = "availability"
+zh = "可用性"
+notes = "系统在给定时间内可正常服务的比例"
+
+[[term]]
+en = "bottleneck"
+zh = "瓶颈"
+notes = "限制整体性能的那个环节"
+
+[[term]]
+en = "fault tolerance"
+zh = "容错"
+notes = "部分组件失效时系统仍能继续正确工作 —— 不是「不出故障」"
+
+[[term]]
+en = "crash"
+zh = "崩溃"
+notes = "节点停止运行。最简单的故障模型"
+
+[[term]]
+en = "fail-stop"
+zh = "故障停止"
+notes = "节点要么正常工作，要么停止且可被察觉"
+
+[[term]]
+en = "network partition"
+zh = "网络分区"
+notes = "网络断开，把集群切成互不可达的几块 —— 分布式系统最难处理的情形"
+
+[[term]]
+en = "split brain"
+zh = "脑裂"
+notes = "分区两侧各自以为自己是主节点，同时接受写入 —— 必须避免"
+
+[[term]]
+en = "Byzantine fault"
+zh = "拜占庭故障"
+notes = "节点不仅失效，还会发送错误或欺骗性消息"
+
+[[term]]
+en = "checksum"
+zh = "校验和"
+notes = "检测数据在传输或存储中被损坏"
+
+[[term]]
+en = "replication"
+zh = "副本"
+aliases = ["replica"]
+notes = "把同一份数据存放在多个节点上，以提升可用性与读吞吐"
+
+[[term]]
+en = "primary-backup replication"
+zh = "主备复制"
+notes = "一个主节点处理写入并同步给备节点；主节点失效时由备节点接管"
+
+[[term]]
+en = "state machine replication"
+zh = "状态机复制"
+notes = "若所有副本从相同初始状态按相同顺序执行相同操作，则结果相同 —— 复制协议的理论基础"
+
+[[term]]
+en = "consensus"
+zh = "共识"
+notes = "多个节点对某个值或某个顺序达成一致"
+
+[[term]]
+en = "quorum"
+zh = "法定人数"
+notes = "足以做出决定的节点子集。多数派是常见的一种"
+
+[[term]]
+en = "majority"
+zh = "多数派"
+notes = "超过半数的节点。任意两个多数派必然相交，这是共识算法的基础"
+
+[[term]]
+en = "leader election"
+zh = "领导者选举"
+notes = "在多个节点中选出一个负责协调的节点"
+
+[[term]]
+en = "term"
+zh = "任期"
+notes = "Raft 中用递增编号标识选举轮次，用于识别过期的消息"
+
+[[term]]
+en = "log"
+zh = "日志"
+notes = "按顺序追加的操作记录。复制日志即复制状态机"
+
+[[term]]
+en = "log entry"
+zh = "日志条目"
+notes = "日志中的一条记录，含操作内容与任期号"
+
+[[term]]
+en = "commit"
+zh = "提交"
+notes = "一条日志被确认永久生效（多数派已复制），可以应用到状态机"
+
+[[term]]
+en = "heartbeat"
+zh = "心跳"
+notes = "领导者周期性发送的空消息，用于维持权威并阻止新的选举"
+
+[[term]]
+en = "lease"
+zh = "租约"
+notes = "带时限的授权，到期自动失效 —— 用时间换取不必每次确认"
+
+[[term]]
+en = "linearizability"
+zh = "线性一致性"
+notes = "每个操作看起来都在调用与返回之间的某一瞬间原子生效，且全局顺序与真实时间一致"
+
+[[term]]
+en = "consistency"
+zh = "一致性"
+notes = "多副本之间数据表现出的统一程度；这个词在不同语境下含义差别很大"
+
+[[term]]
+en = "eventual consistency"
+zh = "最终一致性"
+notes = "停止写入后副本最终会收敛到相同状态，但中间可能读到旧值"
+
+[[term]]
+en = "serializability"
+zh = "可串行化"
+notes = "并发事务的执行结果等价于某个串行顺序 —— 事务隔离的最高级别"
+
+[[term]]
+en = "transaction"
+zh = "事务"
+notes = "一组要么全做要么全不做的操作，通常要求 ACID"
+
+[[term]]
+en = "two-phase commit"
+zh = "两阶段提交"
+notes = "先询问所有参与者能否提交，再统一决定；协调者崩溃时会阻塞"
+
+[[term]]
+en = "isolation"
+zh = "隔离性"
+notes = "并发事务互不干扰的程度"
+
+[[term]]
+en = "snapshot"
+zh = "快照"
+notes = "某一时刻的状态副本，用于恢复或读取一致视图"
+
+[[term]]
+en = "write-ahead log"
+zh = "预写日志"
+notes = "先写日志再改数据，保证崩溃后可恢复"
+
+[[term]]
+en = "clock skew"
+zh = "时钟偏移"
+notes = "不同机器的时钟速率与起点不同，导致时间戳不可直接比较"
+
+[[term]]
+en = "happens-before"
+zh = "先行发生"
+notes = "一种只用消息传递定义的偏序关系，不依赖物理时钟"
+
+[[term]]
+en = "sharding"
+zh = "分片"
+aliases = ["partitioning"]
+notes = "把数据按键切分到多个节点；注意「分区」在本课程中也指网络分区"
+
+[[term]]
+en = "rebalance"
+zh = "再均衡"
+notes = "节点增减时重新分配分片，同时尽量少搬数据"
+
+[[term]]
+en = "chunk"
+zh = "块"
+notes = "GFS 中文件被切成的固定大小片段（64MB），是容错与调度的单位"
+
+[[term]]
+en = "master"
+zh = "主节点"
+notes = "负责元数据与调度的中心节点；注意它是单点，需要特别处理"
+
+[[term]]
+en = "coordinator"
+zh = "协调者"
+notes = "负责推动协议流程的节点角色"
+
+[[term]]
+en = "MapReduce"
+zh = "MapReduce"
+notes = "编程模型：业务只写 map 与 reduce 两个函数，并行与容错交给框架"
+
+[[term]]
+en = "mapper"
+zh = "映射器"
+notes = "执行 map 函数的任务，产出中间键值对"
+
+[[term]]
+en = "reducer"
+zh = "归约器"
+notes = "执行 reduce 函数的任务，按键聚合中间结果"
+
+[[term]]
+en = "straggler"
+zh = "落后者"
+notes = "比同类任务慢得多的任务，会把整个作业拖住 —— 对策是备份执行"
+
+[[term]]
+en = "backup task"
+zh = "备份任务"
+notes = "把同一个任务在另一台机器上再跑一遍，谁先完成用谁的"

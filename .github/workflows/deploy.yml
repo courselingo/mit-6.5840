@@ -1,0 +1,86 @@
+# deploy.yml — main 分支：校验 → 构建 → 发布到 GitHub Pages
+#
+# 契约：docs/pipeline-spec.md §7（build 契约）与 §8（CI 契约）
+#
+# ★ 授权闸门在 CI 上的落地方式：
+#   validate 是独立 job，build 与 deploy 通过 `needs:` 串在它后面。
+#   validate.py 一旦退出非 0（例如某讲座 output_mode="transcript" 而
+#   course.toml 里 license.verified != true），validate job 直接失败，
+#   build / deploy **不会被执行**，站点不会更新。这是"部署在闸门失败时
+#   不可能发生"的保证，而不是靠人工自觉。
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Pages 官方部署要求：pages: write 发布，id-token: write 用于 OIDC 校验
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时刻只允许一个部署跑；不取消进行中的部署（避免线上出现半成品站点）
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # ① 闸门：失败则后面全部不执行
+  validate:
+    name: 校验（授权闸门 / 术语 / front matter）
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v7
+
+      - name: 准备 Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: 运行 scripts/validate.py
+        run: python scripts/validate.py
+
+  # ② 构建：零依赖，产出 site/
+  build:
+    name: 构建静态站
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v7
+
+      - name: 准备 Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      # 读取 Pages 的 base path：项目站点为 /<repo>，用户/组织站点或
+      # 已绑定自定义域名时为空字符串。空串拼上 "/" 恰好是 spec 的默认值。
+      - name: 配置 Pages
+        id: pages
+        uses: actions/configure-pages@v6
+
+      - name: 运行 scripts/build.py
+        run: python scripts/build.py --out site --base-url "${{ steps.pages.outputs.base_path }}/"
+
+      - name: 上传站点产物
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  # ③ 发布：只有 build（因而也只有 validate）成功才会走到这里
+  deploy:
+    name: 发布到 GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 部署
+        id: deployment
+        uses: actions/deploy-pages@v5

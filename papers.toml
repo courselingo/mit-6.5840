@@ -1,0 +1,137 @@
+# CourseLingo 论文登记表
+#
+# 6.824 的每一讲都围绕一篇论文。**论文的授权与课程无关** ——
+# 课程是 CC BY 3.0 US，但论文的版权在出版社（ACM / USENIX），不能类推。
+#
+# ★ 结论（核实于 2026-09-28，详见平台仓库 docs/paper-licensing.md）：
+#   - ACM 论文：印在论文上的声明要求「再发布需事先专门许可」→ 翻译需走 permissions@acm.org
+#   - USENIX 论文：可免费阅读（部分标 Open Access），但**未找到复用/翻译条款**
+#   → 因此本课程所有论文一律写 guide（我们自己撰写的导读），不做全文翻译。
+#
+# 一旦某篇拿到书面授权，把该篇的 verified / allows_translation 改为 true 即可，不需要改代码。
+
+[[paper]]
+key = "mapreduce"
+title = "MapReduce: Simplified Data Processing on Large Clusters"
+authors = ["Jeffrey Dean", "Sanjay Ghemawat"]
+venue = "OSDI 2004"
+year = 2004
+publisher = "USENIX"
+url = "https://www.usenix.org/conference/osdi-04/mapreduce-simplified-data-processing-large-clusters"
+notes = "LEC 1 的阅读材料"
+
+[paper.license]
+verified = false
+terms = ""
+evidence_url = "https://www.usenix.org/conference/osdi-04/mapreduce-simplified-data-processing-large-clusters"
+checked_at = "2026-09-28"
+allows_translation = false
+allows_commercial = false
+share_alike = false
+redistribution = "unknown"
+notes = "论文页可访问（200），但页面无任何许可或复用声明。USENIX 政策页只是会议政策目录，未含版权条款。结论：未确认，不做全文翻译。"
+
+[[paper]]
+key = "gfs"
+title = "The Google File System"
+authors = ["Sanjay Ghemawat", "Howard Gobioff", "Shun-Tak Leung"]
+venue = "SOSP 2003"
+year = 2003
+publisher = "ACM"
+url = "https://dl.acm.org/doi/10.1145/945445.945450"
+notes = "LEC 3 的阅读材料"
+
+[paper.license]
+verified = false
+terms = "ACM 标准声明：再发布需事先专门许可"
+evidence_url = "https://www.microsoft.com/en-us/research/publication/paxos-made-simple/"
+checked_at = "2026-09-28"
+allows_translation = false
+allows_commercial = false
+share_alike = false
+redistribution = "unknown"
+notes = "dl.acm.org 对非浏览器客户端返回 403，未能读取 GFS 论文页本身。ACM 印在论文上的标准条款见 paper-licensing.md 第 2 节：个人与课堂复制免费，但再发布需事先专门许可 —— 翻译属于再发布。"
+
+[[paper]]
+key = "raft"
+title = "In Search of an Understandable Consensus Algorithm"
+authors = ["Diego Ongaro", "John Ousterhout"]
+venue = "USENIX ATC 2014"
+year = 2014
+publisher = "USENIX"
+url = "https://www.usenix.org/conference/atc14/technical-sessions/presentation/ongaro"
+notes = "LEC 6 与 LEC 7 的阅读材料（课程用扩展版）"
+
+[paper.license]
+verified = false
+terms = ""
+evidence_url = "https://www.usenix.org/conference/atc14/technical-sessions/presentation/ongaro"
+checked_at = "2026-09-28"
+allows_translation = false
+allows_commercial = false
+share_alike = false
+redistribution = "unknown"
+notes = "论文页标注 Open Access（可免费阅读），但未找到复用或翻译条款。会议版与扩展技术报告版可能适用不同条款。结论：未确认。"
+
+[[paper]]
+key = "zookeeper"
+title = "ZooKeeper: Wait-free Coordination for Internet-scale Systems"
+authors = ["Patrick Hunt", "Mahadev Konar", "Flavio P. Junqueira", "Benjamin Reed"]
+venue = "USENIX ATC 2010"
+year = 2010
+publisher = "USENIX"
+url = "https://www.usenix.org/conference/usenix-atc-10/zookeeper-wait-free-coordination-internet-scale-systems"
+notes = "LEC 9 的阅读材料"
+
+[paper.license]
+verified = false
+terms = ""
+evidence_url = ""
+checked_at = ""
+allows_translation = false
+allows_commercial = false
+share_alike = false
+redistribution = "unknown"
+notes = "未单独核实。按 USENIX 类处理：可免费阅读，翻译权利未确认。"
+
+[[paper]]
+key = "chain-replication"
+title = "Chain Replication for Supporting High Throughput and Availability"
+authors = ["Robbert van Renesse", "Fred B. Schneider"]
+venue = "OSDI 2004"
+year = 2004
+publisher = "USENIX"
+url = "https://www.usenix.org/conference/osdi-04/chain-replication-supporting-high-throughput-and-availability"
+notes = "LEC 13 的阅读材料"
+
+[paper.license]
+verified = false
+terms = ""
+evidence_url = ""
+checked_at = ""
+allows_translation = false
+allows_commercial = false
+share_alike = false
+redistribution = "unknown"
+notes = "未单独核实。按 USENIX 类处理。"
+
+[[paper]]
+key = "paxos-made-simple"
+title = "Paxos Made Simple"
+authors = ["Leslie Lamport"]
+venue = "ACM SIGACT News 2001"
+year = 2001
+publisher = "ACM"
+url = "https://www.microsoft.com/en-us/research/publication/paxos-made-simple/"
+notes = "LEC 4 的阅读材料"
+
+[paper.license]
+verified = true
+terms = "ACM 标准声明：个人与课堂复制免费；再发布需事先专门许可"
+evidence_url = "https://www.microsoft.com/en-us/research/publication/paxos-made-simple/"
+checked_at = "2026-09-28"
+allows_translation = false
+allows_commercial = false
+share_alike = false
+redistribution = "unknown"
+notes = "本页含 ACM 完整版权声明原文（已逐字引用进 paper-licensing.md 第 2 节）：To copy otherwise, to republish, to post on servers, or to redistribute to lists, requires prior specific permission and/or a fee. 翻译属于再发布，故只写导读。"
