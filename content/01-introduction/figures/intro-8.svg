@@ -14,14 +14,14 @@
   </defs>
 
   <rect x="0" y="0" width="760" height="315" fill="#ffffff"/>
-  <rect x="25" y="140" width="200" height="72" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+  <rect x="25" y="76" width="200" height="191" rx="8" fill="#ffffff" stroke="#94a3b8"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">并行段越切越短，串行段一动不动</text>
 
   <text x="380" y="60" font-size="12" fill="#64748b" text-anchor="middle">粉色是必须串行的那一段，三段等长；蓝色是可并行的部分，机器翻倍就减半</text>
 
-    <text x="125" y="170" font-size="15" fill="#9d174d" text-anchor="middle">右边粉色那一段：必须串行</text>
-  <text x="125" y="192.5" font-size="15" fill="#9d174d" text-anchor="middle">加机器也不变短（三段等长）</text>
+    <text x="125" y="165.5" font-size="15" fill="#9d174d" text-anchor="middle">右边粉色那一段：必须串行</text>
+  <text x="125" y="188" font-size="15" fill="#9d174d" text-anchor="middle">加机器不变短（三段等长）</text>
 
   <path d="M616,76 H738 V121 H616 Z" fill="#fce7f3" stroke="#ec4899"/>
   <path d="M433,149 H555 V194 H433 Z" fill="#fce7f3" stroke="#ec4899"/>
