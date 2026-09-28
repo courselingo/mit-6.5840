@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-11-title fig-mapreduce-11-desc">
+  <title id="fig-mapreduce-11-title">迭代式算法：每轮都要落盘再读回</title>
+  <desc id="fig-mapreduce-11-desc">迭代算法每一轮都要落盘再读回，成本乘以迭代次数；Spark 把中间结果留在内存里正是针对这一条。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">迭代式算法：每轮都要落盘再读回</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">迭代算法要反复扫数据</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">每一轮都是一次新作业</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">每轮都把中间结果</text>
+  <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">落进分布式文件系统</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">下一轮再全部读回来</text>
+  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">成本被乘上迭代次数</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="135" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">落盘与搬运成为主导项</text>
+  <text x="135" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">算法本身不再是瓶颈</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">论文没有声称解决这一类</text>
+  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">它适合一次扫描一次变换</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">Spark 把中间结果留在内存里</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">针对的正是这一条</text>
+</svg>

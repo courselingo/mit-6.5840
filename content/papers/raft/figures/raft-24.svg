@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-24-title fig-raft-24-desc">
+  <title id="fig-raft-24-title">读取侧的优化：租约与只读索引</title>
+  <desc id="fig-raft-24-desc">线性一致读要么走日志、要么靠带时限的租约让领导者确认权威；只读索引把只读请求单独处理。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">读取侧的优化：租约与只读索引</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">要让读也线性一致</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">要么把读走一遍日志</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">要么用带时限的租约</text>
+  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">让领导者确认自己仍然权威</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="625" y="86" font-size="12" fill="#b45309" text-anchor="middle">只读索引是另一条路</text>
+  <text x="625" y="104" font-size="12" fill="#b45309" text-anchor="middle">把只读请求单独处理</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="135" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">这些优化攻击同一个代价</text>
+  <text x="135" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">每次读都要确认权威</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="165" font-size="12" fill="#166534" text-anchor="middle">租约用时间换确认次数</text>
+  <text x="380" y="183" font-size="12" fill="#166534" text-anchor="middle">到期自动失效</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">它把读的成本</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">从一次往返降到接近本地读</text>
+</svg>

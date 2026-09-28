@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-7-title fig-mapreduce-7-desc">
+  <title id="fig-mapreduce-7-title">原子提交：临时文件加原子改名</title>
+  <desc id="fig-mapreduce-7-desc">任务先写私有临时文件，完成时原子改名成最终文件；重复执行也只会留下一份结果。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">原子提交：临时文件加原子改名</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">进行中的任务</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">先写自己的私有临时文件</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">完成时把临时文件</text>
+  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">原子改名成最终文件</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="86" font-size="12" fill="#166534" text-anchor="middle">改名是原子的</text>
+  <text x="625" y="104" font-size="12" fill="#166534" text-anchor="middle">重复执行也只会留一份</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="165" font-size="12" fill="#b45309" text-anchor="middle">映射任务完成时</text>
+  <text x="135" y="183" font-size="12" fill="#b45309" text-anchor="middle">上报 R 个临时文件名</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">主节点发现已完成过</text>
+  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">忽略这条重复消息</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">函数确定性 →</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">输出等价于单机顺序执行</text>
+</svg>

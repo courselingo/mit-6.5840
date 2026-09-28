@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 148" width="760" height="148" role="img" aria-labelledby="fig-zookeeper-9-title fig-zookeeper-9-desc">
+  <title id="fig-zookeeper-9-title">同一批事务换个顺序，终值就不一样</title>
+  <desc id="fig-zookeeper-9-desc">同一个加法与乘法，先加一再乘二得 4，先乘二再加一得 3；顺序不同终值不同，所以副本必须按同一顺序执行。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="148" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">同一批事务换个顺序，终值就不一样</text>
+
+  <rect x="25" y="56" width="220" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="84" font-size="15" fill="#1e40af" text-anchor="middle">顺序一</text>
+  <text x="135" y="106" font-size="12" fill="#1e40af" text-anchor="middle">先加一得 2，再乘二得 4</text>
+  <rect x="270" y="56" width="220" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="84" font-size="15" fill="#1e40af" text-anchor="middle">顺序二</text>
+  <text x="380" y="106" font-size="12" fill="#1e40af" text-anchor="middle">先乘二得 2，再加一得 3</text>
+  <rect x="515" y="56" width="220" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="625" y="84" font-size="15" fill="#9d174d" text-anchor="middle">同一批事务</text>
+  <text x="625" y="106" font-size="12" fill="#9d174d" text-anchor="middle">终值却不一样</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-22-title fig-raft-22-desc">
+  <title id="fig-raft-22-title">可用性的边界：只有多数派可达才能写</title>
+  <desc id="fig-raft-22-desc">五节点集群需要三台同时在网才能推进写入，少数派那一侧无法服务；这是杜绝脑裂必须付的代价。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">可用性的边界：只有多数派可达才能写</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">只有多数派可达</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">才推得动写入</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">五节点集群</text>
+  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">需要三台同时在网</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">少数派那一侧</text>
+  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">无法服务写入</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="135" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">这不是实现缺陷</text>
+  <text x="135" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">是杜绝脑裂必须付的代价</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="165" font-size="12" fill="#9d174d" text-anchor="middle">想在那时照样读写</text>
+  <text x="380" y="183" font-size="12" fill="#9d174d" text-anchor="middle">只能放松一致性</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">那样拿到的</text>
+  <text x="625" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">已经不是它的承诺</text>
+</svg>

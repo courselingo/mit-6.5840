@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-paxos-18-title fig-paxos-18-desc">
+  <title id="fig-paxos-18-title">定案之后：广播给学习者，以及认知的错位</title>
+  <desc id="fig-paxos-18-desc">值凑齐多数派就定案，提议者把结果广播给学习者；单台机器可能不知道自己那一票已经凑成了定案。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">定案之后：广播给学习者，以及认知的错位</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="86" font-size="12" fill="#166534" text-anchor="middle">凑齐多数派回执</text>
+  <text x="135" y="104" font-size="12" fill="#166534" text-anchor="middle">这个值就算定案</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">提议者广播定案结果</text>
+  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">其余机器据此更新</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="86" font-size="12" fill="#6b21a8" text-anchor="middle">学习者不投票</text>
+  <text x="625" y="104" font-size="12" fill="#6b21a8" text-anchor="middle">只负责得知结果</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="135" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">定案是全局性质</text>
+  <text x="135" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">比任何单机的认知都大</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="165" font-size="12" fill="#9d174d" text-anchor="middle">某台机器可能不知道</text>
+  <text x="380" y="183" font-size="12" fill="#9d174d" text-anchor="middle">自己那一票凑成了定案</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">所以「我以为没定案」不可靠</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">只认多数派这个事实</text>
+</svg>

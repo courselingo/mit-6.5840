@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-zookeeper-20-title fig-zookeeper-20-desc">
+  <title id="fig-zookeeper-20-title">读可能是旧的：什么情形能接受，什么不能</title>
+  <desc id="fig-zookeeper-20-desc">只读展示与可校验的读能接受旧值；读-改-写与必须一起一致的读不能，需要额外确认才能拿到最新。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">读可能是旧的：什么情形能接受，什么不能</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="86" font-size="12" fill="#166534" text-anchor="middle">可以接受：数据只是给人看</text>
+  <text x="135" y="104" font-size="12" fill="#166534" text-anchor="middle">或者本来纯只读</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="86" font-size="12" fill="#166534" text-anchor="middle">可以接受：读到的值能被校验</text>
+  <text x="380" y="104" font-size="12" fill="#166534" text-anchor="middle">比如按校验和检查的块</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">不能接受：读-改-写</text>
+  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">计数器加一这种</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">不能接受：一组数据必须一起一致</text>
+  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">只看懂一半没有意义</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="165" font-size="12" fill="#b45309" text-anchor="middle">接口里有一个 sync</text>
+  <text x="380" y="183" font-size="12" fill="#b45309" text-anchor="middle">用来把客户端追到最新</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">想拿到最新要付确认成本</text>
+  <text x="625" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">这是读本地化换来的账</text>
+</svg>

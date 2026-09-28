@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-14-title fig-raft-14-desc">
+  <title id="fig-raft-14-title">读不自动强一致：跟随者可能是旧的</title>
+  <desc id="fig-raft-14-desc">从跟随者读可能拿到旧值；要线性一致就得把读走一遍日志，或用带时限的租约确认领导者仍然权威。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">读不自动强一致：跟随者可能是旧的</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">客户端从一个跟随者读</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">它可能还没追到最新</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">读到的可能是旧值</text>
+  <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">提交保证的是写入顺序</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">这一步常被初学者忽略</text>
+  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">但它决定对外表现</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="165" font-size="12" fill="#b45309" text-anchor="middle">要线性一致</text>
+  <text x="135" y="183" font-size="12" fill="#b45309" text-anchor="middle">就把读也走一遍日志</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="165" font-size="12" fill="#b45309" text-anchor="middle">或者用带时限的租约</text>
+  <text x="380" y="183" font-size="12" fill="#b45309" text-anchor="middle">让领导者确认自己仍然权威</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">把复制一份日志</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">变成对外像一台可靠机器</text>
+</svg>

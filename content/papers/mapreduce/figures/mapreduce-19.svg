@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-19-title fig-mapreduce-19-desc">
+  <title id="fig-mapreduce-19-title">不起眼的成本：启动、元数据与本地磁盘带宽</title>
+  <desc id="fig-mapreduce-19-desc">grep 测试 150 秒里约一分钟是启动开销；排序测试要花一半时间把中间结果写本地磁盘，所以性能上限不只在算法。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">不起眼的成本：启动、元数据与本地磁盘带宽</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">grep 测试 150 秒里</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">约一分钟是启动开销</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">把程序分发到所有机器</text>
+  <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">打开上千个输入文件</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">取本地性信息也在启动里</text>
+  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">它并不便宜</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="135" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">排序的输入速率低于 grep</text>
+  <text x="135" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">因为映射任务有一半时间</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">花在把中间结果写本地磁盘</text>
+  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">这是本地 I/O 的账</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">性能上限不只在算法</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">也在这些不起眼的地方</text>
+</svg>

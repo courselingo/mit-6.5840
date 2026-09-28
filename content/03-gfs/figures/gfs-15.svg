@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 334" width="766" height="334"
+     role="img" aria-labelledby="fig-gfs-15-title fig-gfs-15-desc">
+  <title id="fig-gfs-15-title">链式分发与树形分发：上行带宽怎么分</title>
+  <desc id="fig-gfs-15-desc">链式分发里客户端推给 A、A 推给 B、B 推给 C，每台上行带宽只服务一个接收方，能被打满；树形分发里 A 要同时推给 B 和 C，上行带宽被切成几份，A 先成为瓶颈。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="766" height="334" fill="#ffffff"/>
+
+  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">链式分发与树形分发：上行带宽怎么分</text>
+
+  <rect x="25" y="64" width="341" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="195" y="86" font-size="12" fill="#166534" text-anchor="middle">链式：客户端推给 A，A 推给 B</text>
+  <text x="195" y="104" font-size="12" fill="#166534" text-anchor="middle">B 再推给 C，一路接力</text>
+
+  <rect x="25" y="145" width="341" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="195" y="167" font-size="12" fill="#166534" text-anchor="middle">每一台机器的上行带宽</text>
+  <text x="195" y="185" font-size="12" fill="#166534" text-anchor="middle">只服务下一个接收方</text>
+
+  <rect x="25" y="226" width="341" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="195" y="248" font-size="12" fill="#166534" text-anchor="middle">所以带宽能被打满</text>
+  <text x="195" y="266" font-size="12" fill="#166534" text-anchor="middle">流水线还把延迟摊薄</text>
+
+  <rect x="396" y="64" width="345" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="568" y="86" font-size="12" fill="#b45309" text-anchor="middle">树形：A 要同时推给 B 和 C</text>
+  <text x="568" y="104" font-size="12" fill="#b45309" text-anchor="middle">一个发送方，多个接收方</text>
+
+  <rect x="396" y="145" width="345" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="568" y="167" font-size="12" fill="#b45309" text-anchor="middle">每一台机器的上行带宽</text>
+  <text x="568" y="185" font-size="12" fill="#b45309" text-anchor="middle">被切成几份分出去</text>
+
+  <rect x="396" y="226" width="345" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="568" y="248" font-size="12" fill="#b45309" text-anchor="middle">所以 A 先成为瓶颈</text>
+  <text x="568" y="266" font-size="12" fill="#b45309" text-anchor="middle">吞吐优先的系统不能接受</text>
+
+  <text x="383" y="306" font-size="12" fill="#64748b" text-anchor="middle">同为分发，链式把上行带宽留给一个接收方，树形把它切开</text>
+</svg>

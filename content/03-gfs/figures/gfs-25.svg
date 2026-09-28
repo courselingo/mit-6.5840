@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 253" width="766" height="253"
+     role="img" aria-labelledby="fig-gfs-25-title fig-gfs-25-desc">
+  <title id="fig-gfs-25-title">流水线把延迟摊薄：不流水线要等 R 次往返</title>
+  <desc id="fig-gfs-25-desc">不做流水线时把 B 字节推给 R 个副本约需 B/T 加 R×L；流水线让每台收到一部分就转发下一台，R×L 被摊薄，于是 1MB 数据大约 80ms 就能铺开。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="766" height="253" fill="#ffffff"/>
+
+  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">流水线把延迟摊薄：不流水线要等 R 次往返</text>
+
+  <path d="M195,123 L195,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M568,123 L568,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="25" y="64" width="341" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="195" y="86" font-size="12" fill="#9d174d" text-anchor="middle">不做流水线</text>
+  <text x="195" y="104" font-size="12" fill="#9d174d" text-anchor="middle">B 字节给 R 个副本约需 B/T + R×L</text>
+
+  <rect x="396" y="64" width="345" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="568" y="86" font-size="12" fill="#166534" text-anchor="middle">做流水线</text>
+  <text x="568" y="104" font-size="12" fill="#166534" text-anchor="middle">每台收到一部分就转发下一台</text>
+
+  <rect x="25" y="145" width="716" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="383" y="167" font-size="12" fill="#1e40af" text-anchor="middle">链路 100Mbps 级别、单跳延迟 L 远小于 1ms</text>
+  <text x="383" y="185" font-size="12" fill="#1e40af" text-anchor="middle">理想情况下 1MB 数据大约 80ms 就能铺开</text>
+
+  <text x="383" y="225" font-size="12" fill="#64748b" text-anchor="middle">最慢的一跳决定这次写在客户端眼里要花多久</text>
+</svg>

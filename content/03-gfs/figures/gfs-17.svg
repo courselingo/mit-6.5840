@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 253" width="766" height="253"
+     role="img" aria-labelledby="fig-gfs-17-title fig-gfs-17-desc">
+  <title id="fig-gfs-17-title">租约的三种去向：续期、被撤销、等它过期</title>
+  <desc id="fig-gfs-17-desc">块上一直在写就搭着心跳不断续期；要改文件名时主节点可以提前撤销租约；和主副本失去联络时，主节点只需等租约过期，时间保证了旧权威一定已经失效。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="766" height="253" fill="#ffffff"/>
+
+  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">租约的三种去向：续期、被撤销、等它过期</text>
+
+  <path d="M135,123 L135,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M383,123 L383,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M631,123 L631,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">块上一直在被修改</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">主副本不断申请续期</text>
+
+  <rect x="273" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="383" y="86" font-size="12" fill="#1e40af" text-anchor="middle">某个文件要被改名</text>
+  <text x="383" y="104" font-size="12" fill="#1e40af" text-anchor="middle">主节点想先冻结修改</text>
+
+  <rect x="521" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="631" y="86" font-size="12" fill="#1e40af" text-anchor="middle">和主副本失去联络</text>
+  <text x="631" y="104" font-size="12" fill="#1e40af" text-anchor="middle">双方都无法确认对方</text>
+
+  <rect x="25" y="145" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="167" font-size="12" fill="#166534" text-anchor="middle">续期搭在心跳上</text>
+  <text x="135" y="185" font-size="12" fill="#166534" text-anchor="middle">不额外增加往返</text>
+
+  <rect x="273" y="145" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="383" y="167" font-size="12" fill="#b45309" text-anchor="middle">到期前主动撤销</text>
+  <text x="383" y="185" font-size="12" fill="#b45309" text-anchor="middle">文件上的修改被冻结</text>
+
+  <rect x="521" y="145" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="631" y="167" font-size="12" fill="#9d174d" text-anchor="middle">耐心等到租约过期</text>
+  <text x="631" y="185" font-size="12" fill="#9d174d" text-anchor="middle">再把租约发给别的副本</text>
+
+  <text x="383" y="225" font-size="12" fill="#64748b" text-anchor="middle">时间在这里充当证据：租约一过期，旧权威就一定已经失效</text>
+</svg>

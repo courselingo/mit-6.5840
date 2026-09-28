@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-zookeeper-13-title fig-zookeeper-13-desc">
+  <title id="fig-zookeeper-13-title">读不保证最新，但保证位置不倒退</title>
+  <desc id="fig-zookeeper-13-desc">在跟随者 A 上写完能读到自己刚写的值，换一台落后的跟随者可能读到旧值，但读到的位置不会倒退。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">读不保证最新，但保证位置不倒退</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">在跟随者 A 上写入</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">确认来自多数派</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="86" font-size="12" fill="#166534" text-anchor="middle">紧接着在同一台读</text>
+  <text x="380" y="104" font-size="12" fill="#166534" text-anchor="middle">能读到自己刚写的值</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">换一台落后的跟随者读</text>
+  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">可能读到旧值</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="165" font-size="12" fill="#166534" text-anchor="middle">但读到的位置不会倒退</text>
+  <text x="135" y="183" font-size="12" fill="#166534" text-anchor="middle">也不会往回跳</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">同一个客户端的写</text>
+  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">落在同一个顺序上</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">这组保证叫客户端 FIFO</text>
+  <text x="625" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">足够用，但不等于线性一致</text>
+</svg>

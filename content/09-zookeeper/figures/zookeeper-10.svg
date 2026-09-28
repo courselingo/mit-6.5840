@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-zookeeper-10-title fig-zookeeper-10-desc">
+  <title id="fig-zookeeper-10-title">惊群：全体监视锁节点 vs 只监视前一个</title>
+  <desc id="fig-zookeeper-10-desc">全体监视锁节点会在解锁时叫醒所有人，只有一个成功；只监视前一个则只叫醒一人，队列本来就有序。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">惊群：全体监视锁节点 vs 只监视前一个</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">所有人都监视锁节点</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">解锁时一起通知</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">全部等待者同时被叫醒</text>
+  <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">一起冲上去抢</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">只有一个人成功</text>
+  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">其余重新排队</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="165" font-size="12" fill="#166534" text-anchor="middle">只监视自己前面那一个</text>
+  <text x="135" y="183" font-size="12" fill="#166534" text-anchor="middle">队列本来就有序</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="165" font-size="12" fill="#166534" text-anchor="middle">解锁只叫醒一个人</text>
+  <text x="380" y="183" font-size="12" fill="#166534" text-anchor="middle">不会挤在一起</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">临时节点加顺序号</text>
+  <text x="625" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">已经把顺序排好了</text>
+</svg>

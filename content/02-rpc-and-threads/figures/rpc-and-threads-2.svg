@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 304" width="760" height="304"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="760" height="350"
      role="img" aria-labelledby="rpc-and-threads-2-title rpc-and-threads-2-desc">
-  <title id="rpc-and-threads-2-title">一次 RPC 的失败窗口：超时之后客户端不知道什么</title>
-  <desc id="rpc-and-threads-2-desc">客户端发出请求后只看到「没有回复」这一种现象，但背后可能是请求没送到、服务端还在处理、回复丢了或者服务端已经崩溃，四种原因在调用方眼里完全一样。</desc>
+  <title id="rpc-and-threads-2-title">第 2 讲在整门课里的位置</title>
+  <desc id="rpc-and-threads-2-desc">第 1 讲是总论，第 3 讲起进入 GFS、Paxos、Raft；第 2 讲夹在中间，交出 goroutine 与 RPC 两块砖，后面每个实验都踩在它们上面。</desc>
 
   <defs>
     <style>
@@ -13,38 +13,33 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="304" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="350" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一次 RPC 的失败窗口：超时之后客户端不知道什么</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">第 2 讲在整门课里的位置</text>
 
-  <rect x="22" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="194" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">客户端</text>
-  <text x="194" y="118" font-size="12" fill="#64748b" text-anchor="middle">发出请求，一直等到超时</text>
+  <rect x="22" y="68" width="220" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="132" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">第 1 讲</text>
+  <text x="132" y="118" font-size="12" fill="#64748b" text-anchor="middle">总论：为什么分布式</text>
 
-  <rect x="394" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="566" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">服务端</text>
-  <text x="566" y="118" font-size="12" fill="#64748b" text-anchor="middle">收到请求，执行，回发结果</text>
+  <rect x="270" y="68" width="220" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="380" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">第 2 讲 · 本讲</text>
+  <text x="380" y="118" font-size="12" fill="#64748b" text-anchor="middle">并发与 RPC</text>
 
-  <path d="M371,96 L 383,96" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M389,118 L 377,118" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="518" y="68" width="220" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="628" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">第 3 讲起</text>
+  <text x="628" y="118" font-size="12" fill="#64748b" text-anchor="middle">GFS、Paxos、Raft</text>
 
-  <rect x="22" y="152" width="716" height="127" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M247,96 L 259,96" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M495,96 L 507,96" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M380,141 L 380,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <rect x="44" y="164" width="147" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="117.5" y="192" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">① 请求没送到</text>
-  <text x="117.5" y="214" font-size="12" fill="#64748b" text-anchor="middle">服务端根本没收到</text>
+  <rect x="22" y="164" width="716" height="68" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="380" y="192" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">这一讲交出的两块砖</text>
+  <text x="380" y="214" font-size="12" fill="#64748b" text-anchor="middle">goroutine 让一个程序同时推进很多件事，RPC 让消息在机器之间往返</text>
 
-  <rect x="219" y="164" width="147" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="292.5" y="192" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">② 收到，在处理</text>
-  <text x="292.5" y="214" font-size="12" fill="#64748b" text-anchor="middle">执行完之前就超时</text>
+  <path d="M380,237 L 380,249" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <rect x="394" y="164" width="147" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="467.5" y="192" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">③ 回复丢在半路</text>
-  <text x="467.5" y="214" font-size="12" fill="#64748b" text-anchor="middle">服务端其实执行完了</text>
-
-  <rect x="569" y="164" width="147" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="642.5" y="192" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">④ 服务端已崩溃</text>
-  <text x="642.5" y="214" font-size="12" fill="#64748b" text-anchor="middle">执行前或执行中都可能</text>
-
-  <text x="380" y="264" font-size="12" fill="#64748b" text-anchor="middle">客户端眼里只有一种现象：没等到回复 —— 这四种原因无法区分</text>
+  <rect x="22" y="260" width="716" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="380" y="288" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">后面每个实验都踩在这两块砖上</text>
+  <text x="380" y="310" font-size="12" fill="#64748b" text-anchor="middle">GFS 要同时发起上万次读写，Paxos 与 Raft 要把提案送到一台台机器上</text>
 </svg>

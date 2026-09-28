@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-6-title fig-raft-6-desc">
+  <title id="fig-raft-6-title">把共识拆成三块，每块都能单独讲明白</title>
+  <desc id="fig-raft-6-desc">把共识拆成领导者选举、日志复制、安全性三块，每一块都能单独讲清、单独推理，故障模型一点没放松。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">把共识拆成三块，每块都能单独讲明白</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="86" font-size="12" fill="#b45309" text-anchor="middle">领导者选举</text>
+  <text x="135" y="104" font-size="12" fill="#b45309" text-anchor="middle">原领导者失效后选出新的</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">日志复制</text>
+  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">领导者接收命令并复制出去</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="86" font-size="12" fill="#166534" text-anchor="middle">安全性</text>
+  <text x="625" y="104" font-size="12" fill="#166534" text-anchor="middle">保证状态机之间的安全性质</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="135" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">三块能分开讲、分开推理</text>
+  <text x="135" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">这是最大的结构特征</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="165" font-size="12" fill="#1e40af" text-anchor="middle">故障模型没有放松</text>
+  <text x="380" y="183" font-size="12" fill="#1e40af" text-anchor="middle">节点崩溃、网络会丢会乱</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">可理解性是首要目标</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">不是事后包装</text>
+</svg>

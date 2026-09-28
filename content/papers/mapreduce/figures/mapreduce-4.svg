@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-4-title fig-mapreduce-4-desc">
+  <title id="fig-mapreduce-4-title">把分布式脚手架抽成库，业务只写两个函数</title>
+  <desc id="fig-mapreduce-4-desc">每个任务都要重写一遍切分、分派、重跑、搬运这套脚手架；抽成库之后，用户只填两个函数。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">把分布式脚手架抽成库，业务只写两个函数</text>
+
+  <rect x="25" y="64" width="340" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="195" y="86" font-size="12" fill="#1e40af" text-anchor="middle">一个任务：业务几行</text>
+  <text x="195" y="104" font-size="12" fill="#1e40af" text-anchor="middle">脚手架却有几千行</text>
+  <rect x="395" y="64" width="340" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="565" y="86" font-size="12" fill="#9d174d" text-anchor="middle">换下一个任务</text>
+  <text x="565" y="104" font-size="12" fill="#9d174d" text-anchor="middle">同样几千行再写一遍</text>
+  <rect x="25" y="143" width="340" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="195" y="165" font-size="12" fill="#b45309" text-anchor="middle">抽成库：切分、分派、重跑</text>
+  <text x="195" y="183" font-size="12" fill="#b45309" text-anchor="middle">搬运和等待都交给框架</text>
+  <rect x="395" y="143" width="340" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="565" y="165" font-size="12" fill="#166534" text-anchor="middle">用户只填两个函数</text>
+  <text x="565" y="183" font-size="12" fill="#166534" text-anchor="middle">不必知道集群里有多少台机器</text>
+</svg>

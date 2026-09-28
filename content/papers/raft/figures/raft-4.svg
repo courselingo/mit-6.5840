@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-4-title fig-raft-4-desc">
+  <title id="fig-raft-4-title">五台机器的小集群，保存必须熬过崩溃的元数据</title>
+  <desc id="fig-raft-4-desc">大型系统里那份必须熬过崩溃的元数据，通常由一个五台机器的小集群保存：配置、主控、锁表与命名空间。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">五台机器的小集群，保存必须熬过崩溃的元数据</text>
+
+  <rect x="25" y="64" width="340" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="195" y="86" font-size="12" fill="#1e40af" text-anchor="middle">大型系统里有一份元数据</text>
+  <text x="195" y="104" font-size="12" fill="#1e40af" text-anchor="middle">必须熬过主控节点崩溃</text>
+  <rect x="395" y="64" width="340" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="565" y="86" font-size="12" fill="#b45309" text-anchor="middle">它通常由五台机器的小集群保存</text>
+  <text x="565" y="104" font-size="12" fill="#b45309" text-anchor="middle">对外表现为一台机器</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="135" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">存集群配置</text>
+  <text x="135" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">以及成员名单</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">记谁是当前主控</text>
+  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">换主要靠它</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">维护锁表与命名空间</text>
+  <text x="625" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">应用都来问它</text>
+</svg>

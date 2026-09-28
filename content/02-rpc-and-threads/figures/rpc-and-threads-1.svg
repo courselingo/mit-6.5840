@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 372" width="760" height="372"
      role="img" aria-labelledby="rpc-and-threads-1-title rpc-and-threads-1-desc">
-  <title id="rpc-and-threads-1-title">共享地址空间为什么会出竞态</title>
-  <desc id="rpc-and-threads-1-desc">线程 A 与线程 B 各自在同一块共享内存上执行读、加、写，两次读改写交错后只生效一次，结果 n 是 1 而不是 2。</desc>
+  <title id="rpc-and-threads-1-title">本地调用与远程调用：多出来的第三种状态</title>
+  <desc id="rpc-and-threads-1-desc">本地函数调用只有正常返回和抛出异常两种结局；跨机器 RPC 多出第三种：客户端只看到超时，无法判断请求是否送到、服务端是否执行。</desc>
 
   <defs>
     <style>
@@ -13,30 +13,32 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="380" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="372" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">共享地址空间为什么会出竞态</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">本地调用与远程调用：多出来的第三种状态</text>
 
   <rect x="22" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="194" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">线程 A</text>
-  <text x="194" y="118" font-size="12" fill="#64748b" text-anchor="middle">读到旧值 n = 0，准备写 1</text>
+  <text x="194" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">本地函数调用</text>
+  <text x="194" y="118" font-size="12" fill="#64748b" text-anchor="middle">同一个地址空间，参数就在手边</text>
 
   <rect x="394" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="566" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">线程 B</text>
-  <text x="566" y="118" font-size="12" fill="#64748b" text-anchor="middle">也读到旧值 n = 0，也写 1</text>
+  <text x="566" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">跨机器 RPC</text>
+  <text x="566" y="118" font-size="12" fill="#64748b" text-anchor="middle">参数编组成字节，过网络再等回复</text>
 
-  <path d="M194,141 C 194,148 330,146 330,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M566,141 C 566,148 430,146 430,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M194,141 L 194,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M566,141 L 566,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <rect x="180" y="164" width="400" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="380" y="192" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">共享地址空间：同一个变量 n</text>
-  <text x="380" y="214" font-size="12" fill="#64748b" text-anchor="middle">两个线程读写同一块内存，操作会交错</text>
+  <rect x="22" y="164" width="344" height="90" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="194" y="196" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">只有两种结局</text>
+  <text x="194" y="214" font-size="12" fill="#64748b" text-anchor="middle">正常返回，或者抛异常</text>
+  <text x="194" y="232" font-size="12" fill="#64748b" text-anchor="middle">不存在「不知道做没做」</text>
 
-  <path d="M380,237 L 380,249" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="394" y="164" width="344" height="90" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="566" y="196" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">多出第三种：不知道</text>
+  <text x="566" y="214" font-size="12" fill="#64748b" text-anchor="middle">返回、异常，或者超时</text>
+  <text x="566" y="232" font-size="12" fill="#64748b" text-anchor="middle">超时在调用方只是一个 timeout</text>
 
-  <rect x="230" y="260" width="300" height="68" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
-  <text x="380" y="288" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">结果 n = 1，但期望是 2</text>
-  <text x="380" y="310" font-size="12" fill="#64748b" text-anchor="middle">两次读改写只生效了一次</text>
-
-  <text x="380" y="356" font-size="12" fill="#64748b" text-anchor="middle">共享省掉了内核这一层，代价是两个线程的读写顺序变得不可预期</text>
+  <rect x="22" y="282" width="716" height="68" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="380" y="310" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">本讲后面所有机制，都在处理这第三种状态</text>
+  <text x="380" y="332" font-size="12" fill="#64748b" text-anchor="middle">既然分不清，就只好让重复执行变得无害：幂等与去重由此而来</text>
 </svg>

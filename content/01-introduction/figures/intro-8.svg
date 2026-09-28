@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 279" width="760" height="279"
+     role="img" aria-labelledby="fig-intro-8-title fig-intro-8-desc">
+  <title id="fig-intro-8-title">并行段越切越短，串行段一动不动</title>
+  <desc id="fig-intro-8-desc">同一作业里，必须串行的那一段不随机器数变化，可并行的部分在 4 台、8 台、16 台时依次缩短，总时间最终被串行段封顶。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="279" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">并行段越切越短，串行段一动不动</text>
+
+  <rect x="22" y="66" width="200" height="191" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="122" y="155.5" font-size="15" fill="#9d174d" text-anchor="middle">必须串行的那一段</text>
+  <text x="122" y="178" font-size="15" fill="#9d174d" text-anchor="middle">加机器也不变短</text>
+
+  <rect x="250" y="66" width="488" height="45" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="494" y="94" font-size="15" fill="#1e40af" text-anchor="middle">4 台机器：可并行的部分还算长</text>
+
+  <rect x="250" y="139" width="244" height="45" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="372" y="167" font-size="15" fill="#1e40af" text-anchor="middle">8 台：并行段减半</text>
+
+  <rect x="250" y="212" width="122" height="45" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="311" y="240" font-size="15" fill="#1e40af" text-anchor="middle">16 台：一小块</text>
+</svg>

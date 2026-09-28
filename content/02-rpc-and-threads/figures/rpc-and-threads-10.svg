@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="760" height="350"
+     role="img" aria-labelledby="rpc-and-threads-10-title rpc-and-threads-10-desc">
+  <title id="rpc-and-threads-10-title">服务端的处理函数为什么必须自己加锁</title>
+  <desc id="rpc-and-threads-10-desc">RPC 库接受连接后为每个请求开一个新 goroutine，同一个连接上可能有多个请求在跑；两个 goroutine 会同时碰同一块状态，RPC 库不会替你加锁。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="350" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">服务端的处理函数为什么必须自己加锁</text>
+
+  <rect x="22" y="68" width="716" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="380" y="96" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">RPC 库接受连接，为每个请求开一个新 goroutine</text>
+  <text x="380" y="118" font-size="12" fill="#64748b" text-anchor="middle">同一个连接上可能有多个请求同时在跑</text>
+
+  <path d="M380,141 C 380,148 194,146 194,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M380,141 C 380,148 566,146 566,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="164" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="194" y="192" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">请求 A 的 goroutine</text>
+  <text x="194" y="214" font-size="12" fill="#64748b" text-anchor="middle">读共享的 map</text>
+
+  <rect x="394" y="164" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="566" y="192" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">请求 B 的 goroutine</text>
+  <text x="566" y="214" font-size="12" fill="#64748b" text-anchor="middle">写同一个 map</text>
+
+  <path d="M194,237 C 194,244 380,242 380,249" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M566,237 C 566,244 380,242 380,249" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="260" width="716" height="68" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="380" y="288" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">两个 goroutine 同时碰同一块状态</text>
+  <text x="380" y="310" font-size="12" fill="#64748b" text-anchor="middle">RPC 库不会替你加锁：处理函数里的共享数据必须自己保护</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-7-title fig-raft-7-desc">
+  <title id="fig-raft-7-title">强领导者：一个时刻最多一个，日志单向流</title>
+  <desc id="fig-raft-7-desc">Raft 先选出领导者，日志只从它单向流出，它决定新条目位置不必征询；对称内核只适合单个决定。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">强领导者：一个时刻最多一个，日志单向流</text>
+
+  <rect x="25" y="64" width="340" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="195" y="86" font-size="12" fill="#b45309" text-anchor="middle">Raft：先选出一个领导者</text>
+  <text x="195" y="104" font-size="12" fill="#b45309" text-anchor="middle">日志条目只从它单向流出</text>
+  <rect x="395" y="64" width="340" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="565" y="86" font-size="12" fill="#166534" text-anchor="middle">它决定新条目的位置时</text>
+  <text x="565" y="104" font-size="12" fill="#166534" text-anchor="middle">不必征询任何人</text>
+  <rect x="25" y="143" width="340" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="195" y="165" font-size="12" fill="#1e40af" text-anchor="middle">对称的点对点内核</text>
+  <text x="195" y="183" font-size="12" fill="#1e40af" text-anchor="middle">适合「只做一个决定」</text>
+  <rect x="395" y="143" width="340" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="565" y="165" font-size="12" fill="#166534" text-anchor="middle">真实系统要做一连串决定</text>
+  <text x="565" y="183" font-size="12" fill="#166534" text-anchor="middle">先选主再统一安排更简单</text>
+</svg>

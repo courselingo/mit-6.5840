@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-8-title fig-raft-8-desc">
+  <title id="fig-raft-8-title">日志匹配：靠前缀检查让日志自动收敛</title>
+  <desc id="fig-raft-8-desc">请求带上紧邻在前那条的位置与任期，跟随者找不到前缀就拒绝，领导者退一格再试，最后覆盖冲突的后缀。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">日志匹配：靠前缀检查让日志自动收敛</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">复制请求带上紧邻在前</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">那条的位置与任期</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">跟随者在自己日志里</text>
+  <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">找不到这个前缀就拒绝</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="625" y="86" font-size="12" fill="#b45309" text-anchor="middle">领导者把下一个待发位置</text>
+  <text x="625" y="104" font-size="12" fill="#b45309" text-anchor="middle">往前退一格再试</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="165" font-size="12" fill="#b45309" text-anchor="middle">直到找到两份日志</text>
+  <text x="135" y="183" font-size="12" fill="#b45309" text-anchor="middle">真正一致的那一点</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="165" font-size="12" fill="#b45309" text-anchor="middle">把跟随者多余的、冲突的后缀</text>
+  <text x="380" y="183" font-size="12" fill="#b45309" text-anchor="middle">覆盖掉</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">新领导者上台后</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">不需要任何专门的修复流程</text>
+</svg>

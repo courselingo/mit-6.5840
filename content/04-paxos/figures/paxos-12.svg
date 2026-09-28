@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-paxos-12-title fig-paxos-12-desc">
+  <title id="fig-paxos-12-title">活性只被弱地保证：两个提议者互相顶编号</title>
+  <desc id="fig-paxos-12-desc">A 提编号 5，B 用 6 顶掉它，A 再用 7 顶回去，于是谁都拿不到多数派，进展被拖住但安全性没破。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">活性只被弱地保证：两个提议者互相顶编号</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">提议者 A 提编号 5</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">B 用编号 6 顶掉它</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="86" font-size="12" fill="#1e40af" text-anchor="middle">A 改用编号 7</text>
+  <text x="380" y="104" font-size="12" fill="#1e40af" text-anchor="middle">再顶回去</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">两边都用更大的编号</text>
+  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">谁都不肯让</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">于是谁都拿不到多数派</text>
+  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">进展被拖住</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">但安全性没有破</text>
+  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">只是没人能推进</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">笔记只承诺</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">多数派能通信时最终一致</text>
+</svg>

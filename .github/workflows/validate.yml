@@ -45,6 +45,14 @@ jobs:
       - name: 文风机检
         run: python scripts/check_style.py --root .
 
+      # 内容审计：查「该有的有没有」—— 配图密度与分布、每个小节是否配图、
+      # 连续无图缺口、句子长度、具体性、结构完整性。
+      # 背景：第一轮把「≥3 幅图」当配额，结果每篇都恰好 3 幅，
+      # 而 65 个二级小节里有 44 个讲着机制却没有图。
+      # 判断依据见 docs/figure-audit.md 与 docs/quality-audit.md
+      - name: 内容审计
+        run: python scripts/audit_content.py --root . --strict
+
       # 配图房规检查：调用 vendor 进来的 tools/svg-lint（Node，零依赖）。
       # 房规要求 0 error 且 0 warning，--strict 让 warning 也拦下来。
       # ubuntu-latest 自带 Node；仍显式 setup 以钉住版本。

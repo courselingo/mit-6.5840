@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 375" width="760" height="375"
+     role="img" aria-labelledby="fig-intro-16-title fig-intro-16-desc">
+  <title id="fig-intro-16-title">分区时的二选一：要么可能留下两份历史，要么牺牲一侧可用性</title>
+  <desc id="fig-intro-16-desc">分区两侧无法通信时只有两条路：两边都继续接受写入，可能产生两份互相冲突的历史；或者让缺少多数派的一侧停止服务，牺牲可用性但不出现两份历史。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="375" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">分区时的二选一：丢两份历史，还是丢一侧可用性</text>
+
+  <path d="M194,116 L194,128" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M566,116 L566,128" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M194,189 L194,201" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M566,189 L566,201" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M194,285 L194,297" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M566,285 L566,297" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="66" width="716" height="45" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="94" font-size="15" fill="#1e40af" text-anchor="middle">网络分区：两侧无法通信，此时只能二选一</text>
+
+  <rect x="22" y="139" width="344" height="45" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="167" font-size="15" fill="#9d174d" text-anchor="middle">路径一：两边都继续接受写入</text>
+
+  <rect x="394" y="139" width="344" height="45" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="167" font-size="15" fill="#166534" text-anchor="middle">路径二：缺少多数派的一侧停服</text>
+
+  <rect x="22" y="212" width="344" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="240" font-size="15" fill="#9d174d" text-anchor="middle">代价：可能 split-brain</text>
+  <text x="194" y="262" font-size="12" fill="#9d174d" text-anchor="middle">两份历史要事后合并</text>
+
+  <rect x="394" y="212" width="344" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="240" font-size="15" fill="#166534" text-anchor="middle">代价：那一侧暂时不可用</text>
+  <text x="566" y="262" font-size="12" fill="#166534" text-anchor="middle">但不会出现两份历史</text>
+
+  <rect x="22" y="308" width="716" height="45" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="336" font-size="15" fill="#6b21a8" text-anchor="middle">两条路都要丢东西，区别只在于丢的是哪一样</text>
+</svg>

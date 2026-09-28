@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-8-title fig-mapreduce-8-desc">
+  <title id="fig-mapreduce-8-title">数据本地性：把任务搬到输入所在的机器</title>
+  <desc id="fig-mapreduce-8-desc">输入以 64MB 的块存三份副本，主节点尽量把映射任务放到本地就有输入的机器上，让大部分输入不走网络。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">数据本地性：把任务搬到输入所在的机器</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">输入放在集群文件系统里</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">文件切成 64MB 的块</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="86" font-size="12" fill="#6b21a8" text-anchor="middle">每块通常有 3 份副本</text>
+  <text x="380" y="104" font-size="12" fill="#6b21a8" text-anchor="middle">主节点知道副本在哪台机器</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="625" y="86" font-size="12" fill="#b45309" text-anchor="middle">于是尽量把映射任务</text>
+  <text x="625" y="104" font-size="12" fill="#b45309" text-anchor="middle">调度到本地就有输入的机器</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="165" font-size="12" fill="#b45309" text-anchor="middle">退而求其次</text>
+  <text x="135" y="183" font-size="12" fill="#b45309" text-anchor="middle">也放到同一台交换机下面</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="165" font-size="12" fill="#166534" text-anchor="middle">大部分输入因此不走网络</text>
+  <text x="380" y="183" font-size="12" fill="#166534" text-anchor="middle">网络正是最紧张的资源</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">grep 测试的峰值输入速率</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">能到 30GB/s 以上</text>
+</svg>

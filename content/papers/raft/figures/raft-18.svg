@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-18-title fig-raft-18-desc">
+  <title id="fig-raft-18-title">请求发给谁都能走通：跟随者会转给领导者</title>
+  <desc id="fig-raft-18-desc">客户端把请求发给任意一台，跟随者会把它转给领导者；任意时刻恰好一个领导者，五节点容忍两台失效。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">请求发给谁都能走通：跟随者会转给领导者</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">客户端可以发给任意一台</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">跟随者也会应答</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">如果那是跟随者</text>
+  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">它把请求转给领导者</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="86" font-size="12" fill="#166534" text-anchor="middle">最终只有领导者</text>
+  <text x="625" y="104" font-size="12" fill="#166534" text-anchor="middle">决定条目放在哪里</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="165" font-size="12" fill="#166534" text-anchor="middle">客户端不必知道</text>
+  <text x="135" y="183" font-size="12" fill="#166534" text-anchor="middle">谁是当前的领导者</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">代价是多一次跳转</text>
+  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">或者由它自己记住领导者</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">五节点容忍两台失效</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">其余时间恰好一个领导者</text>
+</svg>

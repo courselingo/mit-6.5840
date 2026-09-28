@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 279" width="760" height="279"
+     role="img" aria-labelledby="fig-intro-12-title fig-intro-12-desc">
+  <title id="fig-intro-12-title">时钟靠不住，消息的顺序靠得住</title>
+  <desc id="fig-intro-12-desc">左边一列用两台机器的本地时钟判断先后，结论是错的；右边一列用「发送之后才会收到」定义先后，这个结论不依赖任何物理时钟。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="279" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">时钟靠不住，消息的顺序靠得住</text>
+
+  <path d="M194,116 L194,128" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M194,189 L194,201" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M566,116 L566,128" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M566,189 L566,201" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="66" width="344" height="45" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="94" font-size="15" fill="#9d174d" text-anchor="middle">A 的时钟：写入发生在 10:00:00</text>
+
+  <rect x="22" y="139" width="344" height="45" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="167" font-size="15" fill="#9d174d" text-anchor="middle">B 的时钟：读取发生在 09:59:59</text>
+
+  <rect x="22" y="212" width="344" height="45" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="240" font-size="15" fill="#9d174d" text-anchor="middle">结论：时间戳说「读在写之前」</text>
+
+  <rect x="394" y="66" width="344" height="45" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="94" font-size="15" fill="#166534" text-anchor="middle">A 写完，发出确认消息</text>
+
+  <rect x="394" y="139" width="344" height="45" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="167" font-size="15" fill="#166534" text-anchor="middle">B 收到确认，才写入生效</text>
+
+  <rect x="394" y="212" width="344" height="45" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="240" font-size="15" fill="#166534" text-anchor="middle">结论：send 到 receive 定义先后</text>
+</svg>

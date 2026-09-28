@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 334" width="766" height="334"
+     role="img" aria-labelledby="fig-gfs-4-title fig-gfs-4-desc">
+  <title id="fig-gfs-4-title">同一个问题的两条路：把系统做强，或先接受约束</title>
+  <desc id="fig-gfs-4-desc">路线 A 靠更强硬件与更严格协议让系统本身不出错；路线 B 先接受硬件会坏、应用只需弱一致性，于是系统可以做得简单，代价是复杂度下推到应用。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="766" height="334" fill="#ffffff"/>
+
+  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">同一个问题的两条路：把系统做强，或先接受约束</text>
+
+  <rect x="25" y="64" width="341" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="195" y="86" font-size="12" fill="#b45309" text-anchor="middle">路线 A：把系统做强</text>
+  <text x="195" y="104" font-size="12" fill="#b45309" text-anchor="middle">更强硬件、更强一致性</text>
+
+  <rect x="25" y="145" width="341" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="195" y="167" font-size="12" fill="#b45309" text-anchor="middle">用更严格的协议兜住故障</text>
+  <text x="195" y="185" font-size="12" fill="#b45309" text-anchor="middle">让系统本身尽可能不出错</text>
+
+  <rect x="25" y="226" width="341" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="195" y="248" font-size="12" fill="#b45309" text-anchor="middle">买到：出错更少</text>
+  <text x="195" y="266" font-size="12" fill="#b45309" text-anchor="middle">付出：机器更贵、协议更复杂</text>
+
+  <rect x="396" y="64" width="345" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="568" y="86" font-size="12" fill="#1e40af" text-anchor="middle">路线 B：先接受两件事</text>
+  <text x="568" y="104" font-size="12" fill="#1e40af" text-anchor="middle">硬件会坏、应用只需弱一致性</text>
+
+  <rect x="396" y="145" width="345" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="568" y="167" font-size="12" fill="#1e40af" text-anchor="middle">于是系统可以做得简单</text>
+  <text x="568" y="185" font-size="12" fill="#1e40af" text-anchor="middle">不必自己扛住所有故障</text>
+
+  <rect x="396" y="226" width="345" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="568" y="248" font-size="12" fill="#1e40af" text-anchor="middle">买到：简单、吞吐高</text>
+  <text x="568" y="266" font-size="12" fill="#1e40af" text-anchor="middle">付出：复杂度下推到应用</text>
+
+  <text x="383" y="306" font-size="12" fill="#64748b" text-anchor="middle">GFS 选的是 B：先接受约束，再让每个设计跟着工作负载走</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-21-title fig-mapreduce-21-desc">
+  <title id="fig-mapreduce-21-title">用户唯一的干预入口：替代函数</title>
+  <desc id="fig-mapreduce-21-desc">默认分区与调度都由框架决定，用户唯一能干预的是提供替代函数，比如按主机名分区；代价是热点分区。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">用户唯一的干预入口：替代函数</text>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">默认分区是取哈希再取模</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">默认调度是主节点配对</text>
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">用户唯一被允许干预的地方</text>
+  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">是提供替代函数</text>
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="625" y="86" font-size="12" fill="#b45309" text-anchor="middle">比如按主机名分区</text>
+  <text x="625" y="104" font-size="12" fill="#b45309" text-anchor="middle">而不是按 URL 分区</text>
+  <rect x="25" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="165" font-size="12" fill="#166534" text-anchor="middle">这样同一个站点的 URL</text>
+  <text x="135" y="183" font-size="12" fill="#166534" text-anchor="middle">落进同一个输出文件</text>
+  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="165" font-size="12" fill="#9d174d" text-anchor="middle">代价是某个大站点</text>
+  <text x="380" y="183" font-size="12" fill="#9d174d" text-anchor="middle">可能把单一分区撑爆</text>
+  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">默认足够好、例外才开口</text>
+  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">这是接口小的原因</text>
+</svg>

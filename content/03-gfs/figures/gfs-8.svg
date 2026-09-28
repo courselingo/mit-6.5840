@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 253" width="766" height="253"
+     role="img" aria-labelledby="fig-gfs-8-title fig-gfs-8-desc">
+  <title id="fig-gfs-8-title">块大的代价：小文件变成热点，少数块服务器被打爆</title>
+  <desc id="fig-gfs-8-desc">一个只占单块的可执行文件被上百台机器同时启动，存这个块的少数块服务器瞬间被压垮；修法是提高副本数、错开启动时间，长期让客户端之间互读。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="766" height="253" fill="#ffffff"/>
+
+  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">块大的代价：小文件变成热点，少数块服务器被打爆</text>
+
+  <path d="M250,91 L262,91" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M498,91 L510,91" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">一个可执行文件</text>
+  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">只占一个块</text>
+
+  <rect x="273" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="383" y="86" font-size="12" fill="#1e40af" text-anchor="middle">上百台机器同时启动它</text>
+  <text x="383" y="104" font-size="12" fill="#1e40af" text-anchor="middle">都去读同一个块</text>
+
+  <rect x="521" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="631" y="86" font-size="12" fill="#9d174d" text-anchor="middle">存这个块的少数机器</text>
+  <text x="631" y="104" font-size="12" fill="#9d174d" text-anchor="middle">瞬间被压垮</text>
+
+  <rect x="25" y="145" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="167" font-size="12" fill="#166534" text-anchor="middle">修法一：提高副本数</text>
+  <text x="135" y="185" font-size="12" fill="#166534" text-anchor="middle">把读压力摊给更多机器</text>
+
+  <rect x="273" y="145" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="383" y="167" font-size="12" fill="#166534" text-anchor="middle">修法二：启动时间错开</text>
+  <text x="383" y="185" font-size="12" fill="#166534" text-anchor="middle">别让峰值同时到达</text>
+
+  <rect x="521" y="145" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="631" y="167" font-size="12" fill="#166534" text-anchor="middle">长期：客户端之间互读</text>
+  <text x="631" y="185" font-size="12" fill="#166534" text-anchor="middle">让数据在客户端间流动</text>
+
+  <text x="383" y="225" font-size="12" fill="#64748b" text-anchor="middle">参数选择要和真实用法一起被验证，不能在纸上推导</text>
+</svg>

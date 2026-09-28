@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 252" width="760" height="252"
+     role="img" aria-labelledby="fig-intro-10-title fig-intro-10-desc">
+  <title id="fig-intro-10-title">一次 MapReduce 作业：分片、map、重分发、reduce，由 coordinator 调度</title>
+  <desc id="fig-intro-10-desc">输入被切成许多段交给 map 任务，中间数据按键重新分发，同键的值汇到同一个 reduce 任务；coordinator 全程记录任务状态，机器挂了就把任务在别处重跑。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="252" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一次 MapReduce 作业：分片、map、重分发、reduce</text>
+
+  <path d="M185,100 L197,100" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M371,100 L383,100" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M557,100 L569,100" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M287,139 L287,151" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="66" width="158" height="68" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="101" y="94" font-size="15" fill="#1e40af" text-anchor="middle">输入分片</text>
+  <text x="101" y="116" font-size="12" fill="#1e40af" text-anchor="middle">切成许多段</text>
+
+  <rect x="208" y="66" width="158" height="68" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="287" y="94" font-size="15" fill="#b45309" text-anchor="middle">map 任务</text>
+  <text x="287" y="116" font-size="12" fill="#b45309" text-anchor="middle">读本地那一段</text>
+
+  <rect x="394" y="66" width="158" height="68" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="473" y="94" font-size="15" fill="#6b21a8" text-anchor="middle">按键重分发</text>
+  <text x="473" y="116" font-size="12" fill="#6b21a8" text-anchor="middle">同键进同一个桶</text>
+
+  <rect x="580" y="66" width="158" height="68" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="659" y="94" font-size="15" fill="#166534" text-anchor="middle">reduce 任务</text>
+  <text x="659" y="116" font-size="12" fill="#166534" text-anchor="middle">把桶里的值汇总</text>
+
+  <rect x="22" y="162" width="716" height="68" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="190" font-size="15" fill="#9d174d" text-anchor="middle">coordinator 记录每个任务的状态，安排它去哪台机器</text>
+  <text x="380" y="212" font-size="12" fill="#9d174d" text-anchor="middle">任务所在的机器挂了，就在别的机器上把它重跑一遍</text>
+</svg>

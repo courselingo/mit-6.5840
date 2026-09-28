@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 334" width="766" height="334"
+     role="img" aria-labelledby="fig-gfs-16-title fig-gfs-16-desc">
+  <title id="fig-gfs-16-title">这套设计的边界：负载一换，前提就不成立了</title>
+  <desc id="fig-gfs-16-desc">GFS 的前提是文件少而大、写几乎只有追加、吞吐比延迟重要；换成大量小文件随机改写、跨记录事务或强一致读，前提就失效，代价是复杂度搬到了应用侧。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="766" height="334" fill="#ffffff"/>
+
+  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">这套设计的边界：负载一换，前提就不成立了</text>
+
+  <rect x="25" y="64" width="341" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="195" y="86" font-size="12" fill="#1e40af" text-anchor="middle">前提一：文件少而大</text>
+  <text x="195" y="104" font-size="12" fill="#1e40af" text-anchor="middle">读写都落在整块上</text>
+
+  <rect x="25" y="145" width="341" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="195" y="167" font-size="12" fill="#1e40af" text-anchor="middle">前提二：写几乎只有追加</text>
+  <text x="195" y="185" font-size="12" fill="#1e40af" text-anchor="middle">跨客户端并发追加也算</text>
+
+  <rect x="25" y="226" width="341" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="195" y="248" font-size="12" fill="#1e40af" text-anchor="middle">前提三：吞吐比延迟重要</text>
+  <text x="195" y="266" font-size="12" fill="#1e40af" text-anchor="middle">能容忍尾部延迟抖动</text>
+
+  <rect x="396" y="64" width="345" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="568" y="86" font-size="12" fill="#9d174d" text-anchor="middle">换成大量小文件随机改写</text>
+  <text x="568" y="104" font-size="12" fill="#9d174d" text-anchor="middle">设计前提直接不成立</text>
+
+  <rect x="396" y="145" width="345" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="568" y="167" font-size="12" fill="#9d174d" text-anchor="middle">需要跨记录的事务</text>
+  <text x="568" y="185" font-size="12" fill="#9d174d" text-anchor="middle">GFS 不提供这个能力</text>
+
+  <rect x="396" y="226" width="345" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="568" y="248" font-size="12" fill="#9d174d" text-anchor="middle">要求读到最新且唯一的值</text>
+  <text x="568" y="266" font-size="12" fill="#9d174d" text-anchor="middle">应用得自己幂等去重</text>
+
+  <text x="383" y="306" font-size="12" fill="#64748b" text-anchor="middle">代价没有消失，只是从存储系统搬到了应用侧</text>
+</svg>
