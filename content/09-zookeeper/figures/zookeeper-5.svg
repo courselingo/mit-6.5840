@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 410" width="760" height="410"
      role="img" aria-labelledby="fig-zookeeper-5-title fig-zookeeper-5-desc">
   <title id="fig-zookeeper-5-title">三种直觉做法与它们各自挡路的地方</title>
-  <desc id="fig-zookeeper-5-desc">状态写本机磁盘，机器一崩就没了；只复制存储要先有一套真正容错的存储；自己用 Raft 存，共识有了，可下面这四件事仍要自己写对：检测老协调者已死、选出唯一的新协调者、从只做一半的更新里恢复、处理老主还活着却不知道自己被判死。只复制存储那条路同样躲不开这四件，笔记正是把它们列成一份挑战清单，并说 ZooKeeper 对每一条都帮得上忙。ZooKeeper 把这四件事一起接了过去，应用侧只剩顺序代码。</desc>
+  <desc id="fig-zookeeper-5-desc">最上面「状态写本机磁盘」这一档是我们为了对照补的（笔记比的是「只复制存储」与「自己用 Raft」两条路）：它机器一崩就没了；只复制存储要先有一套真正容错的存储；自己用 Raft 存，共识有了，可下面这四件事仍要自己写对：检测老协调者已死、选出唯一的新协调者、从只做一半的更新里恢复、处理老主还活着却不知道自己被判死。只复制存储那条路同样躲不开这四件，笔记正是把它们列成一份挑战清单，并说 ZooKeeper 对每一条都帮得上忙。ZooKeeper 把这四件事一起接了过去，应用侧只剩顺序代码。</desc>
 
   <defs>
     <style>

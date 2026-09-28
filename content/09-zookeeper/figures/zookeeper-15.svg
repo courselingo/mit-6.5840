@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-zk-15-title fig-zk-15-desc">
   <title id="fig-zk-15-title">用之前要知道的两件事：通知不保证次数，会话超时两头付代价</title>
-  <desc id="fig-zk-15-desc">上排：通知不保证次数也可能在预料之外到来，收到后要重新读状态，读、注册、再检查往往要写成循环。下排：会话超时取短会误杀活着的客户端并删掉临时节点，取长则真崩了要等更久才切换。</desc>
+  <desc id="fig-zk-15-desc">上排：通知不保证次数也可能在预料之外到来，收到后要重新读状态，读、注册、再检查往往要写成循环。下排：会话超时取短会误杀活着的客户端并删掉临时节点，取长则真崩了要等更久才切换；「这段谁来服务没答案」是我们的判断，笔记只给了切换停顿的量级。</desc>
 
   <defs>
     <style>
@@ -41,5 +41,5 @@
 
   <rect x="394" y="216" width="328" height="68" fill="#fce7f3" stroke="#ec4899"/>
   <text x="558" y="244" font-size="15" fill="#9d174d" text-anchor="middle">取长：真的崩了</text>
-  <text x="558" y="266" font-size="12" fill="#9d174d" text-anchor="middle">要等更久才能切换，这段谁来服务没答案</text>
+  <text x="558" y="266" font-size="12" fill="#9d174d" text-anchor="middle">要等更久才能切换，这段谁来服务没答案（我们加的）</text>
 </svg>
