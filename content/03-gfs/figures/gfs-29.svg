@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 413" width="760" height="413"
      role="img" aria-labelledby="fig-gfs-29-title fig-gfs-29-desc">
   <title id="fig-gfs-29-title">论文实测：读能接近链路上限，写只有理论上限的一半</title>
-  <desc id="fig-gfs-29-desc">16 个客户端配 16 台块服务器时，读的聚合速率是 94 MB/s，约为交换机之间 1 Gbps 链路 125 MB/s 上限的 75%；写的聚合速率只有 35 MB/s，约为理论上限 67 MB/s 的一半，因为每个字节要写进 16 台块服务器中的 3 台、每台入向连接 12.5 MB/s。单客户端读约 6 MB/s、写 6.3 MB/s。数字出自论文测量一节。</desc>
+  <desc id="fig-gfs-29-desc">16 个客户端配 16 台块服务器时，读的聚合速率是 94 MB/s，约为交换机之间 1 Gbps 链路 125 MB/s 上限的 75%；写的聚合速率只有 35 MB/s，约为理论上限 67（该上限 = 16 × 12.5 ÷ 3，除 3 是因为每个字节要写 3 份） MB/s 的一半，因为每个字节要写进 16 台块服务器中的 3 台、每台入向连接 12.5 MB/s。单客户端读约 6 MB/s、写 6.3 MB/s。数字出自论文测量一节。</desc>
 
   <defs>
     <style>
@@ -21,8 +21,8 @@
   <text x="590" y="140" font-size="12" fill="#166534" text-anchor="start">约为链路上限的 75%</text>
 
   <rect x="210" y="185" width="137" height="44" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="278.5" y="211.2" font-size="12" fill="#b45309" text-anchor="middle">写：35</text>
-  <text x="359" y="211" font-size="12" fill="#b45309" text-anchor="start">聚合，约为理论上限的一半</text>
+  <text x="278.5" y="211.2" font-size="12" fill="#b45309" text-anchor="middle">写：聚合 35 MB/s</text>
+  <text x="359" y="211" font-size="12" fill="#b45309" text-anchor="start">约为理论上限的一半</text>
 
   <path d="M210,253 L700,253" fill="none" stroke="#94a3b8"/>
   <path d="M210,253 L210,259" fill="none" stroke="#94a3b8"/>
@@ -41,6 +41,6 @@
   <text x="380" y="297" font-size="11" fill="#94a3b8" text-anchor="middle">MB/s</text>
 
   <rect x="22" y="341" width="716" height="50" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="361.6" font-size="11" fill="#6b21a8" text-anchor="middle">上限各不相同：读受交换机之间 1 Gbps 链路限制（125 MB/s）；写受入向总带宽：16 × 12.5 = 200 MB/s，每字节写 3 份，200 ÷ 3 ≈ 67</text>
-  <text x="380" y="378.1" font-size="11" fill="#6b21a8" text-anchor="middle">数字出自论文测量一节；讲义给的参照是当时磁盘顺序吞吐约 30 MB/s、单张网卡约 10 MB/s</text>
+  <text x="380" y="361.6" font-size="11" fill="#6b21a8" text-anchor="middle">上限各不相同：读受交换机之间 1 Gbps 链路限制（125 MB/s）；写上限 67 MB/s = 16 × 12.5 ÷ 3（12.5 是每条入向连接的上限）</text>
+  <text x="380" y="378.1" font-size="11" fill="#6b21a8" text-anchor="middle">数字出自论文测量一节；讲义给的参照是当时磁盘顺序吞吐约 30 MB/s、单张网卡实测约 10 MB/s</text>
 </svg>
