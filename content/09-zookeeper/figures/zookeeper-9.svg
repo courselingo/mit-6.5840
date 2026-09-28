@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-zk-9-title fig-zk-9-desc">
   <title id="fig-zk-9-title">顺序不同终值就不同，所以写要走同一条全序</title>
-  <desc id="fig-zk-9-desc">同一批事务换个顺序终值就不一样：先加一再乘二得 4，先乘二再加一得 3。所以写请求交给所连服务器后转给领导者，由领导者定全序位置并分配 zxid，副本按序执行，多数派接受后才回复客户端；读走另一条路，在本地副本完成。</desc>
+  <desc id="fig-zk-9-desc">同一批事务换个顺序终值就不一样：先加一再乘二得 4，先乘二再加一得 3。所以写请求交给所连服务器后转给领导者，由领导者定全序位置并分配 zxid，副本按序执行，多数派接受后才回复客户端；读走另一条路，在本地副本完成。（注：从「多数派接受」到「读走另一条路」之间不画箭头 —— 读走的是另一条路，不是写流程的第五步。）</desc>
 
   <defs>
     <style>
@@ -26,7 +26,6 @@
   <path d="M157,250 L169,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
   <path d="M299,250 L311,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
   <path d="M441,250 L453,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M583,250 L595,250" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
   <rect x="38" y="82" width="328" height="68" fill="#f3e8ff" stroke="#a855f7"/>
   <text x="202" y="110" font-size="15" fill="#6b21a8" text-anchor="middle">顺序一</text>
