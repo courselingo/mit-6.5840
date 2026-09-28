@@ -2,7 +2,7 @@
 title = "远程过程调用与线程"
 lecture = 2
 slug = "rpc-and-threads"
-status = "draft"
+status = "reviewed"
 source_kind = "notes"
 source_url = "https://pdos.csail.mit.edu/6.824/schedule.html"
 source_title = "Lecture 2: RPC and Threads"
