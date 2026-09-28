@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-zk-20-title fig-zk-20-desc">
   <title id="fig-zk-20-title">读本地化与全内存换来的边界：读可能旧，能力也有缺口</title>
-  <desc id="fig-zk-20-desc">上排是什么时候能接受旧值：只是给人看或纯只读可以，读-改-写与一组必须一起一致的数据不行，接口里只有 sync 能把客户端追到最新。下排是数据全在内存的代价与能力缺口：读快正是全靠内存，所以只放路径、状态这类小数据，大块文件放别的存储；跨 znode 的更新不是事务，这是它最大的能力缺口。</desc>
+  <desc id="fig-zk-20-desc">上排是什么时候能接受旧值：只是给人看或纯只读可以，读-改-写不行；一组数据要一起一致时，追上最新有两条路，先做一次写再读，或者用 ready znode 当闸门，sync 只是更高效的那条（论文称它是「一次慢读」）。下排是数据全在内存的代价与能力缺口：读快正是全靠内存，所以只放路径、状态这类小数据，大块文件放别的存储；跨 znode 的更新不是事务，这是它最大的能力缺口。</desc>
 
   <defs>
     <style>
@@ -33,7 +33,7 @@
 
   <rect x="512" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
   <text x="616" y="110" font-size="15" fill="#9d174d" text-anchor="middle">一组数据要一起一致</text>
-  <text x="616" y="132" font-size="12" fill="#9d174d" text-anchor="middle">接口里只有 sync 能追上</text>
+  <text x="616" y="132" font-size="12" fill="#9d174d" text-anchor="middle">先写一次再读，或用 ready 闸门</text>
 
   <rect x="38" y="216" width="209" height="68" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="142" y="244" font-size="15" fill="#b45309" text-anchor="middle">读快，因为数据全在内存</text>

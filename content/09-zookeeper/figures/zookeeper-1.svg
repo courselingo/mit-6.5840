@@ -50,5 +50,5 @@
 
   <rect x="393" y="307" width="348" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
   <text x="567" y="329" font-size="12" fill="#166534" text-anchor="middle">命名方式可与存活方式叠加</text>
-  <text x="567" y="347" font-size="12" fill="#166534" text-anchor="middle">临时 + 顺序 = 会排队的临时成员</text>
+  <text x="567" y="347" font-size="12" fill="#166534" text-anchor="middle">普通与临时互斥；临时 + 顺序 = 会排队的成员</text>
 </svg>

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" height="322"
      role="img" aria-labelledby="fig-zk-13-title fig-zk-13-desc">
   <title id="fig-zk-13-title">读可能不是最新的，但位置不会倒退；性能也押在读上</title>
-  <desc id="fig-zk-13-desc">在同一台跟随者上写完立刻读，能读到自己刚写的值；换一台落后的跟随者可能读到旧值，但同一个客户端的读位置不会倒退。性能则按读与通知优化：客户端散连多台、监视点就地记、异步批量发操作、数据全放内存。</desc>
+  <desc id="fig-zk-13-desc">一个客户端读得见自己此前的写，这是无条件保证：副本跟不上时，它可以延迟这次读来兑现，而不是让客户端读到旧值。落后的副本仍可能返回旧值，但同一个客户端的读位置只往前不倒退，即使它换了一台跟随者。性能则按读与通知优化：客户端散连多台、监视点就地记、异步批量发操作、数据全放内存。</desc>
 
   <defs>
     <style>
@@ -28,12 +28,12 @@
   <text x="142" y="132" font-size="12" fill="#1e40af" text-anchor="middle">确认来自多数派</text>
 
   <rect x="275" y="82" width="209" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="379" y="110" font-size="15" fill="#166534" text-anchor="middle">紧接着在同一台读</text>
-  <text x="379" y="132" font-size="12" fill="#166534" text-anchor="middle">能读到自己刚写的值</text>
+  <text x="379" y="110" font-size="15" fill="#166534" text-anchor="middle">读得见自己的写</text>
+  <text x="379" y="132" font-size="12" fill="#166534" text-anchor="middle">无条件：跟不上就延迟这次读</text>
 
   <rect x="512" y="82" width="209" height="68" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="616" y="110" font-size="15" fill="#9d174d" text-anchor="middle">换台落后的读</text>
-  <text x="616" y="132" font-size="12" fill="#9d174d" text-anchor="middle">可能读到旧值，但不往回跳</text>
+  <text x="616" y="110" font-size="15" fill="#9d174d" text-anchor="middle">落后的副本仍可能旧</text>
+  <text x="616" y="132" font-size="12" fill="#9d174d" text-anchor="middle">但换台读位置也不倒退</text>
 
   <rect x="38" y="216" width="150" height="68" fill="#fef3c7" stroke="#f59e0b"/>
   <text x="113" y="244" font-size="15" fill="#b45309" text-anchor="middle">客户端散连多台</text>
