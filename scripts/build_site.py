@@ -281,11 +281,20 @@ def main(argv: list[str] | None = None) -> int:
             nav.append(f"    - {title}: papers/{key}.md")
     nav.append("- 术语表: glossary.md")
 
+    # 站点身份取自 course.toml 的 [site]（复制模板后必须改那里），
+    # 不再硬编码 —— 否则新课程的右上角会指向 6.824 的仓库。
+    site_cfg = cfg.get("site", {})
+    repo_full = str(site_cfg.get("repo", "")).strip() or "courselingo/courselingo"
+    site_url = str(site_cfg.get("url", "")).strip()
+
     cfg_yml = f"""site_name: {site_title}
 # 右上角显示本课程的仓库。repo_name 会显示在图标旁（宽屏）。
 # 带上组织名，让 CourseLingo 的归属一眼可见。
-repo_url: https://github.com/courselingo/mit-6.5840
-repo_name: courselingo/mit-6.5840
+repo_url: https://github.com/{repo_full}
+repo_name: {repo_full}
+# 站点规范地址：项目站点必须带 /<repo>/ 前缀，否则 canonical 与 sitemap 会错，
+# MkDocs 也会给出「site_url 未设置」的提示。
+site_url: {site_url or f"https://courselingo.github.io/{repo_full.split('/')[-1]}/"}
 # 本站的 docs/ 是 build_site.py **生成**的，不是源文件 ——
 # 默认的「编辑此页」会指向生成物，所以关掉，避免误导贡献者。
 edit_uri: ""

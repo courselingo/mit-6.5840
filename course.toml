@@ -51,3 +51,13 @@ other = false
 
 [output]
 default_mode = "explanation"
+
+# ── 站点（GitHub Pages）──────────────────────────────────────────────
+# build_site.py 用这两项生成 MkDocs 的 repo_url / site_url。
+# 复制模板建新课程时**必须改这里**，否则页面右上角会指向别人的仓库。
+[site]
+# 本站仓库：<owner>/<repo>。出现在页面右上角（带组织名，一眼看出归属）。
+repo = "courselingo/mit-6.5840"
+# 站点规范地址（MkDocs 的 site_url）。用于 canonical 链接、sitemap 与
+# 项目站点的相对基路径。组织/用户站点或绑定了自定义域名时也填这里。
+url = "https://courselingo.github.io/mit-6.5840/"

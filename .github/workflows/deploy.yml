@@ -28,9 +28,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # ① 闸门：失败则后面全部不执行
+  # ① 闸门：失败则后面全部不执行。
+  # ★ 这里必须把**全部**闸门都跑一遍，不能只跑 validate.py ——
+  #   .github/workflows/validate.yml 与本工作流是**各自独立**触发的，
+  #   它失败挡不住本工作流。若这里不跑全套，一次违规提交照样能部署上线。
   validate:
-    name: 校验（授权闸门 / 术语 / front matter）
+    name: 校验（授权 / 文风 / 内容审计 / 配图房规）
     runs-on: ubuntu-latest
     steps:
       - name: 检出仓库
@@ -41,12 +44,26 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: 运行 scripts/validate.py
-        run: python scripts/validate.py
+      - name: 准备 Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
 
-  # ② 构建：零依赖，产出 site/
+      - name: 授权与术语闸门
+        run: python scripts/validate.py --root . --quiet
+
+      - name: 文风机检
+        run: python scripts/check_style.py --root .
+
+      - name: 内容审计
+        run: python scripts/audit_content.py --root . --strict
+
+      - name: 配图房规
+        run: python scripts/check_figures.py --root . --strict
+
+  # ② 构建（MkDocs Material）
   build:
-    name: 构建静态站
+    name: 构建站点（MkDocs Material）
     needs: validate
     runs-on: ubuntu-latest
     steps:
@@ -57,20 +74,28 @@ jobs:
         uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+          cache: pip
+          cache-dependency-path: websrc/requirements.txt
 
-      # 读取 Pages 的 base path：项目站点为 /<repo>，用户/组织站点或
-      # 已绑定自定义域名时为空字符串。空串拼上 "/" 恰好是 spec 的默认值。
+      # 渲染器是 MkDocs Material，依赖钉在 websrc/requirements.txt。
+      # （历史上曾用自带的 scripts/build.py 零依赖渲染器，已弃用。）
+      - name: 安装站点依赖
+        run: pip install -r websrc/requirements.txt
+
       - name: 配置 Pages
         id: pages
         uses: actions/configure-pages@v6
 
-      - name: 运行 scripts/build.py
-        run: python scripts/build.py --out site --base-url "${{ steps.pages.outputs.base_path }}/"
+      # build_site.py：先跑 validate 闸门 → 生成 websrc/docs/ → 调 mkdocs --strict。
+      # 它自己设 PYTHONPATH=websrc 与 COURSELINGO_BASE_DIR；
+      # site_url 取自 course.toml 的 [site].url（含项目站点的 /<repo>/ 前缀）。
+      - name: 构建站点
+        run: python scripts/build_site.py --root . --out site-mkdocs
 
       - name: 上传站点产物
         uses: actions/upload-pages-artifact@v5
         with:
-          path: site
+          path: site-mkdocs
 
   # ③ 发布：只有 build（因而也只有 validate）成功才会走到这里
   deploy:
