@@ -2,7 +2,7 @@
 kind = "paper"
 paper = "mapreduce"
 title = "MapReduce 导读"
-status = "draft"
+status = "reviewed"
 output_mode = "guide"
 +++
 

@@ -2,7 +2,7 @@
 title = "GFS：为大规模数据密集应用设计的文件系统"
 lecture = 3
 slug = "gfs"
-status = "draft"
+status = "reviewed"
 source_kind = "notes"
 source_url = "https://pdos.csail.mit.edu/6.824/schedule.html"
 source_title = "Lecture 3: GFS"
