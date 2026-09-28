@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 372" width="760" height="372"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 270" width="760" height="270"
      role="img" aria-labelledby="rpc-and-threads-7-title rpc-and-threads-7-desc">
   <title id="rpc-and-threads-7-title">锁粒度的两端各付什么代价</title>
-  <desc id="rpc-and-threads-7-desc">锁范围太大，并发退化成串行，这把锁自己成了瓶颈；锁范围太小，检查与修改被拆开，竞争窗口仍然存在，两个线程会同时看到「还没抓过」。</desc>
+  <desc id="rpc-and-threads-7-desc">粒度是一条滑尺：太小则检查与修改被拆开，两个线程同时看到「还没抓过」；太大则并发退化成串行，锁自己成了瓶颈；能落地的是中间那一段，先把正确性锁住，再在确认安全的地方放宽。</desc>
 
   <defs>
     <style>
@@ -13,32 +13,29 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="372" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="270" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">锁粒度的两端各付什么代价</text>
 
-  <rect x="22" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="194" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">锁的范围太大</text>
-  <text x="194" y="118" font-size="12" fill="#64748b" text-anchor="middle">一次只让一个线程进入，其余排队</text>
+  <path d="M259,107 L271,107" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M483,107 L495,107" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <rect x="394" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="566" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">锁的范围太小</text>
-  <text x="566" y="118" font-size="12" fill="#64748b" text-anchor="middle">检查与修改被拆成两步</text>
+  <rect x="22" y="62" width="232" height="90" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="138" y="94" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">锁的范围太小</text>
+  <text x="138" y="112" font-size="12" fill="#9d174d" text-anchor="middle">检查与修改被拆成两步</text>
+  <text x="138" y="130" font-size="12" fill="#9d174d" text-anchor="middle">两个线程都看到「还没抓过」</text>
 
-  <path d="M194,141 L 194,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M566,141 L 566,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="282" y="62" width="196" height="90" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="380" y="94" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">中间的粒度</text>
+  <text x="380" y="112" font-size="12" fill="#166534" text-anchor="middle">检查加标记一次做完</text>
+  <text x="380" y="130" font-size="12" fill="#166534" text-anchor="middle">既不漏掉，也不排长队</text>
 
-  <rect x="22" y="164" width="344" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="194" y="196" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">并发退化成串行</text>
-  <text x="194" y="214" font-size="12" fill="#64748b" text-anchor="middle">这把锁自己成了瓶颈</text>
-  <text x="194" y="232" font-size="12" fill="#64748b" text-anchor="middle">机器加得再多也快不起来</text>
+  <rect x="506" y="62" width="232" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="622" y="94" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">锁的范围太大</text>
+  <text x="622" y="112" font-size="12" fill="#b45309" text-anchor="middle">并发退化成串行</text>
+  <text x="622" y="130" font-size="12" fill="#b45309" text-anchor="middle">这把锁自己成了瓶颈</text>
 
-  <rect x="394" y="164" width="344" height="90" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
-  <text x="566" y="196" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">竞争窗口还在</text>
-  <text x="566" y="214" font-size="12" fill="#64748b" text-anchor="middle">两个线程同时看到「还没抓过」</text>
-  <text x="566" y="232" font-size="12" fill="#64748b" text-anchor="middle">于是都去抓了一遍</text>
-
-  <rect x="22" y="282" width="716" height="68" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
-  <text x="380" y="310" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">先保证正确，再在确认安全的地方放宽</text>
-  <text x="380" y="332" font-size="12" fill="#64748b" text-anchor="middle">反过来做，先放宽再去补正确性，几乎补不回来</text>
+  <rect x="22" y="180" width="716" height="68" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="380" y="208" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">先保证正确，再在确认安全的地方放宽</text>
+  <text x="380" y="230" font-size="12" fill="#64748b" text-anchor="middle">反过来做，先放宽再回头补正确性，几乎补不回来</text>
 </svg>

@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 253" width="766" height="253"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 762 252" width="762" height="252"
      role="img" aria-labelledby="fig-gfs-14-title fig-gfs-14-desc">
   <title id="fig-gfs-14-title">一致性模型的三档：已定义、一致但未定义、不一致且未定义</title>
-  <desc id="fig-gfs-14-desc">串行成功的修改是已定义的；并发成功的修改一致但未定义，各客户端看到同样的碎片字节；失败的修改不一致也未定义，不同副本读到不同字节。</desc>
+  <desc id="fig-gfs-14-desc">三档排成一条刻度，越往右承诺越弱：串行成功的修改是已定义，并发成功的修改一致但未定义，有副本出错的修改不一致也未定义，GFS 的底线落在中间那一档。</desc>
 
   <defs>
     <style>
@@ -12,37 +12,29 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="766" height="253" fill="#ffffff"/>
+  <rect x="0" y="0" width="762" height="252" fill="#ffffff"/>
 
-  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一致性模型的三档：已定义、一致但未定义、不一致且未定义</text>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一致性模型的三档：已定义、一致但未定义、不一致且未定义</text>
 
-  <path d="M135,123 L135,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M383,123 L383,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M631,123 L631,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M22,190 L738,190" fill="none" stroke="#94a3b8"/>
+  <path d="M132,183 L132,197" fill="none" stroke="#94a3b8"/>
+  <path d="M380,183 L380,197" fill="none" stroke="#94a3b8"/>
+  <path d="M628,183 L628,197" fill="none" stroke="#94a3b8"/>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">某次修改串行成功</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">没有并发写者干扰</text>
+  <rect x="22" y="62" width="220" height="90" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="132" y="94" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">已定义</text>
+  <text x="132" y="112" font-size="12" fill="#166534" text-anchor="middle">串行成功的修改</text>
+  <text x="132" y="130" font-size="12" fill="#166534" text-anchor="middle">读者看到完整的写入</text>
 
-  <rect x="273" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="383" y="86" font-size="12" fill="#1e40af" text-anchor="middle">某次修改并发成功</text>
-  <text x="383" y="104" font-size="12" fill="#1e40af" text-anchor="middle">多个写者撞在一起</text>
+  <rect x="270" y="62" width="220" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="94" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">一致但未定义</text>
+  <text x="380" y="112" font-size="12" fill="#b45309" text-anchor="middle">并发成功的修改</text>
+  <text x="380" y="130" font-size="12" fill="#b45309" text-anchor="middle">字节一样，是碎片拼的</text>
 
-  <rect x="521" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="631" y="86" font-size="12" fill="#1e40af" text-anchor="middle">某次修改失败</text>
-  <text x="631" y="104" font-size="12" fill="#1e40af" text-anchor="middle">有副本上出了错</text>
+  <rect x="518" y="62" width="220" height="90" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="628" y="94" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">不一致且未定义</text>
+  <text x="628" y="112" font-size="12" fill="#9d174d" text-anchor="middle">有副本出错的修改</text>
+  <text x="628" y="130" font-size="12" fill="#9d174d" text-anchor="middle">不同副本读到不同字节</text>
 
-  <rect x="25" y="145" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="135" y="167" font-size="12" fill="#166534" text-anchor="middle">已定义</text>
-  <text x="135" y="185" font-size="12" fill="#166534" text-anchor="middle">一致，且看到完整写入</text>
-
-  <rect x="273" y="145" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="383" y="167" font-size="12" fill="#b45309" text-anchor="middle">一致但未定义</text>
-  <text x="383" y="185" font-size="12" fill="#b45309" text-anchor="middle">字节一样，但是碎片拼的</text>
-
-  <rect x="521" y="145" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="631" y="167" font-size="12" fill="#9d174d" text-anchor="middle">不一致且未定义</text>
-  <text x="631" y="185" font-size="12" fill="#9d174d" text-anchor="middle">不同副本读到不同字节</text>
-
-  <text x="383" y="225" font-size="12" fill="#64748b" text-anchor="middle">GFS 只承诺一致；「已定义」留给串行成功的修改和记录追加</text>
+  <text x="380" y="225" font-size="12" fill="#64748b" text-anchor="middle">越往右承诺越弱；GFS 的底线只到中间那一档，不到「已定义」</text>
 </svg>

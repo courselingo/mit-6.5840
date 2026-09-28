@@ -1,36 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-25-title fig-raft-25-desc">
-  <title id="fig-raft-25-title">用户研究：数据说明的是更容易学会</title>
-  <desc id="fig-raft-25-desc">43 名学生里 33 人在 Raft 上得分更高；论文自己给出保留并用回归修正，结论是它更容易学会。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 328" width="760" height="328"
+     role="img" aria-labelledby="fig-raft-25-title fig-raft-25-desc">
+  <title id="fig-raft-25-title">用户研究：这些数字说明的是更容易学会</title>
+  <desc id="fig-raft-25-desc">43 名学生里 33 人在 Raft 上得分更高，卷面平均 25.7 分对 20.8 分；论文自己给了保留并用配对检验与回归修正，结论是它更容易学会。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="328" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">用户研究：数据说明的是更容易学会</text>
+  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">用户研究：这些数字说明的是更容易学会</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">43 名学生在两段录像后答题</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">Raft 卷面平均 25.7 分</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="380" y="86" font-size="12" fill="#1e40af" text-anchor="middle">Paxos 平均 20.8 分</text>
-  <text x="380" y="104" font-size="12" fill="#1e40af" text-anchor="middle">43 人里 33 人在 Raft 上更高</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="625" y="86" font-size="12" fill="#6b21a8" text-anchor="middle">这是支撑主张的数据</text>
-  <text x="625" y="104" font-size="12" fill="#6b21a8" text-anchor="middle">不是形式化证明</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">论文自己给了保留</text>
-  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">15 人事先接触过 Paxos</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="165" font-size="12" fill="#9d174d" text-anchor="middle">Paxos 的录像还长 14%</text>
-  <text x="380" y="183" font-size="12" fill="#9d174d" text-anchor="middle">这些都有利于 Paxos</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">用配对检验与回归修正</text>
-  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">预测差距是 12.5 分</text>
+  <rect x="30" y="100" width="256" height="36" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="158.0" y="122.2" font-size="12" fill="#166534" text-anchor="middle">25.7 分</text>
+  <text x="22" y="92" font-size="12" fill="#1e293b" text-anchor="start">Raft：用户研究卷面平均</text>
+  <rect x="30" y="164" width="207" height="36" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="133.5" y="186.2" font-size="12" fill="#9d174d" text-anchor="middle">20.8 分</text>
+  <text x="22" y="156" font-size="12" fill="#1e293b" text-anchor="start">Paxos：用户研究卷面平均</text>
+  <path d="M30,216 L730,216" fill="none" stroke="#94a3b8"/>
+  <path d="M30.0,206 L30.0,220" fill="none" stroke="#94a3b8"/>
+  <text x="30.0" y="242" font-size="11" fill="#64748b" text-anchor="middle">0</text>
+  <path d="M263.3,206 L263.3,220" fill="none" stroke="#94a3b8"/>
+  <text x="263.3" y="242" font-size="11" fill="#64748b" text-anchor="middle">20</text>
+  <path d="M496.7,206 L496.7,220" fill="none" stroke="#94a3b8"/>
+  <text x="496.7" y="242" font-size="11" fill="#64748b" text-anchor="middle">40</text>
+  <path d="M730.0,206 L730.0,220" fill="none" stroke="#94a3b8"/>
+  <text x="730.0" y="242" font-size="11" fill="#64748b" text-anchor="middle">60</text>
+  <text x="380" y="276" font-size="11" fill="#1e293b" text-anchor="middle">43 人里 33 人在 Raft 上得分更高；但论文自己给了保留：15 人事先接触过 Paxos、Paxos 的录像还长 14%</text>
+  <text x="380" y="302" font-size="10" fill="#64748b" text-anchor="middle">用配对检验与回归修正后，预测差距 12.5 分比实测的 4.9 分更大 —— 这些数字说明的是更容易学会</text>
 </svg>

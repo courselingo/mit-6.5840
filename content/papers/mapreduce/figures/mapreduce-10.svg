@@ -1,36 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-10-title fig-mapreduce-10-desc">
-  <title id="fig-mapreduce-10-title">combiner：在映射机器上先局部合并</title>
-  <desc id="fig-mapreduce-10-desc">同一个映射任务会反复产出同一个键，combiner 先在本地合一次再发出去，代码通常与归约函数相同。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 309" width="760" height="309"
+     role="img" aria-labelledby="fig-mapreduce-10-title fig-mapreduce-10-desc">
+  <title id="fig-mapreduce-10-title">combiner：在映射机器上先局部合并一次</title>
+  <desc id="fig-mapreduce-10-desc">同一个映射任务会反复产出同一个键，原样送出去纯属浪费网络；combiner 先在本地把它合一次，发出去的记录就少得多了。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="309" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">combiner：在映射机器上先局部合并</text>
+  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">combiner：在映射机器上先局部合并一次</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">同一个映射任务</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">会反复产出同一个键</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">原样把这些记录送出去</text>
-  <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">纯属浪费网络</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="625" y="86" font-size="12" fill="#b45309" text-anchor="middle">用户可以提供一个合并函数</text>
-  <text x="625" y="104" font-size="12" fill="#b45309" text-anchor="middle">先在本地合一次</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="135" y="165" font-size="12" fill="#b45309" text-anchor="middle">它的代码通常和归约函数一样</text>
-  <text x="135" y="183" font-size="12" fill="#b45309" text-anchor="middle">用户不必重写</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">区别只在输出去向</text>
-  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">一个写最终文件</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="625" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">一个写待发送的中间文件</text>
-  <text x="625" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">这就是 combiner</text>
+  <text x="380" y="62" font-size="12" fill="#1e293b" text-anchor="middle">同一个映射任务反复产出同一个键</text>
+  <rect x="22.0" y="76" width="80.0" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="62.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">键 = the</text>
+  <rect x="128.0" y="76" width="80.0" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="168.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">键 = the</text>
+  <rect x="234.0" y="76" width="80.0" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="274.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">键 = the</text>
+  <rect x="340.0" y="76" width="80.0" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">键 = the</text>
+  <rect x="446.0" y="76" width="80.0" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="486.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">键 = the</text>
+  <rect x="552.0" y="76" width="80.0" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="592.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">键 = the</text>
+  <rect x="658.0" y="76" width="80.0" height="36" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="698.0" y="98.2" font-size="12" fill="#1e40af" text-anchor="middle">键 = the</text>
+  <path d="M380,117 L380,129" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="22" y="140" width="716" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380.0" y="162" font-size="12" fill="#b45309" text-anchor="middle">combiner：先在映射机器上合一次</text>
+  <text x="380.0" y="180" font-size="12" fill="#b45309" text-anchor="middle">发出去的记录从这些变成一条</text>
+  <rect x="22" y="222" width="716" height="64" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380.0" y="246" font-size="11" fill="#1e293b" text-anchor="middle">它的代码通常和归约函数一样，用户不必重写</text>
+  <text x="380.0" y="266" font-size="10" fill="#64748b" text-anchor="middle">区别只在输出去向：一个写最终文件，一个写待发送的中间文件</text>
 </svg>

@@ -1,36 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-5-title fig-mapreduce-5-desc">
-  <title id="fig-mapreduce-5-title">两个函数的契约：拆记录与合并同一个键</title>
-  <desc id="fig-mapreduce-5-desc">map 把一条记录拆成若干中间键值对，reduce 把一个键和它的全部值合并；值以迭代器喂进来以免撑爆内存。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 245" width="760" height="245"
+     role="img" aria-labelledby="fig-mapreduce-5-title fig-mapreduce-5-desc">
+  <title id="fig-mapreduce-5-title">两个函数的契约：一条记录怎么拆、同一个键怎么合</title>
+  <desc id="fig-mapreduce-5-desc">一条输入记录交给 map 决定怎么拆，产出的中间键值对按中间键分组后交给 reduce 决定怎么合；值以迭代器喂进来，装不下内存也不会撑爆进程。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="245" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两个函数的契约：拆记录与合并同一个键</text>
+  <text x="381.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两个函数的契约：一条记录怎么拆、同一个键怎么合</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">一条输入记录进</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">若干中间键值对出</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">map 决定一条记录怎么拆</text>
-  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">这是用户写的第一件事</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="625" y="86" font-size="12" fill="#6b21a8" text-anchor="middle">中间键值对按中间键分组</text>
-  <text x="625" y="104" font-size="12" fill="#6b21a8" text-anchor="middle">分组之后才有归约</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="165" font-size="12" fill="#1e40af" text-anchor="middle">一个中间键加上全部值</text>
-  <text x="135" y="183" font-size="12" fill="#1e40af" text-anchor="middle">这就是归约的输入</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="165" font-size="12" fill="#b45309" text-anchor="middle">reduce 决定怎么合并</text>
-  <text x="380" y="183" font-size="12" fill="#b45309" text-anchor="middle">通常合成一个值</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">值以迭代器喂进来</text>
-  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">装不下内存也不会撑爆</text>
+  <rect x="23.0" y="76" width="122.4" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="84.2" y="98" font-size="12" fill="#1e40af" text-anchor="middle">一条输入记录</text>
+  <text x="84.2" y="116" font-size="12" fill="#1e40af" text-anchor="middle">产出若干键值对</text>
+  <rect x="171.4" y="76" width="122.4" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="232.60000000000002" y="98" font-size="12" fill="#b45309" text-anchor="middle">map 决定怎么拆</text>
+  <text x="232.60000000000002" y="116" font-size="12" fill="#b45309" text-anchor="middle">用户写的第一件事</text>
+  <rect x="319.8" y="76" width="122.4" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="381.0" y="98" font-size="12" fill="#6b21a8" text-anchor="middle">按中间键分组</text>
+  <text x="381.0" y="116" font-size="12" fill="#6b21a8" text-anchor="middle">分组之后才有归约</text>
+  <rect x="468.20000000000005" y="76" width="122.4" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="529.4000000000001" y="98" font-size="12" fill="#b45309" text-anchor="middle">reduce 决定怎么合</text>
+  <text x="529.4000000000001" y="116" font-size="12" fill="#b45309" text-anchor="middle">通常合成一个值</text>
+  <rect x="616.6" y="76" width="122.4" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="677.8000000000001" y="98" font-size="12" fill="#166534" text-anchor="middle">结果值</text>
+  <text x="677.8000000000001" y="116" font-size="12" fill="#166534" text-anchor="middle">通常只能有一个</text>
+  <path d="M150.4,103 L160.4,103" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M298.8,103 L308.8,103" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M447.2,103 L457.2,103" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M595.6,103 L605.6,103" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="23" y="158" width="714" height="64" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380.0" y="182" font-size="11" fill="#1e293b" text-anchor="middle">一个中间键加上它的全部值，就是归约的输入</text>
+  <text x="380.0" y="202" font-size="10" fill="#64748b" text-anchor="middle">值以迭代器喂给 reduce：某个键的值多到装不进内存，也不会撑爆进程</text>
 </svg>

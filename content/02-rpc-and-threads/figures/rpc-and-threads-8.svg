@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 372" width="760" height="372"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 338" width="760" height="338"
      role="img" aria-labelledby="rpc-and-threads-8-title rpc-and-threads-8-desc">
   <title id="rpc-and-threads-8-title">两种爬虫结构：谁持有那张「已抓取」表</title>
-  <desc id="rpc-and-threads-8-desc">共享表加互斥锁的版本让所有 worker 抢同一把锁，靠临界区保证检查加标记不被打断；channel 版本让 coordinator 独占那张表，worker 只负责收发 URL，用不共享免掉加锁。</desc>
+  <desc id="rpc-and-threads-8-desc">上面是共享表加互斥锁：三个 goroutine 都指向同一张表，靠临界区保证检查加标记不被打断；下面是一条链：worker 把 URL 发进 channel，coordinator 独占那张表，再按新 URL 起新的 worker。</desc>
 
   <defs>
     <style>
@@ -13,32 +13,46 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="372" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="338" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两种爬虫结构：谁持有那张「已抓取」表</text>
 
-  <rect x="22" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="194" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">共享表加互斥锁</text>
-  <text x="194" y="118" font-size="12" fill="#64748b" text-anchor="middle">每个页面一个 goroutine，抢同一把锁</text>
+  <rect x="22" y="62" width="716" height="54" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="380" y="84" font-size="12" fill="#9d174d" text-anchor="middle">共享表：已经抓过的 URL</text>
+  <text x="380" y="102" font-size="12" fill="#9d174d" text-anchor="middle">所有 goroutine 都直接读写它，靠一把互斥锁保护</text>
 
-  <rect x="394" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="566" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">channel 加 coordinator</text>
-  <text x="566" y="118" font-size="12" fill="#64748b" text-anchor="middle">URL 走 channel，表只有一个读者</text>
+  <path d="M132,139 L132,127" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M380,139 L380,127" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M628,139 L628,127" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <path d="M194,141 L 194,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M566,141 L 566,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="144" width="220" height="45" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="132" y="172" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">goroutine 1</text>
 
-  <rect x="22" y="164" width="344" height="90" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="194" y="196" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">临界区里做完检查加标记</text>
-  <text x="194" y="214" font-size="12" fill="#64748b" text-anchor="middle">同一时刻只有一个线程进得去</text>
-  <text x="194" y="232" font-size="12" fill="#64748b" text-anchor="middle">结束靠 WaitGroup 计数归零</text>
+  <rect x="270" y="144" width="220" height="45" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="380" y="172" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">goroutine 2</text>
 
-  <rect x="394" y="164" width="344" height="90" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
-  <text x="566" y="196" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">那张表根本没有被共享</text>
-  <text x="566" y="214" font-size="12" fill="#64748b" text-anchor="middle">worker 抓完把 URL 列表发进 channel</text>
-  <text x="566" y="232" font-size="12" fill="#64748b" text-anchor="middle">coordinator 见到新 URL 再起一个 worker</text>
+  <rect x="518" y="144" width="220" height="45" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="628" y="172" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">goroutine 3</text>
 
-  <rect x="22" y="282" width="716" height="68" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4"/>
-  <text x="380" y="310" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">两条路都能走通，选择取决于你怎么想问题</text>
-  <text x="380" y="332" font-size="12" fill="#64748b" text-anchor="middle">状态用共享内存加锁，通信用 channel：课程对实验的建议</text>
+  <path d="M185,251 L197,251" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M371,251 L383,251" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M557,251 L569,251" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="217" width="158" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="101" y="245" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">worker 抓页面</text>
+  <text x="101" y="267" font-size="12" fill="#64748b" text-anchor="middle">把 URL 列表发进 channel</text>
+
+  <rect x="208" y="217" width="158" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="287" y="245" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">coordinator</text>
+  <text x="287" y="267" font-size="12" fill="#64748b" text-anchor="middle">它是那张表唯一的读者</text>
+
+  <rect x="394" y="217" width="158" height="68" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="473" y="245" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">表里没有就记下</text>
+  <text x="473" y="267" font-size="12" fill="#64748b" text-anchor="middle">有就跳过，不重复抓</text>
+
+  <rect x="580" y="217" width="158" height="68" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="659" y="245" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">见到新 URL 就再起</text>
+  <text x="659" y="267" font-size="12" fill="#64748b" text-anchor="middle">表从来没有被共享</text>
+
+  <text x="380" y="313" font-size="12" fill="#64748b" text-anchor="middle">上面靠临界区挡住竞争，下面靠干脆不共享，从根上没有竞争</text>
 </svg>

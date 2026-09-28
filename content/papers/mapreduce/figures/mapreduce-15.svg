@@ -1,36 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-15-title fig-mapreduce-15-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 309" width="760" height="309"
+     role="img" aria-labelledby="fig-mapreduce-15-title fig-mapreduce-15-desc">
   <title id="fig-mapreduce-15-title">主节点同时是三件事，也因此成了约束</title>
-  <desc id="fig-mapreduce-15-desc">主节点同时是调度者、中间结果位置的中转站与状态页面提供者，O(M×R) 的状态限制了作业规模。</desc>
+  <desc id="fig-mapreduce-15-desc">调度、中间结果位置的登记与状态页面三件事都压在主节点这一个角色上，于是作业规模的上限被它的内存与调度能力限住。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="309" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">主节点同时是三件事，也因此成了约束</text>
+  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">主节点同时是三件事，也因此成了约束</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">调度者：把空闲 worker</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">和待办任务配对</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">中间结果位置的唯一中转站</text>
-  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">归约器靠它找到数据</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="625" y="86" font-size="12" fill="#b45309" text-anchor="middle">状态页面的提供者</text>
-  <text x="625" y="104" font-size="12" fill="#b45309" text-anchor="middle">用户靠它看进度</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">三件事压在一个角色上</text>
-  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">它就是结构上的中心</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="165" font-size="12" fill="#9d174d" text-anchor="middle">作业规模上限</text>
-  <text x="380" y="183" font-size="12" fill="#9d174d" text-anchor="middle">被它的内存与调度能力限住</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="625" y="165" font-size="12" fill="#9d174d" text-anchor="middle">O(M×R) 的状态</text>
-  <text x="625" y="183" font-size="12" fill="#9d174d" text-anchor="middle">就是这条约束的明证</text>
+  <rect x="23" y="64" width="221" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="133.5" y="86" font-size="12" fill="#b45309" text-anchor="middle">调度者</text>
+  <text x="133.5" y="104" font-size="12" fill="#b45309" text-anchor="middle">把空闲 worker 和待办任务配对</text>
+  <rect x="270" y="64" width="221" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380.5" y="86" font-size="12" fill="#6b21a8" text-anchor="middle">中间结果位置的唯一中转站</text>
+  <text x="380.5" y="104" font-size="12" fill="#6b21a8" text-anchor="middle">归约器靠它找到自己要拉的数据</text>
+  <rect x="517" y="64" width="221" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="627.5" y="86" font-size="12" fill="#1e40af" text-anchor="middle">状态页面的提供者</text>
+  <text x="627.5" y="104" font-size="12" fill="#1e40af" text-anchor="middle">用户靠它看进度</text>
+  <path d="M133.5,123 C 133.5,130 300,128 300,135" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M380,123 L380,135" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M627.5,123 C 627.5,130 460,128 460,135" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="210" y="146" width="340" height="68" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="380.0" y="174" font-size="15" fill="#1d4ed8" text-anchor="middle">主节点：三件事压在一个角色上</text>
+  <text x="380.0" y="196" font-size="12" fill="#1d4ed8" text-anchor="middle">它就是整个作业结构上的中心</text>
+  <rect x="22" y="242" width="716" height="44" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380.0" y="268" font-size="11" fill="#1e293b" text-anchor="middle">作业规模上限被它的内存与调度能力限住：O(M×R) 的状态就是明证</text>
 </svg>

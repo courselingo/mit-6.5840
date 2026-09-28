@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-paxos-5-title fig-paxos-5-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 349" width="756" height="349" role="img" aria-labelledby="fig-paxos-5-title fig-paxos-5-desc">
   <title id="fig-paxos-5-title">脑裂：断成两半后两侧各有一个主节点</title>
   <desc id="fig-paxos-5-desc">断成两半后 C1 与 S1 在一侧继续写入，C2 转投 S2，于是两侧各有一个主节点，两边决定互相冲突。</desc>
 
@@ -11,26 +11,29 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="2" y="0" width="756" height="349" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">脑裂：断成两半后两侧各有一个主节点</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">C1 与 S1 在一侧</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">照旧向 S1 写入</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">S1 认为对面已死</text>
-  <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">继续当自己是主</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="625" y="86" font-size="12" fill="#1e40af" text-anchor="middle">C2 联系不上 S1</text>
-  <text x="625" y="104" font-size="12" fill="#1e40af" text-anchor="middle">于是转投 S2</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">S2 也当自己是主</text>
-  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">接受 C2 的写入</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">同一个角色出现两份</text>
-  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">各自都在做决定</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="625" y="165" font-size="12" fill="#9d174d" text-anchor="middle">两边的决定互相冲突</text>
-  <text x="625" y="183" font-size="12" fill="#9d174d" text-anchor="middle">这就是脑裂</text>
+  <rect x="25" y="52" width="310" height="197" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <rect x="425" y="52" width="310" height="197" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="180" y="78" font-size="12" fill="#64748b" text-anchor="middle">分区 A</text>
+  <rect x="40" y="96" width="280" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="180" y="118" font-size="12" fill="#1e40af" text-anchor="middle">C1 与 S1 在一侧</text>
+  <text x="180" y="136" font-size="12" fill="#1e40af" text-anchor="middle">照旧向 S1 写入</text>
+  <rect x="40" y="180" width="280" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="180" y="202" font-size="12" fill="#1e40af" text-anchor="middle">S1 认为对面已死</text>
+  <text x="180" y="220" font-size="12" fill="#1e40af" text-anchor="middle">继续当自己是主</text>
+  <text x="580" y="78" font-size="12" fill="#64748b" text-anchor="middle">分区 B</text>
+  <rect x="440" y="96" width="280" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="580" y="118" font-size="12" fill="#1e40af" text-anchor="middle">C2 联系不上 S1</text>
+  <text x="580" y="136" font-size="12" fill="#1e40af" text-anchor="middle">于是转投 S2</text>
+  <rect x="440" y="180" width="280" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="580" y="202" font-size="12" fill="#1e40af" text-anchor="middle">S2 也当自己是主</text>
+  <text x="580" y="220" font-size="12" fill="#1e40af" text-anchor="middle">接受 C2 的写入</text>
+  <path d="M366,104 C372,114 374,118 380,126" fill="none" stroke="#ef4444" stroke-width="2"/>
+  <path d="M388,132 C394,140 396,144 402,154" fill="none" stroke="#ef4444" stroke-width="2"/>
+  <rect x="25" y="272" width="710" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="294" font-size="12" fill="#9d174d" text-anchor="middle">同一个角色出现两份，各自都在做决定</text>
+  <text x="380" y="312" font-size="12" fill="#9d174d" text-anchor="middle">两边的决定互相冲突，这就是脑裂</text>
 </svg>

@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 302" width="760" height="302"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 321" width="760" height="321"
      role="img" aria-labelledby="fig-intro-13-title fig-intro-13-desc">
   <title id="fig-intro-13-title">两种坏法在客户端眼里长得完全不同</title>
-  <desc id="fig-intro-13-desc">fail-stop 的节点停下来，客户端收不到任何回应，可以判定它坏了并换一台；byzantine 的节点还在运行却发出错误消息，客户端从响应本身看不出异常。</desc>
+  <desc id="fig-intro-13-desc">fail-stop 的节点停下来，客户端等到的是一片空白，可以判定它坏了；byzantine 的节点照常回应，只是内容是错的，客户端从回应本身看不出异常。</desc>
 
   <defs>
     <style>
@@ -13,27 +13,29 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="302" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="321" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两种坏法在客户端眼里长得完全不同</text>
 
-  <path d="M194,116 L194,128" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M566,116 L566,128" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M194,135 L194,147" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M566,135 L566,147" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
-  <rect x="22" y="66" width="344" height="45" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="194" y="94" font-size="15" fill="#166534" text-anchor="middle">fail-stop：节点停下来，能被察觉</text>
+  <rect x="22" y="62" width="344" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="90" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">fail-stop：节点停下来</text>
+  <text x="194" y="112" font-size="12" fill="#166534" text-anchor="middle">停下来这件事本身能被察觉</text>
 
-  <rect x="394" y="66" width="344" height="45" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="566" y="94" font-size="15" fill="#9d174d" text-anchor="middle">byzantine：还在运行却说错话</text>
+  <rect x="394" y="62" width="344" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="90" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">byzantine：还在运行却说错话</text>
+  <text x="566" y="112" font-size="12" fill="#9d174d" text-anchor="middle">回应照常发出，内容是错的</text>
 
-  <rect x="22" y="139" width="344" height="68" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="194" y="167" font-size="15" fill="#166534" text-anchor="middle">客户端看到：没有回应</text>
-  <text x="194" y="189" font-size="12" fill="#166534" text-anchor="middle">可以判定它坏了，换一台继续</text>
+  <rect x="22" y="158" width="344" height="68" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="194" y="186" font-size="15" font-weight="600" fill="#64748b" text-anchor="middle">客户端等到的：什么也没有</text>
+  <text x="194" y="208" font-size="12" fill="#64748b" text-anchor="middle">据此可以判定它坏了，换一台</text>
 
-  <rect x="394" y="139" width="344" height="68" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="566" y="167" font-size="15" fill="#9d174d" text-anchor="middle">客户端看到：格式正常的错值</text>
-  <text x="566" y="189" font-size="12" fill="#9d174d" text-anchor="middle">从响应本身看不出哪里不对</text>
+  <rect x="394" y="158" width="344" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="186" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">客户端等到的：一个错值</text>
+  <text x="566" y="208" font-size="12" fill="#9d174d" text-anchor="middle">格式完全正常，看不出哪里不对</text>
 
-  <rect x="22" y="235" width="716" height="45" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="263" font-size="15" fill="#6b21a8" text-anchor="middle">本课程绝大部分内容只处理上一种，因为它已经足够难</text>
+  <rect x="22" y="254" width="716" height="45" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="282" font-size="15" font-weight="600" fill="#6b21a8" text-anchor="middle">本课程绝大部分内容只处理上一种，因为它已经足够难</text>
 </svg>

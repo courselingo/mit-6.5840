@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 372" width="760" height="372"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 394" width="760" height="394"
      role="img" aria-labelledby="rpc-and-threads-1-title rpc-and-threads-1-desc">
   <title id="rpc-and-threads-1-title">本地调用与远程调用：多出来的第三种状态</title>
-  <desc id="rpc-and-threads-1-desc">本地函数调用只有正常返回和抛出异常两种结局；跨机器 RPC 多出第三种：客户端只看到超时，无法判断请求是否送到、服务端是否执行。</desc>
+  <desc id="rpc-and-threads-1-desc">本地函数调用只有正常返回和抛出异常两条分支；跨机器 RPC 同样有这两条，却还多出第三种：客户端只看到超时，既不知道请求是否送到，也不知道服务端是否执行过。</desc>
 
   <defs>
     <style>
@@ -13,32 +13,46 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="372" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="394" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">本地调用与远程调用：多出来的第三种状态</text>
 
-  <rect x="22" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="194" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">本地函数调用</text>
-  <text x="194" y="118" font-size="12" fill="#64748b" text-anchor="middle">同一个地址空间，参数就在手边</text>
+  <rect x="22" y="62" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="194" y="90" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">本地函数调用</text>
+  <text x="194" y="112" font-size="12" fill="#64748b" text-anchor="middle">同一个地址空间，参数就在手边</text>
 
-  <rect x="394" y="68" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="566" y="96" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">跨机器 RPC</text>
-  <text x="566" y="118" font-size="12" fill="#64748b" text-anchor="middle">参数编组成字节，过网络再等回复</text>
+  <rect x="394" y="62" width="344" height="68" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="566" y="90" font-size="15" font-weight="600" fill="#1f2937" text-anchor="middle">跨机器 RPC</text>
+  <text x="566" y="112" font-size="12" fill="#64748b" text-anchor="middle">参数编组成字节，过网络再等回复</text>
 
-  <path d="M194,141 L 194,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <path d="M566,141 L 566,153" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M194,135 C 194,143 101,142 101,147" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M194,135 C 194,143 287,142 287,147" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M566,135 C 566,143 473,142 473,147" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M566,135 C 566,143 659,142 659,147" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <rect x="22" y="164" width="344" height="90" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="194" y="196" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">只有两种结局</text>
-  <text x="194" y="214" font-size="12" fill="#64748b" text-anchor="middle">正常返回，或者抛异常</text>
-  <text x="194" y="232" font-size="12" fill="#64748b" text-anchor="middle">不存在「不知道做没做」</text>
+  <rect x="22" y="158" width="158" height="45" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="101" y="186" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">正常返回</text>
 
-  <rect x="394" y="164" width="344" height="90" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
-  <text x="566" y="196" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">多出第三种：不知道</text>
-  <text x="566" y="214" font-size="12" fill="#64748b" text-anchor="middle">返回、异常，或者超时</text>
-  <text x="566" y="232" font-size="12" fill="#64748b" text-anchor="middle">超时在调用方只是一个 timeout</text>
+  <rect x="208" y="158" width="158" height="45" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="287" y="186" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">抛出异常</text>
 
-  <rect x="22" y="282" width="716" height="68" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
-  <text x="380" y="310" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">本讲后面所有机制，都在处理这第三种状态</text>
-  <text x="380" y="332" font-size="12" fill="#64748b" text-anchor="middle">既然分不清，就只好让重复执行变得无害：幂等与去重由此而来</text>
+  <rect x="394" y="158" width="158" height="45" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="473" y="186" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">正常返回</text>
+
+  <rect x="580" y="158" width="158" height="45" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="659" y="186" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">抛出异常</text>
+
+  <path d="M194,203 L194,220" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M566,203 L566,220" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="231" width="344" height="68" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="194" y="259" font-size="15" font-weight="600" fill="#64748b" text-anchor="middle">本地没有这一档</text>
+  <text x="194" y="281" font-size="12" fill="#64748b" text-anchor="middle">结局是二元的，不存在「不知道」</text>
+
+  <rect x="394" y="231" width="344" height="68" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="566" y="259" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">多出第三种：不知道</text>
+  <text x="566" y="281" font-size="12" fill="#64748b" text-anchor="middle">超时在调用方只是一个 timeout</text>
+
+  <rect x="22" y="327" width="716" height="45" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="380" y="355" font-size="15" font-weight="600" fill="#166534" text-anchor="middle">本讲后面所有机制，都在处理这第三种状态</text>
 </svg>

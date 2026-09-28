@@ -1,36 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-11-title fig-raft-11-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 371" width="760" height="371"
+     role="img" aria-labelledby="fig-raft-11-title fig-raft-11-desc">
   <title id="fig-raft-11-title">三个时间尺度：广播远小于选举超时</title>
-  <desc id="fig-raft-11-desc">广播时间远小于选举超时，选举超时又远小于平均故障间隔；随机化超时避免选票被分掉，时间只影响可用性。</desc>
+  <desc id="fig-raft-11-desc">三条并列的时间轴：广播时间远小于选举超时，选举超时又远小于单机的平均故障间隔；随机化的超时避免选票被分掉。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="371" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三个时间尺度：广播远小于选举超时</text>
+  <text x="381.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三个时间尺度：广播远小于选举超时</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">广播时间要远小于选举超时</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">领导者才来得及发心跳</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="380" y="86" font-size="12" fill="#1e40af" text-anchor="middle">选举超时要远小于</text>
-  <text x="380" y="104" font-size="12" fill="#1e40af" text-anchor="middle">单机的平均故障间隔</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="625" y="86" font-size="12" fill="#166534" text-anchor="middle">这样系统大部分时间</text>
-  <text x="625" y="104" font-size="12" fill="#166534" text-anchor="middle">都有领导者在推进</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="135" y="165" font-size="12" fill="#b45309" text-anchor="middle">随机化的选举超时</text>
-  <text x="135" y="183" font-size="12" fill="#b45309" text-anchor="middle">避免选票被分掉</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">有意引入这一点非确定性</text>
-  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">换掉一整套优先级规则</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">时间只影响可用性</text>
-  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">不影响正确性</text>
+  <text x="23" y="104" font-size="12" fill="#1e293b" text-anchor="start">广播时间</text>
+  <path d="M200,100 L340,100" fill="none" stroke="#94a3b8"/>
+  <path d="M200,92 L200,108" fill="none" stroke="#94a3b8"/>
+  <path d="M340,92 L340,108" fill="none" stroke="#94a3b8"/>
+  <text x="355" y="104" font-size="12" fill="#9d174d" text-anchor="start">远小于选举超时</text>
+  <text x="23" y="164" font-size="12" fill="#1e293b" text-anchor="start">选举超时</text>
+  <path d="M200,160 L560,160" fill="none" stroke="#94a3b8"/>
+  <path d="M200,152 L200,168" fill="none" stroke="#94a3b8"/>
+  <path d="M560,152 L560,168" fill="none" stroke="#94a3b8"/>
+  <text x="575" y="164" font-size="12" fill="#9d174d" text-anchor="start">远小于平均故障间隔</text>
+  <text x="23" y="224" font-size="12" fill="#1e293b" text-anchor="start">平均故障间隔</text>
+  <path d="M200,220 L738,220" fill="none" stroke="#94a3b8"/>
+  <path d="M200,212 L200,228" fill="none" stroke="#94a3b8"/>
+  <path d="M738,212 L738,228" fill="none" stroke="#94a3b8"/>
+  <rect x="23" y="280" width="345" height="68" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="195.5" y="308" font-size="15" fill="#6b21a8" text-anchor="middle">随机化的选举超时</text>
+  <text x="195.5" y="330" font-size="12" fill="#6b21a8" text-anchor="middle">避免选票被分掉，换掉一整套优先级规则</text>
+  <rect x="394" y="280" width="345" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566.5" y="308" font-size="15" fill="#166534" text-anchor="middle">时间只影响可用性</text>
+  <text x="566.5" y="330" font-size="12" fill="#166534" text-anchor="middle">不影响正确性，故障模型没有放松</text>
 </svg>

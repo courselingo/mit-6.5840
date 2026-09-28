@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-paxos-15-title fig-paxos-15-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 259" width="756" height="259" role="img" aria-labelledby="fig-paxos-15-title fig-paxos-15-desc">
   <title id="fig-paxos-15-title">提案编号的两条规则，以及挑小了的后果</title>
   <desc id="fig-paxos-15-desc">编号必须自己没用过、又比见过的都大；挑了比别人小的编号只是做不成，不会破坏安全性。</desc>
 
@@ -11,26 +11,24 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="2" y="0" width="756" height="259" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">提案编号的两条规则，以及挑小了的后果</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">编号要自己从没用过</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">否则同一编号会被提两次</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">还要比见过的都大</text>
-  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">否则接受者直接拒绝</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="625" y="86" font-size="12" fill="#6b21a8" text-anchor="middle">编号是比较的唯一依据</text>
-  <text x="625" y="104" font-size="12" fill="#6b21a8" text-anchor="middle">不靠时钟也不靠机器顺序</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">编号挑小了会怎样</text>
-  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">凑不齐多数派</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="380" y="165" font-size="12" fill="#166534" text-anchor="middle">但安全性不受影响</text>
-  <text x="380" y="183" font-size="12" fill="#166534" text-anchor="middle">只是这一次做不成</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="625" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">安全性与进展分开算</text>
-  <text x="625" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">这正是全讲反复算的账</text>
+  <rect x="25" y="62" width="341" height="72" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="195.5" y="84" font-size="12" fill="#1e40af" text-anchor="middle">规则一：编号要自己从没用过</text>
+  <text x="195.5" y="102" font-size="12" fill="#1e40af" text-anchor="middle">否则同一编号会被提两次</text>
+  <text x="195.5" y="120" font-size="12" fill="#1e40af" text-anchor="middle">编号还是比较的唯一依据</text>
+  <rect x="394" y="62" width="341" height="72" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="564.5" y="84" font-size="12" fill="#b45309" text-anchor="middle">规则二：还要比见过的都大</text>
+  <text x="564.5" y="102" font-size="12" fill="#b45309" text-anchor="middle">否则接受者直接拒绝</text>
+  <text x="564.5" y="120" font-size="12" fill="#b45309" text-anchor="middle">不靠时钟也不靠机器顺序</text>
+  <rect x="25" y="164" width="341" height="72" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="195.5" y="186" font-size="12" fill="#9d174d" text-anchor="middle">编号挑小了会怎样</text>
+  <text x="195.5" y="204" font-size="12" fill="#9d174d" text-anchor="middle">凑不齐多数派</text>
+  <text x="195.5" y="222" font-size="12" fill="#9d174d" text-anchor="middle">只是这一次做不成</text>
+  <rect x="394" y="164" width="341" height="72" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="564.5" y="186" font-size="12" fill="#166534" text-anchor="middle">但安全性不受影响</text>
+  <text x="564.5" y="204" font-size="12" fill="#166534" text-anchor="middle">安全性与进展分开算</text>
+  <text x="564.5" y="222" font-size="12" fill="#166534" text-anchor="middle">这正是全讲反复算的账</text>
 </svg>

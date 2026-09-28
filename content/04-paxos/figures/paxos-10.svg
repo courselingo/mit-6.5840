@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-paxos-10-title fig-paxos-10-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 251" width="756" height="251" role="img" aria-labelledby="fig-paxos-10-title fig-paxos-10-desc">
   <title id="fig-paxos-10-title">最高编号也要落盘：否则更早的编号能回来</title>
   <desc id="fig-paxos-10-desc">重启后不记得见过编号 11，于是收下编号 10 的 accept，而定案已被编号 11 覆盖，值被更早的编号改写。</desc>
 
@@ -11,26 +11,20 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="2" y="0" width="756" height="251" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">最高编号也要落盘：否则更早的编号能回来</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">这台机器见过</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">编号 11 的 prepare</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">重启后不记得 11</text>
-  <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">收下编号 10 的 accept</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">编号 10 的值</text>
-  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">早已被 11 覆盖</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">定案被更早的编号改写</text>
-  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">前后不一致</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="380" y="165" font-size="12" fill="#166534" text-anchor="middle">把最高编号落盘</text>
-  <text x="380" y="183" font-size="12" fill="#166534" text-anchor="middle">10 就会被直接拒绝</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">它的作用不是记账</text>
-  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">而是拦住更早的编号</text>
+  <rect x="25" y="62" width="710" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="84" font-size="12" fill="#1e40af" text-anchor="middle">这台机器见过编号 11 的 prepare</text>
+  <text x="380" y="102" font-size="12" fill="#1e40af" text-anchor="middle">重启后不记得 11，收下编号 10 的 accept</text>
+  <rect x="25" y="146" width="341" height="72" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="195.5" y="168" font-size="12" fill="#9d174d" text-anchor="middle">不落盘：编号 10 的值早已被 11 覆盖</text>
+  <text x="195.5" y="186" font-size="12" fill="#9d174d" text-anchor="middle">定案被更早的编号改写</text>
+  <text x="195.5" y="204" font-size="12" fill="#9d174d" text-anchor="middle">前后不一致</text>
+  <rect x="394" y="146" width="341" height="72" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="564.5" y="168" font-size="12" fill="#166534" text-anchor="middle">把最高编号落盘</text>
+  <text x="564.5" y="186" font-size="12" fill="#166534" text-anchor="middle">编号 10 就会被直接拒绝</text>
+  <text x="564.5" y="204" font-size="12" fill="#166534" text-anchor="middle">它的作用不是记账，而是拦住更早的编号</text>
+  <path d="M380,136 L380,228" fill="none" stroke="#94a3b8"/>
 </svg>

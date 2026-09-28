@@ -1,36 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-23-title fig-raft-23-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 251" width="760" height="251"
+     role="img" aria-labelledby="fig-raft-23-title fig-raft-23-desc">
   <title id="fig-raft-23-title">状态机必须确定性，否则前提就不成立</title>
-  <desc id="fig-raft-23-desc">状态机里若有随机数、墙上时钟或外部副作用，相同命令会算出不同状态；这部分不确定性必须由上层处理。</desc>
+  <desc id="fig-raft-23-desc">正面看：状态机不依赖随机数与墙上时钟，相同命令才推得出相同状态；反面看：一旦有外部副作用或随机数，同一批命令按相同顺序执行也会算出不同状态，这部分不确定性必须由上层自己处理。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="251" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">状态机必须确定性，否则前提就不成立</text>
+  <text x="380.5" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">状态机必须确定性，否则前提就不成立</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="86" font-size="12" fill="#9d174d" text-anchor="middle">状态机里若有随机数</text>
-  <text x="135" y="104" font-size="12" fill="#9d174d" text-anchor="middle">或者依赖墙上时钟</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">或者有外部副作用</text>
-  <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">同一批命令会算出不同状态</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">于是按相同顺序执行</text>
-  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">不再推出状态相同</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="135" y="165" font-size="12" fill="#b45309" text-anchor="middle">这部分不确定性</text>
-  <text x="135" y="183" font-size="12" fill="#b45309" text-anchor="middle">必须由上层自己处理</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="165" font-size="12" fill="#b45309" text-anchor="middle">把随机性固定在日志里</text>
-  <text x="380" y="183" font-size="12" fill="#b45309" text-anchor="middle">或者只让领导者产生它</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">它是复制状态机的前提</text>
-  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">而不是实现细节</text>
+  <rect x="23" y="64" width="345" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="195.5" y="92" font-size="15" fill="#166534" text-anchor="middle">正面：状态机必须确定性</text>
+  <text x="195.5" y="114" font-size="12" fill="#166534" text-anchor="middle">不依赖随机数与墙上时钟</text>
+  <rect x="394" y="64" width="345" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566.5" y="92" font-size="15" fill="#9d174d" text-anchor="middle">反面：否则相同命令也会</text>
+  <text x="566.5" y="114" font-size="12" fill="#9d174d" text-anchor="middle">算出两个不同的状态</text>
+  <rect x="22" y="160" width="716" height="68" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380.0" y="188" font-size="15" fill="#6b21a8" text-anchor="middle">随机数与外部副作用都会破坏确定性，复制就失去意义</text>
+  <text x="380.0" y="210" font-size="12" fill="#6b21a8" text-anchor="middle">这部分不确定性必须由上层自己处理：把随机性固定在日志里，或者只让领导者产生它</text>
 </svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 234" width="760" height="234"
+     role="img" aria-labelledby="fig-gfs-28-title fig-gfs-28-desc">
+  <title id="fig-gfs-28-title">文件数远超预期：三条后果落在同一个决定上</title>
+  <desc id="fig-gfs-28-desc">文件数涨到上千倍，命名空间与文件到块映射随之膨胀，内存、操作日志与检查点一起变大，重放更久、切换更慢；这三条后果都来自把全部元数据放进内存这个决定。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="234" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">文件数远超预期：三条后果落在同一个决定上</text>
+
+  <path d="M185,96 L197,96" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M371,96 L383,96" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M557,96 L569,96" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+
+  <rect x="22" y="62" width="158" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="101" y="90" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">文件数远超预期</text>
+  <text x="101" y="112" font-size="12" fill="#1e40af" text-anchor="middle">涨到上千倍</text>
+
+  <rect x="208" y="62" width="158" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="287" y="90" font-size="15" font-weight="600" fill="#1e40af" text-anchor="middle">命名空间与映射</text>
+  <text x="287" y="112" font-size="12" fill="#1e40af" text-anchor="middle">随文件数一起膨胀</text>
+
+  <rect x="394" y="62" width="158" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="473" y="90" font-size="15" font-weight="600" fill="#b45309" text-anchor="middle">内存与日志变大</text>
+  <text x="473" y="112" font-size="12" fill="#b45309" text-anchor="middle">检查点跟着变大</text>
+
+  <rect x="580" y="62" width="158" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="659" y="90" font-size="15" font-weight="600" fill="#9d174d" text-anchor="middle">重放更久</text>
+  <text x="659" y="112" font-size="12" fill="#9d174d" text-anchor="middle">切换停机时间变长</text>
+
+  <rect x="22" y="158" width="716" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="180" font-size="12" fill="#6b21a8" text-anchor="middle">这三条后果落在同一个决定上：主节点把全部元数据放进内存</text>
+  <text x="380" y="198" font-size="12" fill="#6b21a8" text-anchor="middle">它换来了快，也把整个集群的上限钉在了那一块内存上</text>
+</svg>

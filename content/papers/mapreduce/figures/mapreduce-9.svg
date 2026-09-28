@@ -1,36 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-9-title fig-mapreduce-9-desc">
-  <title id="fig-mapreduce-9-title">任务粒度：M 和 R 要远大于机器数</title>
-  <desc id="fig-mapreduce-9-desc">M 和 R 远大于机器数，每台机器做很多小任务，负载均衡、死了好分摊；代价是 O(M+R) 调度与 O(M×R) 状态。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 356" width="760" height="356"
+     role="img" aria-labelledby="fig-mapreduce-9-title fig-mapreduce-9-desc">
+  <title id="fig-mapreduce-9-title">任务粒度：小任务换均衡，代价压在主节点</title>
+  <desc id="fig-mapreduce-9-desc">M 和 R 远大于机器数，每台机器轮流做很多小任务，负载均衡、死机也好分摊；代价是主节点要做 O(M+R) 次调度决策、内存里保存 O(M×R) 的状态。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="356" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">任务粒度：M 和 R 要远大于机器数</text>
+  <text x="381.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">任务粒度：小任务换均衡，代价压在主节点</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="135" y="86" font-size="12" fill="#b45309" text-anchor="middle">每台机器轮流做很多小任务</text>
-  <text x="135" y="104" font-size="12" fill="#b45309" text-anchor="middle">负载自然均衡</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="380" y="86" font-size="12" fill="#166534" text-anchor="middle">某台机器死掉后</text>
-  <text x="380" y="104" font-size="12" fill="#166534" text-anchor="middle">它留下的小任务容易被分摊</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="625" y="86" font-size="12" fill="#6b21a8" text-anchor="middle">所以 M 和 R</text>
-  <text x="625" y="104" font-size="12" fill="#6b21a8" text-anchor="middle">都应该远大于机器数</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">代价：主节点要做</text>
-  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">O(M+R) 次调度决策</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="165" font-size="12" fill="#9d174d" text-anchor="middle">内存里要保存</text>
-  <text x="380" y="183" font-size="12" fill="#9d174d" text-anchor="middle">O(M×R) 的状态</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">每个任务的目标大小</text>
-  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">落在 16MB 到 64MB 之间</text>
+  <rect x="23" y="64" width="345" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="195.5" y="92" font-size="15" fill="#166534" text-anchor="middle">收益：每台机器轮流做小任务</text>
+  <text x="195.5" y="114" font-size="12" fill="#166534" text-anchor="middle">负载自然均衡</text>
+  <rect x="394" y="64" width="345" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566.5" y="92" font-size="15" fill="#9d174d" text-anchor="middle">代价：主节点要做</text>
+  <text x="566.5" y="114" font-size="12" fill="#9d174d" text-anchor="middle">O(M+R) 次调度决策</text>
+  <rect x="23" y="160" width="345" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="195.5" y="188" font-size="15" fill="#166534" text-anchor="middle">好处：某台机器死掉后</text>
+  <text x="195.5" y="210" font-size="12" fill="#166534" text-anchor="middle">它留下的小任务容易被分摊</text>
+  <rect x="394" y="160" width="345" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566.5" y="188" font-size="15" fill="#9d174d" text-anchor="middle">代价：内存里要保存</text>
+  <text x="566.5" y="210" font-size="12" fill="#9d174d" text-anchor="middle">O(M×R) 的状态</text>
+  <rect x="200" y="256" width="500" height="54" rx="8" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="450.0" y="278" font-size="12" fill="#1d4ed8" text-anchor="middle">每个任务的目标大小落在 16MB 到 64MB 之间</text>
+  <text x="450.0" y="296" font-size="12" fill="#1d4ed8" text-anchor="middle">任务太大本地性白搭，太小调度开销吃掉收益</text>
+  <text x="200" y="330" font-size="11" fill="#64748b" text-anchor="middle">16MB</text>
+  <text x="700" y="330" font-size="11" fill="#64748b" text-anchor="middle">64MB</text>
 </svg>

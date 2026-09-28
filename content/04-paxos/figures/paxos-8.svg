@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-paxos-8-title fig-paxos-8-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 409" width="756" height="409" role="img" aria-labelledby="fig-paxos-8-title fig-paxos-8-desc">
   <title id="fig-paxos-8-title">门槛写成「大于」：A 被 B 覆盖的反例</title>
   <desc id="fig-paxos-8-desc">S1 与 S2 先后接受 A，S3 随后接受 B：A 被两台接受过却仍被 B 覆盖，前后两次定案的值不一样。</desc>
 
@@ -11,26 +11,21 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="2" y="0" width="756" height="409" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">门槛写成「大于」：A 被 B 覆盖的反例</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">S1 收到 p1、p2</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">然后接受 a1(A)</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="380" y="86" font-size="12" fill="#1e40af" text-anchor="middle">S2 收到 p1、p2、a1</text>
-  <text x="380" y="104" font-size="12" fill="#1e40af" text-anchor="middle">然后接受 a2(B)</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="625" y="86" font-size="12" fill="#1e40af" text-anchor="middle">S3 收到 p1、p2</text>
-  <text x="625" y="104" font-size="12" fill="#1e40af" text-anchor="middle">与 a2(B)</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">A 曾被 S1 与 S2 接受</text>
-  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">却被后来的 B 覆盖</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="165" font-size="12" fill="#9d174d" text-anchor="middle">前后两次定案的值</text>
-  <text x="380" y="183" font-size="12" fill="#9d174d" text-anchor="middle">并不一样</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">所以门槛必须是不小于</text>
-  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">更早的编号也要挡住</text>
+  <rect x="25" y="62" width="710" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="84" font-size="12" fill="#1e40af" text-anchor="middle">S1 收到 p1、p2</text>
+  <text x="380" y="102" font-size="12" fill="#1e40af" text-anchor="middle">然后接受 a1(A)</text>
+  <rect x="25" y="146" width="710" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="168" font-size="12" fill="#1e40af" text-anchor="middle">S2 收到 p1、p2、a1</text>
+  <text x="380" y="186" font-size="12" fill="#1e40af" text-anchor="middle">然后接受 a2(B)</text>
+  <rect x="25" y="230" width="710" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="252" font-size="12" fill="#1e40af" text-anchor="middle">S3 收到 p1、p2</text>
+  <text x="380" y="270" font-size="12" fill="#1e40af" text-anchor="middle">与 a2(B)</text>
+  <rect x="25" y="314" width="710" height="72" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380" y="336" font-size="12" fill="#9d174d" text-anchor="middle">A 曾被 S1 与 S2 接受，却被后来的 B 覆盖</text>
+  <text x="380" y="354" font-size="12" fill="#9d174d" text-anchor="middle">前后两次定案的值并不一样：门槛写成「大于」就漏了这一幕</text>
+  <text x="380" y="372" font-size="12" fill="#9d174d" text-anchor="middle">所以门槛必须是不小于，更早的编号也要挡住</text>
 </svg>

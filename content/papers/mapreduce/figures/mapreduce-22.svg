@@ -1,36 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-22-title fig-mapreduce-22-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 323" width="760" height="323"
+     role="img" aria-labelledby="fig-mapreduce-22-title fig-mapreduce-22-desc">
   <title id="fig-mapreduce-22-title">后续系统各自补的是哪一块</title>
-  <desc id="fig-mapreduce-22-desc">Spark 用内存中间结果、Dryad 用有向无环图、Pregel 针对迭代，补的都是「作业之间彼此隔离」这条取舍。</desc>
+  <desc id="fig-mapreduce-22-desc">Spark 把中间结果留在内存、Dryad 把计算表达成有向无环图、Pregel 冲着迭代，三个系统攻击的是同一条取舍：作业与作业之间完全隔离。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="323" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">后续系统各自补的是哪一块</text>
+  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">后续系统各自补的是哪一块</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="135" y="86" font-size="12" fill="#b45309" text-anchor="middle">Spark 把中间结果留在内存</text>
-  <text x="135" y="104" font-size="12" fill="#b45309" text-anchor="middle">补的是跨轮共享状态</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">Dryad 把计算表达成有向无环图</text>
-  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">允许更灵活的依赖</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="625" y="86" font-size="12" fill="#b45309" text-anchor="middle">Pregel 冲着迭代</text>
-  <text x="625" y="104" font-size="12" fill="#b45309" text-anchor="middle">是图计算专用的系统</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="135" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">它们攻击的弱点相同</text>
-  <text x="135" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">作业与作业之间完全隔离</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">任务之间除了中间键值对</text>
-  <text x="380" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">没有别的通信手段</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="625" y="165" font-size="12" fill="#166534" text-anchor="middle">这不是实现问题</text>
-  <text x="625" y="183" font-size="12" fill="#166534" text-anchor="middle">是接口换来的取舍</text>
+  <rect x="23" y="64" width="221" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="133.5" y="92" font-size="15" fill="#166534" text-anchor="middle">Spark</text>
+  <text x="133.5" y="114" font-size="12" fill="#166534" text-anchor="middle">把中间结果留在内存</text>
+  <rect x="270" y="64" width="221" height="68" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380.5" y="92" font-size="15" fill="#6b21a8" text-anchor="middle">Dryad</text>
+  <text x="380.5" y="114" font-size="12" fill="#6b21a8" text-anchor="middle">把计算表达成有向无环图</text>
+  <rect x="517" y="64" width="221" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="627.5" y="92" font-size="15" fill="#1e40af" text-anchor="middle">Pregel</text>
+  <text x="627.5" y="114" font-size="12" fill="#1e40af" text-anchor="middle">图计算专用的系统</text>
+  <path d="M133.5,137 L133.5,149" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M380,137 L380,149" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M627.5,137 L627.5,149" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="22" y="160" width="716" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="380.0" y="188" font-size="15" fill="#9d174d" text-anchor="middle">它们攻击的是同一个弱点：作业与作业之间完全隔离</text>
+  <text x="380.0" y="210" font-size="12" fill="#9d174d" text-anchor="middle">任务之间除了中间键值对没有别的通信手段</text>
+  <rect x="22" y="256" width="716" height="44" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380.0" y="282" font-size="11" fill="#1e293b" text-anchor="middle">这不是实现问题，是接口换来的取舍</text>
 </svg>

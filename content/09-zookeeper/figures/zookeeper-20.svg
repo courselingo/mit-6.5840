@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-zookeeper-20-title fig-zookeeper-20-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 0 756 321" width="756" height="321" role="img" aria-labelledby="fig-zookeeper-20-title fig-zookeeper-20-desc">
   <title id="fig-zookeeper-20-title">读可能是旧的：什么情形能接受，什么不能</title>
   <desc id="fig-zookeeper-20-desc">只读展示与可校验的读能接受旧值；读-改-写与必须一起一致的读不能，需要额外确认才能拿到最新。</desc>
 
@@ -11,26 +11,24 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="2" y="0" width="756" height="321" fill="#ffffff"/>
 
   <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">读可能是旧的：什么情形能接受，什么不能</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="135" y="86" font-size="12" fill="#166534" text-anchor="middle">可以接受：数据只是给人看</text>
-  <text x="135" y="104" font-size="12" fill="#166534" text-anchor="middle">或者本来纯只读</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="380" y="86" font-size="12" fill="#166534" text-anchor="middle">可以接受：读到的值能被校验</text>
-  <text x="380" y="104" font-size="12" fill="#166534" text-anchor="middle">比如按校验和检查的块</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="625" y="86" font-size="12" fill="#9d174d" text-anchor="middle">不能接受：读-改-写</text>
-  <text x="625" y="104" font-size="12" fill="#9d174d" text-anchor="middle">计数器加一这种</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">不能接受：一组数据必须一起一致</text>
-  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">只看懂一半没有意义</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="165" font-size="12" fill="#b45309" text-anchor="middle">接口里有一个 sync</text>
-  <text x="380" y="183" font-size="12" fill="#b45309" text-anchor="middle">用来把客户端追到最新</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="625" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">想拿到最新要付确认成本</text>
-  <text x="625" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">这是读本地化换来的账</text>
+  <rect x="25" y="76" width="341" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="195.5" y="98" font-size="12" fill="#166534" text-anchor="middle">可以接受：数据只是给人看</text>
+  <text x="195.5" y="116" font-size="12" fill="#166534" text-anchor="middle">或者本来纯只读</text>
+  <rect x="25" y="160" width="341" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="195.5" y="182" font-size="12" fill="#166534" text-anchor="middle">可以接受：读到的值能被校验</text>
+  <text x="195.5" y="200" font-size="12" fill="#166534" text-anchor="middle">比如按校验和检查的块</text>
+  <rect x="394" y="76" width="341" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="564.5" y="98" font-size="12" fill="#9d174d" text-anchor="middle">不能接受：读-改-写</text>
+  <text x="564.5" y="116" font-size="12" fill="#9d174d" text-anchor="middle">计数器加一这种</text>
+  <rect x="394" y="160" width="341" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="564.5" y="182" font-size="12" fill="#9d174d" text-anchor="middle">不能接受：一组数据必须一起一致</text>
+  <text x="564.5" y="200" font-size="12" fill="#9d174d" text-anchor="middle">只看懂一半没有意义</text>
+  <path d="M380,64 L380,216" fill="none" stroke="#94a3b8"/>
+  <rect x="25" y="244" width="710" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="266" font-size="12" fill="#b45309" text-anchor="middle">接口里有一个 sync，用来把客户端追到最新</text>
+  <text x="380" y="284" font-size="12" fill="#b45309" text-anchor="middle">想拿到最新要付确认成本：这是读本地化换来的账</text>
 </svg>

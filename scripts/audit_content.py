@@ -36,6 +36,8 @@ MAX_SENT_AVG = 55        # 平均句长
 MIN_NUM_PER_K = 1.5      # 每千汉字具体数字/量词数
 MIN_NAMED_SYSTEMS = 5    # 每页点名的系统/协议数
 MIN_TERMS = 8            # [[term:]] 标记数下限
+MAX_SAME_LAYOUT = 0.15   # 同一版面指纹最多占全部图的比例（超过 WARN）
+LAYOUT_HARD = 0.25       # 超过这个比例判 ERROR（视觉通道失效）
 MIN_H2 = 5               # 小节数下限
 
 SYSTEMS = [
@@ -184,6 +186,73 @@ def audit(path: Path, root: Path) -> tuple[list[str], list[str]]:
     return errs, warns
 
 
+
+# ---------------- 版面多样性（语料级）----------------
+_RECT = re.compile(r"<rect\b([^>]*)/?>")
+_ATTR = re.compile(r'(\w[\w-]*)="([^"]*)"')
+_VIEWBOX = re.compile(r'viewBox="([\d.\s-]+)"')
+
+
+def layout_fingerprint(svg: Path) -> str:
+    """版面指纹 = 图内方块的 (x,y,w,h)，舍入到 10px 后排序。
+
+    先排除画布矩形（覆盖整个 viewBox 的那块），否则所有同尺寸画布的图
+    都会被判成「同一版面」—— 这是个很容易踩的坑（我们自己踩过一次）。
+    """
+    try:
+        t = svg.read_text(encoding="utf-8")
+    except OSError:
+        return ""
+    m = _VIEWBOX.search(t)
+    vw, vh = (0.0, 0.0)
+    if m:
+        parts = m.group(1).split()
+        if len(parts) >= 4:
+            vw, vh = float(parts[2]), float(parts[3])
+    boxes = []
+    for mm in _RECT.finditer(t):
+        a = dict(_ATTR.findall(mm.group(1)))
+        if "width" not in a or "height" not in a:
+            continue
+        try:
+            x, y = float(a.get("x", 0)), float(a.get("y", 0))
+            w, h = float(a["width"]), float(a["height"])
+        except ValueError:
+            continue
+        if vw and vh and w >= vw - 2 and h >= vh - 2:
+            continue  # 画布
+        boxes.append((round(x / 10), round(y / 10), round(w / 10), round(h / 10)))
+    return ";".join(f"{a},{b},{c},{d}" for a, b, c, d in sorted(boxes))
+
+
+def audit_layouts(root: Path) -> tuple[list[str], list[str]]:
+    """检查整套图有没有「同一个模板只换文字」。"""
+    figs = sorted((root / "content").rglob("figures/*.svg"))
+    if len(figs) < 8:
+        return [], []
+    groups: dict[str, list[str]] = {}
+    for f in figs:
+        fp = layout_fingerprint(f)
+        if fp:
+            groups.setdefault(fp, []).append(f.name)
+    if not groups:
+        return [], []
+    worst = max(groups.values(), key=len)
+    ratio = len(worst) / len(figs)
+    msg = (
+        f"[版面复用] {len(worst)}/{len(figs)} 张图（{ratio:.0%}）的版面完全一致"
+        f"（同为 {worst[0].split('.')[0]} 那类布局），只有文字不同。"
+        f"例：{', '.join(sorted(worst)[:5])} …"
+        "\n       版面应当与内容匹配：流程用链、对比用双列、状态用环、层次用树。"
+        "\n       读者连着看到同一个形状几十次，视觉通道就失效了。"
+    )
+    if ratio > LAYOUT_HARD:
+        return [msg], []
+    if ratio > MAX_SAME_LAYOUT:
+        return [], [msg]
+    return [], []
+
+
 def main(argv: list[str] | None = None) -> int:
     force_utf8()
     ap = argparse.ArgumentParser(description="内容结构与密度审计")
@@ -198,6 +267,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     print(f"内容审计：{len(files)} 篇")
+    corpus_errs, corpus_warns = audit_layouts(root)
     n_err = n_warn = 0
     for f in files:
         errs, warns = audit(f, root)
@@ -216,6 +286,13 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"       {w}")
         else:
             print(f"  ✅ {rel}")
+
+    for e in corpus_errs:
+        print(f"\n  ❌ {e}")
+        n_err += 1
+    for w in corpus_warns:
+        print(f"\n  ⚠️  {w}")
+        n_warn += 1
 
     print()
     print(f"ERROR {n_err} 个，WARN {n_warn} 个")

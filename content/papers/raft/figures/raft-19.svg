@@ -1,36 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-raft-19-title fig-raft-19-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 251" width="760" height="251"
+     role="img" aria-labelledby="fig-raft-19-title fig-raft-19-desc">
   <title id="fig-raft-19-title">联合共识之外的三个细节</title>
-  <desc id="fig-raft-19-desc">新节点先以非投票成员追日志，领导者不在新配置里要在提交后退位，被移出的节点要压住它的拉票。</desc>
+  <desc id="fig-raft-19-desc">新节点先以非投票成员身份追日志、领导者不在新配置里要在提交后退位、被移出的节点要压住它的拉票；三条都是为了让切换期间只有一个多数派定义。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="251" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">联合共识之外的三个细节</text>
+  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">联合共识之外的三个细节</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">新加入的节点日志是空的</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">先以非投票成员追日志</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="86" font-size="12" fill="#9d174d" text-anchor="middle">否则它会拖住提交</text>
-  <text x="380" y="104" font-size="12" fill="#9d174d" text-anchor="middle">因为它没有全部历史</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="625" y="86" font-size="12" fill="#b45309" text-anchor="middle">领导者可能不在新配置里</text>
-  <text x="625" y="104" font-size="12" fill="#b45309" text-anchor="middle">提交后要主动退位</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="165" font-size="12" fill="#9d174d" text-anchor="middle">提交完成之前</text>
-  <text x="135" y="183" font-size="12" fill="#9d174d" text-anchor="middle">不能把自己算进多数派</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="380" y="165" font-size="12" fill="#9d174d" text-anchor="middle">被移出的节点收不到心跳</text>
-  <text x="380" y="183" font-size="12" fill="#9d174d" text-anchor="middle">会反复超时并发起选举</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="625" y="165" font-size="12" fill="#b45309" text-anchor="middle">刚听到过领导者消息时</text>
-  <text x="625" y="183" font-size="12" fill="#b45309" text-anchor="middle">要压住最小超时内的拉票</text>
+  <rect x="23" y="64" width="221" height="68" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="133.5" y="92" font-size="15" fill="#1e40af" text-anchor="middle">新加入的节点日志是空的</text>
+  <text x="133.5" y="114" font-size="12" fill="#1e40af" text-anchor="middle">先以非投票成员身份追日志</text>
+  <rect x="270" y="64" width="221" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380.5" y="92" font-size="15" fill="#b45309" text-anchor="middle">领导者可能不在新配置里</text>
+  <text x="380.5" y="114" font-size="12" fill="#b45309" text-anchor="middle">它要在提交新配置之后主动退位</text>
+  <rect x="517" y="64" width="221" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="627.5" y="92" font-size="15" fill="#9d174d" text-anchor="middle">被移出的节点收不到心跳</text>
+  <text x="627.5" y="114" font-size="12" fill="#9d174d" text-anchor="middle">会反复超时，要压住它的拉票</text>
+  <path d="M133,155 L133,149" fill="none" stroke="#94a3b8"/>
+  <path d="M133,155 L628,155" fill="none" stroke="#94a3b8"/>
+  <path d="M628,155 L628,149" fill="none" stroke="#94a3b8"/>
+  <path d="M380,137 L380,149" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="22" y="160" width="716" height="68" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380.0" y="188" font-size="15" fill="#166534" text-anchor="middle">三条都是为了让切换期间只有一个多数派定义</text>
+  <text x="380.0" y="210" font-size="12" fill="#166534" text-anchor="middle">缺一个都会在成员变更时冒出两个领导者，或者让提交被拖住</text>
 </svg>

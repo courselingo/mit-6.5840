@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 766 253" width="766" height="253"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 672 327" width="672" height="327"
      role="img" aria-labelledby="fig-gfs-5-title fig-gfs-5-desc">
   <title id="fig-gfs-5-title">三条因果链：工作负载决定了块大小、一致性和带宽</title>
-  <desc id="fig-gfs-5-desc">读写都是大块连续，所以块可以做到 64MB；写几乎只有追加，所以敢放松一致性；吞吐比延迟重要，所以优化带宽。</desc>
+  <desc id="fig-gfs-5-desc">三条链各占一行，左端是工作负载，右端是它推出的设计选择：大块连续推出 64MB 的块，只追加推出弱一致性，吞吐优先推出优化带宽。</desc>
 
   <defs>
     <style>
@@ -12,37 +12,37 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="766" height="253" fill="#ffffff"/>
+  <rect x="0" y="0" width="672" height="327" fill="#ffffff"/>
 
-  <text x="383" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三条因果链：工作负载决定了块大小、一致性和带宽</text>
+  <text x="336" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三条因果链：工作负载决定了块大小、一致性和带宽</text>
 
-  <path d="M135,123 L135,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M383,123 L383,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
-  <path d="M631,123 L631,134" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M327,89 L339,89" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M327,168 L339,168" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M327,247 L339,247" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="86" font-size="12" fill="#1e40af" text-anchor="middle">读写都是大块、连续</text>
-  <text x="135" y="104" font-size="12" fill="#1e40af" text-anchor="middle">小随机读要批量排序</text>
+  <rect x="22" y="62" width="300" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="172" y="84" font-size="12" fill="#1e40af" text-anchor="middle">读写都是大块、连续</text>
+  <text x="172" y="102" font-size="12" fill="#1e40af" text-anchor="middle">小随机读要批量排序</text>
 
-  <rect x="273" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="383" y="86" font-size="12" fill="#1e40af" text-anchor="middle">写几乎只有追加</text>
-  <text x="383" y="104" font-size="12" fill="#1e40af" text-anchor="middle">多客户端并发追加</text>
+  <rect x="350" y="62" width="300" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="500" y="84" font-size="12" fill="#166534" text-anchor="middle">块可以做到 64MB</text>
+  <text x="500" y="102" font-size="12" fill="#166534" text-anchor="middle">元数据因此很小</text>
 
-  <rect x="521" y="64" width="220" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="631" y="86" font-size="12" fill="#1e40af" text-anchor="middle">吞吐比延迟重要</text>
-  <text x="631" y="104" font-size="12" fill="#1e40af" text-anchor="middle">不在乎单次响应时间</text>
+  <rect x="22" y="141" width="300" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="172" y="163" font-size="12" fill="#1e40af" text-anchor="middle">写几乎只有追加</text>
+  <text x="172" y="181" font-size="12" fill="#1e40af" text-anchor="middle">多客户端并发追加</text>
 
-  <rect x="25" y="145" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="135" y="167" font-size="12" fill="#166534" text-anchor="middle">块可以做到 64MB</text>
-  <text x="135" y="185" font-size="12" fill="#166534" text-anchor="middle">元数据因此很小</text>
+  <rect x="350" y="141" width="300" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="500" y="163" font-size="12" fill="#166534" text-anchor="middle">敢把一致性放松</text>
+  <text x="500" y="181" font-size="12" fill="#166534" text-anchor="middle">应用自己补齐</text>
 
-  <rect x="273" y="145" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="383" y="167" font-size="12" fill="#166534" text-anchor="middle">敢把一致性放松</text>
-  <text x="383" y="185" font-size="12" fill="#166534" text-anchor="middle">应用自己补齐</text>
+  <rect x="22" y="220" width="300" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="172" y="242" font-size="12" fill="#1e40af" text-anchor="middle">吞吐比延迟重要</text>
+  <text x="172" y="260" font-size="12" fill="#1e40af" text-anchor="middle">不在乎单次响应时间</text>
 
-  <rect x="521" y="145" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="631" y="167" font-size="12" fill="#166534" text-anchor="middle">优化带宽而非延迟</text>
-  <text x="631" y="185" font-size="12" fill="#166534" text-anchor="middle">链式分发摊薄延迟</text>
+  <rect x="350" y="220" width="300" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="500" y="242" font-size="12" fill="#166534" text-anchor="middle">优化带宽而非延迟</text>
+  <text x="500" y="260" font-size="12" fill="#166534" text-anchor="middle">链式分发摊薄延迟</text>
 
-  <text x="383" y="225" font-size="12" fill="#64748b" text-anchor="middle">六条假设读成一句话：故障是日常；其余几条决定了系统形状</text>
+  <text x="336" y="302" font-size="12" fill="#64748b" text-anchor="middle">每条链两步：左端是工作负载，右端是它推出的设计选择</text>
 </svg>

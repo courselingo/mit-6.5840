@@ -1,36 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" height="221" role="img" aria-labelledby="fig-mapreduce-12-title fig-mapreduce-12-desc">
-  <title id="fig-mapreduce-12-title">坏记录卡死作业：第二次失败就跳过</title>
-  <desc id="fig-mapreduce-12-desc">同一条记录让用户代码确定性崩溃时，worker 把序号报给主节点，失败过一次之后重跑就跳过它。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 247" width="760" height="247"
+     role="img" aria-labelledby="fig-mapreduce-12-title fig-mapreduce-12-desc">
+  <title id="fig-mapreduce-12-title">坏记录卡死作业：第二次失败就跳过它</title>
+  <desc id="fig-mapreduce-12-desc">用户代码在一条记录上确定性地崩溃，worker 在调用前记下当前记录序号、崩溃时用一个 UDP 包报给主节点；主节点发现同一条记录失败超过一次，重跑时就跳过它。</desc>
 
   <defs>
     <style>
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="760" height="221" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="247" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">坏记录卡死作业：第二次失败就跳过</text>
+  <text x="380.0" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">坏记录卡死作业：第二次失败就跳过它</text>
 
-  <rect x="25" y="64" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="135" y="86" font-size="12" fill="#9d174d" text-anchor="middle">用户代码在某条记录上</text>
-  <text x="135" y="104" font-size="12" fill="#9d174d" text-anchor="middle">确定性地崩溃</text>
-  <rect x="270" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="86" font-size="12" fill="#b45309" text-anchor="middle">worker 在调用前</text>
-  <text x="380" y="104" font-size="12" fill="#b45309" text-anchor="middle">把当前记录序号记下来</text>
-  <rect x="515" y="64" width="220" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="625" y="86" font-size="12" fill="#b45309" text-anchor="middle">崩溃时用一个 UDP 包</text>
-  <text x="625" y="104" font-size="12" fill="#b45309" text-anchor="middle">把序号报给主节点</text>
-  <rect x="25" y="143" width="220" height="54" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="135" y="165" font-size="12" fill="#6b21a8" text-anchor="middle">主节点发现同一条记录</text>
-  <text x="135" y="183" font-size="12" fill="#6b21a8" text-anchor="middle">失败超过一次</text>
-  <rect x="270" y="143" width="220" height="54" rx="8" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="380" y="165" font-size="12" fill="#166534" text-anchor="middle">重跑时就跳过这条记录</text>
-  <text x="380" y="183" font-size="12" fill="#166534" text-anchor="middle">作业能跑完</text>
-  <rect x="515" y="143" width="220" height="54" rx="8" fill="#fce7f3" stroke="#ec4899"/>
-  <text x="625" y="165" font-size="12" fill="#9d174d" text-anchor="middle">在「跑完」和「结果完整」之间</text>
-  <text x="625" y="183" font-size="12" fill="#9d174d" text-anchor="middle">做了一次交换</text>
+  <rect x="22.0" y="64" width="159.5" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="101.75" y="92" font-size="15" fill="#9d174d" text-anchor="middle">用户代码崩溃</text>
+  <text x="101.75" y="114" font-size="12" fill="#9d174d" text-anchor="middle">在某条记录上必崩</text>
+  <rect x="207.5" y="64" width="159.5" height="68" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="287.25" y="92" font-size="15" fill="#b45309" text-anchor="middle">worker 记下序号</text>
+  <text x="287.25" y="114" font-size="12" fill="#b45309" text-anchor="middle">调用前记住当前记录</text>
+  <rect x="393.0" y="64" width="159.5" height="68" rx="8" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="472.75" y="92" font-size="15" fill="#6b21a8" text-anchor="middle">用一个 UDP 包</text>
+  <text x="472.75" y="114" font-size="12" fill="#6b21a8" text-anchor="middle">把序号报给主节点</text>
+  <rect x="578.5" y="64" width="159.5" height="68" rx="8" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="658.25" y="92" font-size="15" fill="#9d174d" text-anchor="middle">第二次失败就跳过</text>
+  <text x="658.25" y="114" font-size="12" fill="#9d174d" text-anchor="middle">作业能跑完，结果不完整</text>
+  <path d="M186.5,98 L196.5,98" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M372.0,98 L382.0,98" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <path d="M557.5,98 L567.5,98" fill="none" stroke="#64748b" marker-end="url(#arrow)"/>
+  <rect x="23" y="160" width="714" height="64" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="380.0" y="184" font-size="11" fill="#1e293b" text-anchor="middle">主节点发现同一条记录失败超过一次，重跑时就跳过它</text>
+  <text x="380.0" y="204" font-size="10" fill="#64748b" text-anchor="middle">等于在「作业能跑完」和「结果完整」之间做了一次显式交换</text>
 </svg>
