@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 279" width="760" height="279"
+     role="img" aria-labelledby="fig-ray-ray-8-title fig-ray-ray-8-desc">
+  <title id="fig-ray-ray-8-title">三张 owner 表</title>
+  <desc id="fig-ray-ray-8-desc">一个虚线大框里并排三张表：worker 1 的表有两行并记着引用计数，worker 2 与 worker 3 的表只记所有者与值的位置；下方说明所有者那一份记引用计数，owner 是 IP、端口与 worker id 组成的三元组。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="279" fill="#ffffff"/>
+
+  <text x="380" y="32" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三张 owner 表</text>
+  <rect x="22" y="56" width="716" height="116" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <rect x="22" y="76" width="222" height="54" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="133" y="99" font-size="12" fill="#1e40af" text-anchor="middle">worker 1 的表</text>
+  <text x="133" y="114" font-size="10" fill="#1e40af" text-anchor="middle">x  B()   W1  W1,W3  W2</text>
+  <rect x="269" y="76" width="222" height="54" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="99" font-size="12" fill="#1e40af" text-anchor="middle">worker 2 的表</text>
+  <text x="380" y="114" font-size="10" fill="#1e40af" text-anchor="middle">x  W1  —  W2</text>
+  <rect x="516" y="76" width="222" height="54" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="627" y="99" font-size="12" fill="#1e40af" text-anchor="middle">worker 3 的表</text>
+  <text x="627" y="114" font-size="10" fill="#1e40af" text-anchor="middle">x  W1  —  W2</text>
+  <rect x="22" y="197" width="716" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="219.2" font-size="12" fill="#166534" text-anchor="middle">所有者那一份记引用计数（Ref）；其余 worker 只记 Owner 与 Loc</text>
+  <text x="380" y="255" font-size="10" fill="#64748b" text-anchor="middle">worker 1 的表里 y 那一行的 Owner 同样是 W1；owner = (IP, port, worker id)</text>
+</svg>

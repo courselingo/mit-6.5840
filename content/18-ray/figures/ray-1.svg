@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 239" width="760" height="239"
+     role="img" aria-labelledby="fig-ray-ray-1-title fig-ray-ray-1-desc">
+  <title id="fig-ray-ray-1-title">两类负载与两种假设</title>
+  <desc id="fig-ray-ray-1-desc">左列是模型服务与在线视频处理：都要低延迟、都要跨调用保留状态；右列是 MapReduce 与 Spark：都以启动开销可摊薄、计算无状态为前提。两侧不匹配之处正是 Ray 要设计的地方。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="239" fill="#ffffff"/>
+
+  <text x="380" y="32" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两类负载与两种假设</text>
+  <rect x="22" y="60" width="344" height="54" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="82.2" font-size="12" fill="#9d174d" text-anchor="middle">模型服务</text>
+  <text x="194" y="100.2" font-size="12" fill="#9d174d" text-anchor="middle">低延迟、数据大、跨调用留状态</text>
+  <rect x="22" y="139" width="344" height="54" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="161.2" font-size="12" fill="#9d174d" text-anchor="middle">在线视频处理</text>
+  <text x="194" y="179.2" font-size="12" fill="#9d174d" text-anchor="middle">下一帧没到就要算当前帧</text>
+  <rect x="394" y="60" width="344" height="54" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="82.2" font-size="12" fill="#1e40af" text-anchor="middle">MapReduce</text>
+  <text x="566" y="100.2" font-size="12" fill="#1e40af" text-anchor="middle">启动开销摊薄、无状态</text>
+  <rect x="394" y="139" width="344" height="54" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="161.2" font-size="12" fill="#1e40af" text-anchor="middle">Spark</text>
+  <text x="566" y="179.2" font-size="12" fill="#1e40af" text-anchor="middle">同一套假设</text>
+  <path d="M371,87.0 L383,87.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M371,166.0 L383,166.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="380" y="215" font-size="10" fill="#64748b" text-anchor="middle">两侧不匹配之处，正是 Ray 要重新设计的地方</text>
+</svg>

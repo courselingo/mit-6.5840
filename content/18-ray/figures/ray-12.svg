@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 257" width="760" height="257"
+     role="img" aria-labelledby="fig-ray-ray-12-title fig-ray-ray-12-desc">
+  <title id="fig-ray-ray-12-title">driver 侧与 worker 侧各发生什么</title>
+  <desc id="fig-ray-ray-12-desc">左右两个虚线泳道：左边是 driver 里的用户代码，用 @ray.remote 声明、用 g.remote(i) 立刻拿到 future；右边是真正执行函数体、算出结果值的 worker；下方说明 ray.get 把 driver 阻塞到值可用，取回的是值而不是状态。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="257" fill="#ffffff"/>
+
+  <text x="380" y="32" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">driver 侧与 worker 侧各发生什么</text>
+  <rect x="22" y="56" width="344" height="96" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="36" y="74" font-size="11" fill="#64748b" text-anchor="start">driver（用户代码）</text>
+  <rect x="38" y="86" width="312" height="54" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="108.2" font-size="12" fill="#1e40af" text-anchor="middle">@ray.remote 声明函数或类</text>
+  <text x="194" y="126.2" font-size="12" fill="#1e40af" text-anchor="middle">g.remote(i) 立刻拿到 future</text>
+  <rect x="394" y="56" width="344" height="96" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="408" y="74" font-size="11" fill="#64748b" text-anchor="start">worker（真正执行）</text>
+  <rect x="410" y="86" width="312" height="54" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="108.2" font-size="12" fill="#166534" text-anchor="middle">执行函数体，算出结果值</text>
+  <text x="566" y="126.2" font-size="12" fill="#166534" text-anchor="middle">值留在算它的那台机器上</text>
+  <path d="M371,113.0 L383,113.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="177" width="716" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="199.2" font-size="12" fill="#b45309" text-anchor="middle">ray.get(future) 把 driver 阻塞到值可用；取回来的是值，不是状态</text>
+  <text x="380" y="233" font-size="10" fill="#64748b" text-anchor="middle">future 是两侧之间唯一的凭据，值在哪、谁在等它由 ownership 记录</text>
+</svg>

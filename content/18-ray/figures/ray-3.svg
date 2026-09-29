@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 323" width="760" height="323"
+     role="img" aria-labelledby="fig-ray-ray-3-title fig-ray-ray-3-desc">
+  <title id="fig-ray-ray-3-title">借用：传引用而不是传值</title>
+  <desc id="fig-ray-ray-3-desc">四个代码框自上而下：两次 C()、一次 Add(shared(f1), shared(f2))、最后一次 get(f3)；右侧注释说明传下去的是引用而不是值，于是系统可以自己决定在哪里算、什么时候搬数据。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="323" fill="#ffffff"/>
+
+  <text x="380" y="32" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">借用：传引用而不是传值</text>
+  <rect x="22" y="58" width="440" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="242" y="80.2" font-size="12" fill="#1e40af" text-anchor="middle">f1 = C()</text>
+  <rect x="22" y="119" width="440" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="242" y="141.2" font-size="12" fill="#1e40af" text-anchor="middle">f2 = C()</text>
+  <rect x="22" y="180" width="440" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="242" y="202.2" font-size="12" fill="#1e40af" text-anchor="middle">f3 = Add(shared(f1), shared(f2))</text>
+  <rect x="22" y="241" width="440" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="242" y="263.2" font-size="12" fill="#1e40af" text-anchor="middle">c = get(f3)</text>
+  <path d="M242,99 L242,108" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M242,160 L242,169" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M242,221 L242,230" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="490" y="119" width="248" height="90" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="614" y="141.2" font-size="12" fill="#6b21a8" text-anchor="middle">传下去的是引用</text>
+  <text x="614" y="159.2" font-size="12" fill="#6b21a8" text-anchor="middle">不是值</text>
+  <text x="614" y="177.2" font-size="12" fill="#6b21a8" text-anchor="middle">于是系统自己决定</text>
+  <text x="614" y="195.2" font-size="12" fill="#6b21a8" text-anchor="middle">在哪算、何时搬数据</text>
+  <text x="380" y="299" font-size="10" fill="#64748b" text-anchor="middle">借用之后还会继续往外传，所以必须有人负责引用计数</text>
+</svg>

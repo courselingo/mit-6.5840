@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 395" width="760" height="395"
+     role="img" aria-labelledby="fig-ray-ray-5-title fig-ray-ray-5-desc">
+  <title id="fig-ray-ray-5-title">最简单的实现：一个中心协调者</title>
+  <desc id="fig-ray-ray-5-desc">上方是发起任务的调度器，中间虚线框里的协调者维护一张 id/task/refs/worker/value 表，下方是三个 worker；虚线框下面另有一个框说明值很大时放进对象存储，值变成对象 id，调用者直接去取。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="395" fill="#ffffff"/>
+
+  <text x="380" y="32" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">最简单的实现：一个中心协调者</text>
+  <rect x="250" y="56" width="260" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="78.2" font-size="12" fill="#1e40af" text-anchor="middle">发起任务：调度器选 worker</text>
+  <rect x="22" y="117" width="716" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="6,4"/>
+  <text x="36" y="135" font-size="11" fill="#64748b" text-anchor="start">协调者</text>
+  <rect x="46" y="147" width="668" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="169.2" font-size="12" fill="#b45309" text-anchor="middle">表：id ｜ task ｜ refs ｜ worker ｜ value</text>
+  <path d="M380,97 L380,106" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="252" width="222" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="133" y="274.2" font-size="12" fill="#166534" text-anchor="middle">worker 1</text>
+  <rect x="269" y="252" width="222" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="274.2" font-size="12" fill="#166534" text-anchor="middle">worker 2</text>
+  <rect x="516" y="252" width="222" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="627" y="274.2" font-size="12" fill="#166534" text-anchor="middle">worker 3</text>
+  <path d="M380,232 L380,241" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="313" width="716" height="36" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="335.2" font-size="12" fill="#6b21a8" text-anchor="middle">值很大时放进对象存储：值变成对象 id，调用者直接去取（对象不可变）</text>
+  <text x="380" y="371" font-size="10" fill="#64748b" text-anchor="middle">引用计数记在表里的 refs 一列，任务可以回收自己名下的 future 与对象</text>
+</svg>

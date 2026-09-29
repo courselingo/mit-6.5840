@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 199" width="760" height="199"
+     role="img" aria-labelledby="fig-ray-ray-11-title fig-ray-ray-11-desc">
+  <title id="fig-ray-ray-11-title">两个例子各自的时间要求</title>
+  <desc id="fig-ray-ray-11-desc">上下两条横向流程：模型服务从收到请求到立刻返回，模型副本保留状态；在线视频处理要算当前帧、在下一帧还没到时就开工，并用 actor 存解码后的帧。两者都不能等批处理的边界。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="199" fill="#ffffff"/>
+
+  <text x="380" y="32" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两个例子各自的时间要求</text>
+  <rect x="22" y="56" width="160" height="36" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="102" y="78.2" font-size="12" fill="#9d174d" text-anchor="middle">模型服务</text>
+  <rect x="207" y="56" width="160" height="36" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="287" y="78.2" font-size="12" fill="#9d174d" text-anchor="middle">收到请求</text>
+  <rect x="392" y="56" width="160" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="472" y="78.2" font-size="12" fill="#1e40af" text-anchor="middle">立刻返回</text>
+  <path d="M372,74.0 L381,74.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="577" y="56" width="160" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="657" y="78.2" font-size="12" fill="#166534" text-anchor="middle">模型副本留状态</text>
+  <path d="M557,74.0 L566,74.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="119" width="160" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="102" y="141.2" font-size="12" fill="#b45309" text-anchor="middle">在线视频处理</text>
+  <rect x="207" y="119" width="160" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="287" y="141.2" font-size="12" fill="#b45309" text-anchor="middle">算当前帧</text>
+  <rect x="392" y="119" width="160" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="472" y="141.2" font-size="12" fill="#1e40af" text-anchor="middle">下一帧还没到就开工</text>
+  <path d="M372,137.0 L381,137.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="577" y="119" width="160" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="657" y="141.2" font-size="12" fill="#166534" text-anchor="middle">存解码帧的 actor</text>
+  <path d="M557,137.0 L566,137.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="380" y="175" font-size="10" fill="#64748b" text-anchor="middle">批处理框架要求等到一个边界，而这两类负载都不能等</text>
+</svg>
