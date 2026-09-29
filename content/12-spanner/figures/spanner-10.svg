@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 279" width="760" height="279"
+     role="img" aria-labelledby="fig-spanner-10-title fig-spanner-10-desc">
+  <title id="fig-spanner-10-title">提交等待让 TS1 落到过去，于是 TS2 大于 TS1</title>
+  <desc id="fig-spanner-10-desc">读/写事务 T1 在提交开始时取到时间戳 10，提交等待一直等到区间整体跨过 10，保证 TS1 落在过去；之后只读事务 T2 才取到时间戳 15（取 latest 保证不在过去）。两者合起来就有 TS2 大于 TS1，因此 T2 必然看到 T1 的写。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="279" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">提交等待让 TS1 落到过去，于是 TS2 大于 TS1</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="80" font-size="12" fill="#9d174d" text-anchor="middle">读/写 T1：提交开始（C）</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="80" font-size="12" fill="#b45309" text-anchor="middle">T1 的区间是 [1,10]，TS1 = 10</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="142" font-size="12" fill="#9d174d" text-anchor="middle">读/写 T1：提交等待（W）</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="142" font-size="12" fill="#b45309" text-anchor="middle">等到区间跨过 10，变成 [11,20]</text>
+  <rect x="22" y="182" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="204" font-size="12" fill="#1e40af" text-anchor="middle">只读 T2：取 TS2 = 15</text>
+  <rect x="394" y="182" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="204" font-size="12" fill="#1e40af" text-anchor="middle">T2 的区间是 [5,15]，不在过去</text>
+  <line x1="194" y1="44" x2="194" y2="226" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="566" y1="44" x2="566" y2="226" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="380" y="254" font-size="11" fill="#64748b" text-anchor="middle">提交等待保证 TS1 在过去，只读规则保证 TS2 不在过去，于是 TS2 大于 TS1</text>
+</svg>

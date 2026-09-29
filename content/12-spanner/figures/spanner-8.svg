@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 211" width="760" height="211"
+     role="img" aria-labelledby="fig-spanner-8-title fig-spanner-8-desc">
+  <title id="fig-spanner-8-title">时钟误差的四种方向与后果</title>
+  <desc id="fig-spanner-8-desc">时钟误差有四种方向：只读事务的时间戳偏大时读会被 safe time 挡住，结果正确但慢；偏小时会漏掉开始前就已提交的写，违反外部一致性；读/写事务的时间戳偏大时旧写会显得像最新数据，偏小时新写会被忽略。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="211" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">时钟误差的四种方向与后果</text>
+  <rect x="22" y="58" width="344" height="33.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="194" y="78" font-size="11" fill="#b45309" text-anchor="middle">只读事务时间戳偏大：读被 safe time 挡住，正确但慢</text>
+  <rect x="394" y="58" width="344" height="33.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="78" font-size="11" fill="#9d174d" text-anchor="middle">读/写事务时间戳偏大：旧写看起来像最新数据</text>
+  <rect x="22" y="117" width="344" height="33.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="137" font-size="11" fill="#9d174d" text-anchor="middle">只读事务时间戳偏小：漏掉开始前已提交的写，违反外部一致性</text>
+  <rect x="394" y="117" width="344" height="33.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="137" font-size="11" fill="#9d174d" text-anchor="middle">读/写事务时间戳偏小：新写被当成旧的而忽略</text>
+  <text x="380" y="186" font-size="11" fill="#64748b" text-anchor="middle">四种方向里只有一种是「只是变慢」，另外三种都会破坏正确性</text>
+</svg>

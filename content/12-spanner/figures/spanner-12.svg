@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 217" width="760" height="217"
+     role="img" aria-labelledby="fig-spanner-12-title fig-spanner-12-desc">
+  <title id="fig-spanner-12-title">读/写事务与只读事务各自要保住的东西</title>
+  <desc id="fig-spanner-12-desc">读/写事务要保住的是：两次操作之间不许被插队，提交之后所有读都能看到更新；只读事务要保住的两条是可串行化与外部一致性，其中外部一致性是读/写事务路径上不需要单独操心的那一条。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="217" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">读/写事务与只读事务各自要保住的东西</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="194" y="80" font-size="12" fill="#b45309" text-anchor="middle">读/写事务：不许插队，提交后人人可见</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="80" font-size="12" fill="#1e40af" text-anchor="middle">只读事务：必须可串行化</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="194" y="142" font-size="12" fill="#b45309" text-anchor="middle">读/写事务：靠加锁与两阶段提交</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="142" font-size="12" fill="#9d174d" text-anchor="middle">只读事务：还必须外部一致</text>
+  <text x="380" y="192" font-size="11" fill="#64748b" text-anchor="middle">只读事务多出外部一致性这一条约束，而它占了绝大多数请求</text>
+</svg>

@@ -449,3 +449,28 @@ notes = "必须落盘、重启后仍在的状态；接受者记的提案就是"
 en = "starvation"
 zh = "饿死（活锁）"
 notes = "两个提议者互相顶掉对方的编号，谁都无法推进"
+
+[[term]]
+en = "future"
+zh = "future"
+notes = "一次异步调用的返回值；可以先传递引用，需要时才求值"
+
+[[term]]
+en = "actor"
+zh = "actor"
+notes = "在多次调用之间持有状态的远程对象，状态留在它所在的机器上"
+
+[[term]]
+en = "ownership"
+zh = "ownership"
+notes = "一个 future 由它的调用者拥有；关于它的元数据跟着所有者走"
+
+[[term]]
+en = "object store"
+zh = "对象存储"
+notes = "存放较大对象值的共享存储；值是对象 id，调用者可直接去取"
+
+[[term]]
+en = "lineage"
+zh = "血缘"
+notes = "任务与其后代的重建关系；重算时沿血缘重新执行"

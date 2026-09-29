@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 341" width="760" height="341"
+     role="img" aria-labelledby="fig-spanner-4-title fig-spanner-4-desc">
+  <title id="fig-spanner-4-title">读/写事务与只读事务的代价对照</title>
+  <desc id="fig-spanner-4-desc">读/写事务要加锁、要跑两阶段提交、要走跨数据中心的往返消息，一次十到一百毫秒；只读事务不加锁、不跑两阶段提交、不设事务管理器，并且读本地副本，于是延迟低一个数量级。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="341" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">读/写事务与只读事务的代价对照</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="80" font-size="12" fill="#9d174d" text-anchor="middle">加锁，写要两阶段提交</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="80" font-size="12" fill="#166534" text-anchor="middle">不加锁</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="142" font-size="12" fill="#9d174d" text-anchor="middle">协调者由 Paxos 组担任</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="142" font-size="12" fill="#166534" text-anchor="middle">不跑两阶段提交</text>
+  <rect x="22" y="182" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="204" font-size="12" fill="#9d174d" text-anchor="middle">跨数据中心的往返消息</text>
+  <rect x="394" y="182" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="204" font-size="12" fill="#166534" text-anchor="middle">不设事务管理器</text>
+  <rect x="22" y="244" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="266" font-size="12" fill="#9d174d" text-anchor="middle">一次十到一百毫秒</text>
+  <rect x="394" y="244" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="266" font-size="12" fill="#166534" text-anchor="middle">读本地副本，通常很快</text>
+  <text x="380" y="316" font-size="11" fill="#64748b" text-anchor="middle">只读路径的延迟比读/写路径低一个数量级（论文 Table 3 与 Table 6）</text>
+</svg>

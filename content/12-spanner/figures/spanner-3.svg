@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 553" width="760" height="553"
+     role="img" aria-labelledby="fig-spanner-3-title fig-spanner-3-desc">
+  <title id="fig-spanner-3-title">读/写事务的八步走位</title>
+  <desc id="fig-spanner-3-desc">读/写事务的八步走位：客户端先读并加锁；提交时把写交给一个由 Paxos 组担任的协调者，各参与者通过 Paxos 记下 prepare 并答复；协调者把决定记进自己的组后通知参与者和客户端，参与者再记下决定、执行写入并释放锁。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="553" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">读/写事务的八步走位</text>
+  <rect x="22" y="58" width="716" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="80" font-size="12" fill="#1e40af" text-anchor="middle">1. 客户端向相关分片的 Paxos 领导者发出读请求</text>
+  <path d="M380,99.0 L380,109.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="120.0" width="716" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="142" font-size="12" fill="#b45309" text-anchor="middle">2. 各分片领导者先给记录加锁，锁记在本地锁表</text>
+  <path d="M380,161.0 L380,171.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="182.0" width="716" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="204" font-size="12" fill="#1e40af" text-anchor="middle">3. 客户端挑一个 Paxos 组当协调者，把写发给相关领导者</text>
+  <path d="M380,223.0 L380,233.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="244.0" width="716" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="266" font-size="12" fill="#b45309" text-anchor="middle">4. 各领导者通过 Paxos 记一条 prepare，把锁与新值一起复制</text>
+  <path d="M380,285.0 L380,295.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="306.0" width="716" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="328" font-size="12" fill="#b45309" text-anchor="middle">5. 各领导者答复协调者：准备好了，或崩溃丢了锁表而回答 no</text>
+  <path d="M380,347.0 L380,357.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="368.0" width="716" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="390" font-size="12" fill="#166534" text-anchor="middle">6. 协调者决定提交或中止，并把决定通过 Paxos 记到自己那一组</text>
+  <path d="M380,409.0 L380,419.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="430.0" width="716" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="452" font-size="12" fill="#166534" text-anchor="middle">7. 协调者把提交通知各参与者与客户端</text>
+  <path d="M380,471.0 L380,481.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="492.0" width="716" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="514" font-size="12" fill="#166534" text-anchor="middle">8. 各参与者再记下决定，执行写入并释放锁</text>
+</svg>

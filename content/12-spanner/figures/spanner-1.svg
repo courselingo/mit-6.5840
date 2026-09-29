@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 341" width="760" height="341"
+     role="img" aria-labelledby="fig-spanner-1-title fig-spanner-1-desc">
+  <title id="fig-spanner-1-title">旧做法与四项新需求并排</title>
+  <desc id="fig-spanner-1-desc">左列是 F1 原来的样子：业务摊在很多 MySQL 与 BigTable 分片上，跨分片事务与一致性都要自己拼。右列是它需要的四件事：跨数据中心的同步复制、跨分片的事务、外部一致性与严格可串行化、自动重新分片。而负载的形状决定了优化重点：论文 Table 6 说 99.9% 的事务是只读的。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="341" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">旧做法与四项新需求并排</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="80" font-size="12" fill="#9d174d" text-anchor="middle">业务摊在很多 MySQL 上</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="80" font-size="12" fill="#1e40af" text-anchor="middle">要跨数据中心同步复制</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="142" font-size="12" fill="#9d174d" text-anchor="middle">又摊在 BigTable 上</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="142" font-size="12" fill="#1e40af" text-anchor="middle">要跨分片的事务</text>
+  <rect x="22" y="182" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="204" font-size="12" fill="#9d174d" text-anchor="middle">跨分片事务与一致性自己拼</text>
+  <rect x="394" y="182" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="204" font-size="12" fill="#b45309" text-anchor="middle">要外部一致性与严格可串行化</text>
+  <rect x="22" y="244" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="266" font-size="12" fill="#9d174d" text-anchor="middle">自动重新分片要靠人</text>
+  <rect x="394" y="244" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="266" font-size="12" fill="#1e40af" text-anchor="middle">要能自动重新分片</text>
+  <text x="380" y="316" font-size="11" fill="#64748b" text-anchor="middle">负载形状：绝大多数事务是只读的（论文 Table 6 说 99.9%）</text>
+</svg>
