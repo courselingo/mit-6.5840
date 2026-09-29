@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 279" width="760" height="279"
+     role="img" aria-labelledby="fig-raft-5-title fig-raft-5-desc">
+  <title id="fig-raft-5-title">领导者的职责与任期编号的性质</title>
+  <desc id="fig-raft-5-desc">领导者的职责是保证所有副本以同一顺序执行同一批命令，有些设计例如 Paxos 并没有领导者；Raft 给历任领导者编号：一个新领导者就开一个新任期，一个任期至多一个领导者也可能一个都没有，编号让服务器跟随最新的领导者而不是过气的那位。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="279" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">领导者的职责与任期编号的性质</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">为什么要领导者：保证以同一顺序执行同一批命令</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="80" font-size="12" fill="#b45309" text-anchor="middle">有的设计（例如 Paxos）没有领导者</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="142" font-size="12" fill="#166534" text-anchor="middle">一个新领导者就开一个新任期</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="142" font-size="12" fill="#166534" text-anchor="middle">一个任期至多一个领导者，也可能一个都没有</text>
+  <rect x="22" y="182" width="344" height="36.0" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="194" y="204" font-size="12" fill="#6b21a8" text-anchor="middle">编号的用处：让服务器跟随最新的领导者</text>
+  <rect x="394" y="182" width="344" height="36.0" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="566" y="204" font-size="12" fill="#6b21a8" text-anchor="middle">而不是已经过气的那位</text>
+  <text x="380" y="254" font-size="11" fill="#64748b" text-anchor="middle">任期不是时钟，而是一种让「谁是当前领导者」有唯一答案的编号</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 341" width="760" height="341"
+     role="img" aria-labelledby="fig-raft-10-title fig-raft-10-desc">
+  <title id="fig-raft-10-title">老领导者为什么不会造成脑裂以及它留下的代价</title>
+  <desc id="fig-raft-10-desc">老领导者可能没看到选举消息或身处少数派分区；新领导者上任意味着多数服务器已经增加了 currentTerm，所以它要么看到更高任期而退位，要么拿不到多数回复因而无法提交或执行新条目，于是不会出现脑裂。代价是少数派仍可能接受它的 AppendEntries，日志可能在旧任期尾部出现分叉。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="341" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">老领导者为什么不会造成脑裂以及它留下的代价</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">老领导者没看到选举消息，或身处少数派分区</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="80" font-size="12" fill="#b45309" text-anchor="middle">新领导者上任意味着多数服务器已经增加了 currentTerm</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="142" font-size="12" fill="#166534" text-anchor="middle">要么在 AppendEntries 回复里看到更高任期而退位</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="142" font-size="12" fill="#166534" text-anchor="middle">要么拿不到多数回复，无法提交或执行任何新条目</text>
+  <rect x="22" y="182" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="204" font-size="12" fill="#166534" text-anchor="middle">两条合起来：不会出现脑裂</text>
+  <rect x="394" y="182" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="204" font-size="12" fill="#9d174d" text-anchor="middle">代价：少数派仍可能接受老领导者的 AppendEntries</text>
+  <rect x="22" y="244" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="266" font-size="12" fill="#9d174d" text-anchor="middle">于是日志可能在旧任期的尾部出现分叉</text>
+  <rect x="394" y="244" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="266" font-size="12" fill="#9d174d" text-anchor="middle">例子：S1 有一条任期 3 的条目，S2 与 S3 各有两条</text>
+  <text x="380" y="316" font-size="11" fill="#64748b" text-anchor="middle">系统整体是安全的，而日志尾部需要下一讲来收拾</text>
+</svg>

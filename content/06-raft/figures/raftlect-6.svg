@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 217" width="760" height="217"
+     role="img" aria-labelledby="fig-raft-6-title fig-raft-6-desc">
+  <title id="fig-raft-6-title">选举什么时候开始以及它的两条注意事项</title>
+  <desc id="fig-raft-6-desc">一个节点在超过一个选举超时没听到现任领导者的消息时开始选举，把本地 currentTerm 加一再去收集选票。两条注意事项是：这会导致不必要但不危险的选举，以及老领导者可能还活着并以为自己是领导者。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="217" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">选举什么时候开始以及它的两条注意事项</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">选举触发：超过一个选举超时没听到现任领导者</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="80" font-size="12" fill="#b45309" text-anchor="middle">动作：把本地 currentTerm 加一，然后收集选票</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="142" font-size="12" fill="#9d174d" text-anchor="middle">注意一：会导致不必要的选举，慢但不危险</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="142" font-size="12" fill="#9d174d" text-anchor="middle">注意二：老领导者可能还活着，并且以为自己是领导者</text>
+  <text x="380" y="192" font-size="11" fill="#64748b" text-anchor="middle">选举可以多来几次，这是用慢一点换来的安全</text>
+</svg>

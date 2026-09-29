@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 341" width="760" height="341"
+     role="img" aria-labelledby="fig-raft-4-title fig-raft-4-desc">
+  <title id="fig-raft-4-title">日志的四条用处与两条好消息</title>
+  <desc id="fig-raft-4-desc">日志的四条用处是给命令排定顺序、暂存尚未提交的命令、留着命令以便重发、以及持久化以便重启后重放。各副本的日志并不是逐字副本：有的会落后，还可能暂时拥有不同条目；好消息是它们最终会收敛到一致，而提交机制保证只执行稳定的条目。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="341" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">日志的四条用处与两条好消息</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">日志给命令排定顺序</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="80" font-size="12" fill="#1e40af" text-anchor="middle">暂存尚未提交的命令</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="142" font-size="12" fill="#1e40af" text-anchor="middle">留着命令以便重发</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="142" font-size="12" fill="#1e40af" text-anchor="middle">持久化以便重启后重放</text>
+  <rect x="22" y="182" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="204" font-size="12" fill="#9d174d" text-anchor="middle">各副本日志不是逐字副本：可能落后</text>
+  <rect x="394" y="182" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="204" font-size="12" fill="#9d174d" text-anchor="middle">也可能暂时拥有不同的条目</text>
+  <rect x="22" y="244" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="266" font-size="12" fill="#166534" text-anchor="middle">好消息一：最终会收敛到一致</text>
+  <rect x="394" y="244" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="266" font-size="12" fill="#166534" text-anchor="middle">好消息二：只执行稳定的条目</text>
+  <text x="380" y="316" font-size="11" fill="#64748b" text-anchor="middle">日志允许暂时不一致，但必须能收敛</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 279" width="760" height="279"
+     role="img" aria-labelledby="fig-raft-7-title fig-raft-7-desc">
+  <title id="fig-raft-7-title">两条规则与三条结论</title>
+  <desc id="fig-raft-7-desc">保证一个任期至多一个领导者靠两条规则：领导者必须拿到多数服务器的同意票，并且每台服务器在每个任期只能投一票。于是同一任期至多一个领导者、分区下也成立、选举还能在部分服务器失效时成功；而多数派是对全体服务器而言的，不是对活着的服务器。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="279" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两条规则与三条结论</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">规则一：领导者必须拿到多数服务器的同意票</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="80" font-size="12" fill="#1e40af" text-anchor="middle">规则二：每台服务器每个任期只能投一票</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="142" font-size="12" fill="#166534" text-anchor="middle">结论一：同一任期至多一个领导者</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="142" font-size="12" fill="#166534" text-anchor="middle">结论二：即使网络分区也成立</text>
+  <rect x="22" y="182" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="204" font-size="12" fill="#166534" text-anchor="middle">结论三：部分服务器失效时选举仍能成功</text>
+  <rect x="394" y="182" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="204" font-size="12" fill="#9d174d" text-anchor="middle">细节：多数派是对全体服务器而言，不是对活着的服务器</text>
+  <text x="380" y="254" font-size="11" fill="#64748b" text-anchor="middle">多数派不能被重新定义，否则同一任期会出现两个领导者</text>
+</svg>

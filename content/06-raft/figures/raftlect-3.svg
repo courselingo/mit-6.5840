@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 465" width="760" height="465"
+     role="img" aria-labelledby="fig-raft-3-title fig-raft-3-desc">
+  <title id="fig-raft-3-title">一条客户端命令的六步走位</title>
+  <desc id="fig-raft-3-desc">客户端把命令发给领导者上的键值层，键值层调用 Start() 进入 Raft；领导者把命令追加到日志并用 AppendEntries 发给跟随者；拿到刚好多数的回复后条目算已提交；领导者在下一次 AppendEntries 里捎带提交信息，两层把已提交条目交给状态机执行并回复客户端。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="465" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一条客户端命令的六步走位</text>
+  <rect x="22" y="58" width="716" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="80" font-size="12" fill="#1e40af" text-anchor="middle">1. 客户端把 Put 或 Get 发给领导者上的键值层</text>
+  <path d="M380,99.0 L380,109.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="120.0" width="716" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="142" font-size="12" fill="#b45309" text-anchor="middle">2. 键值层调用 Start() 进入 Raft 层</text>
+  <path d="M380,161.0 L380,171.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="182.0" width="716" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="204" font-size="12" fill="#b45309" text-anchor="middle">3. 领导者把这条命令追加到自己的日志</text>
+  <path d="M380,223.0 L380,233.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="244.0" width="716" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="266" font-size="12" fill="#b45309" text-anchor="middle">4. 领导者用 AppendEntries RPC 发给跟随者，跟随者也追加到日志</text>
+  <path d="M380,285.0 L380,295.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="306.0" width="716" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="328" font-size="12" fill="#166534" text-anchor="middle">5. 等刚好多数（包括自己）的回复，多数派都放进日志即已提交</text>
+  <path d="M380,347.0 L380,357.0" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="22" y="368.0" width="716" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="390" font-size="12" fill="#166534" text-anchor="middle">6. 下一次 AppendEntries 捎带提交信息，两层把它交给状态机执行并回复客户端</text>
+  <text x="380" y="440.0" font-size="11" fill="#64748b" text-anchor="middle">多数派是「确定」的分界线，而日志是「尚未确定的顺序」的载体</text>
+</svg>

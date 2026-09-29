@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 341" width="760" height="341"
+     role="img" aria-labelledby="fig-raft-8-title fig-raft-8-desc">
+  <title id="fig-raft-8-title">心跳的作用、选举失败的两种原因与失败之后的处理</title>
+  <desc id="fig-raft-8-desc">新领导者靠 AppendEntries 心跳让大家知道，心跳里带着更高的任期号；只有领导者发 AppendEntries，所以看到任期为 T 的 AppendEntries 就知道 T 的领导者是谁，而心跳频率必须高于选举超时。选举失败的两个原因是联系上的服务器不到多数、或多个候选人把票分掉；失败之后就再超时一次为新任期重选，更高的任期优先。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="341" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">心跳的作用、选举失败的两种原因与失败之后的处理</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">心跳带着更高的任期号</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="80" font-size="12" fill="#b45309" text-anchor="middle">只有领导者发 AppendEntries</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="142" font-size="12" fill="#166534" text-anchor="middle">看到任期为 T 的 AppendEntries，就知道 T 的领导者</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="142" font-size="12" fill="#166534" text-anchor="middle">心跳压住新选举：发送频率必须高于选举超时</text>
+  <rect x="22" y="182" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="204" font-size="12" fill="#9d174d" text-anchor="middle">选举失败原因一：能联系上的服务器不到多数</text>
+  <rect x="394" y="182" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="204" font-size="12" fill="#9d174d" text-anchor="middle">选举失败原因二：候选人同时竞选把票分掉了</text>
+  <rect x="22" y="244" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="194" y="266" font-size="12" fill="#b45309" text-anchor="middle">失败之后：再超时一次，为新任期重新选举</text>
+  <rect x="394" y="244" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="266" font-size="12" fill="#b45309" text-anchor="middle">更高的任期优先，为旧任期竞选的候选人退出</text>
+  <text x="380" y="316" font-size="11" fill="#64748b" text-anchor="middle">成功靠多数派，失败也只是再来一轮</text>
+</svg>

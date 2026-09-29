@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 403" width="760" height="403"
+     role="img" aria-labelledby="fig-raft-2-title fig-raft-2-desc">
+  <title id="fig-raft-2-title">复制状态机的四个条件与主节点失效后的两条路</title>
+  <desc id="fig-raft-2-desc">复制状态机要求同一初始状态、同一批操作、同一顺序与确定性，才有相同的末状态；主节点失效后，一条路是让协调者指定新主（协调者自己也可能坏），另一条是让副本自己选，而后者会撞上网络分区与脑裂，根因是分不清对端崩了还是网络断了。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="403" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">复制状态机的四个条件与主节点失效后的两条路</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">四个条件：同初始状态、同操作、同顺序、确定性</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="80" font-size="12" fill="#166534" text-anchor="middle">于是末状态相同，多台机器表现成一台</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="194" y="142" font-size="12" fill="#b45309" text-anchor="middle">主节点给操作排序并转发给备份</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="142" font-size="12" fill="#b45309" text-anchor="middle">GFS 的 primary-backup 就是这样</text>
+  <rect x="22" y="182" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="204" font-size="12" fill="#9d174d" text-anchor="middle">主节点坏了：让协调者指定新主</text>
+  <rect x="394" y="182" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="204" font-size="12" fill="#9d174d" text-anchor="middle">协调者也坏了：让副本自己选</text>
+  <rect x="22" y="244" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="266" font-size="12" fill="#9d174d" text-anchor="middle">自己选会撞上网络分区与脑裂</text>
+  <rect x="394" y="244" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="266" font-size="12" fill="#9d174d" text-anchor="middle">根因：分不清「崩了」与「网断了」</text>
+  <rect x="22" y="306" width="344" height="36.0" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="194" y="328" font-size="12" fill="#6b21a8" text-anchor="middle">1990 年前后：Paxos 与 View-Stamped Replication</text>
+  <rect x="394" y="306" width="344" height="36.0" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="566" y="328" font-size="12" fill="#6b21a8" text-anchor="middle">它们被统称为共识协议</text>
+  <text x="380" y="378" font-size="11" fill="#64748b" text-anchor="middle">顺序由谁定，在分区面前就变成了共识问题</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 341" width="760" height="341"
+     role="img" aria-labelledby="fig-raft-11-title fig-raft-11-desc">
+  <title id="fig-raft-11-title">日志分叉的两种形态与造成它的那串领导者崩溃</title>
+  <desc id="fig-raft-11-desc">日志分叉有两种形态：长度不同，例如 S1 只有一条任期 3 的条目而 S2、S3 各有两条；以及同一位置装着不同的条目，例如位置 12 在不同副本上是不同的命令。成因是一串领导者崩溃：S2 在任期 3 追加条目 10 给三台、条目 11 只给自己和 S3，崩溃重启后在任期 4 追加 12，而 S3 在任期 5 成为领导者后往位置 12 追加了另一条。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="341" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">日志分叉的两种形态与造成它的那串领导者崩溃</text>
+  <rect x="22" y="58" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="80" font-size="12" fill="#9d174d" text-anchor="middle">长度不同：S1 一条任期 3，S2 与 S3 各两条</text>
+  <rect x="394" y="58" width="344" height="36.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="80" font-size="12" fill="#9d174d" text-anchor="middle">同一位置不同条目：位置 12 在不同副本上是不同的命令</text>
+  <rect x="22" y="120" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="142" font-size="12" fill="#1e40af" text-anchor="middle">成因一：S2 在任期 3 把条目 10 追加给三台</text>
+  <rect x="394" y="120" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="142" font-size="12" fill="#1e40af" text-anchor="middle">把条目 11 只追加给自己和 S3，因为 S1 崩了</text>
+  <rect x="22" y="182" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="204" font-size="12" fill="#1e40af" text-anchor="middle">成因二：S2 崩溃后很快重启，在任期 4 追加 12 后崩溃</text>
+  <rect x="394" y="182" width="344" height="36.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="204" font-size="12" fill="#1e40af" text-anchor="middle">成因三：S3 在 S1 帮助下成为任期 5 的领导者</text>
+  <rect x="22" y="244" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="194" y="266" font-size="12" fill="#b45309" text-anchor="middle">它在位置 12 追加了一条不同的条目</text>
+  <rect x="394" y="244" width="344" height="36.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="266" font-size="12" fill="#b45309" text-anchor="middle">下一讲：Raft 怎么处理日志分叉，含一条选举额外限制</text>
+  <text x="380" y="316" font-size="11" fill="#64748b" text-anchor="middle">不做那条选举额外限制也能通过 3A 的测试</text>
+</svg>
