@@ -53,24 +53,38 @@ def report_missing_figures(root: Path) -> int:
     ★ 判据的误报率**可证明为 0**：引用了不存在的文件永远是缺陷，没有例外。
     """
     missing: list[str] = []
+    orphans: list[str] = []
     for md in sorted(root.glob("content/**/index.md")):
         text = md.read_text(encoding="utf-8", errors="replace")
         refs = re.findall(r"\]\((?:\.\./)*figures/([^)\s]+)\)", text)
-        if not refs:
-            continue
         fdir = md.parent / "figures"
         present = {p.name for p in fdir.glob("*")} if fdir.is_dir() else set()
         rel = md.relative_to(root).as_posix()
         for name in dict.fromkeys(refs):
             if name not in present:
                 missing.append(f"{rel}: 引用了 figures/{name}，而它不在磁盘上")
+        # ★★ 反向：磁盘上有、而正文没引用（孤儿图）—— 2026-09-29 补。
+        #   起因：两位作者各撞了一次 —— 一位写好 `bitcoin-11.svg` 后**漏跑插入引用的脚本**，
+        #   而另一位的生成器在「引了没构建器」时才报错；**而这里原本只查 引用→文件 这一个方向**
+        #   ⇒ 于是孤儿图**落在每一道门的视野之外**，而它同时会把密度算低（因为图不计入引用数）。
+        #   ★ 误报率为 0：`figures/` 目录里没被任何一节引用的图，永远是缺陷（要么漏引用、要么多余）。
+        if refs:
+            for name in sorted(present):
+                if name not in refs:
+                    orphans.append(f"{rel}: figures/{name} 在磁盘上而正文没有引用它（孤儿图）")
     if missing:
         print("\n❌ 引用了而磁盘上不存在的图：")
         for m in missing:
             print(f"   {m}")
         print(f"   ⇒ 共 {len(missing)} 处。读者会看到破图图标。")
+    if orphans:
+        print("\n❌ 磁盘上有而正文没引用的图（孤儿图）：")
+        for o in orphans:
+            print(f"   {o}")
+        print(f"   ⇒ 共 {len(orphans)} 处。它不显示给读者，而会让密度偏低、并让差集两向失去意义。")
+    if missing or orphans:
         return 1
-    print("✅ 图片引用与磁盘一致（无缺文件）")
+    print("✅ 图片引用与磁盘一致（两个方向都查了：无缺文件、无孤儿图）")
     return 0
 
 
