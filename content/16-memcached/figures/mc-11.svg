@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 283" width="760" height="283"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 290" width="760" height="290"
      role="img" aria-labelledby="fig-mc-11-title fig-mc-11-desc">
   <title id="fig-mc-11-title">缓存与数据库之间那道边界：谁去取、谁去写</title>
   <desc id="fig-mc-11-desc">上面一条说明这张图讲的是缓存与数据库之间那道边界。第二排三格是三条路径：读的路径是客户端先问缓存、未命中再去问数据库、然后把结果放进缓存；写的路径是客户端直接写数据库、然后让缓存里的那份失效；而缓存根本不知道数据库的存在，它只是存客户端让它存的东西。最下面一条说明这就是旁路缓存的形状：应用分别跟缓存与数据库打交道，两边的顺序与时机由应用决定，而那也正是那些竞态的来处。</desc>
@@ -8,24 +8,26 @@
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
   </defs>
+  <g transform="translate(0,-1)">
 
-  <rect x="0" y="0" width="760" height="283" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="293" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">缓存与数据库之间那道边界：谁去取、谁去写</text>
-  <rect x="25" y="64" width="710" height="33" rx="6" fill="#eff6ff" stroke="#3b82f6"/>
-  <text x="380" y="84.35" font-size="11" fill="#1e40af" text-anchor="middle">缓存与数据库之间那道边界：谁去取、谁去写</text>
-  <rect x="25" y="125" width="220" height="75" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="143.5" font-size="10" fill="#1e40af" text-anchor="middle">读的路径</text>
-  <text x="135" y="158.5" font-size="10" fill="#1e40af" text-anchor="middle">客户端先问缓存</text>
-  <text x="135" y="173.5" font-size="10" fill="#1e40af" text-anchor="middle">未命中再去问数据库</text>
-  <text x="135" y="188.5" font-size="10" fill="#1e40af" text-anchor="middle">然后把结果放进缓存</text>
-  <rect x="270" y="125" width="220" height="75" rx="6" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="380" y="151" font-size="10" fill="#166534" text-anchor="middle">写的路径</text>
-  <text x="380" y="166" font-size="10" fill="#166534" text-anchor="middle">客户端直接写数据库</text>
-  <text x="380" y="181" font-size="10" fill="#166534" text-anchor="middle">然后让缓存里的那份失效</text>
-  <rect x="515" y="125" width="220" height="75" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
-  <text x="625" y="158.5" font-size="10" fill="#1e293b" text-anchor="middle">缓存不知道数据库</text>
-  <text x="625" y="173.5" font-size="10" fill="#1e293b" text-anchor="middle">它只是存客户端让它存的东西</text>
-  <rect x="25" y="228" width="710" height="30" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="246.5" font-size="10" fill="#6b21a8" text-anchor="middle">这就是旁路缓存的形状：应用分别跟缓存与数据库打交道，两边的顺序与时机由应用决定，也正是那些竞态的来处</text>
+  <text x="380" y="38" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">缓存与数据库之间那道边界：谁去取、谁去写</text>
+  <rect x="25" y="72" width="710" height="33" rx="6" fill="#eff6ff" stroke="#3b82f6"/>
+  <text x="380" y="92.35" font-size="11" fill="#1e40af" text-anchor="middle">缓存与数据库之间那道边界：谁去取、谁去写</text>
+  <rect x="25" y="133" width="220" height="75" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="151.5" font-size="10" fill="#1e40af" text-anchor="middle">读的路径</text>
+  <text x="135" y="166.5" font-size="10" fill="#1e40af" text-anchor="middle">客户端先问缓存</text>
+  <text x="135" y="181.5" font-size="10" fill="#1e40af" text-anchor="middle">未命中再去问数据库</text>
+  <text x="135" y="196.5" font-size="10" fill="#1e40af" text-anchor="middle">然后把结果放进缓存</text>
+  <rect x="270" y="133" width="220" height="75" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="159" font-size="10" fill="#166534" text-anchor="middle">写的路径</text>
+  <text x="380" y="174" font-size="10" fill="#166534" text-anchor="middle">客户端直接写数据库</text>
+  <text x="380" y="189" font-size="10" fill="#166534" text-anchor="middle">然后让缓存里的那份失效</text>
+  <rect x="515" y="133" width="220" height="75" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="625" y="166.5" font-size="10" fill="#1e293b" text-anchor="middle">缓存不知道数据库</text>
+  <text x="625" y="181.5" font-size="10" fill="#1e293b" text-anchor="middle">它只是存客户端让它存的东西</text>
+  <rect x="25" y="236" width="710" height="30" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="254.5" font-size="10" fill="#6b21a8" text-anchor="middle">这就是旁路缓存的形状：应用分别跟缓存与数据库打交道，两边的顺序与时机由应用决定，也正是那些竞态的来处</text>
+  </g>
 </svg>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 317" width="760" height="317"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 495" width="760" height="495"
      role="img" aria-labelledby="fig-mc-5-title fig-mc-5-desc">
   <title id="fig-mc-5-title">惊群与租约，以及缓存机故障时的 Gutter</title>
   <desc id="fig-mc-5-desc">上排两格是跨 region 的两个问题：为什么要多 region（离用户更近、本地读很快、主 region 挂了有热副本顶上），以及为什么不按用户切 region（那样就不需要复制、硬件成本可能省一半，但社交网络局部性很差，这招不灵）。第二条说明 region 内部是多个簇：每个簇是一整套缓存加 web 服务器，而每台 web 服务器只在自己这个簇里做哈希。第三条是惊群与它的解法：一个客户端更新数据库并删掉某个键之后，很多客户端一起未命中、一起去数据库取同一份数据，造成没必要的负载；解法是只给第一个未命中的客户端发租约，让它去数据库刷新，而对其他客户端说稍后再试。最下面一条是缓存机故障时的做法：不能靠数据库扛未命中、也不能把负载挪给别的缓存机，于是用一池空闲的 Gutter 顶上，每个簇一套；而失效不发 Gutter，因为那会让删除流量至少翻倍。</desc>
@@ -8,22 +8,30 @@
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
   </defs>
+  <g transform="translate(0,-1)">
 
-  <rect x="0" y="0" width="760" height="317" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="498" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">惊群与租约，以及缓存机故障时的 Gutter</text>
-  <rect x="25" y="64" width="342.5" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="196.25" y="82.5" font-size="10" fill="#1e40af" text-anchor="middle">为什么要多 region</text>
-  <text x="196.25" y="97.5" font-size="10" fill="#1e40af" text-anchor="middle">离用户更近、本地读很快</text>
-  <text x="196.25" y="112.5" font-size="10" fill="#1e40af" text-anchor="middle">主 region 挂了有热副本顶上</text>
-  <rect x="392.5" y="64" width="342.5" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="563.75" y="82.5" font-size="10" fill="#b45309" text-anchor="middle">为什么不按用户切 region</text>
-  <text x="563.75" y="97.5" font-size="10" fill="#b45309" text-anchor="middle">那样就不需要复制、硬件可能省一半</text>
-  <text x="563.75" y="112.5" font-size="10" fill="#b45309" text-anchor="middle">但社交网络局部性很差，这招不灵</text>
-  <rect x="25" y="152" width="710" height="30" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
-  <text x="380" y="170.5" font-size="10" fill="#1e293b" text-anchor="middle">region 内部是多个簇：每个簇是一整套缓存加 web 服务器，每台 web 服务器只在自己簇里做哈希</text>
-  <rect x="25" y="210" width="710" height="27" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="380" y="226.65" font-size="9" fill="#6b21a8" text-anchor="middle">惊群：一个客户端更新数据库并删掉某个键之后，很多客户端一起未命中、一起去数据库取同一份数据；解法是只给第一个未命中的客户端发租约，让它去数据库刷新，对其他客户端说稍后再试</text>
-  <rect x="25" y="265" width="710" height="27" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="281.65" font-size="9" fill="#b45309" text-anchor="middle">缓存机故障：不能靠数据库扛未命中，也不能把负载挪给别的缓存机；用一池空闲的 Gutter 顶上，每个簇一套；失效不发 Gutter，因为那会让删除流量至少翻倍</text>
+  <text x="380" y="38" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">惊群与租约，以及缓存机故障时的 Gutter</text>
+  <rect x="25" y="72" width="342.5" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="196.25" y="90.5" font-size="10" fill="#1e40af" text-anchor="middle">为什么要多 region</text>
+  <text x="196.25" y="105.5" font-size="10" fill="#1e40af" text-anchor="middle">离用户更近、本地读很快</text>
+  <text x="196.25" y="120.5" font-size="10" fill="#1e40af" text-anchor="middle">主 region 挂了有热副本顶上</text>
+  <rect x="392.5" y="72" width="342.5" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="563.75" y="90.5" font-size="10" fill="#b45309" text-anchor="middle">为什么不按用户切 region</text>
+  <text x="563.75" y="105.5" font-size="10" fill="#b45309" text-anchor="middle">那样就不需要复制、硬件可能省一半</text>
+  <text x="563.75" y="120.5" font-size="10" fill="#b45309" text-anchor="middle">但社交网络局部性很差，这招不灵</text>
+  <rect x="25" y="160" width="710" height="30" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="178.5" font-size="10" fill="#1e293b" text-anchor="middle">region 内部是多个簇：每个簇是一整套缓存加 web 服务器，每台 web 服务器只在自己簇里做哈希</text>
+  <rect x="25" y="218" width="710" height="30" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="236.5" font-size="10" fill="#6b21a8" text-anchor="middle">惊群：一个客户端更新数据库并删掉某个键之后</text>
+  <rect x="25" y="276" width="710" height="27" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="292.65" font-size="9" fill="#6b21a8" text-anchor="middle">很多客户端一起未命中、一起去数据库取同一份数据</text>
+  <rect x="25" y="331" width="710" height="27" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="347.65" font-size="9" fill="#6b21a8" text-anchor="middle">解法是只给第一个未命中的客户端发租约，让它去数据库刷新，对其他客户端说稍后再试</text>
+  <rect x="25" y="386" width="710" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="404.5" font-size="10" fill="#b45309" text-anchor="middle">缓存机故障：不能靠数据库扛未命中，也不能把负载挪给别的缓存机</text>
+  <rect x="25" y="444" width="710" height="27" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="460.65" font-size="9" fill="#b45309" text-anchor="middle">用一池空闲的 Gutter 顶上，每个簇一套；失效不发 Gutter，因为那会让删除流量至少翻倍</text>
+  </g>
 </svg>

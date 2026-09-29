@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 244.5" width="760" height="244.5"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320"
      role="img" aria-labelledby="fig-mc-4-title fig-mc-4-desc">
   <title id="fig-mc-4-title">分片还是复制：两种做法的取舍</title>
   <desc id="fig-mc-4-desc">第一排三格是为什么要分、谁来决定与它的推论：为什么分有三条理由（CPU 与网络的并行度、总内存、以及负载怎么分）；由客户端的哈希函数决定，而所有 web 服务器用的是同一个；因此一个客户端缓存的键别的客户端也能看到，具体怎么哈希由中心配置管理器下发。第二排三格是两种做法各自的取舍：分片把键分到各台缓存机上，好处是省内存、每个键值对只存一份，坏处是对极少数热门键没有帮助、每台 web 服务器要跟很多台缓存机说话、而且有入拥塞的风险；复制把客户端分到各台缓存机上，好处是热门读有用、一个包里能装多个请求与响应、需要联系的机器少、网络也更好设计，坏处是更费内存、而且写更贵。</desc>
@@ -8,34 +8,41 @@
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
   </defs>
+  <g transform="translate(0,-1)">
 
-  <rect x="0" y="0" width="760" height="244.5" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="323" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">分片还是复制：两种做法的取舍</text>
-  <rect x="25" y="64" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="82.5" font-size="10" fill="#1e40af" text-anchor="middle">为什么要分</text>
-  <text x="135" y="97.5" font-size="10" fill="#1e40af" text-anchor="middle">CPU 与网络的并行度</text>
-  <text x="135" y="112.5" font-size="10" fill="#1e40af" text-anchor="middle">总内存、以及负载怎么分</text>
-  <rect x="270" y="64" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="380" y="82.5" font-size="10" fill="#1e40af" text-anchor="middle">谁来决定</text>
-  <text x="380" y="97.5" font-size="10" fill="#1e40af" text-anchor="middle">客户端的哈希函数</text>
-  <text x="380" y="112.5" font-size="10" fill="#1e40af" text-anchor="middle">所有 web 服务器用同一个</text>
-  <rect x="515" y="64" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="625" y="83.65" font-size="9" fill="#1e40af" text-anchor="middle">因此</text>
-  <text x="625" y="97.15" font-size="9" fill="#1e40af" text-anchor="middle">一个客户端缓存的键别的客户端能看到</text>
-  <text x="625" y="110.65" font-size="9" fill="#1e40af" text-anchor="middle">由中心配置管理器下发怎么哈希</text>
-  <rect x="25" y="152" width="220" height="67.5" rx="6" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="135" y="174.25" font-size="10" fill="#166534" text-anchor="middle">分片</text>
-  <text x="135" y="189.25" font-size="10" fill="#166534" text-anchor="middle">把键分到各台缓存机上</text>
-  <text x="135" y="204.25" font-size="10" fill="#166534" text-anchor="middle">好处：省内存，每个键值对只存一份</text>
-  <rect x="270" y="152" width="220" height="67.5" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="380" y="168.65" font-size="9" fill="#b45309" text-anchor="middle">分片的坏处</text>
-  <text x="380" y="182.15" font-size="9" fill="#b45309" text-anchor="middle">对极少数热门键没有帮助</text>
-  <text x="380" y="195.65" font-size="9" fill="#b45309" text-anchor="middle">每台 web 服务器要跟很多台说话</text>
-  <text x="380" y="209.15" font-size="9" fill="#b45309" text-anchor="middle">而且有入拥塞的风险</text>
-  <rect x="515" y="152" width="220" height="67.5" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="625" y="168.65" font-size="9" fill="#6b21a8" text-anchor="middle">复制</text>
-  <text x="625" y="182.15" font-size="9" fill="#6b21a8" text-anchor="middle">把客户端分到各台缓存机上</text>
-  <text x="625" y="195.65" font-size="9" fill="#6b21a8" text-anchor="middle">好处：热门读有用、包开销低、要联系的机器少、网络更好设计</text>
-  <text x="625" y="209.15" font-size="9" fill="#6b21a8" text-anchor="middle">坏处：费内存、写更贵</text>
+  <text x="380" y="38" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">分片还是复制：两种做法的取舍</text>
+  <rect x="25" y="72" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="90.5" font-size="10" fill="#1e40af" text-anchor="middle">为什么要分</text>
+  <text x="135" y="105.5" font-size="10" fill="#1e40af" text-anchor="middle">CPU 与网络的并行度</text>
+  <text x="135" y="120.5" font-size="10" fill="#1e40af" text-anchor="middle">总内存、以及负载怎么分</text>
+  <rect x="270" y="72" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="90.5" font-size="10" fill="#1e40af" text-anchor="middle">谁来决定</text>
+  <text x="380" y="105.5" font-size="10" fill="#1e40af" text-anchor="middle">客户端的哈希函数</text>
+  <text x="380" y="120.5" font-size="10" fill="#1e40af" text-anchor="middle">所有 web 服务器用同一个</text>
+  <rect x="515" y="72" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="625" y="91.65" font-size="9" fill="#1e40af" text-anchor="middle">因此</text>
+  <text x="625" y="105.15" font-size="9" fill="#1e40af" text-anchor="middle">一个客户端缓存的键别的客户端能看到</text>
+  <text x="625" y="118.65" font-size="9" fill="#1e40af" text-anchor="middle">由中心配置管理器下发怎么哈希</text>
+  <rect x="25" y="160" width="342.5" height="54" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="196.25" y="176.65" font-size="9" fill="#166534" text-anchor="middle">分片</text>
+  <text x="196.25" y="190.15" font-size="9" fill="#166534" text-anchor="middle">把键分到各台缓存机上</text>
+  <text x="196.25" y="203.65" font-size="9" fill="#166534" text-anchor="middle">好处：省内存，每个键值对只存一份</text>
+  <rect x="392.5" y="160" width="342.5" height="54" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="563.75" y="176.65" font-size="9" fill="#b45309" text-anchor="middle">分片的坏处</text>
+  <text x="563.75" y="190.15" font-size="9" fill="#b45309" text-anchor="middle">对极少数热门键没有帮助</text>
+  <text x="563.75" y="203.65" font-size="9" fill="#b45309" text-anchor="middle">每台 web 服务器要跟很多台说话；有入拥塞的风险</text>
+  <rect x="25" y="242" width="220" height="54" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="135" y="258.65" font-size="9" fill="#6b21a8" text-anchor="middle">复制</text>
+  <text x="135" y="272.15" font-size="9" fill="#6b21a8" text-anchor="middle">把客户端分到各台缓存机上</text>
+  <text x="135" y="285.65" font-size="9" fill="#6b21a8" text-anchor="middle">好处：热门读有用、包开销低</text>
+  <rect x="270" y="242" width="220" height="54" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="265.4" font-size="9" fill="#6b21a8" text-anchor="middle">复制的好处（续）</text>
+  <text x="380" y="278.9" font-size="9" fill="#6b21a8" text-anchor="middle">需要联系的机器少，网络也更好设计</text>
+  <rect x="515" y="242" width="220" height="54" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="258.65" font-size="9" fill="#6b21a8" text-anchor="middle">复制的坏处</text>
+  <text x="625" y="272.15" font-size="9" fill="#6b21a8" text-anchor="middle">更费内存，能缓存的东西变少</text>
+  <text x="625" y="285.65" font-size="9" fill="#6b21a8" text-anchor="middle">而且写更贵</text>
+  </g>
 </svg>

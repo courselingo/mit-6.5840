@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 335" width="760" height="335"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 342" width="760" height="342"
      role="img" aria-labelledby="fig-mc-2-title fig-mc-2-desc">
   <title id="fig-mc-2-title">大图景：一个 region 里有三样东西，而每个 region 都是完整副本</title>
   <desc id="fig-mc-2-desc">上排三格是源笔记给的规模判断：数据新鲜不新鲜并不关键，因为人对轻微的陈旧是容忍的；负载读多写少，这对缓存有利；但局部性很差，这对缓存不利。第二条给出量级：每秒数十亿次存储操作，而一台 MySQL 约十万次简单查询每秒、一台 memcached 约一百万次 get 或 put 每秒。第三条说明每个 region 里的第一样东西：分片存在 MySQL 上的真数据，有 ACID 但慢。第三排三格是另外两样东西与副本关系：一层 memcached（数据在内存里、快、但容量有限）；无状态的 web 服务器（它是 memcached 与数据库的客户端）；以及每个 region 都是完整副本、西岸是主、其余通过异步日志复制跟随。</desc>
@@ -8,32 +8,34 @@
       text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
     </style>
   </defs>
+  <g transform="translate(0,-1)">
 
-  <rect x="0" y="0" width="760" height="335" fill="#ffffff"/>
+  <rect x="0" y="0" width="760" height="345" fill="#ffffff"/>
 
-  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">大图景：一个 region 里有三样东西，而每个 region 都是完整副本</text>
-  <rect x="25" y="64" width="220" height="45" rx="6" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="135" y="82.5" font-size="10" fill="#166534" text-anchor="middle">数据新鲜不新鲜并不关键</text>
-  <text x="135" y="97.5" font-size="10" fill="#166534" text-anchor="middle">人对轻微的陈旧是容忍的</text>
-  <rect x="270" y="64" width="220" height="45" rx="6" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="380" y="82.5" font-size="10" fill="#166534" text-anchor="middle">读多写少</text>
-  <text x="380" y="97.5" font-size="10" fill="#166534" text-anchor="middle">这对缓存有利</text>
-  <rect x="515" y="64" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="625" y="82.5" font-size="10" fill="#b45309" text-anchor="middle">但局部性很差</text>
-  <text x="625" y="97.5" font-size="10" fill="#b45309" text-anchor="middle">这对缓存不利</text>
-  <rect x="25" y="137" width="710" height="27" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
-  <text x="380" y="153.65" font-size="9" fill="#1e293b" text-anchor="middle">负载极高：每秒数十亿次存储操作。对比：一台 MySQL 约十万次简单查询每秒，一台 memcached 约一百万次 get 或 put 每秒</text>
-  <rect x="25" y="192" width="710" height="30" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="380" y="210.5" font-size="10" fill="#1e40af" text-anchor="middle">每个 region 里有三样东西：分片存在 MySQL 上的真数据（有 ACID 但慢）</text>
-  <rect x="25" y="250" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="135" y="268.5" font-size="10" fill="#1e40af" text-anchor="middle">一层 memcached</text>
-  <text x="135" y="283.5" font-size="10" fill="#1e40af" text-anchor="middle">数据在内存里，快</text>
-  <text x="135" y="298.5" font-size="10" fill="#1e40af" text-anchor="middle">但容量有限</text>
-  <rect x="270" y="250" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
-  <text x="380" y="276" font-size="10" fill="#1e40af" text-anchor="middle">无状态的 web 服务器</text>
-  <text x="380" y="291" font-size="10" fill="#1e40af" text-anchor="middle">它是 memcached 与数据库的客户端</text>
-  <rect x="515" y="250" width="220" height="60" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
-  <text x="625" y="268.5" font-size="10" fill="#6b21a8" text-anchor="middle">副本关系</text>
-  <text x="625" y="283.5" font-size="10" fill="#6b21a8" text-anchor="middle">每个 region 都是完整副本</text>
-  <text x="625" y="298.5" font-size="10" fill="#6b21a8" text-anchor="middle">西岸是主，其余走异步日志复制</text>
+  <text x="380" y="38" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">大图景：一个 region 里有三样东西，而每个 region 都是完整副本</text>
+  <rect x="25" y="72" width="220" height="45" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="90.5" font-size="10" fill="#166534" text-anchor="middle">数据新鲜不新鲜并不关键</text>
+  <text x="135" y="105.5" font-size="10" fill="#166534" text-anchor="middle">人对轻微的陈旧是容忍的</text>
+  <rect x="270" y="72" width="220" height="45" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="90.5" font-size="10" fill="#166534" text-anchor="middle">读多写少</text>
+  <text x="380" y="105.5" font-size="10" fill="#166534" text-anchor="middle">这对缓存有利</text>
+  <rect x="515" y="72" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="625" y="90.5" font-size="10" fill="#b45309" text-anchor="middle">但局部性很差</text>
+  <text x="625" y="105.5" font-size="10" fill="#b45309" text-anchor="middle">这对缓存不利</text>
+  <rect x="25" y="145" width="710" height="27" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="161.65" font-size="9" fill="#1e293b" text-anchor="middle">负载极高：每秒数十亿次存储操作。对比：一台 MySQL 约十万次简单查询每秒，一台 memcached 约一百万次 get 或 put 每秒</text>
+  <rect x="25" y="200" width="710" height="30" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="218.5" font-size="10" fill="#1e40af" text-anchor="middle">每个 region 里有三样东西：分片存在 MySQL 上的真数据（有 ACID 但慢）</text>
+  <rect x="25" y="258" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="276.5" font-size="10" fill="#1e40af" text-anchor="middle">一层 memcached</text>
+  <text x="135" y="291.5" font-size="10" fill="#1e40af" text-anchor="middle">数据在内存里，快</text>
+  <text x="135" y="306.5" font-size="10" fill="#1e40af" text-anchor="middle">但容量有限</text>
+  <rect x="270" y="258" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="284" font-size="10" fill="#1e40af" text-anchor="middle">无状态的 web 服务器</text>
+  <text x="380" y="299" font-size="10" fill="#1e40af" text-anchor="middle">它是 memcached 与数据库的客户端</text>
+  <rect x="515" y="258" width="220" height="60" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="276.5" font-size="10" fill="#6b21a8" text-anchor="middle">副本关系</text>
+  <text x="625" y="291.5" font-size="10" fill="#6b21a8" text-anchor="middle">每个 region 都是完整副本</text>
+  <text x="625" y="306.5" font-size="10" fill="#6b21a8" text-anchor="middle">西岸是主，其余走异步日志复制</text>
+  </g>
 </svg>

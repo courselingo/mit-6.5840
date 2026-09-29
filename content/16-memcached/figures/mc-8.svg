@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 388" width="760" height="388"
+     role="img" aria-labelledby="fig-mc-8-title fig-mc-8-desc">
+  <title id="fig-mc-8-title">数据库被写之后，怎么处理已经陈旧的缓存</title>
+  <desc id="fig-mc-8-desc">上面一条说明这张图讲的是数据库被写之后怎么处理已经陈旧的缓存。第二条说明一个 region 里一份数据可能有很多份缓存拷贝（每个簇一份），于是有两路失效。第二排三格是那两路与跨 region：数据库把 delete 发给 region 内相关的缓存机；发起写的那台客户端顺手失效自己本地簇里的缓存，用来满足读到自己的写；其他 region 的数据库听到更新之后也会发出失效。最下面一条是跨 region 的同步：只有一个 region 是主、所有更新只发给它，主把日志分发给其他 region 应用，那些数据库是完整副本而不是缓存，而复制延迟可能有好几秒。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+  <g transform="translate(0,-1)">
+
+  <rect x="0" y="0" width="760" height="391" fill="#ffffff"/>
+
+  <text x="380" y="38" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">数据库被写之后，怎么处理已经陈旧的缓存</text>
+  <rect x="25" y="72" width="710" height="33" rx="6" fill="#eff6ff" stroke="#3b82f6"/>
+  <text x="380" y="92.35" font-size="11" fill="#1e40af" text-anchor="middle">数据库被写之后，怎么处理已经陈旧的缓存</text>
+  <rect x="25" y="133" width="710" height="30" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="151.5" font-size="10" fill="#1e293b" text-anchor="middle">一个 region 里一份数据可能有很多份缓存拷贝（每个簇一份），于是有两路失效</text>
+  <rect x="25" y="191" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="217" font-size="10" fill="#1e40af" text-anchor="middle">失效一：数据库发</text>
+  <text x="135" y="232" font-size="10" fill="#1e40af" text-anchor="middle">把 delete 发给相关缓存机</text>
+  <rect x="270" y="191" width="220" height="60" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="209.5" font-size="10" fill="#166534" text-anchor="middle">失效二：写的那台客户端发</text>
+  <text x="380" y="224.5" font-size="10" fill="#166534" text-anchor="middle">顺手失效自己本地簇里的缓存</text>
+  <text x="380" y="239.5" font-size="10" fill="#166534" text-anchor="middle">用来满足读到自己的写</text>
+  <rect x="515" y="191" width="220" height="60" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="209.5" font-size="10" fill="#6b21a8" text-anchor="middle">其他 region</text>
+  <text x="625" y="224.5" font-size="10" fill="#6b21a8" text-anchor="middle">它们的数据库听到更新之后</text>
+  <text x="625" y="239.5" font-size="10" fill="#6b21a8" text-anchor="middle">也会发出失效</text>
+  <rect x="25" y="279" width="710" height="30" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="297.5" font-size="10" fill="#1e293b" text-anchor="middle">跨 region 的同步：只有一个 region 是主，所有客户端只把更新发给它</text>
+  <rect x="25" y="337" width="710" height="27" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="353.65" font-size="9" fill="#1e293b" text-anchor="middle">主把日志分发给其他 region，后者应用；那些数据库是完整副本而不是缓存，复制延迟可能有好几秒</text>
+  </g>
+</svg>

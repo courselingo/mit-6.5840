@@ -135,3 +135,24 @@ allows_commercial = false
 share_alike = false
 redistribution = "unknown"
 notes = "本页含 ACM 完整版权声明原文（已逐字引用进 paper-licensing.md 第 2 节）：To copy otherwise, to republish, to post on servers, or to redistribute to lists, requires prior specific permission and/or a fee. 翻译属于再发布，故只写导读。"
+
+
+[[paper]]
+key = "ray"
+title = "Ray: A Distributed Framework for Emerging AI Applications"
+authors = ["Philipp Moritz", "Robert Nishihara", "Stephanie Wang", "Alexey Tumanov", "Richard Liaw", "Eric Liang", "Melih Elibol", "Zongheng Yang", "William Paul", "Michael I. Jordan", "Ion Stoica"]
+venue = "OSDI 2018"
+year = 2018
+publisher = "USENIX"
+url = "https://www.usenix.org/conference/osdi18/presentation/moritz"
+notes = "LEC 18 的阅读材料；其后续工作为 Ownership: A Distributed Futures System for Fine-Grained Tasks（NSDI 2021）。USENIX 未给出复用与翻译条款，只写导读。"
+
+[paper.license]
+verified = false
+terms = ""
+evidence_url = "https://www.usenix.org/conference/osdi18/presentation/moritz"
+checked_at = "2026-09-28"
+allows_translation = false
+allows_commercial = false
+share_alike = false
+redistribution = "unknown"
