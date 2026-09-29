@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 244.5" width="760" height="244.5"
+     role="img" aria-labelledby="fig-mc-3-title fig-mc-3-desc">
+  <title id="fig-mc-3-title">memcached 与旁路缓存：两段伪码，以及那笔 99% 的账</title>
+  <desc id="fig-mc-3-desc">第一排三格是 memcached 是什么：简单的键值服务器、只有 put 与 get 与 delete；数据在内存里因此快，但不持久也没有复制，内存有限所以用 LRU 淘汰；部署方式是通常很多台，而由客户端决定什么存到哪台。第二排三格是那两段伪码与那笔账：读时先哈希挑出该找哪台、get 未命中就查数据库再 put；写时先把键值发给数据库、再哈希后对那台 delete；收益与用意是命中率约 99 意味着数据库读负载降到约百分之一，而命中率掉 1 个百分点会让数据库负载翻倍，因此这套缓存是为了保护数据库、不是为了减少用户看到的延迟。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="244.5" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">memcached 与旁路缓存：两段伪码，以及那笔 99% 的账</text>
+  <rect x="25" y="64" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="82.5" font-size="10" fill="#1e40af" text-anchor="middle">memcached 是什么</text>
+  <text x="135" y="97.5" font-size="10" fill="#1e40af" text-anchor="middle">简单的键值服务器</text>
+  <text x="135" y="112.5" font-size="10" fill="#1e40af" text-anchor="middle">只有 put、get 与 delete</text>
+  <rect x="270" y="64" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="82.5" font-size="10" fill="#1e40af" text-anchor="middle">内存里因此快</text>
+  <text x="380" y="97.5" font-size="10" fill="#1e40af" text-anchor="middle">但不持久、也没有复制</text>
+  <text x="380" y="112.5" font-size="10" fill="#1e40af" text-anchor="middle">内存有限所以用 LRU 淘汰</text>
+  <rect x="515" y="64" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="625" y="83.65" font-size="9" fill="#1e40af" text-anchor="middle">部署方式</text>
+  <text x="625" y="97.15" font-size="9" fill="#1e40af" text-anchor="middle">通常很多台</text>
+  <text x="625" y="110.65" font-size="9" fill="#1e40af" text-anchor="middle">由客户端决定什么存到哪台</text>
+  <rect x="25" y="152" width="220" height="67.5" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="135" y="174.25" font-size="10" fill="#166534" text-anchor="middle">读的伪码</text>
+  <text x="135" y="189.25" font-size="10" fill="#166534" text-anchor="middle">先哈希挑出该找哪台</text>
+  <text x="135" y="204.25" font-size="10" fill="#166534" text-anchor="middle">get 未命中就查数据库再 put</text>
+  <rect x="270" y="152" width="220" height="67.5" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="174.25" font-size="10" fill="#166534" text-anchor="middle">写的伪码</text>
+  <text x="380" y="189.25" font-size="10" fill="#166534" text-anchor="middle">先把键值发给数据库</text>
+  <text x="380" y="204.25" font-size="10" fill="#166534" text-anchor="middle">再哈希后对那台 delete</text>
+  <rect x="515" y="152" width="220" height="67.5" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="625" y="168.65" font-size="9" fill="#b45309" text-anchor="middle">收益与用意</text>
+  <text x="625" y="182.15" font-size="9" fill="#b45309" text-anchor="middle">命中率约 99 意味着数据库读负载降到约百分之一</text>
+  <text x="625" y="195.65" font-size="9" fill="#b45309" text-anchor="middle">而命中率掉 1 个百分点会让数据库负载翻倍</text>
+  <text x="625" y="209.15" font-size="9" fill="#b45309" text-anchor="middle">它是为了保护数据库，不是为了减少用户延迟</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 299.5" width="760" height="299.5"
+     role="img" aria-labelledby="fig-mc-6-title fig-mc-6-desc">
+  <title id="fig-mc-6-title">两个竞态与它们的解法</title>
+  <desc id="fig-mc-6-desc">上排两格是第一个竞态与它的解法：如果写操作被写成先写数据库再 put 到缓存，那么两个客户端同时写同一个键时，两个更新到达数据库与到达缓存的顺序可能相反，于是缓存里会留下永久错误的数据；解法是写用 delete，因为删除在任一顺序下都是对的。第二排两格是第二个竞态与它的解法：C1 未命中后从数据库读到 v1，此时 C2 把键写成了 v2 并执行了 delete，C1 再把 v1 put 回去就把陈旧数据永久留下了；解法是租约，也就是未命中的同时给 C1 一个写回许可，而 C2 的 delete 会让这个许可失效，于是那次 put 被忽略、键仍然缺失、下一个读者会去数据库重新取。最下面一条是那个自问自答：为什么不让数据库单独往缓存里写值，因为数据库一般不知道怎么算出缓存内容，也不知道哪些键被缓存了。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="299.5" fill="#ffffff"/>
+
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">两个竞态与它们的解法</text>
+  <rect x="25" y="64" width="342.5" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="196.25" y="83.65" font-size="9" fill="#b45309" text-anchor="middle">第一个竞态</text>
+  <text x="196.25" y="97.15" font-size="9" fill="#b45309" text-anchor="middle">如果写用 put 而不是 delete</text>
+  <text x="196.25" y="110.65" font-size="9" fill="#b45309" text-anchor="middle">两个更新到达数据库与到达缓存的顺序可能相反</text>
+  <rect x="392.5" y="64" width="342.5" height="60" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="563.75" y="82.5" font-size="10" fill="#166534" text-anchor="middle">解法</text>
+  <text x="563.75" y="97.5" font-size="10" fill="#166534" text-anchor="middle">写用 delete</text>
+  <text x="563.75" y="112.5" font-size="10" fill="#166534" text-anchor="middle">删除在任一顺序下都是对的</text>
+  <rect x="25" y="152" width="342.5" height="67.5" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="196.25" y="168.65" font-size="9" fill="#b45309" text-anchor="middle">第二个竞态</text>
+  <text x="196.25" y="182.15" font-size="9" fill="#b45309" text-anchor="middle">C1 未命中、从数据库读到 v1</text>
+  <text x="196.25" y="195.65" font-size="9" fill="#b45309" text-anchor="middle">此时 C2 写了 v2 并 delete</text>
+  <text x="196.25" y="209.15" font-size="9" fill="#b45309" text-anchor="middle">C1 再 put 就把 v1 永久留下</text>
+  <rect x="392.5" y="152" width="342.5" height="67.5" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="563.75" y="168.65" font-size="9" fill="#166534" text-anchor="middle">解法：租约</text>
+  <text x="563.75" y="182.15" font-size="9" fill="#166534" text-anchor="middle">未命中的同时给 C1 一个写回许可</text>
+  <text x="563.75" y="195.65" font-size="9" fill="#166534" text-anchor="middle">C2 的 delete 让这个许可失效</text>
+  <text x="563.75" y="209.15" font-size="9" fill="#166534" text-anchor="middle">于是那次 put 被忽略，键仍然缺失</text>
+  <rect x="25" y="247.5" width="710" height="27" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="264.15" font-size="9" fill="#6b21a8" text-anchor="middle">为什么不让数据库单独往缓存里写值：数据库一般不知道怎么算出缓存内容，也不知道哪些键被缓存了</text>
+</svg>
