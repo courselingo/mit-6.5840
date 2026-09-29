@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 658 128" width="658" height="128"
+     role="img" aria-labelledby="fig-bitcoin-5-title fig-bitcoin-5-desc">
+  <title id="fig-bitcoin-5-title">一个块里的五样字段，而块本身没有签名</title>
+  <desc id="fig-bitcoin-5-desc">块里装着前块哈希、奖励交易、交易列表、随机数与出块时间戳；块本身没有签名，这一点决定了合法性要靠算力证明。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="658" height="128" fill="#ffffff"/>
+
+  <text x="329" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一个块里的五样字段，而块本身没有签名</text>
+
+  <rect x="23" y="64" width="100" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="73" y="89.2" font-size="12" fill="#1e40af" text-anchor="middle">前块哈希</text>
+
+  <rect x="151" y="64" width="100" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="201" y="89.2" font-size="12" fill="#1e40af" text-anchor="middle">奖励交易</text>
+
+  <rect x="279" y="64" width="100" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="329" y="89.2" font-size="12" fill="#1e40af" text-anchor="middle">交易列表</text>
+
+  <rect x="407" y="64" width="100" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="457" y="89.2" font-size="12" fill="#b45309" text-anchor="middle">随机数</text>
+
+  <rect x="535" y="64" width="100" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="585" y="89.2" font-size="12" fill="#b45309" text-anchor="middle">时间戳</text>
+</svg>

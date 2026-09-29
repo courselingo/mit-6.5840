@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 574 198" width="574" height="198"
+     role="img" aria-labelledby="fig-bitcoin-6-title fig-bitcoin-6-desc">
+  <title id="fig-bitcoin-6-title">工作量证明：试出一个有前导零的哈希</title>
+  <desc id="fig-bitcoin-6-desc">块的哈希必须有若干个前导零，只能不停试随机数；一个 CPU 要几个月，而许多节点同时算，使平均出块时间约为十分钟。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="574" height="198" fill="#ffffff"/>
+
+  <text x="287" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">工作量证明：试出一个有前导零的哈希</text>
+
+  <rect x="23" y="64" width="528" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="287" y="89.2" font-size="12" fill="#b45309" text-anchor="middle">规则：块的哈希必须有 N 个前导零</text>
+
+  <path d="M148,111 L148,123" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="23" y="134" width="250" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="148" y="159.2" font-size="12" fill="#1e40af" text-anchor="middle">不停试不同随机数</text>
+
+  <rect x="301" y="134" width="250" height="42" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="426" y="159.2" font-size="12" fill="#166534" text-anchor="middle">平均约十分钟出一个</text>
+</svg>

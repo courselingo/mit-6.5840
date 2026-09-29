@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 574 140" width="574" height="140"
+     role="img" aria-labelledby="fig-bitcoin-10-title fig-bitcoin-10-desc">
+  <title id="fig-bitcoin-10-title">这一讲的两条要点</title>
+  <desc id="fig-bitcoin-10-desc">公开且被共同认可的账本本身是个好想法；挖矿是一种用来解决分叉、保证共识的聪明办法。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="574" height="140" fill="#ffffff"/>
+
+  <text x="287" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">这一讲的两条要点</text>
+
+  <rect x="23" y="64" width="250" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="148" y="86.2" font-size="12" fill="#1e40af" text-anchor="middle">公开账本</text>
+  <text x="148" y="104.2" font-size="12" fill="#1e40af" text-anchor="middle">被共同认可，本身是个好想法</text>
+
+  <rect x="301" y="64" width="250" height="54" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="426" y="86.2" font-size="12" fill="#166534" text-anchor="middle">挖矿</text>
+  <text x="426" y="104.2" font-size="12" fill="#166534" text-anchor="middle">解决分叉的聪明办法</text>
+</svg>

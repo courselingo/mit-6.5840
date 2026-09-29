@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 486 268" width="486" height="268"
+     role="img" aria-labelledby="fig-bitcoin-3-title fig-bitcoin-3-desc">
+  <title id="fig-bitcoin-3-title">公共账本的三条要求</title>
+  <desc id="fig-bitcoin-3-desc">账本要发布所有交易、保证每个人看到同一份同一顺序、并保证已写入的条目不能被撤掉或改掉。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="486" height="268" fill="#ffffff"/>
+
+  <text x="243" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">公共账本的三条要求</text>
+
+  <rect x="23" y="64" width="440" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="243" y="89.2" font-size="12" fill="#1e40af" text-anchor="middle">发布所有交易</text>
+
+  <path d="M243,111 L243,123" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="23" y="134" width="440" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="243" y="159.2" font-size="12" fill="#1e40af" text-anchor="middle">每个人看到同一份日志、同一个顺序</text>
+
+  <path d="M243,181 L243,193" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="23" y="204" width="440" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="243" y="229.2" font-size="12" fill="#b45309" text-anchor="middle">已写入的条目不能被撤掉或改掉</text>
+</svg>

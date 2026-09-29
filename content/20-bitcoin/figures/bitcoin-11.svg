@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 634 268" width="634" height="268"
+     role="img" aria-labelledby="fig-bitcoin-11-title fig-bitcoin-11-desc">
+  <title id="fig-bitcoin-11-title">这套设计的主要弱点</title>
+  <desc id="fig-bitcoin-11-desc">工作量证明费电；确认至少要十分钟、高把握要六十分钟；块大小与出块间隔把吞吐限制在每秒约五笔；容易受多数攻击；并不很匿名；普通用户难以保管私钥。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="634" height="268" fill="#ffffff"/>
+
+  <text x="317" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">这套设计的主要弱点</text>
+
+  <rect x="23" y="64" width="290" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="168" y="89.2" font-size="12" fill="#9d174d" text-anchor="middle">工作量证明很费电</text>
+
+  <rect x="341" y="64" width="270" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="476" y="89.2" font-size="12" fill="#9d174d" text-anchor="middle">确认要 10 分钟，高把握要 60 分钟</text>
+
+  <rect x="23" y="134" width="290" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="168" y="159.2" font-size="12" fill="#9d174d" text-anchor="middle">块大小与间隔把吞吐限制在每秒约五笔</text>
+
+  <rect x="341" y="134" width="270" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="476" y="159.2" font-size="12" fill="#9d174d" text-anchor="middle">容易受到多数攻击</text>
+
+  <rect x="23" y="204" width="290" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="168" y="229.2" font-size="12" fill="#9d174d" text-anchor="middle">并不很匿名，却又匿名到吸引非法活动</text>
+
+  <rect x="341" y="204" width="270" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="476" y="229.2" font-size="12" fill="#9d174d" text-anchor="middle">普通用户很难保管好自己的私钥</text>
+</svg>
