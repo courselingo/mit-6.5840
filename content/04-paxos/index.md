@@ -183,14 +183,6 @@ S2 是两轮唯一的交集，它忘掉的正好是 X 唯一的证据；最高�
 3. 接受者的 n_p、n_a、v_a 为什么必须写进磁盘？请举出一个「重启后忘掉它们」导致定案被覆盖的序列。
 4. 一次 Paxos 只决定一个值；要变成一条能用的日志，还要补上哪几件事？
 
-## 溯源
-
-- 对应：MIT 6.5840 / 6.824 Lecture 4 — Fault-Tolerant Agreement, Paxos（Spring 2026）
-- 主要依据：讲座笔记 l-paxos.txt；论文《Paxos Made Simple》（Leslie Lamport，2001）
-- 官方链接：https://pdos.csail.mit.edu/6.824/
-- 本讲阅读材料：Paxos Made Simple，论文页 https://lamport.azurewebsites.net/pubs/paxos-simple.pdf
-- 说明：本页为该讲的重新讲解，未逐句翻译原笔记，也未转载其幻灯片与图表。
-
 ## 脉络回顾：这一讲在整门课的位置
 
 第 1 讲讲的是分布式系统为什么会同时丢掉单机那几样保证；第 2 讲的超时告诉我们「没有回话」不等于「对方死了」；第 3 讲的 GFS 把中心化协调者用得恰到好处，同时把「它挂了怎么办」留成了一个悬念。这一讲把那个悬念拆开：答案不是找一台更可靠的机器，而是找一个足够大的集合，多数派。
@@ -200,3 +192,12 @@ S2 是两轮唯一的交集，它忘掉的正好是 X 唯一的证据；最高�
 往后看，Raft 把 Multi-Paxos 里那些工程选择固定成一套明确算法：怎么选主，怎么用[[term:term]]编号识别过期的消息，日志怎么复制、什么时候算提交；ZooKeeper 把共识包装成配置、命名、选主、锁这些现成原语；Spanner 把它推到跨数据中心的量级。它们都拿这一讲的两阶段与多数派投票当内核，但各自的工程做法并不相同（**[[term:zab]] 与 Raft 都不是 Paxos 的直接实例**）。笔记还列了 Paxos 在系统内的三种用法：**换一个新的协调者**、**决定备份何时从主节点接手**、以及决定复制状态机里操作的顺序。
 
 收尾留一个习惯：看到任何一个共识系统，先问它把哪一轮往返省掉了，又拿什么补回了安全性。
+
+## 溯源
+
+- 对应：MIT 6.5840 / 6.824 Lecture 4 — Fault-Tolerant Agreement, Paxos（Spring 2026）
+- 主要依据：讲座笔记 l-paxos.txt；论文《Paxos Made Simple》（Leslie Lamport，2001）
+- 官方链接：https://pdos.csail.mit.edu/6.824/
+- 本讲阅读材料：Paxos Made Simple，论文页 https://lamport.azurewebsites.net/pubs/paxos-simple.pdf
+- 说明：本页为该讲的重新讲解，未逐句翻译原笔记，也未转载其幻灯片与图表。
+
