@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 642 140" width="642" height="140"
+     role="img" aria-labelledby="fig-sundr-7-title fig-sundr-7-desc">
+  <title id="fig-sundr-7-title">三种插入位置都不成立，分叉无法愈合</title>
+  <desc id="fig-sundr-7-desc">把真实日志给 C 不行，因为 C 要求自己上次的操作在日志里；把公告插在 C 的取用之前或之后也不行，因为两次签名各自都没有覆盖对方看到的内容。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="642" height="140" fill="#ffffff"/>
+
+  <text x="321" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三种插入位置都不成立，分叉无法愈合</text>
+
+  <rect x="23" y="64" width="180" height="54" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="113" y="86.2" font-size="12" fill="#9d174d" text-anchor="middle">直接给真实日志</text>
+  <text x="113" y="104.2" font-size="12" fill="#9d174d" text-anchor="middle">不行：缺 C 上次的取用</text>
+
+  <rect x="231" y="64" width="180" height="54" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="321" y="86.2" font-size="12" fill="#9d174d" text-anchor="middle">公告插在取用之前</text>
+  <text x="321" y="104.2" font-size="12" fill="#9d174d" text-anchor="middle">不行：取用没覆盖 A 的改动</text>
+
+  <rect x="439" y="64" width="180" height="54" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="529" y="86.2" font-size="12" fill="#9d174d" text-anchor="middle">公告放在取用之后</text>
+  <text x="529" y="104.2" font-size="12" fill="#9d174d" text-anchor="middle">不行：B 没覆盖 C 的取用</text>
+</svg>

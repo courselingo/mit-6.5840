@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 626 268" width="626" height="268"
+     role="img" aria-labelledby="fig-sundr-10-title fig-sundr-10-desc">
+  <title id="fig-sundr-10-title">版本向量能排序就是好，不能排序就是分叉</title>
+  <desc id="fig-sundr-10-desc">上排是良性序列，四个版本每次只推进一位，因此可以逐对比较大小；下排是两条互相矛盾的版本向量，一旦被任何一方看到，分叉就暴露了。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="626" height="268" fill="#ffffff"/>
+
+  <text x="313" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">版本向量能排序就是好，不能排序就是分叉</text>
+
+  <rect x="23" y="64" width="124" height="42" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="85" y="89.2" font-size="12" fill="#166534" text-anchor="middle">1 0 0</text>
+
+  <rect x="175" y="64" width="124" height="42" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="237" y="89.2" font-size="12" fill="#166534" text-anchor="middle">1 1 0</text>
+
+  <rect x="327" y="64" width="124" height="42" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="389" y="89.2" font-size="12" fill="#166534" text-anchor="middle">1 1 1</text>
+
+  <rect x="479" y="64" width="124" height="42" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="541" y="89.2" font-size="12" fill="#166534" text-anchor="middle">1 2 1</text>
+
+  <rect x="23" y="134" width="124" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="85" y="159.2" font-size="12" fill="#9d174d" text-anchor="middle">1 0 1</text>
+
+  <rect x="175" y="134" width="124" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="237" y="159.2" font-size="12" fill="#9d174d" text-anchor="middle">1 1 0</text>
+
+  <rect x="23" y="204" width="580" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="313" y="229.2" font-size="12" fill="#b45309" text-anchor="middle">上排可逐对排序；下排两条互相矛盾，被任何一方看到就暴露了分叉</text>
+</svg>

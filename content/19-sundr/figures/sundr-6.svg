@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 642 210" width="642" height="210"
+     role="img" aria-labelledby="fig-sundr-6-title fig-sundr-6-desc">
+  <title id="fig-sundr-6-title">稻草人：整条日志，每条签名覆盖之前全部历史</title>
+  <desc id="fig-sundr-6-desc">服务器保存完整的修改日志，签名覆盖到那一刻为止的整条日志；客户端取回日志、检查三条条件、重放构造文件系统状态，再追加自己的操作并记住它。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="642" height="210" fill="#ffffff"/>
+
+  <text x="321" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">稻草人：每条签名覆盖之前全部历史</text>
+
+  <rect x="23" y="64" width="566" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="306" y="89.2" font-size="12" fill="#1e40af" text-anchor="middle">服务器：完整的修改日志，字段是「取用或修改」、用户、签名</text>
+
+  <path d="M306,111 L306,123" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="23" y="134" width="180" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="113" y="156.2" font-size="12" fill="#b45309" text-anchor="middle">取回整条日志</text>
+  <text x="113" y="174.2" font-size="12" fill="#b45309" text-anchor="middle">其他客户端要等</text>
+
+  <rect x="231" y="134" width="180" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="321" y="156.2" font-size="12" fill="#b45309" text-anchor="middle">检查三条条件</text>
+  <text x="321" y="174.2" font-size="12" fill="#b45309" text-anchor="middle">含自己上次的条目</text>
+
+  <rect x="439" y="134" width="180" height="54" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="529" y="156.2" font-size="12" fill="#166534" text-anchor="middle">重放、追加、上传</text>
+  <text x="529" y="174.2" font-size="12" fill="#166534" text-anchor="middle">并记住自己那条</text>
+</svg>

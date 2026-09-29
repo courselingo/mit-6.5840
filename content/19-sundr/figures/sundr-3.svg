@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 486 268" width="486" height="268"
+     role="img" aria-labelledby="fig-sundr-3-title fig-sundr-3-desc">
+  <title id="fig-sundr-3-title">内容哈希存储：键既是名字也是校验值</title>
+  <desc id="fig-sundr-3-desc">写的时候键等于值的哈希，读的时候用这个键校验；因为键必须等于哈希，一个键对应的值就永远不能改，所以它做不了可读写的文件系统。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="486" height="268" fill="#ffffff"/>
+
+  <text x="243" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">内容哈希存储：键既是名字也是校验值</text>
+
+  <rect x="23" y="64" width="440" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="243" y="89.2" font-size="12" fill="#1e40af" text-anchor="middle">写：键 = 哈希(值)，把键和值一起交给服务器</text>
+
+  <path d="M243,111 L243,123" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="23" y="134" width="440" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="243" y="159.2" font-size="12" fill="#1e40af" text-anchor="middle">读：按键取值，校验哈希不相等就拒绝</text>
+
+  <path d="M243,181 L243,193" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="23" y="204" width="440" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="243" y="229.2" font-size="12" fill="#9d174d" text-anchor="middle">于是值不可变：能钉死只读结构，做不了可写文件系统</text>
+</svg>

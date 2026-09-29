@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 486 268" width="486" height="268"
+     role="img" aria-labelledby="fig-sundr-2-title fig-sundr-2-desc">
+  <title id="fig-sundr-2-title">要的是完整性，不是保密性</title>
+  <desc id="fig-sundr-2-desc">完整性有三句：读者能检查取回的数据是对的；服务器不能伪造更新；服务器不能藏起更新或改变更新顺序。密码学只用来验证数据对不对，不用来保护内容不被看到。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="486" height="268" fill="#ffffff"/>
+
+  <text x="243" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">要的是完整性，不是保密性</text>
+
+  <rect x="23" y="64" width="440" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="243" y="89.2" font-size="12" fill="#1e40af" text-anchor="middle">读者能检查取回的数据是对的</text>
+
+  <path d="M243,111 L243,123" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="23" y="134" width="440" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="243" y="159.2" font-size="12" fill="#1e40af" text-anchor="middle">服务器不能伪造更新</text>
+
+  <path d="M243,181 L243,193" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="23" y="204" width="440" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="243" y="229.2" font-size="12" fill="#b45309" text-anchor="middle">不能藏起更新，也不能改变更新的顺序</text>
+</svg>
