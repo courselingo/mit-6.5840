@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 310" width="760" height="310"
+     role="img" aria-labelledby="fig-bft-4-title fig-bft-4-desc">
+  <title id="fig-bft-4-title">坏主节点的三种行为、四步应对，以及为什么不能收到就执行</title>
+  <desc id="fig-bft-4-desc">上排三格是坏主节点能做的三件坏事：忽略某个客户端的操作、给不同副本发不同的操作、给客户端发错误的结果。第二条是应对坏主的四步：客户端把操作同时通知副本与主；副本之间交换各自从主那里收到的操作信息；副本直接把结果发给客户端；每台副本盯着每个操作的进展，没有进展就强制换主。最下面一条是为什么不能一收到就执行：主可能给不同副本发了不同的操作，执行早了就把副本的状态弄坏了，所以需要第二轮消息来确认所有好副本拿到的是同一个操作。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="310" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">坏主节点的三种行为、四步应对，以及为什么不能收到就执行</text>
+  <rect x="25" y="72" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="90.5" font-size="10" fill="#b45309" text-anchor="middle">坏主之一：忽略操作</text>
+  <text x="135" y="105.5" font-size="10" fill="#b45309" text-anchor="middle">主可以忽略某个客户端的操作</text>
+  <rect x="270" y="72" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="90.5" font-size="10" fill="#b45309" text-anchor="middle">坏主之二：发不同的操作</text>
+  <text x="380" y="105.5" font-size="10" fill="#b45309" text-anchor="middle">给不同副本发不同的操作</text>
+  <rect x="515" y="72" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="625" y="90.5" font-size="10" fill="#b45309" text-anchor="middle">坏主之三：发错结果</text>
+  <text x="625" y="105.5" font-size="10" fill="#b45309" text-anchor="middle">给客户端发错误的结果</text>
+  <rect x="25" y="145" width="710" height="27" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="161.65" font-size="9" fill="#6b21a8" text-anchor="middle">应对坏主的四步之一：客户端把操作同时通知副本与主；副本之间交换各自从主那里收到的操作信息</text>
+  <rect x="25" y="200" width="710" height="27" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="216.65" font-size="9" fill="#6b21a8" text-anchor="middle">四步之二：副本直接把结果发给客户端；每台副本盯着每个操作的进展，没有进展就强制换主</text>
+  <rect x="25" y="255" width="710" height="30" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="273.5" font-size="10" fill="#1e40af" text-anchor="middle">为什么不能一收到就执行：主可能给不同副本发了不同的操作，执行早了就把副本的状态弄坏了，所以需要第二轮消息来确认所有好副本拿到的是同一个操作</text>
+</svg>

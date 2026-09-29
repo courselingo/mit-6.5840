@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 432" width="760" height="432"
+     role="img" aria-labelledby="fig-bft-5-title fig-bft-5-desc">
+  <title id="fig-bft-5-title">带主节点的四步消息与主坏时的三种情形</title>
+  <desc id="fig-bft-5-desc">第一排三格是前三步消息：客户端把请求发给主和每一台副本；主发 PRE-PREPARE 给副本、里面带着操作与操作编号；每台副本把 PREPARE 发给所有副本。第二条是第四步与客户端的满意条件：一台副本收到含自己在内的 2f+1 个匹配 PREPARE 且编号正好是下一个时执行并回复，否则继续等；而客户端收到 f+1 个匹配回复就满意。第三条是主好的时候：坏副本伪造不了主的消息、能延迟但不能永远延迟、可以什么都不做而 2f+1 不需要它们，最坏的结果只是延迟。最下面一条是主坏的时候分三种情形：所有好节点都拿到 2f+1 个匹配；至少 f+1 台拿到而最多 f 台没执行（那些没执行的凑不出 2f+1 台持旧状态，回滚不了）；少于 f+1 台拿到则客户端永远收不到回复、系统停住。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="432" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">带主节点的四步消息与主坏时的三种情形</text>
+  <rect x="25" y="72" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="98" font-size="10" fill="#1e40af" text-anchor="middle">第一步</text>
+  <text x="135" y="113" font-size="10" fill="#1e40af" text-anchor="middle">客户端把请求发给主和每一台副本</text>
+  <rect x="270" y="72" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="90.5" font-size="10" fill="#1e40af" text-anchor="middle">第二步</text>
+  <text x="380" y="105.5" font-size="10" fill="#1e40af" text-anchor="middle">主发 PRE-PREPARE 给副本</text>
+  <text x="380" y="120.5" font-size="10" fill="#1e40af" text-anchor="middle">里面带着操作与操作编号</text>
+  <rect x="515" y="72" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="625" y="98" font-size="10" fill="#1e40af" text-anchor="middle">第三步</text>
+  <text x="625" y="113" font-size="10" fill="#1e40af" text-anchor="middle">每台副本把 PREPARE 发给所有副本</text>
+  <rect x="25" y="160" width="710" height="27" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="176.65" font-size="9" fill="#166534" text-anchor="middle">第四步：一台副本收到含自己在内的 2f+1 个匹配 PREPARE 且编号正好是下一个时，执行并回复客户端；否则继续等。客户端收到 f+1 个匹配回复就满意</text>
+  <rect x="25" y="215" width="710" height="27" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="231.65" font-size="9" fill="#1e293b" text-anchor="middle">主是好的时候：坏副本伪造不了主的消息、能延迟但不能永远延迟、可以什么都不做而 2f+1 不需要它们，最坏的结果只是延迟</text>
+  <rect x="25" y="270" width="710" height="27" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="286.65" font-size="9" fill="#b45309" text-anchor="middle">主坏情形一：所有好节点都拿到 2f+1 个匹配，于是都执行、客户端满意</text>
+  <rect x="25" y="325" width="710" height="27" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="341.65" font-size="9" fill="#b45309" text-anchor="middle">情形二：至少 f+1 台拿到而最多 f 台没执行（没执行的凑不出 2f+1 台持旧状态，回滚不了）</text>
+  <rect x="25" y="380" width="710" height="27" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="396.65" font-size="9" fill="#b45309" text-anchor="middle">情形三：少于 f+1 台拿到，客户端永远收不到回复、系统停住</text>
+</svg>

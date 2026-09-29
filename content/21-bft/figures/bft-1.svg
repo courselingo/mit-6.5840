@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 313" width="760" height="313"
+     role="img" aria-labelledby="fig-bft-1-title fig-bft-1-desc">
+  <title id="fig-bft-1-title">从崩溃容错到拜占庭容错：失败类别的阶梯</title>
+  <desc id="fig-bft-1-desc">上面一条是前几讲的假设：失败即停止、服务器仍然遵守协议。第二条说明它已经够难：要区分崩溃与网络中断，还要处理网络分区。第二排三格是这一讲要处理的更大一类失败：算错的服务器、不遵守协议的服务器、被攻击者改过的服务器。最下面一条是这类失败的名字与论文的做法：拜占庭失败；复制状态机，3f+1 台里至少 2f+1 台是好的，用投票选正确结果，而这件事并不简单。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="313" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">从崩溃容错到拜占庭容错：失败类别的阶梯</text>
+  <rect x="25" y="72" width="710" height="30" rx="6" fill="#eff6ff" stroke="#3b82f6"/>
+  <text x="380" y="90.5" font-size="10" fill="#1e40af" text-anchor="middle">前几讲的假设：失败即停止，服务器仍然遵守协议</text>
+  <rect x="25" y="130" width="710" height="30" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="148.5" font-size="10" fill="#1e293b" text-anchor="middle">而它已经够难：要区分崩溃与网络中断，还要处理网络分区</text>
+  <rect x="25" y="188" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="206.5" font-size="10" fill="#b45309" text-anchor="middle">算错的服务器</text>
+  <text x="135" y="221.5" font-size="10" fill="#b45309" text-anchor="middle">计算不正确，而不是停下来</text>
+  <rect x="270" y="188" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="206.5" font-size="10" fill="#b45309" text-anchor="middle">不遵守协议</text>
+  <text x="380" y="221.5" font-size="10" fill="#b45309" text-anchor="middle">服务器不按协议做</text>
+  <rect x="515" y="188" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="625" y="206.5" font-size="10" fill="#b45309" text-anchor="middle">被攻击者改过</text>
+  <text x="625" y="221.5" font-size="10" fill="#b45309" text-anchor="middle">代码或行为被攻击者改动</text>
+  <rect x="25" y="261" width="710" height="27" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="277.65" font-size="9" fill="#6b21a8" text-anchor="middle">这类失败被叫作拜占庭失败。论文的做法：复制状态机，3f+1 台里至少 2f+1 台是好的，用投票选正确结果（而这不简单）</text>
+</svg>

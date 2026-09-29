@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 428" width="760" height="428"
+     role="img" aria-labelledby="fig-bft-6-title fig-bft-6-desc">
+  <title id="fig-bft-6-title">第三阶段与视图切换：为什么提交之前不能执行</title>
+  <desc id="fig-bft-6-desc">第一排三格是视图切换的触发、它不能只由一台触发、以及新主怎么选：看到客户端操作却看不到 2f+1 个匹配的 PREPARE 并超时；若一台就能触发，坏副本会不停触发切换；主由视图号对服务器数取模决定、在服务器之间轮转、最多连续 f 个坏的主。第二排三格是第一版视图切换的毛病与解法：一台副本执行过操作 n 而新主没听说，于是新主可能从 n 开始编号、两个不同的操作都叫 n 号；让新主去问所有人也不行，因为它只能等 2f+1 个回复而坏副本也会回；解法是改成在确定新主会听说之前不要执行，于是加上 COMMIT 这个第三阶段。第四条说明阶段顺序：PRE-PREPARE、PREPARE、COMMIT，只有在收到 2f+1 个匹配的 COMMIT 之后才执行。最下面一条是视图切换的流程：每台副本把最近的 2f+1 个 PREPARE 发给新主；新主等 2f+1 个 VIEW-CHANGE 并按它们整理日志；NEW-VIEW 里必须带完整的 VIEW-CHANGE 消息，凡是没有 2f+1 个 PREPARE 的操作都当作空操作。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="428" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">第三阶段与视图切换：为什么提交之前不能执行</text>
+  <rect x="25" y="72" width="220" height="67.5" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="95.4" font-size="9" fill="#1e40af" text-anchor="middle">什么时候请求换视图</text>
+  <text x="135" y="108.9" font-size="9" fill="#1e40af" text-anchor="middle">看到客户端操作</text>
+  <text x="135" y="122.4" font-size="9" fill="#1e40af" text-anchor="middle">却看不到 2f+1 个匹配的 PREPARE，并超时</text>
+  <rect x="270" y="72" width="220" height="67.5" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="102.15" font-size="9" fill="#b45309" text-anchor="middle">能不能一台就触发</text>
+  <text x="380" y="115.65" font-size="9" fill="#b45309" text-anchor="middle">不能，否则坏副本会不停触发切换</text>
+  <rect x="515" y="72" width="220" height="67.5" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="625" y="88.65" font-size="9" fill="#1e40af" text-anchor="middle">新主怎么选</text>
+  <text x="625" y="102.15" font-size="9" fill="#1e40af" text-anchor="middle">视图号对服务器数取模</text>
+  <text x="625" y="115.65" font-size="9" fill="#1e40af" text-anchor="middle">主在服务器之间轮转</text>
+  <text x="625" y="129.15" font-size="9" fill="#1e40af" text-anchor="middle">最多连续 f 个坏的主</text>
+  <rect x="25" y="167.5" width="220" height="67.5" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="184.15" font-size="9" fill="#b45309" text-anchor="middle">第一版视图切换的毛病</text>
+  <text x="135" y="197.65" font-size="9" fill="#b45309" text-anchor="middle">一台副本执行过操作 n 而新主没听说</text>
+  <text x="135" y="211.15" font-size="9" fill="#b45309" text-anchor="middle">新主可能从 n 开始编号</text>
+  <text x="135" y="224.65" font-size="9" fill="#b45309" text-anchor="middle">于是两个不同的操作都叫 n 号</text>
+  <rect x="270" y="167.5" width="220" height="67.5" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="190.9" font-size="9" fill="#b45309" text-anchor="middle">为什么不能让新主问所有人</text>
+  <text x="380" y="204.4" font-size="9" fill="#b45309" text-anchor="middle">新主只能等 2f+1 个回复，坏副本也会回</text>
+  <text x="380" y="217.9" font-size="9" fill="#b45309" text-anchor="middle">所以它可能等不到我</text>
+  <rect x="515" y="167.5" width="220" height="67.5" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="190.9" font-size="9" fill="#166534" text-anchor="middle">解法</text>
+  <text x="625" y="204.4" font-size="9" fill="#166534" text-anchor="middle">在确定新主会听说之前不要执行</text>
+  <text x="625" y="217.9" font-size="9" fill="#166534" text-anchor="middle">于是加上 COMMIT 这个第三阶段</text>
+  <rect x="25" y="263" width="710" height="30" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="281.5" font-size="10" fill="#166534" text-anchor="middle">阶段：PRE-PREPARE、PREPARE、COMMIT；只有在收到 2f+1 个匹配的 COMMIT 之后才执行</text>
+  <rect x="25" y="321" width="710" height="27" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="337.65" font-size="9" fill="#6b21a8" text-anchor="middle">视图切换之一：每台副本把最近的 2f+1 个 PREPARE 发给新主；新主等 2f+1 个 VIEW-CHANGE，按它们整理日志</text>
+  <rect x="25" y="376" width="710" height="27" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="392.65" font-size="9" fill="#6b21a8" text-anchor="middle">之二：NEW-VIEW 里必须带完整的 VIEW-CHANGE 消息，凡是没有 2f+1 个 PREPARE 的操作都当作空操作</text>
+</svg>

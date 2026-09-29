@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 315" width="760" height="315"
+     role="img" aria-labelledby="fig-bft-3-title fig-bft-3-desc">
+  <title id="fig-bft-3-title">三版设计的对比与 2f+1 的重叠论证</title>
+  <desc id="fig-bft-3-desc">上排两格是第一版与它的毛病：客户端发给所有服务器、等 n 台回复、全部一致才继续，而只要一台被攻陷，那一台就能靠不同意把进展卡死。第二排两格是第二版与它为什么不够：2f+1 台、等 f+1 个匹配回复，但那 f+1 个回复里可能只有一台好节点，于是下一个操作未必包含它，于是读到旧值、破坏了线性一致性。第三排两格是第三版：3f+1 台、等 2f+1 个匹配回复，等于 f 台坏节点加上好节点的多数；而它成立的理由是任意两个 2f+1 的集合至少重叠一台好节点，于是客户端一定看得出有人漏了操作。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="315" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三版设计的对比与 2f+1 的重叠论证</text>
+  <rect x="25" y="72" width="342.5" height="54" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="196.25" y="95.4" font-size="9" fill="#1e40af" text-anchor="middle">第一版：等全部一致</text>
+  <text x="196.25" y="108.9" font-size="9" fill="#1e40af" text-anchor="middle">客户端发给所有服务器，等 n 台回复，全部一致才继续</text>
+  <rect x="392.5" y="72" width="342.5" height="54" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="563.75" y="88.65" font-size="9" fill="#b45309" text-anchor="middle">它的毛病</text>
+  <text x="563.75" y="102.15" font-size="9" fill="#b45309" text-anchor="middle">只要一台被攻陷</text>
+  <text x="563.75" y="115.65" font-size="9" fill="#b45309" text-anchor="middle">那一台就能靠不同意把进展卡死</text>
+  <rect x="25" y="154" width="342.5" height="54" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="196.25" y="177.4" font-size="9" fill="#1e40af" text-anchor="middle">第二版：2f+1 台，等 f+1 个匹配</text>
+  <text x="196.25" y="190.9" font-size="9" fill="#1e40af" text-anchor="middle">看起来成立：只有 f 台坏、网络最终会通</text>
+  <rect x="392.5" y="154" width="342.5" height="54" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="563.75" y="170.65" font-size="9" fill="#b45309" text-anchor="middle">但不够</text>
+  <text x="563.75" y="184.15" font-size="9" fill="#b45309" text-anchor="middle">那 f+1 个回复里可能只有一台好节点</text>
+  <text x="563.75" y="197.65" font-size="9" fill="#b45309" text-anchor="middle">于是下一个操作未必包含它，读到旧值、破坏线性一致性</text>
+  <rect x="25" y="236" width="342.5" height="54" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="196.25" y="259.4" font-size="9" fill="#166534" text-anchor="middle">第三版：3f+1 台，等 2f+1 个匹配</text>
+  <text x="196.25" y="272.9" font-size="9" fill="#166534" text-anchor="middle">等于 f 台坏节点加上好节点的多数</text>
+  <rect x="392.5" y="236" width="342.5" height="54" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="563.75" y="252.65" font-size="9" fill="#166534" text-anchor="middle">为什么成立</text>
+  <text x="563.75" y="266.15" font-size="9" fill="#166534" text-anchor="middle">任意两个 2f+1 的集合至少重叠一台好节点</text>
+  <text x="563.75" y="279.65" font-size="9" fill="#166534" text-anchor="middle">于是客户端一定看得出有人漏了操作</text>
+</svg>

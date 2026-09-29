@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 215" width="760" height="215"
+     role="img" aria-labelledby="fig-bft-7-title fig-bft-7-desc">
+  <title id="fig-bft-7-title">三页的分工：不会撒谎、会撒谎但不合谋、任意行为</title>
+  <desc id="fig-bft-7-desc">上排三格是那条阶梯：Raft 处理崩溃容错，节点只会停下来、不会撒谎，于是多数派选出的日志就是可信的；SUNDR 处理不可信服务器，服务器会骗你但不主动与其他服务器合谋，客户端靠检测与历史发现篡改；本讲处理任意行为，含撒谎与合谋，代价是 3f+1 里 2f+1 与三个阶段。最下面一条说明三页都在问「多副本读到什么才算对」，而答案沿着这条阶梯收紧；本页只在与它们交界处注明分工，不重复它们的机制。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="215" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">三页的分工：不会撒谎、会撒谎但不合谋、任意行为</text>
+  <rect x="25" y="72" width="220" height="60" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="135" y="90.5" font-size="10" fill="#1e293b" text-anchor="middle">Raft：崩溃容错</text>
+  <text x="135" y="105.5" font-size="10" fill="#1e293b" text-anchor="middle">节点只会停下来，不会撒谎</text>
+  <text x="135" y="120.5" font-size="10" fill="#1e293b" text-anchor="middle">于是多数派选出的日志就是可信的</text>
+  <rect x="270" y="72" width="220" height="60" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="90.5" font-size="10" fill="#1e40af" text-anchor="middle">SUNDR：不可信服务器</text>
+  <text x="380" y="105.5" font-size="10" fill="#1e40af" text-anchor="middle">服务器会骗你，但不主动与其他服务器合谋</text>
+  <text x="380" y="120.5" font-size="10" fill="#1e40af" text-anchor="middle">客户端靠检测与历史发现篡改</text>
+  <rect x="515" y="72" width="220" height="60" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="90.5" font-size="10" fill="#6b21a8" text-anchor="middle">本讲：任意行为</text>
+  <text x="625" y="105.5" font-size="10" fill="#6b21a8" text-anchor="middle">含撒谎与合谋</text>
+  <text x="625" y="120.5" font-size="10" fill="#6b21a8" text-anchor="middle">代价是 3f+1 里 2f+1 与三个阶段</text>
+  <rect x="25" y="160" width="710" height="30" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="178.5" font-size="10" fill="#1e293b" text-anchor="middle">三页都在问「多副本读到什么才算对」，而答案沿着这条阶梯收紧；本页只在与它们交界处注明分工，不重复它们的机制</text>
+</svg>

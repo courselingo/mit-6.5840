@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 328" width="760" height="328"
+     role="img" aria-labelledby="fig-bft-2-title fig-bft-2-desc">
+  <title id="fig-bft-2-title">攻击者的能力与三条不会发生的事</title>
+  <desc id="fig-bft-2-desc">第一排三格与第二排两格是攻击者的能力：提供故障副本运行的代码；知道好副本的代码、也知道故障副本的密钥；能读网络上的消息；能用拒绝服务让消息暂时延迟。第二排后两格与第三条是三条不会发生的事：3f+1 里最多 f 台坏、客户端从不失败、密码学不会被攻破。最下面一条是那个成绩文件的例子：一个坏系统可以编造文件内容、执行写 A 却忽略写 B、给不同的人看不同的结果、或者只让一部分副本执行写 B。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="328" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">攻击者的能力与三条不会发生的事</text>
+  <rect x="25" y="72" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="90.5" font-size="10" fill="#b45309" text-anchor="middle">提供代码</text>
+  <text x="135" y="105.5" font-size="10" fill="#b45309" text-anchor="middle">攻击者提供故障副本运行的代码</text>
+  <rect x="270" y="72" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="90.9" font-size="9" fill="#b45309" text-anchor="middle">知道代码与密钥</text>
+  <text x="380" y="104.4" font-size="9" fill="#b45309" text-anchor="middle">知道好副本的代码，也知道故障副本的密钥</text>
+  <rect x="515" y="72" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="625" y="90.5" font-size="10" fill="#b45309" text-anchor="middle">能读消息</text>
+  <text x="625" y="105.5" font-size="10" fill="#b45309" text-anchor="middle">能读网络上的消息</text>
+  <rect x="25" y="145" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="163.5" font-size="10" fill="#b45309" text-anchor="middle">能造成延迟</text>
+  <text x="135" y="178.5" font-size="10" fill="#b45309" text-anchor="middle">用拒绝服务让消息暂时延迟</text>
+  <rect x="270" y="145" width="220" height="45" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="163.5" font-size="10" fill="#166534" text-anchor="middle">坏副本不超过 f 台</text>
+  <text x="380" y="178.5" font-size="10" fill="#166534" text-anchor="middle">3f+1 里最多 f 台坏</text>
+  <rect x="515" y="145" width="220" height="45" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="625" y="163.5" font-size="10" fill="#166534" text-anchor="middle">客户端不做坏事</text>
+  <text x="625" y="178.5" font-size="10" fill="#166534" text-anchor="middle">客户端从不失败</text>
+  <rect x="25" y="218" width="710" height="30" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="236.5" font-size="10" fill="#166534" text-anchor="middle">还有一条不会发生：密钥不会被猜出，密码学不会被攻破</text>
+  <rect x="25" y="276" width="710" height="27" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="292.65" font-size="9" fill="#1e293b" text-anchor="middle">成绩文件的例子：一个坏系统可以编造文件内容、执行写 A 却忽略写 B、给不同的人看不同的结果、或者只让一部分副本执行写 B</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 215" width="760" height="215"
+     role="img" aria-labelledby="fig-bft-8-title fig-bft-8-desc">
+  <title id="fig-bft-8-title">收束：论文的其他内容与两个留给读者的问题</title>
+  <desc id="fig-bft-8-desc">上排三格是论文还讨论了什么：检查点与日志帮助好节点恢复；密码学优化；以及让常见情况下不必走满三轮的消息数优化。第二排三格是留给读者的问题与一个实际角度：坏节点超过 f 台时系统还能不能恢复；如果客户端本身坏了呢；以及攻击者能攻陷一台服务器，为什么不能把所有服务器都攻陷。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="215" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">收束：论文的其他内容与两个留给读者的问题</text>
+  <rect x="25" y="72" width="220" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="90.5" font-size="10" fill="#1e40af" text-anchor="middle">检查点与日志</text>
+  <text x="135" y="105.5" font-size="10" fill="#1e40af" text-anchor="middle">帮助好节点恢复</text>
+  <rect x="270" y="72" width="220" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="90.5" font-size="10" fill="#1e40af" text-anchor="middle">密码学优化</text>
+  <text x="380" y="105.5" font-size="10" fill="#1e40af" text-anchor="middle">减少签名与验证的开销</text>
+  <rect x="515" y="72" width="220" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="625" y="90.5" font-size="10" fill="#1e40af" text-anchor="middle">常见情况减少消息</text>
+  <text x="625" y="105.5" font-size="10" fill="#1e40af" text-anchor="middle">让顺利时不必走满三轮</text>
+  <rect x="25" y="145" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="135" y="163.5" font-size="10" fill="#b45309" text-anchor="middle">坏节点超过 f 台会怎样</text>
+  <text x="135" y="178.5" font-size="10" fill="#b45309" text-anchor="middle">系统还能不能恢复</text>
+  <rect x="270" y="145" width="220" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="163.5" font-size="10" fill="#b45309" text-anchor="middle">客户端本身坏了呢</text>
+  <text x="380" y="178.5" font-size="10" fill="#b45309" text-anchor="middle">这一页没有给出答案</text>
+  <rect x="515" y="145" width="220" height="45" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="625" y="163.5" font-size="10" fill="#1e293b" text-anchor="middle">一个很实际的角度</text>
+  <text x="625" y="178.5" font-size="10" fill="#1e293b" text-anchor="middle">攻击者能攻陷一台，为什么不能攻陷全部</text>
+</svg>
