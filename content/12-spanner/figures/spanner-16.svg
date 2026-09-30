@@ -18,9 +18,9 @@
   <rect x="22" y="58" width="344" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
   <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">只读事务要一个时间戳 20 的快照</text>
   <rect x="394" y="58" width="344" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
-  <text x="566" y="80" font-size="12" fill="#b45309" text-anchor="middle">它先查：我见过比 20 更晚的写吗</text>
+  <text x="566" y="80" font-size="12" fill="#b45309" text-anchor="middle">前提：写按时间戳顺序到达本副本</text>
   <rect x="22" y="120" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
-  <text x="194" y="142" font-size="12" fill="#166534" text-anchor="middle">见过：说明小于 20 的写都已到齐</text>
+  <text x="194" y="142" font-size="12" fill="#166534" text-anchor="middle">所以见过就说明小于 20 的都到齐</text>
   <rect x="394" y="120" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
   <text x="566" y="142" font-size="12" fill="#166534" text-anchor="middle">于是正常回答这次读，通常很快</text>
   <rect x="22" y="182" width="344" height="36" rx="6" fill="#fce7f3" stroke="#ec4899"/>
