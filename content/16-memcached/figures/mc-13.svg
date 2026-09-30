@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 297" width="760" height="297"
+     role="img" aria-labelledby="fig-mc-13-title fig-mc-13-desc">
+  <title id="fig-mc-13-title">簇越大，一个网页视图要发的包就越多，直到入拥塞</title>
+  <desc id="fig-mc-13-desc">一条因果链：簇里的缓存机越多，分片就越细；同一批键被摊到越多台上；一个视图要取 20 到 500 个键，这些键散落在更多台上，每台都要单独发一次请求，于是包数上涨；这些请求必须并行发，响应会同时回来，把接收缓冲与交换机的端口缓冲一起挤爆，这就是入拥塞。下面两格把两种代价分开：包的开销高是发出方要付的固定成本，入拥塞是响应同时回来时的瞬时压力。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="297" fill="#ffffff"/>
+
+  <text x="380" y="37" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">簇越大，一个网页视图要发的包就越多，直到入拥塞</text>
+  <rect x="25" y="72" width="710" height="30.0" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="90.5" font-size="10" fill="#1e293b" text-anchor="middle">前提：每台 web 服务器只在自己这个簇的 memcached 上做哈希</text>
+  <rect x="22.5" y="130" width="160" height="60.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="102.5" y="148.5" font-size="10" fill="#1e40af" text-anchor="middle">簇里的缓存机</text>
+  <text x="102.5" y="163.5" font-size="10" fill="#1e40af" text-anchor="middle">越多</text>
+  <text x="102.5" y="178.5" font-size="10" fill="#1e40af" text-anchor="middle">分片就越细</text>
+  <rect x="207.5" y="130" width="160" height="60.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="287.5" y="148.5" font-size="10" fill="#1e40af" text-anchor="middle">同一批键</text>
+  <text x="287.5" y="163.5" font-size="10" fill="#1e40af" text-anchor="middle">摊到越多台</text>
+  <text x="287.5" y="178.5" font-size="10" fill="#1e40af" text-anchor="middle">散落得更开</text>
+  <rect x="392.5" y="130" width="160" height="60.0" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="472.5" y="148.5" font-size="10" fill="#b45309" text-anchor="middle">一个视图的键</text>
+  <text x="472.5" y="163.5" font-size="10" fill="#b45309" text-anchor="middle">每台单独发</text>
+  <text x="472.5" y="178.5" font-size="10" fill="#b45309" text-anchor="middle">请求次数上涨</text>
+  <rect x="577.5" y="130" width="160" height="60.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="657.5" y="148.5" font-size="10" fill="#9d174d" text-anchor="middle">包数上涨</text>
+  <text x="657.5" y="163.5" font-size="10" fill="#9d174d" text-anchor="middle">响应同时回来</text>
+  <text x="657.5" y="178.5" font-size="10" fill="#9d174d" text-anchor="middle">缓冲被挤爆</text>
+  <path d="M187.5,160 L 196.5,160" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M372.5,160 L 381.5,160" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M557.5,160 L 566.5,160" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="25" y="218" width="342.5" height="54.0" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="196.25" y="240.2" font-size="12" fill="#1e40af" text-anchor="middle">包的开销高</text>
+  <text x="196.25" y="258.2" font-size="12" fill="#1e40af" text-anchor="middle">发出方要付的固定成本：跟更多台说话</text>
+  <rect x="392.5" y="218" width="342.5" height="54.0" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="563.75" y="240.2" font-size="12" fill="#9d174d" text-anchor="middle">入拥塞</text>
+  <text x="563.75" y="258.2" font-size="12" fill="#9d174d" text-anchor="middle">响应同时回来，把接收缓冲与交换机端口挤爆</text>
+</svg>
