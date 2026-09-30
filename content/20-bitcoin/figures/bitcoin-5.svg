@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 658 128" width="658" height="128"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 658 177" width="658" height="177"
      role="img" aria-labelledby="fig-bitcoin-5-title fig-bitcoin-5-desc">
   <title id="fig-bitcoin-5-title">一个块里的五样字段，而块本身没有签名</title>
   <desc id="fig-bitcoin-5-desc">块里装着前块哈希、奖励交易、交易列表、随机数与出块时间戳；块本身没有签名，这一点决定了合法性要靠算力证明。</desc>
@@ -9,7 +9,7 @@
     </style>
   </defs>
 
-  <rect x="0" y="0" width="658" height="128" fill="#ffffff"/>
+  <rect x="0" y="0" width="658" height="177" fill="#ffffff"/>
 
   <text x="329" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">一个块里的五样字段，而块本身没有签名</text>
 
@@ -27,4 +27,6 @@
 
   <rect x="535" y="64" width="100" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
   <text x="585" y="89.2" font-size="12" fill="#b45309" text-anchor="middle">时间戳</text>
+  <text x="329" y="134" font-size="12" fill="#64748b" text-anchor="middle">这五样字段里没有签名：块不是由谁签发的</text>
+  <text x="329" y="152" font-size="12" fill="#64748b" text-anchor="middle">蓝色是内容字段，琥珀色是挖矿字段</text>
 </svg>

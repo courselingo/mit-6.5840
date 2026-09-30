@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 634 268" width="634" height="268"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 634 338" width="634" height="338"
      role="img" aria-labelledby="fig-bitcoin-11-title fig-bitcoin-11-desc">
   <title id="fig-bitcoin-11-title">这套设计的主要弱点</title>
-  <desc id="fig-bitcoin-11-desc">工作量证明费电；确认至少要十分钟、高把握要六十分钟；块大小与出块间隔把吞吐限制在每秒约五笔；容易受多数攻击；并不很匿名；普通用户难以保管私钥。</desc>
+  <desc id="fig-bitcoin-11-desc">工作量证明费电；确认至少要十分钟、高把握要六十分钟；块大小与出块间隔把吞吐限制在每秒约五笔；容易受多数攻击；并不很匿名；普通用户难以保管私钥；此外它还同时是新货币与支付系统，而泛洪既限制性能又可能成为攻击点。</desc>
 
   <defs>
     <style>
@@ -9,7 +9,7 @@
     </style>
   </defs>
 
-  <rect x="0" y="0" width="634" height="268" fill="#ffffff"/>
+  <rect x="0" y="0" width="634" height="338" fill="#ffffff"/>
 
   <text x="317" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">这套设计的主要弱点</text>
 
@@ -30,4 +30,8 @@
 
   <rect x="341" y="204" width="270" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
   <text x="476" y="229.2" font-size="12" fill="#9d174d" text-anchor="middle">普通用户很难保管好自己的私钥</text>
+  <rect x="23" y="274" width="290" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="168" y="299.2" font-size="12" fill="#9d174d" text-anchor="middle">同时是新货币与支付系统</text>
+  <rect x="341" y="274" width="270" height="42" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="476" y="299.2" font-size="12" fill="#9d174d" text-anchor="middle">泛洪限制性能，也可能成为攻击点</text>
 </svg>
