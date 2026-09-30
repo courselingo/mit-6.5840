@@ -6,7 +6,7 @@
 
 | 对象 | 归一化 SHA256（全 64 位） | 字节 |
 | --- | --- | --- |
-| `content/21-bft/index.md` | `A85A43E9B96E8FB4F448DF90987368CEB5F4260F0A4B867146BC184A01B6115D` | 28593 |
+| `content/21-bft/index.md` | `43EE7C73704230CF4D2351EC1771D8765E5E2F8A249C0914C75F3F5515D14C8F` | 28891 |
 | `content/21-bft/figures/bft-1.svg` | `732EDEFE00ABE2FD9DF51B679BB384E5D64A9FF703AA38C2C9EE5351FB3BD056` | 2941 |
 | `content/21-bft/figures/bft-2.svg` | `0449BCF6A12C29398D3B339373D9254E24DF07499C307938E90CE0CDAD808ABB` | 3673 |
 | `content/21-bft/figures/bft-3.svg` | `CC28BD252C36D75ECAC1476B2BFD25DD78E94A0B614CDC23657B9947382FE83C` | 3801 |
@@ -18,6 +18,7 @@
 | `content/21-bft/figures/bft-9.svg` | `2C382E5CCAF167F27244F7383C19CF3AC22CD34DAAFEDBF90D87EA6D791547E1` | 2743 |
 | `content/21-bft/figures/bft-10.svg` | `D78635A13A2D549B2E10655CDC352E4AABBFC60E0728CA700F6C0D5FEC09B325` | 3437 |
 | `content/21-bft/figures/bft-11.svg` | `3E0047975D54DD6EB1D19799CEA1B557CFF36A1A78CD44549B3F130EF7E02436` | 3754 |
+| `content/21-bft/figures/bft-12.svg` | `E54ADCDA662C4A32AE75A9FEE2CFFEBB4B948AE11FC86732E0034D5EE09C26B1` | 4138 |
 
 ### 二、事实核对
 
@@ -59,29 +60,3 @@
 ### 七、结论
 
 **draft 阶段可用**；进入 reviewed 需要：论文原文回核 + 第二位审校人独立复核 + 每张图的视觉复核记录。
-
----
-
-## 陌生读者测试（8 题）· 透镜 3 —— **已执行**（2026-09-29 补记）
-
-> ★ 这一节此前写的是「**未执行**」（或根本没有这一节），而**那是这个仓的一个人工稳态**：
-> 读者测试需要站在 **depth 0** 才能派（派出去的核对者实测 `subagent` 会报
-> `depth 2 exceeds maxDepth 1`）⇒ **每一份交接都写「透镜 3 待做」，而接下它的人还是做不到。**
-> ⇒ **Lead 已在 depth 0 派出七位全新读者，并做了汇总。**
-
-**汇总文件**：[`docs/audit/lens-3-reader-reports.md`](lens-3-reader-reports.md)
-（含七讲的结论一览、以及那条**共同成因**的逐处对照表）
-
-**本讲的结论**：
-```
-总评        ：**不能一遍读懂**
-自测题      ：4 条里 3 条只能答一半
-读者报的条目：15
-```
-
-**最严重的一处**：
-★★ **两处真错**：① **`f` 一号两用**（公式里是坏台数，而三台机器的举例里成了某台坏服务器的名字 —— 读者说「分不清 f 是数还是机器」）；② **第 92 行「f+1 个发过 COMMIT 的与 f+1 个发过 VIEW-CHANGE 的必然重叠」按 3f+1 一算不成立**（没交代论域）。另有三处计数错位（「四项」列 5 项、「四种」列 3 种）。
-
-★ 而读者是**只看这一页一遍**、不读源/别的讲次/审计记录/不联网的。
-⇒ 所以它量的是**「这一页能不能把一个不懂的人带到懂」** ——
-而那与「事实核对（vs 源）」「逐图复核（vs 描述）」「六道（vs 规范）」**是不同的参照物**。

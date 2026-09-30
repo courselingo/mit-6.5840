@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 374" width="760" height="374"
+     role="img" aria-labelledby="fig-bft-12-title fig-bft-12-desc">
+  <title id="fig-bft-12-title">旧视图怎么把日志交给新视图</title>
+  <desc id="fig-bft-12-desc">上面一条说明这张图讲的是旧视图与新视图之间那次交接：带过去的是「准备好」的证据，而不是「执行过」的记录。第二排三格是三方各自做的事：每台副本把最近的 2f+1 个 PREPARE 发给新主，这是「该操作已准备好」的证书；新主等 2f+1 个 VIEW-CHANGE 请求，并按请求里的信息整理日志；新主宣布 NEW-VIEW 时带上完整的 VIEW-CHANGE 消息集合与一份最终操作清单。第三条给出清单的判据：凡是在某个 VIEW-CHANGE 里带着 2f+1 个 PREPARE 的操作就保留，没有这个证书的一律写成空操作。第四条说明两个数各管一段：执行要等 2f+1 个 COMMIT，那是执行的门槛；交接要 2f+1 个 PREPARE，那是准备好的证书。最下面一条把那个 2-2 分裂的例子接回来：新视图把有证书的操作定下来，卡住的副本换掉坏主之后按新视图继续。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="374" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">旧视图怎么把日志交给新视图</text>
+  <rect x="25" y="72" width="710" height="30" rx="6" fill="#eff6ff" stroke="#3b82f6"/>
+  <text x="380" y="90.5" font-size="10" fill="#1e40af" text-anchor="middle">旧视图怎么把日志交给新视图：带的是「准备好」的证据，而不是「执行过」的记录</text>
+  <rect x="25" y="130" width="220" height="54" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="146.65" font-size="9" fill="#1e40af" text-anchor="middle">每台副本做什么</text>
+  <text x="135" y="160.15" font-size="9" fill="#1e40af" text-anchor="middle">把最近的 2f+1 个 PREPARE 发给新主</text>
+  <text x="135" y="173.65" font-size="9" fill="#1e40af" text-anchor="middle">这是「该操作已准备好」的证书</text>
+  <rect x="270" y="130" width="220" height="54" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="146.65" font-size="9" fill="#166534" text-anchor="middle">新主做什么</text>
+  <text x="380" y="160.15" font-size="9" fill="#166534" text-anchor="middle">等 2f+1 个 VIEW-CHANGE 请求</text>
+  <text x="380" y="173.65" font-size="9" fill="#166534" text-anchor="middle">按请求里的信息整理日志</text>
+  <rect x="515" y="130" width="220" height="54" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="625" y="146.65" font-size="9" fill="#6b21a8" text-anchor="middle">新主宣布什么</text>
+  <text x="625" y="160.15" font-size="9" fill="#6b21a8" text-anchor="middle">NEW-VIEW 带完整的 VIEW-CHANGE 消息集合</text>
+  <text x="625" y="173.65" font-size="9" fill="#6b21a8" text-anchor="middle">以及一份最终操作清单</text>
+  <rect x="25" y="212" width="710" height="27" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="228.65" font-size="9" fill="#1e293b" text-anchor="middle">清单的判据：凡是在某个 VIEW-CHANGE 里带着 2f+1 个 PREPARE 的操作就保留；没有这个证书的，一律写成空操作</text>
+  <rect x="25" y="267" width="710" height="27" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="380" y="283.65" font-size="9" fill="#b45309" text-anchor="middle">两个数各管一段：执行要等 2f+1 个 COMMIT（这是「执行」的门槛）；交接要 2f+1 个 PREPARE（这是「准备好」的证书）</text>
+  <rect x="25" y="322" width="710" height="27" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="338.65" font-size="9" fill="#166534" text-anchor="middle">那个 2-2 分裂的例子就在这里被修好：新视图把有证书的操作定下来，卡住的副本换掉坏主之后按新视图继续</text>
+</svg>
