@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 392" width="760" height="392"
+     role="img" aria-labelledby="fig-bft-11-title fig-bft-11-desc">
+  <title id="fig-bft-11-title">四条消息与三个阶段的映射，以及两侧各自的门槛</title>
+  <desc id="fig-bft-11-desc">上面一条说明这张图讲的是四条消息与三个阶段的映射。第二排三格是前三条消息：客户端把操作发给主；主把 PRE-PREPARE 发给所有副本；所有副本把 PREPARE 发给所有副本。第三排两格是第四条消息与执行：副本在收到 2f+1 个匹配 PREPARE 后发 COMMIT；而执行不是一条消息，它是收到 2f+1 个匹配 COMMIT 之后的动作。第四条把两个说法对上：三阶段是 PRE-PREPARE、PREPARE、COMMIT，四步是请求、PRE-PREPARE、PREPARE、COMMIT。最下面一条是两侧各自的门槛：副本要 2f+1 个匹配才执行，客户端拿到 f+1 个匹配就满意。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="392" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">四条消息与三个阶段的映射，以及两侧各自的门槛</text>
+  <rect x="25" y="72" width="710" height="33" rx="6" fill="#eff6ff" stroke="#3b82f6"/>
+  <text x="380" y="92.35" font-size="11" fill="#1e40af" text-anchor="middle">四条消息与三个阶段：消息是四条，阶段是三个，两者不是一回事</text>
+  <rect x="25" y="133" width="220" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="151.5" font-size="10" fill="#1e40af" text-anchor="middle">消息一</text>
+  <text x="135" y="166.5" font-size="10" fill="#1e40af" text-anchor="middle">客户端把操作发给主</text>
+  <rect x="270" y="133" width="220" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="380" y="151.5" font-size="10" fill="#1e40af" text-anchor="middle">消息二</text>
+  <text x="380" y="166.5" font-size="10" fill="#1e40af" text-anchor="middle">主把 PRE-PREPARE 发给所有副本</text>
+  <rect x="515" y="133" width="220" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="625" y="151.5" font-size="10" fill="#1e40af" text-anchor="middle">消息三</text>
+  <text x="625" y="166.5" font-size="10" fill="#1e40af" text-anchor="middle">所有副本把 PREPARE 发给所有副本</text>
+  <rect x="25" y="206" width="342.5" height="45" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="196.25" y="224.5" font-size="10" fill="#1e40af" text-anchor="middle">消息四</text>
+  <text x="196.25" y="239.5" font-size="10" fill="#1e40af" text-anchor="middle">副本在收到 2f+1 个匹配 PREPARE 后发 COMMIT</text>
+  <rect x="392.5" y="206" width="342.5" height="45" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="563.75" y="224.5" font-size="10" fill="#166534" text-anchor="middle">执行不是一条消息</text>
+  <text x="563.75" y="239.5" font-size="10" fill="#166534" text-anchor="middle">它是收到 2f+1 个匹配 COMMIT 之后的动作</text>
+  <rect x="25" y="279" width="710" height="30" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="297.5" font-size="10" fill="#6b21a8" text-anchor="middle">三阶段 = PRE-PREPARE、PREPARE、COMMIT；四步 = 请求、PRE-PREPARE、PREPARE、COMMIT</text>
+  <rect x="25" y="337" width="710" height="30" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="355.5" font-size="10" fill="#1e293b" text-anchor="middle">两侧各自的门槛：副本要 2f+1 个匹配才执行；客户端拿到 f+1 个匹配就满意</text>
+</svg>

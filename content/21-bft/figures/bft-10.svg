@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 392" width="760" height="392"
+     role="img" aria-labelledby="fig-bft-10-title fig-bft-10-desc">
+  <title id="fig-bft-10-title">重叠论证的论域：为什么必须在好节点集合里取交集</title>
+  <desc id="fig-bft-10-desc">上面一条说明这张图讲的是重叠论证的论域。第二排三格是三个数：总台数 3f+1；好节点至少 2f+1，而这是取交集的那个论域；坏节点至多 f。第三条说明执行过该操作的那台副本收到 2f+1 个 COMMIT，其中最多 f 个来自坏节点，因此至少 f+1 个好副本发过 COMMIT。第四条说明新主等到 2f+1 个 VIEW-CHANGE 请求，其中最多 f 个来自坏节点，因此至少 f+1 个好副本发过 VIEW-CHANGE。最下面一条是结论：两个子集各至少 f+1 个好副本，而 2 乘 (f+1) 大于 2f+1，所以它们在好节点集合里必定相交。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="392" fill="#ffffff"/>
+
+  <text x="380" y="36" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">重叠论证的论域：为什么必须在好节点集合里取交集</text>
+  <rect x="25" y="72" width="710" height="33" rx="6" fill="#eff6ff" stroke="#3b82f6"/>
+  <text x="380" y="92.35" font-size="11" fill="#1e40af" text-anchor="middle">重叠论证的论域：必须在好节点集合里取交集</text>
+  <rect x="25" y="133" width="220" height="66" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="135" y="161.6" font-size="11" fill="#1e40af" text-anchor="middle">总台数</text>
+  <text x="135" y="178.1" font-size="11" fill="#1e40af" text-anchor="middle">3f+1 台</text>
+  <rect x="270" y="133" width="220" height="66" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="380" y="153.35" font-size="11" fill="#166534" text-anchor="middle">好节点</text>
+  <text x="380" y="169.85" font-size="11" fill="#166534" text-anchor="middle">至少 2f+1 台</text>
+  <text x="380" y="186.35" font-size="11" fill="#166534" text-anchor="middle">这是取交集的那个论域</text>
+  <rect x="515" y="133" width="220" height="66" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="625" y="161.6" font-size="11" fill="#b45309" text-anchor="middle">坏节点</text>
+  <text x="625" y="178.1" font-size="11" fill="#b45309" text-anchor="middle">至多 f 台</text>
+  <rect x="25" y="227" width="710" height="27" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="243.65" font-size="9" fill="#1e293b" text-anchor="middle">执行过该操作的那台副本，收到 2f+1 个 COMMIT，其中最多 f 个来自坏节点，因此至少 f+1 个好副本发过 COMMIT</text>
+  <rect x="25" y="282" width="710" height="27" rx="6" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="380" y="298.65" font-size="9" fill="#1e293b" text-anchor="middle">新主等到 2f+1 个 VIEW-CHANGE 请求，其中最多 f 个来自坏节点，因此至少 f+1 个好副本发过 VIEW-CHANGE</text>
+  <rect x="25" y="337" width="710" height="30" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="380" y="355.5" font-size="10" fill="#6b21a8" text-anchor="middle">两个子集各至少 f+1 个好副本，而 2(f+1) 大于 2f+1，所以它们在好节点集合里必定相交</text>
+</svg>
