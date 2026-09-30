@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 210" width="612" height="210"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 594 224" width="594" height="224"
      role="img" aria-labelledby="fig-sundr-4-title fig-sundr-4-desc">
   <title id="fig-sundr-4-title">签名能防伪造，但挡不住旧值</title>
-  <desc id="fig-sundr-4-desc">数字签名让值可以被修改而不用换键，但服务器仍能返回一个签名正确的旧值，于是它可以藏更新、给不同读者不同版本、或部分键新部分键旧。</desc>
+  <desc id="fig-sundr-4-desc">数字签名让值可以被修改而不用换键，但服务器仍能返回一个签名正确的旧值；下排三条是它由此能做的三件坏事，用一条括号连线从右侧那个框归属下来。</desc>
 
   <defs>
     <style>
@@ -9,9 +9,9 @@
     </style>
   </defs>
 
-  <rect x="0" y="0" width="612" height="210" fill="#ffffff"/>
+  <rect x="0" y="0" width="594" height="224" fill="#ffffff"/>
 
-  <text x="306" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">签名能防伪造，但挡不住旧值</text>
+  <text x="297" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">签名能防伪造，但挡不住旧值</text>
 
   <rect x="23" y="64" width="250" height="54" rx="8" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
   <text x="148" y="86.2" font-size="12" fill="#166534" text-anchor="middle">签名能做的</text>
@@ -19,14 +19,18 @@
 
   <rect x="301" y="64" width="250" height="54" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
   <text x="426" y="86.2" font-size="12" fill="#9d174d" text-anchor="middle">签名挡不住的</text>
-  <text x="426" y="104.2" font-size="12" fill="#9d174d" text-anchor="middle">旧的、签名正确的值</text>
+  <text x="426" y="104.2" font-size="12" fill="#9d174d" text-anchor="middle">它能做下面三件坏事（并列）</text>
 
-  <rect x="23" y="146" width="170" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="108" y="171.2" font-size="12" fill="#b45309" text-anchor="middle">藏起一次更新</text>
 
-  <rect x="221" y="146" width="170" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="306" y="171.2" font-size="12" fill="#b45309" text-anchor="middle">对不同读者给不同版本</text>
+  <rect x="23" y="146" width="164" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="105" y="168.2" font-size="12" fill="#b45309" text-anchor="middle">藏起一次更新</text>
+  <text x="105" y="186.2" font-size="12" fill="#b45309" text-anchor="middle">读者看不到</text>
 
-  <rect x="419" y="146" width="170" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="504" y="171.2" font-size="12" fill="#b45309" text-anchor="middle">部分键新、部分键旧</text>
+  <rect x="215" y="146" width="164" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="297" y="168.2" font-size="12" fill="#b45309" text-anchor="middle">对不同读者</text>
+  <text x="297" y="186.2" font-size="12" fill="#b45309" text-anchor="middle">给不同版本</text>
+
+  <rect x="407" y="146" width="164" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="489" y="168.2" font-size="12" fill="#b45309" text-anchor="middle">部分键新</text>
+  <text x="489" y="186.2" font-size="12" fill="#b45309" text-anchor="middle">部分键旧</text>
 </svg>

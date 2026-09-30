@@ -18,9 +18,8 @@
   <text x="313" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">每个用户一棵树，handle 里带版本信息</text>
 
   <rect x="23" y="64" width="580" height="42" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="313" y="89.2" font-size="12" fill="#1e40af" text-anchor="middle">文件系统 = 各用户哈希树的并集，一次读要取回所有树再合并</text>
+  <text x="313" y="89.2" font-size="12" fill="#1e40af" text-anchor="middle">handle 里装着四样东西（并列）</text>
 
-  <path d="M237,111 L237,123" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <rect x="23" y="134" width="124" height="54" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
   <text x="85" y="156.2" font-size="12" fill="#b45309" text-anchor="middle">根哈希</text>
