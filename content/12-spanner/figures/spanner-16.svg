@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 341" width="760" height="341"
+     role="img" aria-labelledby="fig-spanner-16-title fig-spanner-16-desc">
+  <title id="fig-spanner-16-title">safe time 的三种情形：回答、等待、再等一种</title>
+  <desc id="fig-spanner-16-desc">副本服务一个时间戳 20 的读时先自检是否见过更晚的写：见过就正常回答，没见过就推迟；此外若本机存在已 prepare 但尚未提交的读/写事务，也要推迟回答。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="341" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">safe time 的三种情形：回答、等待、再等一种</text>
+  <rect x="22" y="58" width="344" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">只读事务要一个时间戳 20 的快照</text>
+  <rect x="394" y="58" width="344" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="80" font-size="12" fill="#b45309" text-anchor="middle">它先查：我见过比 20 更晚的写吗</text>
+  <rect x="22" y="120" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="142" font-size="12" fill="#166534" text-anchor="middle">见过：说明小于 20 的写都已到齐</text>
+  <rect x="394" y="120" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="142" font-size="12" fill="#166534" text-anchor="middle">于是正常回答这次读，通常很快</text>
+  <rect x="22" y="182" width="344" height="36" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="194" y="204" font-size="12" fill="#9d174d" text-anchor="middle">没见过：可能还有写在路上</text>
+  <rect x="394" y="182" width="344" height="36" rx="6" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="566" y="204" font-size="12" fill="#9d174d" text-anchor="middle">于是推迟回答，等到见得更晚的写</text>
+  <rect x="22" y="244" width="344" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="194" y="266" font-size="12" fill="#b45309" text-anchor="middle">另有第三种等待：本机有已 prepare 未提交的事务</text>
+  <rect x="394" y="244" width="344" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="266" font-size="12" fill="#b45309" text-anchor="middle">这种也要推迟（论文第 4.1.3 节）</text>
+  <text x="380" y="316" font-size="11" fill="#64748b" text-anchor="middle">正常的本地读很快，慢只慢在这三种等待里</text>
+</svg>

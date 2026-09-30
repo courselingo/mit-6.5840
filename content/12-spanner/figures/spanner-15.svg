@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 341" width="760" height="341"
+     role="img" aria-labelledby="fig-spanner-15-title fig-spanner-15-desc">
+  <title id="fig-spanner-15-title">为什么取 latest 就不在过去</title>
+  <desc id="fig-spanner-15-desc">latest 是区间上界而真实时间以很高概率落在区间内，所以 latest 不可能在过去；三个区间分别是 T1 取 10、提交等待后变成 11 到 20、以及 T2 取 15 时的 5 到 15。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="341" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">为什么取 latest 就不在过去</text>
+  <rect x="22" y="58" width="344" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">latest 是区间上界，真实时间以很高概率落在区间内</text>
+  <rect x="394" y="58" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="80" font-size="12" fill="#166534" text-anchor="middle">所以真实时间不会比 latest 更晚</text>
+  <rect x="22" y="120" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="142" font-size="12" fill="#166534" text-anchor="middle">于是 latest 只可能等于现在或稍后</text>
+  <rect x="394" y="120" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="142" font-size="12" fill="#166534" text-anchor="middle">它不可能是过去某个时刻，这就是不在过去</text>
+  <rect x="22" y="182" width="344" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="194" y="204" font-size="12" fill="#b45309" text-anchor="middle">[1,10]：T1 提交开始时取 latest 得到 10</text>
+  <rect x="394" y="182" width="344" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="566" y="204" font-size="12" fill="#b45309" text-anchor="middle">提交等待等到区间越过 10，变成 [11,20]</text>
+  <rect x="22" y="244" width="344" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="194" y="266" font-size="12" fill="#b45309" text-anchor="middle">[5,15]：T2 开始时取 latest 得到 15</text>
+  <rect x="394" y="244" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="266" font-size="12" fill="#166534" text-anchor="middle">因为 TS1 已在过去，所以 TS2 大于 TS1</text>
+  <text x="380" y="316" font-size="11" fill="#64748b" text-anchor="middle">取 latest 保证不在过去，提交等待保证另一个时间戳已在过去</text>
+</svg>

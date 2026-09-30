@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 341" width="760" height="341"
+     role="img" aria-labelledby="fig-spanner-18-title fig-spanner-18-desc">
+  <title id="fig-spanner-18-title">TrueTime 区间宽度与两处等待的关系</title>
+  <desc id="fig-spanner-18-desc">区间越窄，只读路径因 safe time 的推迟与读/写事务的提交等待都越短，这是同一个取舍的两面。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="341" fill="#ffffff"/>
+  <text x="380" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">TrueTime 区间宽度与两处等待的关系</text>
+  <rect x="22" y="58" width="344" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="194" y="80" font-size="12" fill="#1e40af" text-anchor="middle">TrueTime 区间宽：通常小于 1 毫秒</text>
+  <rect x="394" y="58" width="344" height="36" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="566" y="80" font-size="12" fill="#1e40af" text-anchor="middle">偶尔超过 10 毫秒，取决于网络延迟与时钟漂移</text>
+  <rect x="22" y="120" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="142" font-size="12" fill="#166534" text-anchor="middle">区间越窄，两处等待越短</text>
+  <rect x="394" y="120" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="142" font-size="12" fill="#166534" text-anchor="middle">只读路径的读更少因 safe time 推迟</text>
+  <rect x="22" y="182" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="194" y="204" font-size="12" fill="#166534" text-anchor="middle">提交等待也更短</text>
+  <rect x="394" y="182" width="344" height="36" rx="6" fill="#d1fae5" stroke="#22c55e"/>
+  <text x="566" y="204" font-size="12" fill="#166534" text-anchor="middle">读/写事务的提交更快返回</text>
+  <rect x="22" y="244" width="344" height="36" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="194" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">所以「This is The Question」问的是同一个取舍</text>
+  <rect x="394" y="244" width="344" height="36" rx="6" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="566" y="266" font-size="12" fill="#6b21a8" text-anchor="middle">把时钟做得更准，等于把两处等待一起压短</text>
+  <text x="380" y="316" font-size="11" fill="#64748b" text-anchor="middle">区间越窄，safe time 与提交等待这两处等待就越短</text>
+</svg>

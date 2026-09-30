@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 566 222" width="566" height="222"
+     role="img" aria-labelledby="fig-sundr-14-title fig-sundr-14-desc">
+  <title id="fig-sundr-14-title">签名覆盖的含义</title>
+  <desc id="fig-sundr-14-desc">说签名覆盖某段日志，意思是那段日志被整体算进签名里；改动其中任何一个字，签名就不再通过。</desc>
+
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="566" height="222" fill="#ffffff"/>
+
+  <text x="283" y="34" font-size="16" font-weight="600" fill="#1f2937" text-anchor="middle">签名覆盖的含义</text>
+
+  <rect x="23" y="64" width="520" height="54" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="283" y="86.2" font-size="12" fill="#1e40af" text-anchor="middle">签名覆盖某段日志</text>
+  <text x="283" y="104.2" font-size="12" fill="#1e40af" text-anchor="middle">意思是那段日志被整体算进签名里</text>
+
+  <rect x="23" y="146" width="520" height="54" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="283" y="168.2" font-size="12" fill="#9d174d" text-anchor="middle">改动其中任何一个字</text>
+  <text x="283" y="186.2" font-size="12" fill="#9d174d" text-anchor="middle">签名就不再通过，改动当场暴露</text>
+</svg>
